@@ -8,12 +8,14 @@
 		products,
 		heading,
 		linkLabel
-	}: { products: Product[]; heading: string; linkLabel: string } = $props();
+	}: { products: Product[]; heading?: string; linkLabel: string } = $props();
 </script>
 
 <Section>
 	<Container>
-		<h2 class="mb-8 font-display text-h2 font-semibold text-text">{heading}</h2>
+		{#if heading}
+			<h2 class="mb-8 font-display text-h2 font-semibold text-text">{heading}</h2>
+		{/if}
 		<div class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
 			{#each products as product (product.slug)}
 				<Card>
