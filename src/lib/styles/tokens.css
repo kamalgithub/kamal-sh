@@ -6,31 +6,26 @@
 :root {
 	color-scheme: dark;
 
-	/* Color — dark is the default */
-	--color-bg: #0a0a0b;
-	--color-surface: #131316;
-	--color-border: #232328;
-	--color-text: #f5f5f7;
-	--color-text-muted: #9a9aa2;
-	--color-accent: #4f46e5;
-	--color-accent-hover: #4338ca;
-	/* Functional, not decorative — form validation feedback. Brighter than the light-mode value
-	   so it clears WCAG AA against the near-black background (verified via the relative-luminance
-	   formula: #F87171 vs #0A0A0B is ~7.2:1; #DC2626 would only be ~4.1:1 here). */
+	/* Color — dark is the default. True neutral grays throughout (no warm cast). */
+	--color-bg: #0a0a0a;
+	--color-surface: #131313;
+	--color-border: #262626;
+	--color-text: #ebebeb;
+	--color-text-muted: #9a9a9a;
+	/* Blueprint/cyanotype blue — a deliberate nod to technical drawings, not generic SaaS
+	   indigo. Used flat, as text/links/rules only — never as a button fill or a glow. */
+	--color-accent: #5c82ff;
+	/* Functional, not decorative — form validation feedback. Different values per mode
+	   because a single red doesn't clear WCAG AA against both a near-black and a
+	   near-white background — verified via the relative-luminance formula. */
 	--color-error: #f87171;
-	--gradient-aurora: linear-gradient(135deg, #14b8a6 0%, #6366f1 55%, #8b5cf6 100%);
-
-	/* Glass surfaces — dark. Use on nav / cards / sheets / modals only, never full-page. */
-	--surface-glass-bg: rgb(255 255 255 / 4%);
-	--surface-glass-border: rgb(255 255 255 / 8%);
-	--surface-glass-blur: 14px;
 
 	/* Typography */
-	--font-display: 'Switzer', ui-sans-serif, system-ui, sans-serif;
-	--font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+	--font-body: 'Switzer', ui-sans-serif, system-ui, sans-serif;
 
-	--text-display: clamp(2.5rem, 6vw, 5rem);
-	--text-display--line-height: 1.05;
+	--text-display: clamp(2.75rem, 7vw, 5.5rem);
+	--text-display--line-height: 1;
 	--text-h1: clamp(2rem, 4vw, 3rem);
 	--text-h1--line-height: 1.1;
 	--text-h2: clamp(1.5rem, 3vw, 2.25rem);
@@ -52,12 +47,11 @@
 		color-scheme: light;
 		--color-bg: #fafafa;
 		--color-surface: #ffffff;
-		--color-border: #e5e5e8;
-		--color-text: #0a0a0b;
-		--color-text-muted: #6b6b73;
+		--color-border: #e2e2e2;
+		--color-text: #121212;
+		--color-text-muted: #6b6b6b;
+		--color-accent: #2544b0;
 		--color-error: #dc2626;
-		--surface-glass-bg: rgb(10 10 11 / 4%);
-		--surface-glass-border: rgb(10 10 11 / 8%);
 	}
 }
 
@@ -66,12 +60,11 @@
 	color-scheme: light;
 	--color-bg: #fafafa;
 	--color-surface: #ffffff;
-	--color-border: #e5e5e8;
-	--color-text: #0a0a0b;
-	--color-text-muted: #6b6b73;
+	--color-border: #e2e2e2;
+	--color-text: #121212;
+	--color-text-muted: #6b6b6b;
+	--color-accent: #2544b0;
 	--color-error: #dc2626;
-	--surface-glass-bg: rgb(10 10 11 / 4%);
-	--surface-glass-border: rgb(10 10 11 / 8%);
 }
 
 /* Register the tokens above as Tailwind v4 utilities (CSS-first config — no tailwind.config.js).
@@ -84,7 +77,6 @@
 	--color-text: var(--color-text);
 	--color-text-muted: var(--color-text-muted);
 	--color-accent: var(--color-accent);
-	--color-accent-hover: var(--color-accent-hover);
 	--color-error: var(--color-error);
 
 	--font-display: var(--font-display);

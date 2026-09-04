@@ -4,11 +4,11 @@
 	let { certifications }: { certifications: Certification[] } = $props();
 </script>
 
-<ul class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
+<ul class="flex flex-col divide-y divide-border border-t border-border">
 	{#each certifications as cert (cert.name)}
-		<li class="rounded-2xl border border-border p-4">
+		<li class="flex items-baseline justify-between gap-4 py-4">
 			<p class="text-small font-medium text-text">{cert.name}</p>
-			<p class="text-small text-text-muted">{cert.issuer} · {cert.year}</p>
+			<p class="shrink-0 text-small text-text-muted">{cert.issuer}, {cert.year}</p>
 		</li>
 	{/each}
 </ul>

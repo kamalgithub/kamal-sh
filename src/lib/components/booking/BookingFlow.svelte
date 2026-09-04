@@ -58,7 +58,7 @@
 </script>
 
 <div>
-	<h2 class="mb-4 font-display text-h2 font-semibold text-text">{copy.heading}</h2>
+	<h2 class="mb-4 font-display text-h2 font-medium text-text">{copy.heading}</h2>
 
 	{#if !now}
 		<p class="text-small text-text-muted">{copy.loadingLabel}</p>
@@ -70,7 +70,7 @@
 					<button
 						type="button"
 						onclick={() => selectDate(date)}
-						class="rounded-lg border border-border px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+						class="rounded-sm border border-border px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
 					>
 						{formatDateLabel(date)}
 					</button>
@@ -83,7 +83,7 @@
 					<button
 						type="button"
 						onclick={() => selectDuration(minutes)}
-						class="rounded-lg border border-border px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+						class="rounded-sm border border-border px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
 					>
 						{minutes} min
 					</button>
@@ -104,7 +104,7 @@
 							href={buildCalComUrl(calComUsername, selectedDuration, slot)}
 							target="_blank"
 							rel="noopener"
-							class="rounded-lg border border-border px-3 py-3 text-center text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent hover:bg-surface"
+							class="rounded-sm border border-border px-3 py-3 text-center text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent hover:bg-surface"
 						>
 							{formatTimeLabel(slot)}
 						</a>

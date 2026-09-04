@@ -14,7 +14,7 @@
 
 <Section>
 	<Container>
-		<h1 class="font-display text-display font-semibold text-text">{data.product.name}</h1>
+		<h1 class="font-display text-display font-medium text-text">{data.product.name}</h1>
 		<ProductDetail product={data.product} />
 	</Container>
 </Section>

@@ -20,19 +20,19 @@
 
 <Section>
 	<Container>
-		<h1 class="font-display text-display font-semibold text-text">{aboutCopy.heading}</h1>
+		<h1 class="font-display text-display font-medium text-text">{aboutCopy.heading}</h1>
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{profile.tagline}</p>
 	</Container>
 </Section>
 <Section>
 	<Container>
-		<h2 class="mb-6 font-display text-h2 font-semibold text-text">{aboutCopy.educationHeading}</h2>
+		<h2 class="mb-6 font-display text-h2 font-medium text-text">{aboutCopy.educationHeading}</h2>
 		<EducationList entries={education} />
 	</Container>
 </Section>
 <Section>
 	<Container>
-		<h2 class="mb-6 font-display text-h2 font-semibold text-text">
+		<h2 class="mb-6 font-display text-h2 font-medium text-text">
 			{aboutCopy.certificationsHeading} ({certifications.length})
 		</h2>
 		<CertificationsGrid {certifications} />

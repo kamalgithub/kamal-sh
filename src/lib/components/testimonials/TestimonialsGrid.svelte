@@ -1,16 +1,14 @@
 <script lang="ts">
 	import type { Testimonial } from '$lib/content/testimonials.types';
-	import Card from '$lib/components/primitives/Card.svelte';
 
 	let { testimonials }: { testimonials: Testimonial[] } = $props();
 </script>
 
-<div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
+<ul class="flex flex-col divide-y divide-border border-t border-border">
 	{#each testimonials as testimonial (testimonial.name)}
-		<Card>
-			<p class="mb-4 text-small text-text-muted">{testimonial.quote}</p>
-			<p class="text-small font-medium text-text">{testimonial.name}</p>
-			<p class="text-small text-text-muted">{testimonial.role}</p>
-		</Card>
+		<li class="py-8">
+			<p class="font-display text-h2 font-normal text-text">&ldquo;{testimonial.quote}&rdquo;</p>
+			<p class="mt-4 text-small text-text-muted">{testimonial.name}, {testimonial.role}</p>
+		</li>
 	{/each}
-</div>
+</ul>

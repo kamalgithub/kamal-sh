@@ -1,25 +1,24 @@
 <script lang="ts">
 	import type { ExperienceRole } from '$lib/content/experience.types';
-	import Card from '$lib/components/primitives/Card.svelte';
 
 	let { roles }: { roles: ExperienceRole[] } = $props();
 
 	function formatRange(startDate: string, endDate: string): string {
-		return endDate === 'present' ? `${startDate} — present` : `${startDate} — ${endDate}`;
+		return endDate === 'present' ? `${startDate} to present` : `${startDate} to ${endDate}`;
 	}
 </script>
 
-<div class="flex flex-col gap-6">
+<ul class="flex flex-col divide-y divide-border border-t border-border">
 	{#each roles as role (role.company + role.startDate)}
-		<Card>
+		<li class="py-8">
 			<p class="text-small text-text-muted">
-				{formatRange(role.startDate, role.endDate)} · {role.location}
+				{formatRange(role.startDate, role.endDate)}, {role.location}
 			</p>
-			<h3 class="mt-1 font-display text-body font-semibold text-text">{role.title}</h3>
+			<h3 class="mt-2 font-display text-h2 font-medium text-text">{role.title}</h3>
 			<p class="text-small text-accent">{role.company}</p>
-			<p class="mt-4 text-body text-text-muted">{role.summary}</p>
+			<p class="mt-4 max-w-2xl text-body text-text-muted">{role.summary}</p>
 			{#if role.projects.length > 0}
-				<ul class="mt-4 flex flex-col gap-3">
+				<ul class="mt-6 flex flex-col gap-4">
 					{#each role.projects as project (project.title)}
 						<li class="border-l-2 border-border pl-4">
 							<p class="text-small font-medium text-text">{project.title}</p>
@@ -29,6 +28,6 @@
 					{/each}
 				</ul>
 			{/if}
-		</Card>
+		</li>
 	{/each}
-</div>
+</ul>

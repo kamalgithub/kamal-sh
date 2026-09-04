@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class="sticky top-0 z-40 flex items-center justify-between border-b border-(--surface-glass-border) bg-(--surface-glass-bg) px-4 py-3 backdrop-blur-(--surface-glass-blur)"
+	class="sticky top-0 z-40 flex items-center justify-between border-b border-border bg-bg px-4 py-3"
 >
 	<a href={resolve('/')} class="font-display text-lg font-semibold text-text">{name}</a>
 	<button
@@ -37,7 +37,7 @@
 
 <dialog
 	bind:this={dialogEl}
-	class="m-0 h-dvh max-h-none w-full max-w-none bg-bg p-0 backdrop:bg-bg/80 backdrop:backdrop-blur-(--surface-glass-blur)"
+	class="m-0 h-dvh max-h-none w-full max-w-none bg-bg p-0 backdrop:bg-bg/80"
 >
 	<div class="flex h-full flex-col">
 		<div class="flex items-center justify-between px-4 py-3">

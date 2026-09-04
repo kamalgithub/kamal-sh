@@ -16,12 +16,12 @@ This is Kamal Kumar's personal site (kamal.sh) — a fast, minimal, skimmable **
 
 ## Where things live
 
-| Question                                                                                         | Doc                                              |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| How is SvelteKit / Tailwind v4 / TypeScript / wrangler / bun configured and used here?           | [docs/tooling.md](./docs/tooling.md)             |
-| Where does a new file go? What's the routing/rendering strategy? What's the dual-native pattern? | [docs/architecture.md](./docs/architecture.md)   |
-| How do I structure a component or data module? What does DRY/SOLID mean concretely here?         | [docs/conventions.md](./docs/conventions.md)     |
-| What are the color/type/glass/motion tokens and how do I use them?                               | [docs/design-tokens.md](./docs/design-tokens.md) |
+| Question                                                                                            | Doc                                              |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| How is SvelteKit / Tailwind v4 / TypeScript / wrangler / bun configured and used here?              | [docs/tooling.md](./docs/tooling.md)             |
+| Where does a new file go? What's the routing/rendering strategy? What's the dual-native pattern?    | [docs/architecture.md](./docs/architecture.md)   |
+| How do I structure a component or data module? What does DRY/SOLID mean concretely here?            | [docs/conventions.md](./docs/conventions.md)     |
+| What are the color/type/motion tokens and how do I use them? What's the editorial design direction? | [docs/design-tokens.md](./docs/design-tokens.md) |
 
 ## Before you touch code
 

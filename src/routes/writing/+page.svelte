@@ -11,24 +11,24 @@
 <svelte:head>
 	<title>Writing | Kamal Kumar</title>
 	<meta name="description" content={writingCopy.intro} />
-	<link rel="alternate" type="application/rss+xml" title="Kamal Kumar — Writing" href="/rss.xml" />
+	<link rel="alternate" type="application/rss+xml" title="Kamal Kumar Writing" href="/rss.xml" />
 </svelte:head>
 
 <Section>
 	<Container>
-		<h1 class="font-display text-display font-semibold text-text">{writingCopy.heading}</h1>
+		<h1 class="font-display text-display font-medium text-text">{writingCopy.heading}</h1>
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{writingCopy.intro}</p>
 	</Container>
 </Section>
 <Section>
 	<Container>
-		<h2 class="mb-6 font-display text-h2 font-semibold text-text">{writingCopy.readHeading}</h2>
+		<h2 class="mb-6 font-display text-h2 font-medium text-text">{writingCopy.readHeading}</h2>
 		<WritingFeed {posts} />
 	</Container>
 </Section>
 <Section>
 	<Container>
-		<h2 class="mb-6 font-display text-h2 font-semibold text-text">{writingCopy.watchHeading}</h2>
+		<h2 class="mb-6 font-display text-h2 font-medium text-text">{writingCopy.watchHeading}</h2>
 		<VideoFeed {videos} />
 	</Container>
 </Section>

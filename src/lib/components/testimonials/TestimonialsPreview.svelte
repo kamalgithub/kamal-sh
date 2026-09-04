@@ -14,11 +14,11 @@
 
 <Section>
 	<Container>
-		<h2 class="mb-8 font-display text-h2 font-semibold text-text">{heading}</h2>
+		<h2 class="mb-8 font-display text-h2 font-medium text-text">{heading}</h2>
 		<TestimonialsGrid {testimonials} />
 		<a
 			href={resolve('/testimonials')}
-			class="mt-8 inline-block text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-accent-hover"
+			class="mt-8 inline-block text-small text-accent transition-[text-decoration-color] duration-(--duration-fast) ease-standard hover:underline"
 		>
 			{viewAllLabel}
 		</a>

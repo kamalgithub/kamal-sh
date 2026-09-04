@@ -15,7 +15,7 @@
 <Section>
 	<Container>
 		<p class="text-small text-accent">{data.study.company}</p>
-		<h1 class="mt-2 font-display text-display font-semibold text-text">{data.study.title}</h1>
+		<h1 class="mt-2 font-display text-display font-medium text-text">{data.study.title}</h1>
 		<div class="mt-4 flex flex-wrap gap-2">
 			{#each data.study.technologies as tech (tech)}
 				<span class="rounded-full border border-border px-3 py-1 text-small text-text-muted"

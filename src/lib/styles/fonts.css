@@ -1,0 +1,42 @@
+/* Self-hosted fonts — see docs/design-tokens.md. Both are free for self-hosting
+   (Fraunces: SIL OFL via Google Fonts; Switzer: Fontshare free license). */
+
+@font-face {
+	font-family: 'Fraunces';
+	src: url('/fonts/Fraunces-Variable.woff2') format('woff2');
+	font-weight: 400 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Switzer';
+	src: url('/fonts/Switzer-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Switzer';
+	src: url('/fonts/Switzer-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Switzer';
+	src: url('/fonts/Switzer-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Switzer';
+	src: url('/fonts/Switzer-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}

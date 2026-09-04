@@ -3,7 +3,6 @@
 	import type { Product } from '$lib/content/products/product.types';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
-	import Card from '$lib/components/primitives/Card.svelte';
 
 	let {
 		products,
@@ -17,19 +16,23 @@
 		{#if heading}
 			<h2 class="mb-8 font-display text-h2 font-semibold text-text">{heading}</h2>
 		{/if}
-		<div class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
+		<ul class="flex flex-col divide-y divide-border border-t border-border">
 			{#each products as product (product.slug)}
-				<Card>
-					<h3 class="mb-2 font-display text-body font-semibold text-text">{product.name}</h3>
-					<p class="mb-4 text-small text-text-muted">{product.tagline}</p>
+				<li
+					class="flex flex-col gap-2 py-8 md:flex-row md:items-baseline md:justify-between md:gap-8"
+				>
+					<div class="md:max-w-md">
+						<h3 class="font-display text-h2 font-medium text-text">{product.name}</h3>
+						<p class="mt-2 text-body text-text-muted">{product.tagline}</p>
+					</div>
 					<a
 						href={resolve('/building/[slug]', { slug: product.slug })}
-						class="text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-accent-hover"
+						class="shrink-0 text-small text-accent transition-[text-decoration-color] duration-(--duration-fast) ease-standard hover:underline"
 					>
 						{linkLabel}
 					</a>
-				</Card>
+				</li>
 			{/each}
-		</div>
+		</ul>
 	</Container>
 </Section>
