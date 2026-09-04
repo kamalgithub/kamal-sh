@@ -1,0 +1,40 @@
+export interface ContactMessage {
+	name: string;
+	email: string;
+	message: string;
+}
+
+export interface MailgunConfig {
+	apiKey: string;
+	domain: string;
+	/** Where the contact form's notification email is delivered — Kamal's real inbox. */
+	toAddress: string;
+}
+
+/** Sends a contact-form submission as an email via Mailgun's HTTP API (native fetch, no SDK dependency). */
+export async function sendContactEmail(
+	config: MailgunConfig,
+	contact: ContactMessage
+): Promise<void> {
+	const body = new URLSearchParams({
+		from: `kamal.sh contact form <postmaster@${config.domain}>`,
+		to: config.toAddress,
+		'h:Reply-To': contact.email,
+		subject: `New message from ${contact.name}`,
+		text: `From: ${contact.name} <${contact.email}>\n\n${contact.message}`
+	});
+
+	const response = await fetch(`https://api.mailgun.net/v3/${config.domain}/messages`, {
+		method: 'POST',
+		headers: {
+			Authorization: `Basic ${btoa(`api:${config.apiKey}`)}`,
+			'Content-Type': 'application/x-www-form-urlencoded'
+		},
+		body
+	});
+
+	if (!response.ok) {
+		const detail = await response.text();
+		throw new Error(`Mailgun request failed: ${response.status} ${detail}`);
+	}
+}

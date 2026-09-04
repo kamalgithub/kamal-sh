@@ -14,6 +14,10 @@
 	--color-text-muted: #9a9aa2;
 	--color-accent: #4f46e5;
 	--color-accent-hover: #4338ca;
+	/* Functional, not decorative — form validation feedback. Brighter than the light-mode value
+	   so it clears WCAG AA against the near-black background (verified via the relative-luminance
+	   formula: #F87171 vs #0A0A0B is ~7.2:1; #DC2626 would only be ~4.1:1 here). */
+	--color-error: #f87171;
 	--gradient-aurora: linear-gradient(135deg, #14b8a6 0%, #6366f1 55%, #8b5cf6 100%);
 
 	/* Glass surfaces — dark. Use on nav / cards / sheets / modals only, never full-page. */
@@ -51,6 +55,7 @@
 		--color-border: #e5e5e8;
 		--color-text: #0a0a0b;
 		--color-text-muted: #6b6b73;
+		--color-error: #dc2626;
 		--surface-glass-bg: rgb(10 10 11 / 4%);
 		--surface-glass-border: rgb(10 10 11 / 8%);
 	}
@@ -64,6 +69,7 @@
 	--color-border: #e5e5e8;
 	--color-text: #0a0a0b;
 	--color-text-muted: #6b6b73;
+	--color-error: #dc2626;
 	--surface-glass-bg: rgb(10 10 11 / 4%);
 	--surface-glass-border: rgb(10 10 11 / 8%);
 }
@@ -79,6 +85,7 @@
 	--color-text-muted: var(--color-text-muted);
 	--color-accent: var(--color-accent);
 	--color-accent-hover: var(--color-accent-hover);
+	--color-error: var(--color-error);
 
 	--font-display: var(--font-display);
 	--font-body: var(--font-body);

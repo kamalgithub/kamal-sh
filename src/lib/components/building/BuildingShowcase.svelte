@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import type { Product } from '$lib/content/products/product.types';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
@@ -21,14 +22,12 @@
 				<Card>
 					<h3 class="mb-2 font-display text-body font-semibold text-text">{product.name}</h3>
 					<p class="mb-4 text-small text-text-muted">{product.tagline}</p>
-					<!-- eslint-disable svelte/no-navigation-without-resolve -- route added later this pass; revisited with resolve() once it exists -->
 					<a
-						href="/building/{product.slug}"
+						href={resolve('/building/[slug]', { slug: product.slug })}
 						class="text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-accent-hover"
 					>
 						{linkLabel}
 					</a>
-					<!-- eslint-enable svelte/no-navigation-without-resolve -->
 				</Card>
 			{/each}
 		</div>

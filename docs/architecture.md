@@ -72,3 +72,11 @@ Blog posts and YouTube videos aren't authored here — they're synced from exter
 - `.github/workflows/content-sync.yml` runs both on a ~48h schedule (plus manual dispatch) and commits any changes.
 - Each sync script fails loudly (non-zero exit, clear stderr message) on any fetch/parse error and — critically — **does not touch the existing generated JSON** when it fails. The two syncs are independent in CI: one feed being down doesn't block the other from updating.
 - `scripts/lib/` holds the small helpers shared by both scripts (Atom parsing primitives, "take the N most recent", "write generated JSON"). Don't duplicate this logic if a third synced-content source is ever added — extend `scripts/lib/` instead.
+
+## Booking flow (`/contact`)
+
+`BookingFlow.svelte` is a 3-step date → duration → time-slot picker (`src/lib/utils/ist.ts`, `getBookableDates.ts`, `getTimeSlotsForDate.ts`, `buildCalComUrl.ts` hold the logic, each independently unit-tested). Picking a time slot links straight to Cal.com with a prefilled `slot` query param (`https://cal.com/kamalk/30min?slot=...`) — there is no live availability check against Cal.com's API; Cal.com's own booking page is the source of truth if a slot has since been taken.
+
+**Assumption to verify against the real Cal.com account:** availability is assumed to be 9:00 AM–6:00 PM IST, every day, with no minimum-notice period beyond "must be in the future" (`getTimeSlotsForDate.ts`'s `AVAILABILITY_START_HOUR`/`AVAILABILITY_END_HOUR` constants). If the real Cal.com availability differs (different hours, excluded days, a minimum-notice buffer), update those constants to match — there was no way to confirm the real configured hours from here.
+
+The widget computes "today" via `onMount` (never during SSR/prerender), so a visitor's actual current time is always used, not a stale build-time snapshot — see the dual-native section above for why `$effect`/`onMount` and not `$derived` matters here.

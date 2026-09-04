@@ -1,0 +1,2 @@
+# Copy to .dev.vars for local dev. Never commit the real value.
+MAILGUN_API_KEY=

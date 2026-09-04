@@ -28,8 +28,15 @@
 
 - Local dev: put secrets in `.env` (gitignored) or a wrangler `.dev.vars` file if a feature needs `platform.env` access during `wrangler dev`.
 - Production: set via `wrangler secret put <NAME>` (never commit secrets), read at runtime through `platform.env.<NAME>` in server-only code (`+page.server.ts`, `+server.ts`).
-- `.env.example` documents every var a fresh clone needs, without real values.
-- No env vars are needed yet — this gets filled in when the Mailgun contact-form feature is built.
+- `.env.example` / `.dev.vars.example` document every var a fresh clone needs, without real values.
+- Non-secret config (`MAILGUN_DOMAIN`, `MAILGUN_TO_ADDRESS`) lives directly in `wrangler.jsonc`'s `vars` — committed, since neither value is sensitive. `wrangler types` picks up `vars` automatically; for `.dev.vars`-only keys (real secrets) it also generates a type as long as the key exists in a local `.dev.vars` file, even with an empty value.
+
+**Mailgun (contact form email) — code is complete, account setup is not:**
+
+- Domain: `mail.kamal.sh` (a dedicated sending subdomain, chosen over `m.kamal.sh` — a fuller word reads better in SPF/DKIM records and sender addresses).
+- Outstanding, human-only steps before this actually sends email: (1) create the Mailgun account, (2) add `mail.kamal.sh` as a domain in Mailgun and add the SPF/DKIM/MX DNS records it gives you at your DNS provider, (3) once verified, get the domain's private API key from Mailgun and run `wrangler secret put MAILGUN_API_KEY` for production, and set the same value in a local `.dev.vars` (gitignored) for local testing.
+- Until `MAILGUN_API_KEY` is set, the contact form's action returns a clear "email sending is not configured yet" error to the visitor instead of silently failing — see `src/routes/contact/+page.server.ts`.
+- `src/lib/server/mailgun.ts` calls Mailgun's HTTP API directly via `fetch` (no SDK dependency, per the native-first policy below).
 
 ## Adding a dependency — checklist
 
