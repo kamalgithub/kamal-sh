@@ -9,6 +9,8 @@ src/
   routes/                     SvelteKit pages — thin, compose components + content
   lib/
     components/<domain>/      UI components, grouped by the section/feature they belong to
+    components/primitives/    content-agnostic, cross-cutting foundational components (Container, Section,
+                               Button, Card) — a distinct grouping from feature/section domains
     content/<domain>.ts       typed data for that domain (the "visible copy" — see conventions.md)
     content/<domain>.types.ts the types for that domain's data
     styles/                   design tokens (tokens.css) and any other global CSS
@@ -35,7 +37,11 @@ Used only where mobile and desktop behavior _genuinely diverges_ — different i
 <script lang="ts">
 	import ThingMobile from './ThingMobile.svelte';
 	import ThingDesktop from './ThingDesktop.svelte';
-	let { ...props } = $props();
+
+	interface Props {
+		/* shared prop shape for both variants */
+	}
+	let { ...props }: Props = $props();
 </script>
 
 <div class="md:hidden">
@@ -46,7 +52,11 @@ Used only where mobile and desktop behavior _genuinely diverges_ — different i
 </div>
 ```
 
-Both variants receive the same typed data/props from the orchestrator — they differ in interaction and layout, not in what data they're allowed to show.
+Three files make up the pattern: `Thing.svelte` is the orchestrator, `ThingMobile.svelte` is the mobile variant, and `ThingDesktop.svelte` is the desktop variant. Both variants receive the same typed data/props from the orchestrator — they differ in interaction and layout, not in what data they're allowed to show.
+
+The split point is `md` (768px, Tailwind's default) for every dual-native component in this codebase.
+
+Because both variants render unconditionally, both mount and run their effects — timers, `$effect`s, event listeners, `matchMedia`/`ResizeObserver` listeners — even when hidden via CSS; the hidden one is `display: none`, not unmounted or torn down. Components using this pattern should keep their effects light, or guard them against their own visibility, since an off-viewport variant's effects still run.
 
 ## Content domains
 

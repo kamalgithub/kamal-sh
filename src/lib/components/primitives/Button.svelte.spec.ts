@@ -10,17 +10,31 @@ describe('Button.svelte', () => {
 
 	it('renders as a button and fires onclick', async () => {
 		const onclick = vi.fn();
-		await render(Button, { children: label, onclick });
+		const { container } = await render(Button, { children: label, onclick });
 
 		await page.getByRole('button', { name: 'Click me' }).click();
 
 		expect(onclick).toHaveBeenCalledOnce();
+
+		// Proves the `duration-(--duration-fast)` token actually compiled to real CSS,
+		// not the silent no-op documented in docs/design-tokens.md's "Gotcha" note.
+		const element = container.querySelector('button');
+		expect(getComputedStyle(element!).transitionDuration).toBe('0.12s');
 	});
 
 	it('renders as a link when href is given', async () => {
 		await render(Button, { children: label, href: 'https://example.com' });
 
 		await expect.element(page.getByRole('link', { name: 'Click me' })).toBeInTheDocument();
+	});
+
+	it('fires onclick when rendered as a link', async () => {
+		const onclick = vi.fn();
+		await render(Button, { children: label, href: 'https://example.com', onclick });
+
+		await page.getByRole('link', { name: 'Click me' }).click();
+
+		expect(onclick).toHaveBeenCalledOnce();
 	});
 
 	it('never uses a transform-based hover/interaction effect', async () => {

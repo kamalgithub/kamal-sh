@@ -57,6 +57,15 @@ A component must render correctly no matter how many items or how long the text 
 - **Optional fields**: if a type marks a field optional, the component must have a real, considered rendering for its absence — not just hope it's always there.
 - **Mentally test at both extremes** before considering a component done: does it still look right with 1 item? With 20?
 
+## No-scale/no-shift interactions
+
+`Button.svelte` (`src/lib/components/primitives/Button.svelte`) is the canonical implementation of the no-hover-scale/no-shift interaction rule (see CLAUDE.md rule 2) — it only ever animates `background-color`, `border-color`, `box-shadow`, and `opacity`. Every future component with a clickable action should use `Button.svelte` rather than hand-rolling `<button>`/`<a>` styling.
+
+## Prop typing
+
+- One or two simple props: use an inline type literal, e.g. `let { children }: { children: Snippet } = $props();` (as `Container.svelte`, `Section.svelte`, and `Card.svelte` do).
+- Several props: use a named `interface Props { ... }` above the component, e.g. `let { variant, href, ... }: Props = $props();` (as `Button.svelte` does).
+
 ## Naming
 
 - Components: `PascalCase.svelte`.
