@@ -48,3 +48,5 @@ Used only on a small set of elevated surfaces at once (nav bar, a card on hover/
 | `--duration-base` | `200ms`                                                                                    |
 
 **Hard rule** (see CLAUDE.md): never animate `transform: scale()` or a position offset on an interactive element, on hover or otherwise. Animate `opacity`, `background-color`, `border-color`, or `box-shadow` (for glow) only — an element's size and position must never change on interaction, so click targets stay exactly where the user expects them.
+
+**Gotcha:** `--ease-standard` correctly generates an `ease-standard` Tailwind utility (Tailwind v4's `--ease-*` namespace does a keyed theme lookup). `--duration-*` does **not** work the same way — Tailwind's `duration-*` utility parses its suffix as a raw number, so a named key like `duration-fast` silently compiles to nothing (no error, no CSS rule — verified against the real Tailwind v4 CLI output before this was trusted). Use the canonical CSS-variable syntax instead: `duration-(--duration-fast)`, which correctly compiles to `transition-duration: var(--duration-fast)`.
