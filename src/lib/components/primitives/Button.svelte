@@ -32,7 +32,7 @@
 
 {#if href}
 	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-	<a {href} class={classes}>
+	<a {href} {onclick} class={classes}>
 		{@render children()}
 	</a>
 {:else}

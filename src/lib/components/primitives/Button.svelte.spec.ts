@@ -27,7 +27,7 @@ describe('Button.svelte', () => {
 		const { container } = await render(Button, { children: label });
 
 		const element = container.querySelector('button');
-		expect(element?.className).not.toMatch(/(?:^|\s)(?:hover:)?scale-/);
-		expect(element?.className).not.toMatch(/(?:^|\s)(?:hover:)?translate-/);
+		expect(element?.className).not.toContain('scale-');
+		expect(element?.className).not.toContain('translate-');
 	});
 });
