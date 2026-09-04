@@ -11,6 +11,7 @@
 <svelte:head>
 	<title>Writing | Kamal Kumar</title>
 	<meta name="description" content={writingCopy.intro} />
+	<link rel="alternate" type="application/rss+xml" title="Kamal Kumar — Writing" href="/rss.xml" />
 </svelte:head>
 
 <Section>
