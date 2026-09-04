@@ -28,11 +28,23 @@ No `src/lib/index.ts` barrel file. Import directly from the file that defines wh
 
 Used only where mobile and desktop behavior _genuinely diverges_ — different interaction model, different information density, not just a different arrangement of the same elements. Don't reach for this pattern for something a CSS breakpoint handles fine.
 
-Shape:
+**Mechanism (CSS-only dual render, decided 2026-09-04):** the orchestrator renders both variants unconditionally; Tailwind responsive classes show exactly one. No JavaScript is needed for the switch, there's no hydration mismatch or flash-of-wrong-variant risk, and it composes cleanly with full prerendering.
 
-- `Thing.svelte` — the orchestrator. Owns shared state/data, decides which variant to render based on viewport (e.g. a `media` query check), and renders exactly one of the two below.
-- `ThingMobile.svelte` — mobile-native interaction/layout for that piece of UI.
-- `ThingDesktop.svelte` — desktop-native interaction/layout for that piece of UI.
+```svelte
+<!-- Thing.svelte -->
+<script lang="ts">
+	import ThingMobile from './ThingMobile.svelte';
+	import ThingDesktop from './ThingDesktop.svelte';
+	let { ...props } = $props();
+</script>
+
+<div class="md:hidden">
+	<ThingMobile {...props} />
+</div>
+<div class="hidden md:block">
+	<ThingDesktop {...props} />
+</div>
+```
 
 Both variants receive the same typed data/props from the orchestrator — they differ in interaction and layout, not in what data they're allowed to show.
 
