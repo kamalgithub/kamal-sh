@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@import '../lib/styles/tokens.css';
+
+body {
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-body);
+}

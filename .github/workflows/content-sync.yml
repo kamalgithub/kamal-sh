@@ -1,0 +1,49 @@
+name: Content sync
+
+on:
+  schedule:
+    # Approximately every 48 hours.
+    - cron: '17 6 */2 * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      # Each sync is independent — a flaky feed on one shouldn't block the other,
+      # and each script itself leaves its generated JSON untouched on failure.
+      - id: blog
+        run: bun run sync:blog
+        continue-on-error: true
+
+      - id: youtube
+        run: bun run sync:youtube
+        continue-on-error: true
+
+      - name: Commit changes, if any
+        if: always()
+        run: |
+          git config user.name "aicademy-content-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/lib/content/writing/posts.generated.json src/lib/content/youtube/videos.generated.json
+          git diff --cached --quiet && echo "no content changes" && exit 0
+          git commit -m "chore: sync writing + youtube content"
+          git push
+
+      - name: Fail the run if either sync failed
+        if: steps.blog.outcome == 'failure' || steps.youtube.outcome == 'failure'
+        run: |
+          echo "blog sync: ${{ steps.blog.outcome }}"
+          echo "youtube sync: ${{ steps.youtube.outcome }}"
+          exit 1
