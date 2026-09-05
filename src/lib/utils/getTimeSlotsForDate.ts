@@ -1,9 +1,11 @@
 import { istInstant, type CalendarDate } from './ist';
 
-// Assumed availability window — 9:00 AM to 6:00 PM IST. Adjust here if the real
-// Cal.com availability differs; there is no live availability check against Cal.com itself.
-const AVAILABILITY_START_HOUR = 9;
-const AVAILABILITY_END_HOUR = 18;
+// Assumed availability window — 11:00 AM to 2:00 PM IST, matching the real Cal.com
+// schedule. Adjust here if that changes; there is no live availability check against
+// Cal.com itself. Exported so getBookableDates.ts can tell whether today's window has
+// already fully passed, without duplicating the window here.
+export const AVAILABILITY_START_HOUR = 11;
+export const AVAILABILITY_END_HOUR = 14;
 
 /** Available slot start instants for one IST calendar date, spaced by `durationMinutes`, excluding past slots. */
 export function getTimeSlotsForDate(

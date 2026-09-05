@@ -32,7 +32,11 @@ describe('Button.svelte', () => {
 		const onclick = vi.fn();
 		await render(Button, { children: label, href: 'https://example.com', onclick });
 
-		await page.getByRole('link', { name: 'Click me' }).click();
+		// Prevent the real navigation a genuine external href would trigger — otherwise
+		// the test iframe navigates away and the runner loses its connection to it.
+		const link = page.getByRole('link', { name: 'Click me' });
+		link.element().addEventListener('click', (event) => event.preventDefault());
+		await link.click();
 
 		expect(onclick).toHaveBeenCalledOnce();
 	});

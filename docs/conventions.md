@@ -61,10 +61,25 @@ A component must render correctly no matter how many items or how long the text 
 
 `Button.svelte` (`src/lib/components/primitives/Button.svelte`) is the canonical implementation of the no-hover-scale/no-shift interaction rule (see CLAUDE.md rule 2) — it only ever animates `background-color`, `border-color`, `box-shadow`, and `opacity`. Every future component with a clickable action should use `Button.svelte` rather than hand-rolling `<button>`/`<a>` styling.
 
+## Structured data (`{@html}`)
+
+JSON-LD (`buildPersonJsonLd.ts`, `buildCaseStudyJsonLd.ts` in `src/lib/utils/`) is the one legitimate use of Svelte's `{@html}` in this codebase — a `<script type="application/ld+json">` has to be injected as raw markup, there's no other way to render it. `src/lib/utils/jsonLd.ts`'s `toJsonLdScript()` is the only function allowed to produce that HTML string: it escapes every `<` in the serialized JSON so a value can never close the script tag early, even though every current caller only ever passes our own static, typed content. Each `{@html}` call site carries an `eslint-disable-next-line svelte/no-at-html-tags` comment explaining why it's safe. Don't add a second, ad hoc way to inject a script tag — extend `jsonLd.ts` if a new structured-data type is needed.
+
 ## Prop typing
 
 - One or two simple props: use an inline type literal, e.g. `let { children }: { children: Snippet } = $props();` (as `Container.svelte`, `Section.svelte`, and `Card.svelte` do).
 - Several props: use a named `interface Props { ... }` above the component, e.g. `let { variant, href, ... }: Props = $props();` (as `Button.svelte` does).
+
+## Adding a new testimonial
+
+Follow this exact sequence when Kamal asks for a new recommendation to be added to `src/lib/content/testimonials.ts` — it's written down so it doesn't have to be re-explained each time:
+
+1. **Get the quote verbatim** from Kamal (pasted from LinkedIn or wherever it was written) — never paraphrase or summarize it. `quote` is always the recommender's exact words.
+2. **Get the person's own LinkedIn profile URL** and set it as `profileUrl`. If it isn't available, leave `profileUrl` unset (it's optional) rather than guessing — a missing link is honest; a wrong one isn't. `TestimonialsGrid.svelte` already renders a plain, unlinked name when `profileUrl` is absent, so this never breaks layout.
+3. **Set `rating: 5`, always** — every recommendation accepted onto this page is a genuine 5-star one, a deliberate content policy (not a computed average), matching every existing entry.
+4. **Derive 1-3 short tags/highlights** from the quote's own content — a skimmable summary for someone who doesn't want to read the full paragraph (e.g. "Terraform", "mentorship", "Azure migration"). Pull these from words/themes the recommender actually used, never invent a skill or trait the quote doesn't support. (This field doesn't exist on `Testimonial` yet — it's specified here for when it's added; don't backfill it onto the other 27 entries without being asked.)
+5. **Set `role`** to the clearest identifying part of their LinkedIn headline at the time, trimmed for length — match the style of existing entries (e.g. `'Senior DevOps Engineer, Company Name'`).
+6. **Set `date`** to when the recommendation was written (LinkedIn shows this), and insert the new entry in reverse-chronological order, matching the array's existing ordering.
 
 ## Naming
 

@@ -11,17 +11,18 @@ This is Kamal Kumar's personal site (kamal.sh) — a fast, minimal, skimmable **
 5. **Components are robust to data changes.** Adding, removing, or lengthening a data item must never visually deform its component. See the layout-robustness section in [docs/conventions.md](./docs/conventions.md).
 6. **Strict TypeScript, no `any`.** `tsconfig.json` is `strict: true`; keep it that way.
 7. **One file, one functionality.** A component does one UI thing; a `.ts` file owns one cohesive concern. No barrel `index.ts` re-export files — import directly from the source file. See [docs/conventions.md](./docs/conventions.md).
-8. **Dual-native mobile/desktop split** for any component whose mobile and desktop behavior genuinely diverges (not just CSS breakpoints) — see [docs/architecture.md](./docs/architecture.md).
+8. **Judge mobile and desktop independently, every time.** Don't assume a desktop-shaped feature works on mobile just because it has responsive classes. Before building anything interactive, decide separately: does this genuinely work on a touch screen with no keyboard and little space? If a feature works well shared (most content, most static pages), a CSS breakpoint is enough. If it wouldn't — a different interaction model, no sane touch equivalent, no room for it — build the dual-native split (see [docs/architecture.md](./docs/architecture.md)) or deliberately omit/replace the feature on the platform it doesn't fit. Never ship a feature "because it happened to also work" on the platform it wasn't designed for — decide on purpose, both ways, every time.
 9. **Prerender everything that can be prerendered.** SSR is reserved for genuinely dynamic routes only. See [docs/architecture.md](./docs/architecture.md).
+10. **Record standing decisions immediately.** When the user states a preference, decision, or standard in conversation that should outlive the current change — a design rule, a technical constraint, something to prefer or avoid going forward — write it into the relevant `docs/*.md` file (or here, if it's cross-cutting) in the same session, before moving on to the next thing. Chat history doesn't carry forward to the next session; these files are the only memory this project has.
 
 ## Where things live
 
-| Question                                                                                         | Doc                                              |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| How is SvelteKit / Tailwind v4 / TypeScript / wrangler / bun configured and used here?           | [docs/tooling.md](./docs/tooling.md)             |
-| Where does a new file go? What's the routing/rendering strategy? What's the dual-native pattern? | [docs/architecture.md](./docs/architecture.md)   |
-| How do I structure a component or data module? What does DRY/SOLID mean concretely here?         | [docs/conventions.md](./docs/conventions.md)     |
-| What are the color/type/glass/motion tokens and how do I use them?                               | [docs/design-tokens.md](./docs/design-tokens.md) |
+| Question                                                                                            | Doc                                              |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| How is SvelteKit / Tailwind v4 / TypeScript / wrangler / bun configured and used here?              | [docs/tooling.md](./docs/tooling.md)             |
+| Where does a new file go? What's the routing/rendering strategy? What's the dual-native pattern?    | [docs/architecture.md](./docs/architecture.md)   |
+| How do I structure a component or data module? What does DRY/SOLID mean concretely here?            | [docs/conventions.md](./docs/conventions.md)     |
+| What are the color/type/motion tokens and how do I use them? What's the editorial design direction? | [docs/design-tokens.md](./docs/design-tokens.md) |
 
 ## Before you touch code
 

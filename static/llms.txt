@@ -1,0 +1,29 @@
+# Kamal Kumar
+
+> Personal site for Kamal Kumar — cloud, DevOps, and platform engineering. Static content, no tracking, no database.
+
+## Pages
+
+- [Home](https://kamal.sh/): Summary and entry point.
+- [Work](https://kamal.sh/work): Case studies and professional experience.
+- [Architecture](https://kamal.sh/architecture): An opinionated reference architecture for an enterprise AI platform — gateway, guardrails, governance, evals, cost.
+- [Building](https://kamal.sh/building): Products and tools built and maintained.
+- [Writing](https://kamal.sh/writing): Blog posts and videos.
+- [About](https://kamal.sh/about): Background, education, certifications, live GitHub activity.
+- [Testimonials](https://kamal.sh/testimonials): What colleagues and clients have said.
+- [Security](https://kamal.sh/security): Security posture of this site, in plain terms.
+- [Costs](https://kamal.sh/costs): What this site costs to run, line by line.
+- [Postmortems](https://kamal.sh/postmortems): Public, blameless incident writeups.
+- [Contact](https://kamal.sh/contact): Contact form and booking.
+
+## Machine-readable
+
+- `curl kamal.sh` (or wget/iwr/any other CLI client): ANSI bold/color résumé, straight from the root domain.
+- [resume](https://kamal.sh/resume): Same as the root, ANSI bold/color by default.
+- [resume-raw](https://kamal.sh/resume-raw): Plain ASCII, no color codes — for a script or a terminal that can't render them.
+- [json](https://kamal.sh/json): Colorized, human-readable résumé data (not valid JSON once colorized — see json-raw).
+- [json-raw](https://kamal.sh/json-raw) / [resume.json](https://kamal.sh/resume.json): Actual structured `application/json` résumé data.
+- [resume.md](https://kamal.sh/resume.md): Markdown résumé.
+- [sitemap.xml](https://kamal.sh/sitemap.xml): Full page index.
+- [rss.xml](https://kamal.sh/rss.xml): Writing feed.
+- [linkedin](https://kamal.sh/linkedin), [youtube](https://kamal.sh/youtube), [github](https://kamal.sh/github): short-URL redirects to the matching profile.

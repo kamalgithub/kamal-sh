@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { profile } from '$lib/content/profile';
 	import { stats } from '$lib/content/stats';
 	import { certifications } from '$lib/content/certifications';
@@ -7,6 +8,8 @@
 	import { homeCopy } from '$lib/content/copy/home';
 	import { ctaCopy } from '$lib/content/copy/cta';
 	import { getDisplayStats } from '$lib/utils/getDisplayStats';
+	import { getHomeSectionOrder } from '$lib/utils/getHomeSectionOrder';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import Hero from '$lib/components/hero/Hero.svelte';
 	import StatsBand from '$lib/components/stats/StatsBand.svelte';
 	import BuildingShowcase from '$lib/components/building/BuildingShowcase.svelte';
@@ -15,23 +18,31 @@
 
 	const displayStats = getDisplayStats(stats, certifications.length);
 	const featuredTestimonials = testimonials.slice(0, 3);
+
+	// The prerendered HTML always reflects the default order (crawlers, no-JS visitors);
+	// a real ?for= value only ever takes effect client-side, after hydration reads the URL.
+	const sectionOrder = $derived(getHomeSectionOrder(page.url.searchParams.get('for')));
 </script>
 
-<svelte:head>
-	<title>{profile.name} | {profile.title}</title>
-	<meta name="description" content={profile.tagline} />
-</svelte:head>
+<SeoHead title="{profile.name} | {profile.title}" description={profile.tagline} />
 
 <Hero {profile} copy={homeCopy} />
-<StatsBand stats={displayStats} />
-<BuildingShowcase
-	{products}
-	heading={homeCopy.buildingHeading}
-	linkLabel={homeCopy.buildingLinkLabel}
-/>
-<TestimonialsPreview
-	testimonials={featuredTestimonials}
-	heading={homeCopy.testimonialsHeading}
-	viewAllLabel={homeCopy.testimonialsViewAllLabel}
-/>
+{#each sectionOrder as section (section)}
+	{#if section === 'stats'}
+		<StatsBand stats={displayStats} />
+	{:else if section === 'building'}
+		<BuildingShowcase
+			{products}
+			heading={homeCopy.buildingHeading}
+			linkLabel={homeCopy.buildingLinkLabel}
+		/>
+	{:else if section === 'testimonials'}
+		<TestimonialsPreview
+			testimonials={featuredTestimonials}
+			totalCount={testimonials.length}
+			heading={homeCopy.testimonialsHeading}
+			viewAllLabel={homeCopy.testimonialsViewAllLabel}
+		/>
+	{/if}
+{/each}
 <ClosingCta copy={ctaCopy} />

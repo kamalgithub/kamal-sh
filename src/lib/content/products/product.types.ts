@@ -1,3 +1,5 @@
+import type { ContentImage } from '../image.types';
+
 export interface ProductLink {
 	label: string;
 	url: string;
@@ -20,4 +22,6 @@ export interface Product {
 	installCommand?: string;
 	/** Not every product has one — the primary call-to-action button, when there is one. */
 	primaryCta?: ProductCta;
+	/** Absent until a real screenshot/logo is dropped in. */
+	image?: ContentImage;
 }

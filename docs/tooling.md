@@ -15,14 +15,14 @@
 ## Scripts (`package.json`)
 
 - `bun run dev` — local dev server.
-- `bun run build` — typechecks wrangler bindings then builds for Cloudflare.
+- `bun run build` — removes stale build artifacts, typechecks wrangler bindings, then builds for Cloudflare.
 - `bun run preview` — runs the built Worker locally via wrangler.
-- `bun run check` — wrangler types + `svelte-kit sync` + `svelte-check`. Run this after any non-trivial change.
+- `bun run check` — cleans build artifacts + wrangler types + `svelte-kit sync` + `svelte-check`. Run this after any non-trivial change.
 - `bun run lint` / `bun run format` — Prettier + ESLint.
 - `bun run gen` — regenerates `worker-configuration.d.ts` from `wrangler.jsonc` (run after changing bindings/vars in `wrangler.jsonc`).
 - `bun run test` — runs the full Vitest suite once (`--run`, no watch) across both projects. `bun run test:unit` runs Vitest in watch mode.
 
-**Gotcha:** if `.svelte-kit/cloudflare/_worker.js` exists (left over from a `bun run build`), `wrangler types` embeds a self-referencing type import to that compiled bundle in `worker-configuration.d.ts`, which then makes `bun run check` fail with hundreds of unrelated implicit-`any` errors from the built output itself. If `check` suddenly fails with a wall of errors inside `.svelte-kit/`, delete `.svelte-kit/output` and `.svelte-kit/cloudflare`, run `bun run gen`, then `bun run check` again.
+**Gotcha:** `wrangler types` embeds a self-referencing type import of the compiled worker (`mainModule: typeof import("./.svelte-kit/cloudflare/_worker")`) whenever `.svelte-kit/cloudflare/_worker.js` exists, so the generated file — and whether `wrangler types --check` passes — depends on whether a previous build left its output behind. It also makes `bun run check` fail with hundreds of unrelated implicit-`any` errors from the built output itself. `build`, `check`, and `gen` therefore run `scripts/clean-build-artifacts.ts` first, which deletes `.svelte-kit/cloudflare`, `.svelte-kit/cloudflare-tmp`, and `.svelte-kit/output` (with retries for transient Windows file locks), keeping the committed `worker-configuration.d.ts` always the no-`mainModule` variant. The clean step can fail with `EPERM` if `bun run preview` is running — stop it first. If you run `wrangler types` by hand instead of via `bun run gen`, delete those directories yourself before it, or you'll reintroduce the bad state.
 
 ## Environment variables / secrets
 

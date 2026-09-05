@@ -9,19 +9,16 @@
 <p class="mt-6 text-body text-text-muted">{product.description}</p>
 
 {#if product.highlights.length > 0}
-	<ul class="mt-8 flex flex-col gap-2">
+	<ul class="mt-8 flex flex-col divide-y divide-border border-t border-border">
 		{#each product.highlights as highlight (highlight)}
-			<li class="flex gap-2 text-body text-text-muted">
-				<span class="text-accent" aria-hidden="true">—</span>
-				{highlight}
-			</li>
+			<li class="py-3 text-body text-text-muted">{highlight}</li>
 		{/each}
 	</ul>
 {/if}
 
 {#if product.installCommand}
 	<code
-		class="mt-8 block w-fit rounded-lg border border-border bg-surface px-4 py-2 text-small text-text"
+		class="mt-8 block w-fit rounded-sm border border-border bg-surface px-4 py-2 text-small text-text"
 	>
 		{product.installCommand}
 	</code>

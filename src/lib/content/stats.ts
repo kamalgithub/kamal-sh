@@ -5,9 +5,9 @@ import type { Stat } from './stats.types';
 // derived from certifications.length (see certifications.ts) rather than
 // hardcoded, so it can never drift out of sync with the actual list.
 export const stats: Stat[] = [
-	{ label: 'LinkedIn followers', value: '10K+', asOf: '2026-08-21' },
-	{ label: 'YouTube subscribers', value: '2.5K+', asOf: '2026-08-21' },
-	{ label: 'Years of experience', value: '8+', asOf: '2026-08-21' },
-	{ label: 'Students taught', value: '500+', asOf: '2026-08-21' },
-	{ label: 'Cloud cost savings driven', value: '$1.4M+', asOf: '2026-08-21' }
+	{ label: 'LinkedIn followers', value: '13K+', icon: 'users', asOf: '2026-09-05' },
+	{ label: 'YouTube subscribers', value: '2.9K+', icon: 'play', asOf: '2026-09-05' },
+	{ label: 'Years of experience', value: '10+', icon: 'calendar', asOf: '2026-08-21' },
+	{ label: 'Students taught', value: '600+', icon: 'graduationCap', asOf: '2026-09-05' },
+	{ label: 'Cloud cost savings', value: '$1.4M+', icon: 'trendingUp', asOf: '2026-08-21' }
 ];

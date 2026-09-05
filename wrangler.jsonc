@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "portfolio-new",
+	"name": "kamal-sh",
 	"compatibility_date": "2026-09-04",
 	"compatibility_flags": ["nodejs_als"],
 	"main": ".svelte-kit/cloudflare/_worker.js",
@@ -12,6 +12,10 @@
 	"preview_urls": true,
 	"vars": {
 		"MAILGUN_DOMAIN": "mail.kamal.sh",
-		"MAILGUN_TO_ADDRESS": "kamal@kamal.sh"
+		"MAILGUN_TO_ADDRESS": "kamal@kamal.sh",
+		// Turnstile's site key is public by design (embedded in the page HTML) — not a
+		// secret. Empty until a real Turnstile widget is created in the Cloudflare
+		// dashboard; the contact form fails closed (Turnstile not configured) until then.
+		"TURNSTILE_SITE_KEY": ""
 	}
 }

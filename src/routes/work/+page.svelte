@@ -8,6 +8,9 @@
 	import { getDisplayStats } from '$lib/utils/getDisplayStats';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
+	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
+	import IconBriefcase from '$lib/components/icons/IconBriefcase.svelte';
 	import StatsBand from '$lib/components/stats/StatsBand.svelte';
 	import CaseStudyLinks from '$lib/components/case-studies/CaseStudyLinks.svelte';
 	import ExperienceTimeline from '$lib/components/experience/ExperienceTimeline.svelte';
@@ -16,15 +19,12 @@
 	const displayStats = getDisplayStats(stats, certifications.length);
 </script>
 
-<svelte:head>
-	<title>Work | Kamal Kumar</title>
-	<meta name="description" content={workCopy.intro} />
-</svelte:head>
+<SeoHead title="Work | Kamal Kumar" description={workCopy.intro} />
 
-<Section>
+<Section tint={1}>
 	<Container>
-		<h1 class="font-display text-display font-semibold text-text">{workCopy.heading}</h1>
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{workCopy.intro}</p>
+		<PageHeading icon={IconBriefcase} heading={workCopy.heading} />
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{workCopy.intro}</p>
 	</Container>
 </Section>
 <StatsBand stats={displayStats} />

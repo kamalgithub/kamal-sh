@@ -7,5 +7,9 @@ export const bookingCopy: BookingCopy = {
 	timeStepLabel: 'Select a time',
 	backLabel: 'Back',
 	noSlotsMessage: 'No times left today — try another date.',
-	loadingLabel: 'Loading available times…'
+	loadingLabel: 'Loading available times…',
+	stepProgressLabel: 'Step {current} of {total}',
+	outsideWindowTooltip: 'Bookable only within the next 2 weeks',
+	previousMonthLabel: 'Previous month',
+	nextMonthLabel: 'Next month'
 };

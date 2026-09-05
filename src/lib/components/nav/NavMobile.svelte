@@ -1,9 +1,18 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import type { NavLink } from '$lib/content/nav.types';
+	import { requestCommandPaletteOpen } from '$lib/utils/commandPaletteEvent';
+	import { commandPaletteCopy } from '$lib/content/copy/commandPalette';
+	import ThemeToggle from './ThemeToggle.svelte';
+	import IconSearch from '$lib/components/icons/IconSearch.svelte';
 
 	let { links, name }: { links: NavLink[]; name: string } = $props();
 	let dialogEl: HTMLDialogElement | undefined = $state();
+
+	function isActive(href: string): boolean {
+		return page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
+	}
 
 	function openMenu() {
 		dialogEl?.showModal();
@@ -15,33 +24,53 @@
 </script>
 
 <div
-	class="sticky top-0 z-40 flex items-center justify-between border-b border-(--surface-glass-border) bg-(--surface-glass-bg) px-4 py-3 backdrop-blur-(--surface-glass-blur)"
+	class="sticky top-0 z-40 flex items-center justify-between border-b border-border bg-bg px-4 py-3 md:hidden"
 >
-	<a href={resolve('/')} class="font-display text-lg font-semibold text-text">{name}</a>
-	<button
-		type="button"
-		onclick={openMenu}
-		aria-label="Open menu"
-		class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text transition-colors duration-(--duration-fast) ease-standard hover:bg-surface"
+	<a
+		href={resolve('/')}
+		class="flex items-center gap-1.5 font-mono text-lg font-semibold text-text"
 	>
-		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-			<path
-				d="M2 5h16M2 10h16M2 15h16"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-			/>
-		</svg>
-	</button>
+		<span class="text-accent" aria-hidden="true">$</span>
+		{name}
+	</a>
+	<div class="flex items-center gap-1">
+		<button
+			type="button"
+			onclick={requestCommandPaletteOpen}
+			aria-label={commandPaletteCopy.triggerLabel}
+			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-text"
+		>
+			<IconSearch size={18} />
+		</button>
+		<ThemeToggle />
+		<button
+			type="button"
+			onclick={openMenu}
+			aria-label="Open menu"
+			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text transition-colors duration-(--duration-fast) ease-standard hover:bg-surface"
+		>
+			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+				<path
+					d="M2 5h16M2 10h16M2 15h16"
+					stroke="currentColor"
+					stroke-width="1.5"
+					stroke-linecap="round"
+				/>
+			</svg>
+		</button>
+	</div>
 </div>
 
 <dialog
 	bind:this={dialogEl}
-	class="m-0 h-dvh max-h-none w-full max-w-none bg-bg p-0 backdrop:bg-bg/80 backdrop:backdrop-blur-(--surface-glass-blur)"
+	class="m-0 h-dvh max-h-none w-full max-w-none bg-bg p-0 backdrop:bg-bg/80"
 >
 	<div class="flex h-full flex-col">
 		<div class="flex items-center justify-between px-4 py-3">
-			<span class="font-display text-lg font-semibold text-text">{name}</span>
+			<span class="flex items-center gap-1.5 font-mono text-lg font-semibold text-text">
+				<span class="text-accent" aria-hidden="true">$</span>
+				{name}
+			</span>
 			<button
 				type="button"
 				onclick={closeMenu}
@@ -60,11 +89,13 @@
 		</div>
 		<nav class="flex flex-1 flex-col items-start justify-center gap-2 px-6" aria-label="Primary">
 			{#each links as link (link.href)}
+				{@const active = isActive(link.href)}
 				<!-- eslint-disable svelte/no-navigation-without-resolve -- content-authored href, not a compile-time literal -->
 				<a
 					href={link.href}
 					onclick={closeMenu}
-					class="py-3 text-2xl font-medium {link.href === '/contact' ? 'text-accent' : 'text-text'}"
+					aria-current={active ? 'page' : undefined}
+					class="py-3 text-2xl font-medium {active ? 'text-accent' : 'text-text'}"
 				>
 					{link.label}
 				</a>

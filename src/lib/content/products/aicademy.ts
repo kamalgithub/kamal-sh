@@ -9,7 +9,7 @@ export const aicademy: Product = {
 	highlights: [
 		'50 hands-on projects — AI Engineer track',
 		'50 hands-on projects — AI Architect track',
-		'~100 labs each for CKA, CKS, CKAD (growing)',
+		'100 labs each for CKA, CKS, CKAD (growing)',
 		'Weekend workshops, instructed live'
 	],
 	links: [

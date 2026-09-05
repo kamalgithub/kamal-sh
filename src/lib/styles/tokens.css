@@ -5,32 +5,56 @@
 
 :root {
 	color-scheme: dark;
+	/* Light text on a dark background reads visually heavier than the same weight on a
+	   light background — a real rendering/perception effect, not an actual difference in
+	   the font file. Antialiased (grayscale) smoothing counteracts it; light mode doesn't
+	   have this problem, so it resets to the browser default below. Affects body/UI text
+	   the same as headings, but only headings were reported as already looking fine. */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	/* Dark-only: default weight for anything that doesn't set its own (paragraphs, labels,
+	   muted nav text). Switzer's Regular (400) read as "boldish" specifically in dark mode,
+	   especially on Windows where the smoothing fix above does little (it's largely a
+	   WebKit/macOS thing). Inherited, so headings/buttons/anything with an explicit
+	   font-medium/font-semibold/font-bold class is unaffected. Explicitly reset to 400 in
+	   both light-mode blocks below — light mode never had this problem. */
+	font-weight: 300;
 
-	/* Color — dark is the default */
-	--color-bg: #0a0a0b;
-	--color-surface: #131316;
-	--color-border: #232328;
-	--color-text: #f5f5f7;
-	--color-text-muted: #9a9aa2;
-	--color-accent: #4f46e5;
-	--color-accent-hover: #4338ca;
-	/* Functional, not decorative — form validation feedback. Brighter than the light-mode value
-	   so it clears WCAG AA against the near-black background (verified via the relative-luminance
-	   formula: #F87171 vs #0A0A0B is ~7.2:1; #DC2626 would only be ~4.1:1 here). */
+	/* Color — dark is the default. True neutral grays throughout (no warm cast). */
+	--color-bg: #0a0a0a;
+	--color-surface: #131313;
+	--color-border: #262626;
+	/* Functional boundaries (Card, form inputs, booking picker buttons) — --color-border
+	   alone is a decorative hairline (~1.3:1) that WCAG exempts for pure content dividers,
+	   but a boundary that's the only cue an input/panel exists needs real contrast.
+	   Verified ~3.15:1 against --color-bg via the relative-luminance formula. */
+	--color-border-strong: #606060;
+	--color-text: #ebebeb;
+	--color-text-muted: #9a9a9a;
+	/* Blueprint/cyanotype blue — a deliberate nod to technical drawings, not generic SaaS
+	   indigo. Used flat, as text/links/rules only — never as a button fill or a glow. */
+	--color-accent: #5c82ff;
+	/* Functional, not decorative — form validation feedback. Different values per mode
+	   because a single red doesn't clear WCAG AA against both a near-black and a
+	   near-white background — verified via the relative-luminance formula. */
 	--color-error: #f87171;
-	--gradient-aurora: linear-gradient(135deg, #14b8a6 0%, #6366f1 55%, #8b5cf6 100%);
-
-	/* Glass surfaces — dark. Use on nav / cards / sheets / modals only, never full-page. */
-	--surface-glass-bg: rgb(255 255 255 / 4%);
-	--surface-glass-border: rgb(255 255 255 / 8%);
-	--surface-glass-blur: 14px;
+	/* Purely decorative, barely-perceptible page-hero backgrounds — three points between
+	   --color-bg and --color-surface, pure lightness only (no hue, matching "no warm cast"
+	   above). Gives each top-level page's opening Section a faint identity without reading
+	   as a deliberate color choice. Never used for anything with meaning (state, emphasis). */
+	--color-tint-1: #0c0c0c;
+	--color-tint-2: #0e0e0e;
+	--color-tint-3: #101010;
 
 	/* Typography */
-	--font-display: 'Switzer', ui-sans-serif, system-ui, sans-serif;
-	--font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+	--font-body: 'Switzer', ui-sans-serif, system-ui, sans-serif;
+	/* Native monospace stack, no self-hosted file — used sparingly for the "$" terminal-prompt
+	   framing on the logo and similar CLI-flavored moments, not as a body/UI font. */
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
 
-	--text-display: clamp(2.5rem, 6vw, 5rem);
-	--text-display--line-height: 1.05;
+	--text-display: clamp(2.75rem, 7vw, 5.5rem);
+	--text-display--line-height: 1;
 	--text-h1: clamp(2rem, 4vw, 3rem);
 	--text-h1--line-height: 1.1;
 	--text-h2: clamp(1.5rem, 3vw, 2.25rem);
@@ -50,28 +74,43 @@
 @media (prefers-color-scheme: light) {
 	:root:not([data-theme='dark']) {
 		color-scheme: light;
+		-webkit-font-smoothing: auto;
+		-moz-osx-font-smoothing: auto;
+		font-weight: 400;
 		--color-bg: #fafafa;
 		--color-surface: #ffffff;
-		--color-border: #e5e5e8;
-		--color-text: #0a0a0b;
-		--color-text-muted: #6b6b73;
+		--color-border: #e2e2e2;
+		/* Verified ~3.49:1 against --color-bg — the previous single --color-border value
+		   was ~1.24:1 in light mode, effectively invisible on Card/inputs. See the
+		   dark-mode comment above for why this is a separate token from the hairline. */
+		--color-border-strong: #868686;
+		--color-text: #121212;
+		--color-text-muted: #6b6b6b;
+		--color-accent: #2544b0;
 		--color-error: #dc2626;
-		--surface-glass-bg: rgb(10 10 11 / 4%);
-		--surface-glass-border: rgb(10 10 11 / 8%);
+		--color-tint-1: #fbfbfb;
+		--color-tint-2: #f8f8f8;
+		--color-tint-3: #f6f6f6;
 	}
 }
 
 /* Manual override, once a theme toggle exists */
 :root[data-theme='light'] {
 	color-scheme: light;
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
+	font-weight: 400;
 	--color-bg: #fafafa;
 	--color-surface: #ffffff;
-	--color-border: #e5e5e8;
-	--color-text: #0a0a0b;
-	--color-text-muted: #6b6b73;
+	--color-border: #e2e2e2;
+	--color-border-strong: #868686;
+	--color-text: #121212;
+	--color-text-muted: #6b6b6b;
+	--color-accent: #2544b0;
 	--color-error: #dc2626;
-	--surface-glass-bg: rgb(10 10 11 / 4%);
-	--surface-glass-border: rgb(10 10 11 / 8%);
+	--color-tint-1: #fbfbfb;
+	--color-tint-2: #f8f8f8;
+	--color-tint-3: #f6f6f6;
 }
 
 /* Register the tokens above as Tailwind v4 utilities (CSS-first config — no tailwind.config.js).
@@ -81,14 +120,18 @@
 	--color-bg: var(--color-bg);
 	--color-surface: var(--color-surface);
 	--color-border: var(--color-border);
+	--color-border-strong: var(--color-border-strong);
 	--color-text: var(--color-text);
 	--color-text-muted: var(--color-text-muted);
 	--color-accent: var(--color-accent);
-	--color-accent-hover: var(--color-accent-hover);
 	--color-error: var(--color-error);
+	--color-tint-1: var(--color-tint-1);
+	--color-tint-2: var(--color-tint-2);
+	--color-tint-3: var(--color-tint-3);
 
 	--font-display: var(--font-display);
 	--font-body: var(--font-body);
+	--font-mono: var(--font-mono);
 
 	--text-display: var(--text-display);
 	--text-display--line-height: var(--text-display--line-height);

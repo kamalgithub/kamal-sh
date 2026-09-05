@@ -1,3 +1,4 @@
 export const site = {
-	url: 'https://kamal.sh'
+	url: 'https://kamal.sh',
+	skipToContentLabel: 'Skip to content'
 };
