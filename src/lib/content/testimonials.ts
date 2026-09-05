@@ -166,6 +166,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			"I had the privilege of managing Kamal during his time as a Senior DevOps Engineer, and I can confidently say that he is one of the most talented and dedicated professionals I have ever worked with. Kamal's ability to solve complex problems and optimise systems was awe-inspiring. What truly sets Kamal apart, however, is his professionalism and his dedication to mentoring others — his patience, clarity, and willingness to help others grow were instrumental in elevating the team's performance.",
+		profileUrl: 'https://www.linkedin.com/in/chandresh-property-developer/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -175,6 +176,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			'I highly recommend Kamal because of his outstanding DevOps/Sec Engineering abilities and teamwork. He constantly impressed me with his ability to work well under pressure and clearly explain difficult technical ideas. With a thorough understanding of Python, Terraform, Ansible, networking, Kubernetes, and Azure cloud, Kamal played a key role in automating the CI/CD pipeline, implementing security hardening, and improving the efficiency of our infrastructure.',
+		profileUrl: 'https://www.linkedin.com/in/preeti-singh-819b8a230/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -184,6 +186,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			'Kamal is an outstanding team lead and a valuable asset to the organization. His technical expertise in Azure and Terraform, combined with his proactive approach, makes him a strong leader. He consistently supports team members, takes ownership of challenges, and ensures customer satisfaction.',
+		profileUrl: 'https://www.linkedin.com/in/pdbrpraveen/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -193,6 +196,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			'Kamal has a unique ability to listen to client requests and map out solutions that adhere to their requirements almost exactly. He is able to question and determine what the client desires rather quickly and then produce a workable PoC that will showcase the solution in action. He is amazingly polite, has a lot of patience and communicates in a calm, professional manner with clients and colleagues alike.',
+		profileUrl: 'https://www.linkedin.com/in/dan-chambers-298377163/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -202,6 +206,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			'I had the pleasure of managing Kamal and was consistently impressed by his skills and dedication. Kamal has exceptional expertise in PowerShell, using it to automate complex tasks efficiently. Beyond technical skills, he is a critical thinker and a natural problem solver, always approaching challenges with creativity and innovative ideas.',
+		profileUrl: 'https://www.linkedin.com/in/sandeep-sharma-b9311614/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -211,6 +216,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			"I've had the privilege of working with Kamal at LSEG, and his leadership and dedication have been evident from day one. Kamal consistently goes above and beyond, taking on challenges with enthusiasm and a clear focus on achieving results. What truly stands out is his ability to embrace change, adapt quickly, and bring others along on the journey.",
+		profileUrl: 'https://www.linkedin.com/in/jamescomplin/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -220,6 +226,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			"Kamal is an exceptional technical lead in our team with a deep understanding of cloud engineering, architecture, governance, and security. At LSEG, he played a crucial role in optimizing cloud infrastructure and automating processes. His problem-solving skills, attention to detail, and willingness to mentor made a huge impact on the team's success.",
+		profileUrl: 'https://www.linkedin.com/in/himesh-bhojwani-b95906118/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -229,6 +236,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			'Kamal is very capable, self-motivated, and an effective professional with sound professional knowledge — excellent in DevOps in cloud computing with great relationship building. He maintains a positive outlook, leads with confidence, and stands by his convictions. A great fellow worker and friend I always look forward to working with.',
+		profileUrl: 'https://www.linkedin.com/in/abhishek-pathak-21256662/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -238,6 +246,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			"Kamal is one of the most knowledgeable and dependable engineers I've worked with. At BlackRock, he was the go-to person for solving tough challenges. His expertise in various development and cloud fields made a huge impact on our projects. Highly recommend working with him!",
+		profileUrl: 'https://www.linkedin.com/in/smriti-bajaj-552173132/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -247,6 +256,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			'I had the pleasure of working closely with Kamal, and I can confidently say that he is an exceptional professional. Throughout our time working together, Kamal consistently demonstrated outstanding technical expertise, communication and problem-solving. One of the things that sets Kamal apart is his ability to tackle complex challenges with solutions, collaborate seamlessly across teams with incredible attention to detail.',
+		profileUrl: 'https://www.linkedin.com/in/manya-singhal/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -256,6 +266,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			"Kamal is a talented DevOps Engineer with a keen eye for detail and a dedication to excellence. It was a pleasure working with him. He's a collaborative and innovative professional who consistently delivers results.",
+		profileUrl: 'https://www.linkedin.com/in/sandeep-jain-ab489621/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -265,6 +276,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			'I have worked closely with Kamal and can recommend him as a highly skilled tech lead. He has shown an incredible ability to analyze and break down complex tasks. He has also shown great ability to lead and mentor teammates.',
+		profileUrl: 'https://www.linkedin.com/in/roshan-thamallore-49005a13/',
 		sourceUrl: RECOMMENDATIONS_URL
 	},
 	{
@@ -274,6 +286,7 @@ export const testimonials: Testimonial[] = [
 		rating: 5,
 		quote:
 			'I wholeheartedly recommend Kamal Kumar as a highly focused and energetic Platform Engineer. Kamal is a truly agile engineer, demonstrating an impressive ability to quickly adapt and embrace new challenges and technologies in our ever-evolving field. Notably, Kamal effectively assumed Tech Lead responsibilities when I transitioned within the organization, showcasing remarkable leadership potential and technical expertise.',
+		profileUrl: 'https://www.linkedin.com/in/sraddhananda-jetty-2521701b/',
 		sourceUrl: RECOMMENDATIONS_URL
 	}
 ];
