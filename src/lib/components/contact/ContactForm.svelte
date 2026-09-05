@@ -150,11 +150,16 @@
 		</div>
 
 		{#if turnstileSiteKey}
+			<!-- "compact" (150x140), not the 300px-wide default — this form sits inside a
+			     Card on a single mobile column, where the default size would overflow the
+			     narrowest phone widths. Same size on desktop too: no genuine interaction
+			     difference between a tap and a click here to justify a dual-native split. -->
 			<div
 				class="cf-turnstile"
 				data-sitekey={turnstileSiteKey}
 				data-callback="onTurnstileSuccess"
 				data-expired-callback="onTurnstileExpired"
+				data-size="compact"
 			></div>
 		{/if}
 
