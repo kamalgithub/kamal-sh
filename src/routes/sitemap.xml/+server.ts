@@ -5,7 +5,19 @@ import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-const staticRoutes = ['/', '/work', '/building', '/writing', '/about', '/testimonials', '/contact'];
+const staticRoutes = [
+	'/',
+	'/work',
+	'/architecture',
+	'/building',
+	'/writing',
+	'/about',
+	'/testimonials',
+	'/contact',
+	'/security',
+	'/costs',
+	'/postmortems'
+];
 
 export const GET: RequestHandler = () => {
 	const routes = [

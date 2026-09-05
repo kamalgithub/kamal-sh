@@ -37,7 +37,7 @@
 				value={form?.values?.name ?? ''}
 				aria-invalid={form?.errors?.name ? 'true' : undefined}
 				aria-describedby={form?.errors?.name ? 'name-error' : undefined}
-				class="mt-1 w-full rounded-sm border border-border bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
 			/>
 			{#if form?.errors?.name}
 				<p id="name-error" class="mt-1 text-small text-error">{form.errors.name}</p>
@@ -54,7 +54,7 @@
 				value={form?.values?.email ?? ''}
 				aria-invalid={form?.errors?.email ? 'true' : undefined}
 				aria-describedby={form?.errors?.email ? 'email-error' : undefined}
-				class="mt-1 w-full rounded-sm border border-border bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
 			/>
 			{#if form?.errors?.email}
 				<p id="email-error" class="mt-1 text-small text-error">{form.errors.email}</p>
@@ -70,7 +70,7 @@
 				rows="5"
 				aria-invalid={form?.errors?.message ? 'true' : undefined}
 				aria-describedby={form?.errors?.message ? 'message-error' : undefined}
-				class="mt-1 w-full rounded-sm border border-border bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
 				>{form?.values?.message ?? ''}</textarea
 			>
 			{#if form?.errors?.message}

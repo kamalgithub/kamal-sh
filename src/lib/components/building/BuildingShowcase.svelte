@@ -3,6 +3,7 @@
 	import type { Product } from '$lib/content/products/product.types';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
+	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
 
 	let {
 		products,
@@ -27,9 +28,10 @@
 					</div>
 					<a
 						href={resolve('/building/[slug]', { slug: product.slug })}
-						class="shrink-0 text-small text-accent transition-[text-decoration-color] duration-(--duration-fast) ease-standard hover:underline"
+						class="flex shrink-0 items-center gap-1 text-small text-accent transition-[text-decoration-color] duration-(--duration-fast) ease-standard hover:underline"
 					>
 						{linkLabel}
+						<IconArrowRight size={14} />
 					</a>
 				</li>
 			{/each}

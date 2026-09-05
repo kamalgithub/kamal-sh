@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import type { NavLink } from '$lib/content/nav.types';
+	import ThemeToggle from './ThemeToggle.svelte';
 
 	let { links, name }: { links: NavLink[]; name: string } = $props();
 	let dialogEl: HTMLDialogElement | undefined = $state();
@@ -18,21 +19,24 @@
 	class="sticky top-0 z-40 flex items-center justify-between border-b border-border bg-bg px-4 py-3"
 >
 	<a href={resolve('/')} class="font-display text-lg font-semibold text-text">{name}</a>
-	<button
-		type="button"
-		onclick={openMenu}
-		aria-label="Open menu"
-		class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text transition-colors duration-(--duration-fast) ease-standard hover:bg-surface"
-	>
-		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-			<path
-				d="M2 5h16M2 10h16M2 15h16"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-			/>
-		</svg>
-	</button>
+	<div class="flex items-center gap-2">
+		<ThemeToggle />
+		<button
+			type="button"
+			onclick={openMenu}
+			aria-label="Open menu"
+			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text transition-colors duration-(--duration-fast) ease-standard hover:bg-surface"
+		>
+			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+				<path
+					d="M2 5h16M2 10h16M2 15h16"
+					stroke="currentColor"
+					stroke-width="1.5"
+					stroke-linecap="round"
+				/>
+			</svg>
+		</button>
+	</div>
 </div>
 
 <dialog

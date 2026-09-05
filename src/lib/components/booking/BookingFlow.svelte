@@ -70,7 +70,7 @@
 					<button
 						type="button"
 						onclick={() => selectDate(date)}
-						class="rounded-sm border border-border px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+						class="rounded-sm border border-border-strong px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
 					>
 						{formatDateLabel(date)}
 					</button>
@@ -83,7 +83,7 @@
 					<button
 						type="button"
 						onclick={() => selectDuration(minutes)}
-						class="rounded-sm border border-border px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+						class="rounded-sm border border-border-strong px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
 					>
 						{minutes} min
 					</button>
@@ -104,7 +104,7 @@
 							href={buildCalComUrl(calComUsername, selectedDuration, slot)}
 							target="_blank"
 							rel="noopener"
-							class="rounded-sm border border-border px-3 py-3 text-center text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent hover:bg-surface"
+							class="rounded-sm border border-border-strong px-3 py-3 text-center text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent hover:bg-surface"
 						>
 							{formatTimeLabel(slot)}
 						</a>

@@ -10,6 +10,11 @@ export interface ProfileSocial {
 	url: string;
 }
 
+export interface ProfilePhoto {
+	src: string;
+	alt: string;
+}
+
 export interface Profile {
 	name: string;
 	title: string;
@@ -19,4 +24,6 @@ export interface Profile {
 	email: string;
 	links: ProfileLinks;
 	socials: ProfileSocial[];
+	/** Absent until a real portrait is dropped in — Hero renders a placeholder instead of skipping the slot. */
+	photo?: ProfilePhoto;
 }

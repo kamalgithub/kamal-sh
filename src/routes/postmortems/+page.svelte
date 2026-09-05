@@ -1,0 +1,24 @@
+<script lang="ts">
+	import { postmortems } from '$lib/content/postmortems';
+	import { postmortemsCopy } from '$lib/content/copy/postmortems';
+	import Container from '$lib/components/primitives/Container.svelte';
+	import Section from '$lib/components/primitives/Section.svelte';
+	import PostmortemList from '$lib/components/postmortems/PostmortemList.svelte';
+</script>
+
+<svelte:head>
+	<title>Postmortems | Kamal Kumar</title>
+	<meta name="description" content={postmortemsCopy.intro} />
+</svelte:head>
+
+<Section>
+	<Container>
+		<h1 class="font-display text-display font-medium text-text">{postmortemsCopy.heading}</h1>
+		<p class="mt-3 max-w-2xl text-body text-text-muted">{postmortemsCopy.intro}</p>
+	</Container>
+</Section>
+<Section>
+	<Container>
+		<PostmortemList {postmortems} copy={postmortemsCopy} />
+	</Container>
+</Section>

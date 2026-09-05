@@ -8,8 +8,11 @@
 	import Section from '$lib/components/primitives/Section.svelte';
 	import EducationList from '$lib/components/education/EducationList.svelte';
 	import CertificationsGrid from '$lib/components/certifications/CertificationsGrid.svelte';
+	import GithubActivity from '$lib/components/github/GithubActivity.svelte';
 	import TestimonialsPreview from '$lib/components/testimonials/TestimonialsPreview.svelte';
+	import type { PageProps } from './$types';
 
+	let { data }: PageProps = $props();
 	const featuredTestimonials = testimonials.slice(0, 3);
 </script>
 
@@ -36,6 +39,11 @@
 			{aboutCopy.certificationsHeading} ({certifications.length})
 		</h2>
 		<CertificationsGrid {certifications} />
+	</Container>
+</Section>
+<Section>
+	<Container>
+		<GithubActivity items={data.githubActivity} heading={aboutCopy.githubActivityHeading} />
 	</Container>
 </Section>
 <TestimonialsPreview

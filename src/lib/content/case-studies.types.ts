@@ -14,7 +14,25 @@ export interface CaseStudyStatGridBlock {
 	stats: CaseStudyStat[];
 }
 
-export type CaseStudyBlock = CaseStudyNarrativeBlock | CaseStudyStatGridBlock;
+export interface CaseStudyTradeoff {
+	option: string;
+	rejectedBecause: string;
+}
+
+export interface CaseStudyTradeoffsBlock {
+	type: 'tradeoffs';
+	heading: string;
+	considered: CaseStudyTradeoff[];
+	whatIdChangeNow: string;
+}
+
+export type CaseStudyBlock =
+	CaseStudyNarrativeBlock | CaseStudyStatGridBlock | CaseStudyTradeoffsBlock;
+
+export interface CaseStudyImage {
+	src: string;
+	alt: string;
+}
 
 export interface CaseStudy {
 	slug: string;
@@ -23,4 +41,6 @@ export interface CaseStudy {
 	summary: string;
 	technologies: string[];
 	blocks: CaseStudyBlock[];
+	/** Absent until a real architecture diagram/screenshot is dropped in. */
+	image?: CaseStudyImage;
 }

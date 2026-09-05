@@ -1,0 +1,25 @@
+# Kamal Kumar
+
+> Personal site for Kamal Kumar — cloud, DevOps, and platform engineering. Static content, no tracking, no database.
+
+## Pages
+
+- [Home](https://kamal.sh/): Summary and entry point.
+- [Work](https://kamal.sh/work): Case studies and professional experience.
+- [Architecture](https://kamal.sh/architecture): An opinionated reference architecture for an enterprise AI platform — gateway, guardrails, governance, evals, cost.
+- [Building](https://kamal.sh/building): Products and tools built and maintained.
+- [Writing](https://kamal.sh/writing): Blog posts and videos.
+- [About](https://kamal.sh/about): Background, education, certifications, live GitHub activity.
+- [Testimonials](https://kamal.sh/testimonials): What colleagues and clients have said.
+- [Security](https://kamal.sh/security): Security posture of this site, in plain terms.
+- [Costs](https://kamal.sh/costs): What this site costs to run, line by line.
+- [Postmortems](https://kamal.sh/postmortems): Public, blameless incident writeups.
+- [Contact](https://kamal.sh/contact): Contact form and booking.
+
+## Machine-readable
+
+- [resume](https://kamal.sh/resume): Plain-text résumé.
+- [resume.json](https://kamal.sh/resume.json): Structured résumé data.
+- [resume.md](https://kamal.sh/resume.md): Markdown résumé.
+- [sitemap.xml](https://kamal.sh/sitemap.xml): Full page index.
+- [rss.xml](https://kamal.sh/rss.xml): Writing feed.

@@ -22,9 +22,25 @@ No `src/lib/index.ts` barrel file. Import directly from the file that defines wh
 
 ## Routing & rendering strategy
 
-- **Prerender by default.** Every route whose content doesn't depend on the individual request should set `export const prerender = true` (or rely on the top-level default once one is set) — this is a personal site, almost everything is static at build time and should be served as static assets for instant loads.
-- **SSR only where genuinely required** — currently just the future contact-form submission route. Don't reach for SSR because it's the path of least resistance; justify it against "does this truly need per-request server computation."
+- **Prerender by default.** `src/routes/+layout.ts` sets `export const prerender = true` at the root, so every route is static at build time unless it explicitly opts out — this is a personal site, almost everything should be served as static assets for instant loads.
+- **SSR only where genuinely required.** Two routes currently opt out with `export const prerender = false`, each for a specific per-request need:
+  - `/contact` — the form submission action.
+  - `/about` — `+page.server.ts` fetches `api.github.com/.../events/public` live on every request (see "Live external data" below); prerendering would freeze that feed at build time, defeating the point.
+
+  Don't reach for SSR because it's the path of least resistance; justify it against "does this truly need per-request server computation." Note the tradeoff this creates: on `@sveltejs/adapter-cloudflare`, prerendered routes are served straight from `env.ASSETS.fetch()` and never reach `src/hooks.server.ts` — see "Response headers" below for why that matters.
 - Route files stay thin: a `+page.svelte` imports content from `src/lib/content/` and composes components from `src/lib/components/` — it does not itself contain business logic or hardcoded copy.
+
+## Prerendered `+server.ts` endpoints
+
+`/resume`, `/resume.json`, and `/resume.md` (`src/routes/resume/+server.ts`, `resume.json/+server.ts`, `resume.md/+server.ts`) each set `export const prerender = true` and return a plain-text/JSON/markdown résumé built from existing content (`profile`, `experience`, `education`, `certifications`) by pure formatter functions in `src/lib/utils/` (`buildResumeText.ts`, `buildResumeMarkdown.ts`). Because the output depends only on static content, SvelteKit renders it once at build time into a static file — `curl kamal.sh/resume` costs nothing at request time, same as any other static asset. This is the pattern to follow for any future machine-readable endpoint whose content is fully known at build time: prefer a prerendered `+server.ts` over an SSR one.
+
+## Live external data
+
+`/about`'s GitHub activity feed (`src/routes/about/+page.server.ts`) is the one place this site calls a third-party API at request time. It fetches with the request-scoped `fetch` (so Cloudflare can cache/dedupe it), sets a `cache-control` response header, and wraps the call in try/catch — a GitHub outage or rate limit returns an empty list, never a broken page. The raw, untyped API response is parsed defensively by `src/lib/utils/parseGithubEvents.ts` (a pure function, independently unit-tested with fixture data) rather than trusted as-is, since it's third-party JSON, not our own typed content.
+
+## Response headers
+
+`src/hooks.server.ts`'s `handle` sets security headers (CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`) on every response it handles — but per the adapter-cloudflare behavior noted above, that's only the SSR routes (`/about`, `/contact`). Every prerendered route is served as a static asset and never reaches this hook. `static/_headers` (Cloudflare's native static-asset header mechanism — copied verbatim into the build output like `robots.txt`) carries the identical policy for everything else. **The two files must be kept in sync by hand** — there's no shared source between a Cloudflare `_headers` file and TypeScript code. See `/security` for the human-readable version of this policy, including the one deliberate weakening (`'unsafe-inline'` for scripts/styles) and why.
 
 ## Dual-native mobile/desktop components
 
@@ -60,7 +76,9 @@ Because both variants render unconditionally, both mount and run their effects �
 
 ## Content domains
 
-Each content domain (`profile`, `experience`, `education`, `certifications`, `testimonials`, `stats`, `case-studies`, `products/`, `writing/`, `youtube/`, etc.) gets its own `<domain>.ts` + `<domain>.types.ts` pair in `src/lib/content/`. This mirrors how the data is already organized at the source (see the content-inventory captured from the previous site) and keeps each domain independently editable without touching unrelated ones.
+Each content domain (`profile`, `experience`, `education`, `certifications`, `testimonials`, `stats`, `case-studies`, `architecture`, `security`, `costs`, `postmortems`, `products/`, `writing/`, `youtube/`, etc.) gets its own `<domain>.ts` + `<domain>.types.ts` pair in `src/lib/content/`. This mirrors how the data is already organized at the source (see the content-inventory captured from the previous site) and keeps each domain independently editable without touching unrelated ones.
+
+`postmortems.ts` is deliberately an empty array right now — see `/postmortems`'s honest empty state. An empty domain is a valid, intended state, not a placeholder to fill with invented content.
 
 Where a domain is split into multiple entities that each deserve their own file (e.g. `products/`), each entity gets its own file plus one small aggregate file (e.g. `products.ts`) whose only job is exporting the combined list — that aggregate is a genuine single-purpose file, not a barrel.
 
@@ -80,3 +98,13 @@ Blog posts and YouTube videos aren't authored here — they're synced from exter
 **Assumption to verify against the real Cal.com account:** availability is assumed to be 9:00 AM–6:00 PM IST, every day, with no minimum-notice period beyond "must be in the future" (`getTimeSlotsForDate.ts`'s `AVAILABILITY_START_HOUR`/`AVAILABILITY_END_HOUR` constants). If the real Cal.com availability differs (different hours, excluded days, a minimum-notice buffer), update those constants to match — there was no way to confirm the real configured hours from here.
 
 The widget computes "today" via `onMount` (never during SSR/prerender), so a visitor's actual current time is always used, not a stale build-time snapshot — see the dual-native section above for why `$effect`/`onMount` and not `$derived` matters here.
+
+## Cross-component UI signaling (command palette)
+
+`CommandPalette.svelte` is mounted once, in the root layout, and needs to open in response to two independent triggers it doesn't own: the global Cmd/Ctrl+K listener (which it does own) and a visible trigger button in `NavDesktop.svelte` (a sibling component, no direct reference to the palette). Rather than a shared reactive store (`$state` in a module-scope `.svelte.ts` file, watched by an `$effect` that calls `showModal()`), this uses a plain `window` `CustomEvent` (`src/lib/utils/commandPaletteEvent.ts`'s `requestCommandPaletteOpen()`), which `CommandPalette` listens for in `onMount` and handles with a direct, synchronous `showModal()` call.
+
+This was a deliberate choice, not the first attempt: the module-`$state`-plus-`$effect` version worked in the browser but was flaky under `vitest-browser-svelte` in a way that traced back to effect-timing/dependency-tracking interaction across the module singleton, not to real application behavior. The imperative event-based version is simpler, has no reactive indirection between "user asked to open the palette" and "the dialog opens," and is easier to test — prefer this pattern for any future "open me from anywhere" UI trigger over a shared reactive store.
+
+## Role-tailored homepage (`?for=`)
+
+The homepage's middle sections (stats, building/products, testimonials — not the Hero or closing CTA, which stay fixed) reorder based on a `?for=` query parameter, read via `page.url.searchParams` from `$app/state`. `src/lib/utils/getHomeSectionOrder.ts` is a pure function mapping a role string to a section order, with an unrecognized or absent value falling back to the same order the page prerenders with. Because `page.url` is only meaningfully populated client-side after hydration, the prerendered HTML (what a crawler or no-JS visitor sees) always reflects the default order; reordering is a client-side enhancement, not something the build needs to branch on.
