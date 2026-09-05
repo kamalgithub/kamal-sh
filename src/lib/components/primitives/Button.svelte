@@ -22,11 +22,14 @@
 	const base =
 		'inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm px-6 text-small font-medium transition-[background-color,border-color,color,opacity] duration-(--duration-fast) ease-standard focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50';
 
-	// Primary is a solid "ink stamp" fill — bg/text swap the already-guaranteed-readable
-	// text/bg pair, so no separate high-contrast fill color is needed. No accent color on
-	// buttons at all — accent is reserved for text links and rules elsewhere.
+	// Primary is a solid accent fill. Text uses --color-bg (not a fixed black/white) because
+	// that's the one token verified to contrast well against accent in *both* themes: dark
+	// mode's accent (#5C82FF) needs near-black text (~5.7:1), light mode's accent (#2544B0)
+	// needs near-white text (~7.9:1) — --color-bg happens to already flip between exactly
+	// those two values for the page background, so it doubles as the correct button-text
+	// color with no new token. See docs/design-tokens.md for the verified ratios.
 	const variants = {
-		primary: 'bg-text text-bg hover:opacity-90',
+		primary: 'bg-accent text-bg hover:opacity-90',
 		secondary: 'border border-text text-text hover:bg-text hover:text-bg'
 	} as const;
 

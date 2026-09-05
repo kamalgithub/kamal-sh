@@ -18,7 +18,13 @@
 <div
 	class="sticky top-0 z-40 flex items-center justify-between border-b border-border bg-bg px-4 py-3"
 >
-	<a href={resolve('/')} class="font-display text-lg font-semibold text-text">{name}</a>
+	<a
+		href={resolve('/')}
+		class="flex items-center gap-1.5 font-mono text-lg font-semibold text-text"
+	>
+		<span class="text-accent" aria-hidden="true">$</span>
+		{name}
+	</a>
 	<div class="flex items-center gap-2">
 		<ThemeToggle />
 		<button
@@ -45,7 +51,10 @@
 >
 	<div class="flex h-full flex-col">
 		<div class="flex items-center justify-between px-4 py-3">
-			<span class="font-display text-lg font-semibold text-text">{name}</span>
+			<span class="flex items-center gap-1.5 font-mono text-lg font-semibold text-text">
+				<span class="text-accent" aria-hidden="true">$</span>
+				{name}
+			</span>
 			<button
 				type="button"
 				onclick={closeMenu}

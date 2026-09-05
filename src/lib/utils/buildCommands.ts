@@ -15,7 +15,19 @@ export interface Command {
 	icon?: CommandIcon;
 	/** Absent only for the theme-toggle command, which runs code instead of navigating. */
 	href?: string;
+	/** Extra search terms a query can match besides the visible label — e.g. "dark"/"light" for Theme. */
+	keywords?: string[];
 }
+
+/** Hand-curated synonyms for the fixed nav routes — extend here, not by guessing in the fuzzy matcher. */
+const NAV_KEYWORDS: Record<string, string[]> = {
+	'/work': ['case studies', 'experience', 'projects'],
+	'/architecture': ['design', 'platform', 'system design', 'diagram'],
+	'/building': ['products', 'tools'],
+	'/writing': ['blog', 'posts', 'articles', 'videos'],
+	'/about': ['bio', 'education', 'certifications', 'github activity'],
+	'/contact': ['email', 'message', 'book', 'call', 'meeting']
+};
 
 /** Assembles the palette's command list from existing content — no copy is duplicated or hand-maintained here. */
 export function buildCommands(
@@ -30,21 +42,24 @@ export function buildCommands(
 			label: link.label,
 			group: copy.pagesGroupLabel,
 			icon: 'page' as const,
-			href: link.href
+			href: link.href,
+			keywords: NAV_KEYWORDS[link.href]
 		})),
 		{
 			id: 'testimonials',
 			label: copy.testimonialsLabel,
 			group: copy.pagesGroupLabel,
 			icon: 'page',
-			href: '/testimonials'
+			href: '/testimonials',
+			keywords: ['reviews', 'quotes', 'references']
 		},
 		{
 			id: 'resume',
 			label: copy.resumeLabel,
 			group: copy.resumeGroupLabel,
 			icon: 'resume',
-			href: '/resume'
+			href: '/resume',
+			keywords: ['cv', 'download']
 		},
 		...socials.map((social) => ({
 			id: `social-${social.label}`,
@@ -53,6 +68,11 @@ export function buildCommands(
 			icon: 'social' as const,
 			href: social.url
 		})),
-		{ id: THEME_TOGGLE_COMMAND_ID, label: copy.themeToggleLabel, group: copy.themeGroupLabel }
+		{
+			id: THEME_TOGGLE_COMMAND_ID,
+			label: copy.themeToggleLabel,
+			group: copy.themeGroupLabel,
+			keywords: ['dark', 'light', 'color', 'appearance', 'mode', 'system']
+		}
 	];
 }

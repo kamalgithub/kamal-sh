@@ -28,6 +28,9 @@
 	/* Typography */
 	--font-display: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
 	--font-body: 'Switzer', ui-sans-serif, system-ui, sans-serif;
+	/* Native monospace stack, no self-hosted file — used sparingly for the "$" terminal-prompt
+	   framing on the logo and similar CLI-flavored moments, not as a body/UI font. */
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
 
 	--text-display: clamp(2.75rem, 7vw, 5.5rem);
 	--text-display--line-height: 1;
@@ -92,6 +95,7 @@
 
 	--font-display: var(--font-display);
 	--font-body: var(--font-body);
+	--font-mono: var(--font-mono);
 
 	--text-display: var(--text-display);
 	--text-display--line-height: var(--text-display--line-height);

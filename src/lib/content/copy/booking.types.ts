@@ -6,4 +6,6 @@ export interface BookingCopy {
 	backLabel: string;
 	noSlotsMessage: string;
 	loadingLabel: string;
+	/** Template with `{current}`/`{total}` placeholders, e.g. "Step {current} of {total}". */
+	stepProgressLabel: string;
 }

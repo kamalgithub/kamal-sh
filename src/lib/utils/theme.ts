@@ -23,3 +23,21 @@ export function applyTheme(theme: Theme): void {
 	document.documentElement.setAttribute('data-theme', theme);
 	localStorage.setItem(STORAGE_KEY, theme);
 }
+
+export type ResolvedTheme = 'light' | 'dark';
+
+/** What the visitor actually sees right now — resolves 'system' against the OS preference. */
+export function getResolvedTheme(): ResolvedTheme {
+	const stored = getStoredTheme();
+	if (stored !== 'system') return stored;
+	return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+/**
+ * Flips between light and dark only — for the command palette's quick toggle, which
+ * intentionally skips 'system'. The navbar's ThemeToggle dropdown is the full 3-way
+ * control; a one-key command is for "just switch it," not "match my OS."
+ */
+export function toggleLightDark(): void {
+	applyTheme(getResolvedTheme() === 'dark' ? 'light' : 'dark');
+}

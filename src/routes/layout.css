@@ -6,6 +6,9 @@
 @import '../lib/styles/theme-image.css';
 
 body {
+	display: flex;
+	min-height: 100dvh;
+	flex-direction: column;
 	background-color: var(--color-bg);
 	color: var(--color-text);
 	font-family: var(--font-body);

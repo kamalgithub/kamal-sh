@@ -6,6 +6,7 @@ export interface CommandPaletteCopy {
 	searchPlaceholder: string;
 	emptyLabel: string;
 	triggerLabel: string;
+	triggerHint: string;
 	pagesGroupLabel: string;
 	resumeGroupLabel: string;
 	socialGroupLabel: string;

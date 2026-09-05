@@ -11,7 +11,13 @@
 
 <div class="sticky top-0 z-40 border-b border-border bg-bg">
 	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-		<a href={resolve('/')} class="font-display text-lg font-semibold text-text">{name}</a>
+		<a
+			href={resolve('/')}
+			class="flex items-center gap-1.5 font-mono text-lg font-semibold text-text"
+		>
+			<span class="text-accent" aria-hidden="true">$</span>
+			curl {name}
+		</a>
 		<div class="flex items-center gap-8">
 			<nav class="flex items-center gap-6" aria-label="Primary">
 				{#each links as link (link.href)}
@@ -33,7 +39,7 @@
 					type="button"
 					onclick={requestCommandPaletteOpen}
 					aria-label={commandPaletteCopy.triggerLabel}
-					title="{commandPaletteCopy.triggerLabel} (⌘K)"
+					title="{commandPaletteCopy.triggerLabel} ({commandPaletteCopy.triggerHint})"
 					class="flex min-h-10 min-w-10 items-center justify-center rounded-sm text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-text"
 				>
 					<IconSearch size={17} />

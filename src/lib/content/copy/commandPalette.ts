@@ -8,6 +8,7 @@ export const commandPaletteCopy: CommandPaletteCopy = {
 	searchPlaceholder: 'Type a command or search',
 	emptyLabel: 'No matching commands.',
 	triggerLabel: 'Open command palette',
+	triggerHint: '/ or ⌘K',
 	pagesGroupLabel: 'Pages',
 	resumeGroupLabel: 'Resume',
 	socialGroupLabel: 'Social',

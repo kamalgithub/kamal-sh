@@ -3,12 +3,15 @@
 	import { getBookableDates } from '$lib/utils/getBookableDates';
 	import { getTimeSlotsForDate } from '$lib/utils/getTimeSlotsForDate';
 	import { buildCalComUrl } from '$lib/utils/buildCalComUrl';
+	import { buildCalendarWeeks } from '$lib/utils/buildCalendarWeeks';
 	import type { CalendarDate } from '$lib/utils/ist';
 	import type { BookingCopy } from '$lib/content/copy/booking.types';
 	import Button from '$lib/components/primitives/Button.svelte';
 
 	const BOOKABLE_DAYS = 14;
 	const DURATIONS_MINUTES = [15, 30, 45, 60];
+	const STEPS = ['date', 'duration', 'time'] as const;
+	const WEEKDAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 	let { copy, bookingUrl }: { copy: BookingCopy; bookingUrl: string } = $props();
 
@@ -22,21 +25,45 @@
 		now = new Date();
 	});
 
-	let step = $state<'date' | 'duration' | 'time'>('date');
+	let step = $state<(typeof STEPS)[number]>('date');
 	let selectedDate = $state<CalendarDate | undefined>(undefined);
 	let selectedDuration = $state<number | undefined>(undefined);
 
 	const dates = $derived(now ? getBookableDates(now, BOOKABLE_DAYS) : []);
+	const calendarWeeks = $derived(buildCalendarWeeks(dates));
 	const slots = $derived(
 		now && selectedDate && selectedDuration
 			? getTimeSlotsForDate(selectedDate, selectedDuration, now)
 			: []
 	);
+	const stepProgressText = $derived(
+		copy.stepProgressLabel
+			.replace('{current}', String(STEPS.indexOf(step) + 1))
+			.replace('{total}', String(STEPS.length))
+	);
 
-	function formatDateLabel(date: CalendarDate): string {
+	function isSameDate(a: CalendarDate, b: CalendarDate): boolean {
+		return a.year === b.year && a.month === b.month && a.day === b.day;
+	}
+
+	// The day number alone is ambiguous across a month boundary, so the first bookable
+	// day and the 1st of any later month also show a short month name.
+	function formatDayLabel(date: CalendarDate): string {
+		const isRangeStart = dates.length > 0 && isSameDate(date, dates[0]);
+		if (isRangeStart || date.day === 1) {
+			return new Date(Date.UTC(date.year, date.month, date.day)).toLocaleDateString(undefined, {
+				month: 'short',
+				day: 'numeric',
+				timeZone: 'UTC'
+			});
+		}
+		return String(date.day);
+	}
+
+	function formatDateAriaLabel(date: CalendarDate): string {
 		return new Date(Date.UTC(date.year, date.month, date.day)).toLocaleDateString(undefined, {
-			weekday: 'short',
-			month: 'short',
+			weekday: 'long',
+			month: 'long',
 			day: 'numeric',
 			timeZone: 'UTC'
 		});
@@ -65,15 +92,25 @@
 	{:else}
 		{#if step === 'date'}
 			<p class="mb-3 text-small text-text-muted">{copy.dateStepLabel}</p>
-			<div class="grid grid-cols-[repeat(auto-fill,minmax(84px,1fr))] gap-2">
-				{#each dates as date (`${date.year}-${date.month}-${date.day}`)}
-					<button
-						type="button"
-						onclick={() => selectDate(date)}
-						class="rounded-sm border border-border-strong px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
-					>
-						{formatDateLabel(date)}
-					</button>
+			<div class="grid grid-cols-7 gap-1 text-center">
+				{#each WEEKDAY_LABELS as weekday (weekday)}
+					<span class="py-1 text-small text-text-muted">{weekday}</span>
+				{/each}
+				{#each calendarWeeks as week, weekIndex (weekIndex)}
+					{#each week as date, dayIndex (dayIndex)}
+						{#if date}
+							<button
+								type="button"
+								onclick={() => selectDate(date)}
+								aria-label={formatDateAriaLabel(date)}
+								class="aspect-square rounded-sm border border-border-strong text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+							>
+								{formatDayLabel(date)}
+							</button>
+						{:else}
+							<span></span>
+						{/if}
+					{/each}
 				{/each}
 			</div>
 		{:else if step === 'duration'}
@@ -116,5 +153,15 @@
 				<Button variant="secondary" onclick={() => (step = 'duration')}>{copy.backLabel}</Button>
 			</div>
 		{/if}
+
+		<div class="mt-6 flex items-center justify-center gap-2">
+			<span class="sr-only">{stepProgressText}</span>
+			{#each STEPS as s (s)}
+				<span
+					aria-hidden="true"
+					class="h-1.5 w-1.5 rounded-full {step === s ? 'bg-accent' : 'bg-border-strong'}"
+				></span>
+			{/each}
+		</div>
 	{/if}
 </div>

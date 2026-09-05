@@ -5,7 +5,8 @@
 	import { nav } from '$lib/content/nav';
 	import { commandPaletteCopy as copy } from '$lib/content/copy/commandPalette';
 	import { buildCommands, THEME_TOGGLE_COMMAND_ID, type Command } from '$lib/utils/buildCommands';
-	import { getStoredTheme, applyTheme, type Theme } from '$lib/utils/theme';
+	import { getResolvedTheme, toggleLightDark, type ResolvedTheme } from '$lib/utils/theme';
+	import { bestFuzzyScore } from '$lib/utils/fuzzyScore';
 	import { COMMAND_PALETTE_OPEN_EVENT } from '$lib/utils/commandPaletteEvent';
 	import IconSearch from '$lib/components/icons/IconSearch.svelte';
 	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
@@ -13,33 +14,47 @@
 	import IconTerminal from '$lib/components/icons/IconTerminal.svelte';
 	import IconSun from '$lib/components/icons/IconSun.svelte';
 	import IconMoon from '$lib/components/icons/IconMoon.svelte';
-	import IconMonitor from '$lib/components/icons/IconMonitor.svelte';
 
 	const commands = buildCommands(nav, profile.socials, copy);
-	const THEME_CYCLE: Record<Theme, Theme> = { dark: 'light', light: 'system', system: 'dark' };
 	const STATIC_ICONS = { page: IconArrowRight, resume: IconTerminal, social: IconArrowUpRight };
-	const THEME_ICONS: Record<Theme, typeof IconSun> = {
+	const RESOLVED_THEME_ICONS: Record<ResolvedTheme, typeof IconSun> = {
 		light: IconSun,
-		dark: IconMoon,
-		system: IconMonitor
+		dark: IconMoon
 	};
 
 	let dialogEl: HTMLDialogElement | undefined = $state();
 	let query = $state('');
 	let activeIndex = $state(0);
-	// Read fresh each time the palette opens (see openPalette) — the theme rarely changes
-	// while it's open, and running the command closes the palette immediately anyway.
-	let currentTheme: Theme = $state('system');
+	let itemRefs: (HTMLButtonElement | undefined)[] = $state([]);
+	// Read fresh each time the palette opens (see openPalette) — resolved so the icon
+	// reflects what's actually on screen right now, including when theme is 'system'.
+	let currentResolvedTheme: ResolvedTheme = $state('dark');
 
+	// Idle (no query): original content order, grouped. Searching: fuzzy-ranked best
+	// first — a query can match a command's keywords ("dark" -> Toggle theme) as well
+	// as its visible label, and a typo or abbreviation still finds it via subsequence
+	// matching. See fuzzyScore.ts for exactly how far "fuzzy" goes here on purpose.
+	const isSearching = $derived(query.trim() !== '');
 	const filtered = $derived.by(() => {
-		const q = query.trim().toLowerCase();
-		return q === ''
-			? commands
-			: commands.filter((command) => command.label.toLowerCase().includes(q));
+		const q = query.trim();
+		if (q === '') return commands;
+		return commands
+			.map((command) => ({
+				command,
+				score: bestFuzzyScore(q, [command.label, ...(command.keywords ?? [])])
+			}))
+			.filter((entry) => entry.score > -1)
+			.sort((a, b) => b.score - a.score)
+			.map((entry) => entry.command);
 	});
 
 	$effect(() => {
 		if (activeIndex > filtered.length - 1) activeIndex = Math.max(filtered.length - 1, 0);
+	});
+
+	// Keeps the highlighted row visible when arrow keys move it past the scrollable list's edge.
+	$effect(() => {
+		itemRefs[activeIndex]?.scrollIntoView({ block: 'nearest' });
 	});
 
 	// Imperative, not effect-driven: showModal()/close() run in direct response to the
@@ -48,7 +63,8 @@
 	function openPalette() {
 		query = '';
 		activeIndex = 0;
-		currentTheme = getStoredTheme();
+		itemRefs = [];
+		currentResolvedTheme = getResolvedTheme();
 		dialogEl?.showModal();
 	}
 
@@ -62,14 +78,14 @@
 	}
 
 	function commandIcon(command: Command) {
-		if (command.id === THEME_TOGGLE_COMMAND_ID) return THEME_ICONS[currentTheme];
+		if (command.id === THEME_TOGGLE_COMMAND_ID) return RESOLVED_THEME_ICONS[currentResolvedTheme];
 		return command.icon ? STATIC_ICONS[command.icon] : undefined;
 	}
 
 	function run(command: Command) {
 		closePalette();
 		if (command.id === THEME_TOGGLE_COMMAND_ID) {
-			applyTheme(THEME_CYCLE[getStoredTheme()]);
+			toggleLightDark();
 			return;
 		}
 		if (!command.href) return;
@@ -99,8 +115,19 @@
 		if (event.target === dialogEl) closePalette();
 	}
 
+	function isEditableElement(element: Element | null): boolean {
+		if (!element) return false;
+		if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') return true;
+		return (element as HTMLElement).isContentEditable;
+	}
+
 	function onGlobalKeydown(event: KeyboardEvent) {
-		if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+		const isCmdK = (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k';
+		// "/" is a well-precedented "focus search" shortcut (GitHub, Slack) that no browser
+		// or OS reserves globally — unlike Cmd/Ctrl+K, it also has to be guarded so typing an
+		// actual "/" into a form field doesn't hijack it.
+		const isSlash = event.key === '/' && !isEditableElement(document.activeElement);
+		if (isCmdK || isSlash) {
 			event.preventDefault();
 			togglePalette();
 		}
@@ -129,17 +156,18 @@
 			type="text"
 			bind:value={query}
 			placeholder={copy.searchPlaceholder}
-			class="w-full bg-transparent text-body text-text placeholder:text-text-muted focus:outline-hidden"
+			class="w-full rounded-sm bg-transparent text-body text-text placeholder:text-text-muted focus:outline-hidden focus-visible:ring-2 focus-visible:ring-accent"
 		/>
 	</div>
 	<ul class="max-h-80 overflow-y-auto p-2">
 		{#each filtered as command, i (command.id)}
 			{@const Icon = commandIcon(command)}
-			{#if command.group !== filtered[i - 1]?.group}
+			{#if !isSearching && command.group !== filtered[i - 1]?.group}
 				<li class="px-3 pt-3 pb-1 text-small text-text-muted first:pt-1">{command.group}</li>
 			{/if}
 			<li>
 				<button
+					bind:this={itemRefs[i]}
 					type="button"
 					onclick={() => run(command)}
 					onmouseenter={() => (activeIndex = i)}
