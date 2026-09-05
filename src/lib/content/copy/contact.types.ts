@@ -1,12 +1,14 @@
 export interface ContactFormCopy {
 	nameLabel: string;
 	emailLabel: string;
+	subjectLabel: string;
 	messageLabel: string;
 	submitLabel: string;
 	sendingLabel: string;
 	successMessage: string;
 	nameRequiredError: string;
 	emailInvalidError: string;
+	subjectRequiredError: string;
 	messageRequiredError: string;
 	sendFailedError: string;
 	notConfiguredError: string;

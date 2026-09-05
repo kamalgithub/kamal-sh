@@ -1,6 +1,7 @@
 export interface ContactMessage {
 	name: string;
 	email: string;
+	subject: string;
 	message: string;
 }
 
@@ -9,6 +10,21 @@ export interface MailgunConfig {
 	domain: string;
 	/** Where the contact form's notification email is delivered — Kamal's real inbox. */
 	toAddress: string;
+}
+
+/** The sender's own words, followed by a plain signature block so the recipient
+ *  always sees who sent it and how to reach them, even before checking Reply-To. */
+function buildEmailBody(contact: ContactMessage): string {
+	return [
+		contact.message,
+		'',
+		'—',
+		'Regards,',
+		contact.name,
+		contact.email,
+		'',
+		'Sent using kamal.sh contact form'
+	].join('\n');
 }
 
 /** Sends a contact-form submission as an email via Mailgun's HTTP API (native fetch, no SDK dependency). */
@@ -20,8 +36,8 @@ export async function sendContactEmail(
 		from: `kamal.sh contact form <postmaster@${config.domain}>`,
 		to: config.toAddress,
 		'h:Reply-To': contact.email,
-		subject: `New message from ${contact.name}`,
-		text: `From: ${contact.name} <${contact.email}>\n\n${contact.message}`
+		subject: `[Query] ${contact.subject}`,
+		text: buildEmailBody(contact)
 	});
 
 	const response = await fetch(`https://api.mailgun.net/v3/${config.domain}/messages`, {

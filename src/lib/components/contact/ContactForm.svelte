@@ -8,8 +8,8 @@
 		success?: boolean;
 		/** Set by the server when the sender has hit the 2-per-4-hours cap. */
 		rateLimited?: boolean;
-		errors?: { name?: string; email?: string; message?: string };
-		values?: { name?: string; email?: string; message?: string };
+		errors?: { name?: string; email?: string; subject?: string; message?: string };
+		values?: { name?: string; email?: string; subject?: string; message?: string };
 	}
 
 	let {
@@ -123,6 +123,23 @@
 			/>
 			{#if form?.errors?.email}
 				<p id="email-error" class="mt-1 text-small text-error">{form.errors.email}</p>
+			{/if}
+		</div>
+
+		<div>
+			<label for="subject" class="text-small text-text-muted">{copy.subjectLabel}</label>
+			<input
+				id="subject"
+				name="subject"
+				type="text"
+				required
+				value={form?.values?.subject ?? ''}
+				aria-invalid={form?.errors?.subject ? 'true' : undefined}
+				aria-describedby={form?.errors?.subject ? 'subject-error' : undefined}
+				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+			/>
+			{#if form?.errors?.subject}
+				<p id="subject-error" class="mt-1 text-small text-error">{form.errors.subject}</p>
 			{/if}
 		</div>
 

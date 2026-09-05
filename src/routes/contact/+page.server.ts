@@ -22,10 +22,11 @@ export const actions: Actions = {
 		const formData = await request.formData();
 		const name = String(formData.get('name') ?? '').trim();
 		const email = String(formData.get('email') ?? '').trim();
+		const subject = String(formData.get('subject') ?? '').trim();
 		const message = String(formData.get('message') ?? '').trim();
 		const honeypot = String(formData.get('company') ?? '').trim();
 		const turnstileToken = String(formData.get('cf-turnstile-response') ?? '').trim();
-		const values = { name, email, message };
+		const values = { name, email, subject, message };
 		const { form: copy } = contactCopy;
 
 		// Bots fill every field, including the hidden honeypot. Report success without sending,
@@ -34,9 +35,10 @@ export const actions: Actions = {
 			return { success: true };
 		}
 
-		const errors: { name?: string; email?: string; message?: string } = {};
+		const errors: { name?: string; email?: string; subject?: string; message?: string } = {};
 		if (!name) errors.name = copy.nameRequiredError;
 		if (!email || !EMAIL_PATTERN.test(email)) errors.email = copy.emailInvalidError;
+		if (!subject) errors.subject = copy.subjectRequiredError;
 		if (!message) errors.message = copy.messageRequiredError;
 
 		if (Object.keys(errors).length > 0) {
@@ -84,7 +86,7 @@ export const actions: Actions = {
 					domain: env.MAILGUN_DOMAIN,
 					toAddress: env.MAILGUN_TO_ADDRESS
 				},
-				{ name, email, message }
+				{ name, email, subject, message }
 			);
 		} catch (err) {
 			console.error('Failed to send contact email', err);
