@@ -70,7 +70,7 @@
 				rows="5"
 				aria-invalid={form?.errors?.message ? 'true' : undefined}
 				aria-describedby={form?.errors?.message ? 'message-error' : undefined}
-				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+				class="mt-1 max-h-80 min-h-32 w-full resize-none overflow-y-auto rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
 				>{form?.values?.message ?? ''}</textarea
 			>
 			{#if form?.errors?.message}

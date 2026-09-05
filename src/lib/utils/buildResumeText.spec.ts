@@ -65,4 +65,20 @@ describe('buildResumeText', () => {
 		const text = buildResumeText({ ...data, certifications: [] });
 		expect(text).not.toContain('CERTIFICATIONS');
 	});
+
+	it('contains no ANSI escape codes by default — safe for any legacy CLI or a file redirect', () => {
+		const text = buildResumeText(data);
+		// eslint-disable-next-line no-control-regex -- deliberately checking for the absence of ANSI escapes
+		expect(/\x1b\[/.test(text)).toBe(false);
+	});
+
+	it('wraps the name and section headers in ANSI bold/color only when explicitly asked', () => {
+		const text = buildResumeText(data, { color: true });
+		expect(text).toContain('\x1b[1;94mADA LOVELACE\x1b[0m');
+		expect(text).toContain('\x1b[1mEXPERIENCE\x1b[0m');
+		expect(text).toContain('\x1b[1mEDUCATION\x1b[0m');
+		expect(text).toContain('\x1b[1mCERTIFICATIONS\x1b[0m');
+		// The codes wrap the headers only — the body content in between stays plain.
+		expect(text).toContain('Lead Analyst, Analytical Engines Ltd');
+	});
 });

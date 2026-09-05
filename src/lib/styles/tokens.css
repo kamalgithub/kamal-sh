@@ -5,6 +5,13 @@
 
 :root {
 	color-scheme: dark;
+	/* Light text on a dark background reads visually heavier than the same weight on a
+	   light background — a real rendering/perception effect, not an actual difference in
+	   the font file. Antialiased (grayscale) smoothing counteracts it; light mode doesn't
+	   have this problem, so it resets to the browser default below. Affects body/UI text
+	   the same as headings, but only headings were reported as already looking fine. */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	/* Color — dark is the default. True neutral grays throughout (no warm cast). */
 	--color-bg: #0a0a0a;
@@ -53,6 +60,8 @@
 @media (prefers-color-scheme: light) {
 	:root:not([data-theme='dark']) {
 		color-scheme: light;
+		-webkit-font-smoothing: auto;
+		-moz-osx-font-smoothing: auto;
 		--color-bg: #fafafa;
 		--color-surface: #ffffff;
 		--color-border: #e2e2e2;
@@ -70,6 +79,8 @@
 /* Manual override, once a theme toggle exists */
 :root[data-theme='light'] {
 	color-scheme: light;
+	-webkit-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
 	--color-bg: #fafafa;
 	--color-surface: #ffffff;
 	--color-border: #e2e2e2;

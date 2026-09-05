@@ -18,8 +18,10 @@
 
 ## Machine-readable
 
+- `curl kamal.sh` (or wget/iwr/any other CLI client): plain-text résumé, straight from the root domain.
 - [resume](https://kamal.sh/resume): Plain-text résumé.
-- [resume.json](https://kamal.sh/resume.json): Structured résumé data.
+- [resume/color](https://kamal.sh/resume/color): Same résumé with ANSI bold/color, for an interactive terminal.
+- [resume.json](https://kamal.sh/resume.json) / [json](https://kamal.sh/json): Structured résumé data (same content, two paths).
 - [resume.md](https://kamal.sh/resume.md): Markdown résumé.
 - [sitemap.xml](https://kamal.sh/sitemap.xml): Full page index.
 - [rss.xml](https://kamal.sh/rss.xml): Writing feed.

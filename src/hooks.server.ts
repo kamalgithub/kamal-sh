@@ -1,7 +1,8 @@
+import { buildRootCliResponse } from '$lib/utils/buildRootCliResponse';
 import type { Handle } from '@sveltejs/kit';
 
 /**
- * Covers only the genuinely SSR'd routes (/about, /contact) — adapter-cloudflare's
+ * Covers only the genuinely SSR'd routes (/, /about, /contact) — adapter-cloudflare's
  * generated worker serves every prerendered page straight from env.ASSETS.fetch(),
  * bypassing this hook entirely, so static/_headers carries the same policy for
  * everything else. Keep the two in sync by hand.
@@ -26,8 +27,12 @@ const CONTENT_SECURITY_POLICY = [
 	"frame-ancestors 'none'"
 ].join('; ');
 
+// See src/routes/+page.ts for why "/" is SSR (prerender = false): buildRootCliResponse
+// needs a real per-request User-Agent check, which only runs for routes that go through
+// the Worker's SSR path — a prerendered page is served straight from static assets and
+// never reaches this hook at all.
 export const handle: Handle = async ({ event, resolve }) => {
-	const response = await resolve(event);
+	const response = buildRootCliResponse(event.url, event.request) ?? (await resolve(event));
 
 	response.headers.set('Content-Security-Policy', CONTENT_SECURITY_POLICY);
 	response.headers.set('X-Content-Type-Options', 'nosniff');

@@ -23,17 +23,24 @@ No `src/lib/index.ts` barrel file. Import directly from the file that defines wh
 ## Routing & rendering strategy
 
 - **Prerender by default.** `src/routes/+layout.ts` sets `export const prerender = true` at the root, so every route is static at build time unless it explicitly opts out — this is a personal site, almost everything should be served as static assets for instant loads.
-- **SSR only where genuinely required.** Two routes currently opt out with `export const prerender = false`, each for a specific per-request need:
+- **SSR only where genuinely required.** Three routes currently opt out with `export const prerender = false`, each for a specific per-request need:
   - `/contact` — the form submission action.
   - `/about` — `+page.server.ts` fetches `api.github.com/.../events/public` live on every request (see "Live external data" below); prerendering would freeze that feed at build time, defeating the point.
+  - `/` (`src/routes/+page.ts`) — the one exception that isn't about the page's own content. `src/hooks.server.ts` inspects every request's User-Agent so `curl kamal.sh` (or wget/iwr/any other CLI client) gets the plain-text résumé instead of the homepage; see "CLI content negotiation" below. This means every homepage visit — CLI or browser — is a real SSR render instead of a static-asset hit; acceptable on Workers' edge compute for this site's traffic, but a real, deliberate tradeoff, not a free one.
 
   Don't reach for SSR because it's the path of least resistance; justify it against "does this truly need per-request server computation." Note the tradeoff this creates: on `@sveltejs/adapter-cloudflare`, prerendered routes are served straight from `env.ASSETS.fetch()` and never reach `src/hooks.server.ts` — see "Response headers" below for why that matters.
 
 - Route files stay thin: a `+page.svelte` imports content from `src/lib/content/` and composes components from `src/lib/components/` — it does not itself contain business logic or hardcoded copy.
 
+## CLI content negotiation (`curl kamal.sh`)
+
+`src/lib/utils/buildRootCliResponse.ts` is called from `src/hooks.server.ts` before SvelteKit's normal routing runs: for a GET to `/`, if `src/lib/utils/isCliRequest.ts` says the caller isn't a browser, it returns the plain-text résumé directly and `resolve(event)` is never called. `isCliRequest` keys off User-Agent not containing `"Mozilla"` — every mainstream browser includes it, virtually no CLI HTTP client does — with one explicit carve-out for PowerShell's `Invoke-WebRequest`/`iwr`, whose default User-Agent _does_ include `"Mozilla"` despite being a CLI tool. This is deliberately one broad heuristic plus one named exception, not a list of known tool names to keep extending forever.
+
+The output is plain ASCII by default, with no ANSI escape codes — there is no HTTP header that reveals whether a client's stdout is even a terminal (piping to a file or a non-ANSI-aware tool looks identical to the server), so sending color/bold codes unconditionally risks garbled output for exactly the "legacy CLI" case this is supposed to serve well. Anyone who wants a styled version can ask for one explicitly at `/resume/color` (`src/routes/resume/color/+server.ts`, prerendered — the ANSI-wrapped output is still fully static, so it costs nothing extra). `buildResumeText.ts`'s `color` option is what both routes share; keep any future formatting addition behind that same explicit opt-in, never as a default.
+
 ## Prerendered `+server.ts` endpoints
 
-`/resume`, `/resume.json`, and `/resume.md` (`src/routes/resume/+server.ts`, `resume.json/+server.ts`, `resume.md/+server.ts`) each set `export const prerender = true` and return a plain-text/JSON/markdown résumé built from existing content (`profile`, `experience`, `education`, `certifications`) by pure formatter functions in `src/lib/utils/` (`buildResumeText.ts`, `buildResumeMarkdown.ts`). Because the output depends only on static content, SvelteKit renders it once at build time into a static file — `curl kamal.sh/resume` costs nothing at request time, same as any other static asset. This is the pattern to follow for any future machine-readable endpoint whose content is fully known at build time: prefer a prerendered `+server.ts` over an SSR one.
+`/resume`, `/resume.json`, `/resume.md`, `/resume/color`, and `/json` (an alias of `/resume.json`) each set `export const prerender = true` and return a plain-text/JSON/markdown/ANSI-styled résumé built from existing content (`profile`, `experience`, `education`, `certifications`) by pure formatter functions in `src/lib/utils/` (`buildResumeText.ts`, `buildResumeMarkdown.ts`). Because the output depends only on static content, SvelteKit renders each one once at build time into a static file — visiting any of them costs nothing at request time, same as any other static asset. This is the pattern to follow for any future machine-readable endpoint whose content is fully known at build time: prefer a prerendered `+server.ts` over an SSR one. (`/` is the one resume-adjacent surface that couldn't stay this cheap — see above for why.)
 
 ## Live external data
 
@@ -41,7 +48,7 @@ No `src/lib/index.ts` barrel file. Import directly from the file that defines wh
 
 ## Response headers
 
-`src/hooks.server.ts`'s `handle` sets security headers (CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`) on every response it handles — but per the adapter-cloudflare behavior noted above, that's only the SSR routes (`/about`, `/contact`). Every prerendered route is served as a static asset and never reaches this hook. `static/_headers` (Cloudflare's native static-asset header mechanism — copied verbatim into the build output like `robots.txt`) carries the identical policy for everything else. **The two files must be kept in sync by hand** — there's no shared source between a Cloudflare `_headers` file and TypeScript code. See `/security` for the human-readable version of this policy, including the one deliberate weakening (`'unsafe-inline'` for scripts/styles) and why.
+`src/hooks.server.ts`'s `handle` sets security headers (CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`) on every response it handles — but per the adapter-cloudflare behavior noted above, that's only the SSR routes (`/`, `/about`, `/contact`). Every prerendered route is served as a static asset and never reaches this hook. `static/_headers` (Cloudflare's native static-asset header mechanism — copied verbatim into the build output like `robots.txt`) carries the identical policy for everything else. **The two files must be kept in sync by hand** — there's no shared source between a Cloudflare `_headers` file and TypeScript code. See `/security` for the human-readable version of this policy, including the one deliberate weakening (`'unsafe-inline'` for scripts/styles) and why.
 
 ## Dual-native mobile/desktop components
 

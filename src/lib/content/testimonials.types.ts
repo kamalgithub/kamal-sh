@@ -2,7 +2,7 @@ export interface Testimonial {
 	name: string;
 	role: string;
 	date: string;
-	/** A paraphrased summary, not a verbatim quote — see sourceUrl for the real text. */
+	/** Verbatim, from the real LinkedIn recommendation — see sourceUrl. */
 	quote: string;
 	sourceUrl: string;
 }
