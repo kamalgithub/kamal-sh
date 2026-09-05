@@ -13,7 +13,7 @@
 	<meta name="description" content={costsCopy.intro} />
 </svelte:head>
 
-<Section>
+<Section tint={3}>
 	<Container>
 		<PageHeading icon={IconGauge} heading={costsCopy.heading} />
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{costsCopy.intro}</p>

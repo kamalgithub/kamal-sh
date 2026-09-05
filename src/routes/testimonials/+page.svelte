@@ -15,7 +15,7 @@
 	<meta name="description" content={testimonialsCopy.intro} />
 </svelte:head>
 
-<Section>
+<Section tint={1}>
 	<Container>
 		<h1 class="font-display text-display font-medium text-text">{testimonialsCopy.heading}</h1>
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{testimonialsCopy.intro}</p>

@@ -23,7 +23,7 @@
 	<link rel="alternate" type="application/rss+xml" title="Kamal Kumar Writing" href="/rss.xml" />
 </svelte:head>
 
-<Section>
+<Section tint={1}>
 	<Container>
 		<h1 class="font-display text-display font-medium text-text">{writingCopy.heading}</h1>
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{writingCopy.intro}</p>

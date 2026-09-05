@@ -21,4 +21,20 @@ describe('Section.svelte', () => {
 		expect(wrapper?.className).toContain('py-16');
 		expect(wrapper?.className).toContain('md:py-24');
 	});
+
+	it('has no background tint by default', async () => {
+		const children = createRawSnippet(() => ({ render: () => `<p>content</p>` }));
+		const { container } = await render(Section, { children });
+
+		const wrapper = container.querySelector('section');
+		expect(wrapper?.className).not.toMatch(/bg-tint-/);
+	});
+
+	it('applies the requested tint class', async () => {
+		const children = createRawSnippet(() => ({ render: () => `<p>content</p>` }));
+		const { container } = await render(Section, { tint: 2, children });
+
+		const wrapper = container.querySelector('section');
+		expect(wrapper?.className).toContain('bg-tint-2');
+	});
 });

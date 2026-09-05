@@ -17,7 +17,7 @@
 	<meta name="description" content={securityCopy.intro} />
 </svelte:head>
 
-<Section>
+<Section tint={2}>
 	<Container>
 		<PageHeading icon={IconShield} heading={securityCopy.heading} />
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{securityCopy.intro}</p>

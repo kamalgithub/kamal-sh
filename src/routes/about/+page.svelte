@@ -21,7 +21,7 @@
 	<meta name="description" content={profile.tagline} />
 </svelte:head>
 
-<Section>
+<Section tint={2}>
 	<Container>
 		<h1 class="font-display text-display font-medium text-text">{aboutCopy.heading}</h1>
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{profile.tagline}</p>

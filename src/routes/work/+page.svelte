@@ -21,7 +21,7 @@
 	<meta name="description" content={workCopy.intro} />
 </svelte:head>
 
-<Section>
+<Section tint={1}>
 	<Container>
 		<h1 class="font-display text-display font-medium text-text">{workCopy.heading}</h1>
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{workCopy.intro}</p>

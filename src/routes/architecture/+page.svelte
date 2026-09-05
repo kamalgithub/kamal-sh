@@ -13,7 +13,7 @@
 	<meta name="description" content={architectureCopy.intro} />
 </svelte:head>
 
-<Section>
+<Section tint={2}>
 	<Container>
 		<PageHeading icon={IconLayers} heading={architectureCopy.heading} />
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{architectureCopy.intro}</p>

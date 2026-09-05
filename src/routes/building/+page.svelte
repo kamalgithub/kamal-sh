@@ -13,7 +13,7 @@
 	<meta name="description" content={buildingCopy.intro} />
 </svelte:head>
 
-<Section>
+<Section tint={3}>
 	<Container>
 		<h1 class="font-display text-display font-medium text-text">{buildingCopy.heading}</h1>
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{buildingCopy.intro}</p>

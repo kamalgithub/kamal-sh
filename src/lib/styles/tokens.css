@@ -38,6 +38,13 @@
 	   because a single red doesn't clear WCAG AA against both a near-black and a
 	   near-white background — verified via the relative-luminance formula. */
 	--color-error: #f87171;
+	/* Purely decorative, barely-perceptible page-hero backgrounds — three points between
+	   --color-bg and --color-surface, pure lightness only (no hue, matching "no warm cast"
+	   above). Gives each top-level page's opening Section a faint identity without reading
+	   as a deliberate color choice. Never used for anything with meaning (state, emphasis). */
+	--color-tint-1: #0c0c0c;
+	--color-tint-2: #0e0e0e;
+	--color-tint-3: #101010;
 
 	/* Typography */
 	--font-display: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
@@ -81,6 +88,9 @@
 		--color-text-muted: #6b6b6b;
 		--color-accent: #2544b0;
 		--color-error: #dc2626;
+		--color-tint-1: #fbfbfb;
+		--color-tint-2: #f8f8f8;
+		--color-tint-3: #f6f6f6;
 	}
 }
 
@@ -98,6 +108,9 @@
 	--color-text-muted: #6b6b6b;
 	--color-accent: #2544b0;
 	--color-error: #dc2626;
+	--color-tint-1: #fbfbfb;
+	--color-tint-2: #f8f8f8;
+	--color-tint-3: #f6f6f6;
 }
 
 /* Register the tokens above as Tailwind v4 utilities (CSS-first config — no tailwind.config.js).
@@ -112,6 +125,9 @@
 	--color-text-muted: var(--color-text-muted);
 	--color-accent: var(--color-accent);
 	--color-error: var(--color-error);
+	--color-tint-1: var(--color-tint-1);
+	--color-tint-2: var(--color-tint-2);
+	--color-tint-3: var(--color-tint-3);
 
 	--font-display: var(--font-display);
 	--font-body: var(--font-body);
