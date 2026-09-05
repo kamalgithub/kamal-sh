@@ -14,7 +14,7 @@
 	}
 </script>
 
-<div class="sticky top-0 z-40 border-b border-border bg-bg">
+<div class="sticky top-0 z-40 hidden border-b border-border bg-bg md:block">
 	<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
 		<a
 			href={resolve('/')}

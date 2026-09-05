@@ -13,7 +13,7 @@ describe('buildRootCliResponse', () => {
 		expect(response?.headers.get('Content-Type')).toBe('text/plain; charset=utf-8');
 		const body = await response?.text();
 		expect(body).toContain('KAMAL KUMAR');
-		expect(body).toContain('\x1b[1;94m'); // colored by default — /resume/raw is the plain escape hatch
+		expect(body).toContain('\x1b[1;94m'); // colored by default — /resume-raw is the plain escape hatch
 	});
 
 	it('returns undefined for a real browser, so normal page rendering takes over', () => {

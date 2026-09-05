@@ -7,7 +7,7 @@ describe('parseGithubEvents', () => {
 			{
 				id: '1',
 				type: 'PushEvent',
-				repo: { name: 'devcrypted/portfolio-new' },
+				repo: { name: 'devcrypted/kamal-sh' },
 				created_at: '2026-01-01T00:00:00Z',
 				payload: { commits: [{}, {}] }
 			},
@@ -30,10 +30,10 @@ describe('parseGithubEvents', () => {
 		expect(items).toEqual([
 			{
 				id: '1',
-				repo: 'devcrypted/portfolio-new',
+				repo: 'devcrypted/kamal-sh',
 				summary: 'Pushed 2 commits',
 				icon: 'commit',
-				url: 'https://github.com/devcrypted/portfolio-new',
+				url: 'https://github.com/devcrypted/kamal-sh',
 				createdAt: '2026-01-01T00:00:00Z'
 			},
 			{

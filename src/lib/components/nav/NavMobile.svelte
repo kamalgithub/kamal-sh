@@ -24,7 +24,7 @@
 </script>
 
 <div
-	class="sticky top-0 z-40 flex items-center justify-between border-b border-border bg-bg px-4 py-3"
+	class="sticky top-0 z-40 flex items-center justify-between border-b border-border bg-bg px-4 py-3 md:hidden"
 >
 	<a
 		href={resolve('/')}

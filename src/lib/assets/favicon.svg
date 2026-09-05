@@ -1,30 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-	<title>kamal.sh</title>
-	<style>
-		.bg {
-			fill: #0a0a0a;
-		}
-		.mark {
-			fill: #5c82ff;
-		}
-		@media (prefers-color-scheme: light) {
-			.bg {
-				fill: #fafafa;
-			}
-			.mark {
-				fill: #2544b0;
-			}
-		}
-	</style>
-	<rect class="bg" width="32" height="32" rx="6" />
-	<text
-		class="mark"
-		x="16"
-		y="23"
-		font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-		font-size="20"
-		font-weight="600"
-		text-anchor="middle"
-		>$</text
-	>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" id="cloud">
+  <g transform="translate(-396 -340)">
+    <path fill="#07c" fill-rule="evenodd" d="m 410,344.01367 c -3.85414,0 -7,3.14588 -7,7 a 1.0001,1.0001 0 0 0 0,0.008 c 6e-4,0.0641 0.0152,0.12736 0.0176,0.19141 -2.81916,0.48802 -5.01758,2.84695 -5.01758,5.80078 0,3.30186 2.69814,6 6,6 h 17 c 2.74958,0 5,-2.25042 5,-5 0,-2.40455 -1.75451,-4.33294 -4.02539,-4.80273 0.003,-0.0645 0.0249,-0.12675 0.0254,-0.19141 a 1.0001,1.0001 0 0 0 0,-0.002 1.0001,1.0001 0 0 0 0,-0.002 1.0001,1.0001 0 0 0 0,-0.002 c -2e-5,-2.74956 -2.25044,-4.99998 -5,-5 a 1.0001,1.0001 0 0 0 -0.008,0 c -0.24082,0.002 -0.46972,0.083 -0.70703,0.11914 -1.12991,-2.45442 -3.53043,-4.11897 -6.28516,-4.11914 z" color="#000" style="-inkscape-stroke:none"></path>
+    <path fill="#d7eefe" fill-rule="evenodd" d="m 412,356.01367 c -3.30186,0 -6,2.69816 -6,6 0,3.30186 2.69814,6 6,6 3.30186,0 6,-2.69814 6,-6 0,-3.30184 -2.69814,-6 -6,-6 z" color="#000" style="-inkscape-stroke:none"></path>
+    <path fill="#41a5ee" fill-rule="evenodd" d="m 413.36719,360.03125 -2.0293,1.6543 -0.65625,-0.61133 a 1,1 0 0 0 -1.41211,0.0488 1,1 0 0 0 0.0488,1.41406 l 1.29297,1.20703 a 1.0001,1.0001 0 0 0 1.3125,0.043 l 2.70898,-2.20703 a 1,1 0 0 0 0.14258,-1.40625 1,1 0 0 0 -1.4082,-0.14258 z" color="#000" style="-inkscape-stroke:none"></path>
+  </g>
 </svg>

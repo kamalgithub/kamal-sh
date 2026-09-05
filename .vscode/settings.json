@@ -2,5 +2,9 @@
 	"files.associations": {
 		"*.css": "tailwindcss"
 	},
-	"explorer.excludeGitIgnore": false
+	"explorer.excludeGitIgnore": false,
+	"cSpell.words": [
+		"aicademycli",
+		"devcrypted"
+	]
 }

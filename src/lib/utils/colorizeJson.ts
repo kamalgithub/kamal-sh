@@ -5,7 +5,7 @@
  * for content we author ourselves and know doesn't contain adversarial patterns like a
  * literal `": "` inside a string value. Once colorized, the output is no longer valid
  * JSON (the escape codes break parsing) — that's why this is served as text/plain at
- * /json, with /json/raw and /resume.json as the actual application/json endpoints.
+ * /json, with /json-raw and /resume.json as the actual application/json endpoints.
  */
 const ANSI = {
 	reset: '\x1b[0m',

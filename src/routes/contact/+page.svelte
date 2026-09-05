@@ -31,7 +31,11 @@
 				{profile.email}
 			</a>
 		</p>
-		<div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+	</Container>
+</Section>
+<Section>
+	<Container>
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 			<Card>
 				<ContactForm
 					form={form ?? undefined}

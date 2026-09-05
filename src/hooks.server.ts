@@ -4,7 +4,7 @@ import type { Handle } from '@sveltejs/kit';
 /**
  * Covers only the genuinely SSR'd routes (/, /about, /contact) — adapter-cloudflare's
  * generated worker serves every prerendered page straight from env.ASSETS.fetch(),
- * bypassing this hook entirely, so static/_headers carries the same policy for
+ * bypassing this hook entirely, so _headers carries the same policy for
  * everything else. Keep the two in sync by hand.
  *
  * `script-src`/`style-src` include 'unsafe-inline' deliberately, not by oversight — see

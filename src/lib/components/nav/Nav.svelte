@@ -6,9 +6,5 @@
 	let { links, name }: { links: NavLink[]; name: string } = $props();
 </script>
 
-<div class="md:hidden">
-	<NavMobile {links} {name} />
-</div>
-<div class="hidden md:block">
-	<NavDesktop {links} {name} />
-</div>
+<NavMobile {links} {name} />
+<NavDesktop {links} {name} />
