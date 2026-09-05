@@ -5,6 +5,7 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import TestimonialsGrid from '$lib/components/testimonials/TestimonialsGrid.svelte';
 	import IconArrowUpRight from '$lib/components/icons/IconArrowUpRight.svelte';
 	import IconQuote from '$lib/components/icons/IconQuote.svelte';
@@ -12,10 +13,7 @@
 	const linkedInRecommendationsUrl = `${profile.links.linkedin}/details/recommendations`;
 </script>
 
-<svelte:head>
-	<title>Testimonials | Kamal Kumar</title>
-	<meta name="description" content={testimonialsCopy.intro} />
-</svelte:head>
+<SeoHead title="Testimonials | Kamal Kumar" description={testimonialsCopy.intro} />
 
 <Section tint={1}>
 	<Container>

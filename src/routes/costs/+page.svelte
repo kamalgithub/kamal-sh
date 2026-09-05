@@ -4,14 +4,12 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import CostList from '$lib/components/costs/CostList.svelte';
 	import IconGauge from '$lib/components/icons/IconGauge.svelte';
 </script>
 
-<svelte:head>
-	<title>Costs | Kamal Kumar</title>
-	<meta name="description" content={costsCopy.intro} />
-</svelte:head>
+<SeoHead title="Costs | Kamal Kumar" description={costsCopy.intro} />
 
 <Section tint={3}>
 	<Container>

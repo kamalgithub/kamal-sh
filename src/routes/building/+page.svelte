@@ -5,15 +5,13 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import IconTool from '$lib/components/icons/IconTool.svelte';
 	import BuildingShowcase from '$lib/components/building/BuildingShowcase.svelte';
 	import ClosingCta from '$lib/components/cta/ClosingCta.svelte';
 </script>
 
-<svelte:head>
-	<title>Building | Kamal Kumar</title>
-	<meta name="description" content={buildingCopy.intro} />
-</svelte:head>
+<SeoHead title="Building | Kamal Kumar" description={buildingCopy.intro} />
 
 <Section tint={3}>
 	<Container>

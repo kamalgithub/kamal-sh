@@ -5,6 +5,7 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import Card from '$lib/components/primitives/Card.svelte';
 	import ContactForm from '$lib/components/contact/ContactForm.svelte';
 	import BookingFlow from '$lib/components/booking/BookingFlow.svelte';
@@ -14,10 +15,7 @@
 	let { data, form }: PageProps = $props();
 </script>
 
-<svelte:head>
-	<title>Contact | Kamal Kumar</title>
-	<meta name="description" content={contactCopy.intro} />
-</svelte:head>
+<SeoHead title="Contact | Kamal Kumar" description={contactCopy.intro} />
 
 <Section tint={3}>
 	<Container>

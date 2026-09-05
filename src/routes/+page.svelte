@@ -9,6 +9,7 @@
 	import { ctaCopy } from '$lib/content/copy/cta';
 	import { getDisplayStats } from '$lib/utils/getDisplayStats';
 	import { getHomeSectionOrder } from '$lib/utils/getHomeSectionOrder';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import Hero from '$lib/components/hero/Hero.svelte';
 	import StatsBand from '$lib/components/stats/StatsBand.svelte';
 	import BuildingShowcase from '$lib/components/building/BuildingShowcase.svelte';
@@ -23,10 +24,7 @@
 	const sectionOrder = $derived(getHomeSectionOrder(page.url.searchParams.get('for')));
 </script>
 
-<svelte:head>
-	<title>{profile.name} | {profile.title}</title>
-	<meta name="description" content={profile.tagline} />
-</svelte:head>
+<SeoHead title="{profile.name} | {profile.title}" description={profile.tagline} />
 
 <Hero {profile} copy={homeCopy} />
 {#each sectionOrder as section (section)}

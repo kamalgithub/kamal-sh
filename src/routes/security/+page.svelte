@@ -5,6 +5,7 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import SecurityPostureList from '$lib/components/security/SecurityPostureList.svelte';
 	import IconShield from '$lib/components/icons/IconShield.svelte';
 
@@ -12,10 +13,7 @@
 		'text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text';
 </script>
 
-<svelte:head>
-	<title>Security | Kamal Kumar</title>
-	<meta name="description" content={securityCopy.intro} />
-</svelte:head>
+<SeoHead title="Security | Kamal Kumar" description={securityCopy.intro} />
 
 <Section tint={2}>
 	<Container>

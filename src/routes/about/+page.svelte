@@ -7,6 +7,7 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import IconUser from '$lib/components/icons/IconUser.svelte';
 	import EducationList from '$lib/components/education/EducationList.svelte';
 	import CertificationsGrid from '$lib/components/certifications/CertificationsGrid.svelte';
@@ -18,10 +19,7 @@
 	const featuredTestimonials = testimonials.slice(0, 3);
 </script>
 
-<svelte:head>
-	<title>About | Kamal Kumar</title>
-	<meta name="description" content={profile.tagline} />
-</svelte:head>
+<SeoHead title="About | Kamal Kumar" description={profile.tagline} />
 
 <Section tint={2}>
 	<Container>

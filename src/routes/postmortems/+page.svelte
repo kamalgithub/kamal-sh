@@ -4,14 +4,12 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import PostmortemList from '$lib/components/postmortems/PostmortemList.svelte';
 	import IconActivity from '$lib/components/icons/IconActivity.svelte';
 </script>
 
-<svelte:head>
-	<title>Postmortems | Kamal Kumar</title>
-	<meta name="description" content={postmortemsCopy.intro} />
-</svelte:head>
+<SeoHead title="Postmortems | Kamal Kumar" description={postmortemsCopy.intro} />
 
 <Section tint={1}>
 	<Container>

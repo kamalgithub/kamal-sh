@@ -2,6 +2,7 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import Figure from '$lib/components/primitives/Figure.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import CaseStudyBlocks from '$lib/components/case-studies/CaseStudyBlocks.svelte';
 	import { buildCaseStudyJsonLd } from '$lib/utils/buildCaseStudyJsonLd';
 	import { toJsonLdScript } from '$lib/utils/jsonLd';
@@ -11,9 +12,12 @@
 	const caseStudyJsonLd = $derived(toJsonLdScript(buildCaseStudyJsonLd(data.study)));
 </script>
 
+<SeoHead
+	title="{data.study.title} | Kamal Kumar"
+	description={data.study.summary}
+	image={data.study.image?.src}
+/>
 <svelte:head>
-	<title>{data.study.title} | Kamal Kumar</title>
-	<meta name="description" content={data.study.summary} />
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -- toJsonLdScript escapes every "<" itself; content is our own static case-study data, never user input -->
 	{@html caseStudyJsonLd}
 </svelte:head>

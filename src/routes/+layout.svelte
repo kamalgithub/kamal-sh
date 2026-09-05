@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { profile } from '$lib/content/profile';
@@ -6,12 +7,17 @@
 	import { site } from '$lib/content/site';
 	import { buildPersonJsonLd } from '$lib/utils/buildPersonJsonLd';
 	import { toJsonLdScript } from '$lib/utils/jsonLd';
+	import { logConsoleEasterEgg } from '$lib/utils/logConsoleEasterEgg';
 	import Nav from '$lib/components/nav/Nav.svelte';
 	import Footer from '$lib/components/footer/Footer.svelte';
 	import CommandPalette from '$lib/components/command-palette/CommandPalette.svelte';
 
 	let { children } = $props();
 	const personJsonLd = toJsonLdScript(buildPersonJsonLd(profile));
+
+	onMount(() => {
+		logConsoleEasterEgg();
+	});
 </script>
 
 <svelte:head>

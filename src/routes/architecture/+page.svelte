@@ -4,14 +4,12 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import ArchitectureDiagram from '$lib/components/architecture/ArchitectureDiagram.svelte';
 	import IconLayers from '$lib/components/icons/IconLayers.svelte';
 </script>
 
-<svelte:head>
-	<title>Architecture | Kamal Kumar</title>
-	<meta name="description" content={architectureCopy.intro} />
-</svelte:head>
+<SeoHead title="Architecture | Kamal Kumar" description={architectureCopy.intro} />
 
 <Section tint={2}>
 	<Container>

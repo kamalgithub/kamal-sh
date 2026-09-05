@@ -14,7 +14,8 @@ export function buildPersonJsonLd(profile: Profile): object {
 				url: site.url,
 				email: `mailto:${profile.email}`,
 				address: { '@type': 'PostalAddress', addressLocality: profile.location },
-				sameAs: profile.socials.map((social) => social.url)
+				sameAs: profile.socials.map((social) => social.url),
+				...(profile.photo ? { image: `${site.url}${profile.photo.src}` } : {})
 			},
 			{
 				'@type': 'WebSite',

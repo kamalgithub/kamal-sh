@@ -7,6 +7,7 @@
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 	import IconPen from '$lib/components/icons/IconPen.svelte';
 	import WritingFeed from '$lib/components/writing/WritingFeed.svelte';
 	import VideoFeed from '$lib/components/writing/VideoFeed.svelte';
@@ -19,9 +20,8 @@
 	const blogUrl = aicademy.links.find((link) => link.label === 'Blog')?.url;
 </script>
 
+<SeoHead title="Writing | Kamal Kumar" description={writingCopy.intro} />
 <svelte:head>
-	<title>Writing | Kamal Kumar</title>
-	<meta name="description" content={writingCopy.intro} />
 	<link rel="alternate" type="application/rss+xml" title="Kamal Kumar Writing" href="/rss.xml" />
 </svelte:head>
 
