@@ -1,3 +1,5 @@
+import type { ContentImage } from '../image.types';
+
 export interface ProductLink {
 	label: string;
 	url: string;
@@ -6,11 +8,6 @@ export interface ProductLink {
 export interface ProductCta {
 	label: string;
 	url: string;
-}
-
-export interface ProductImage {
-	src: string;
-	alt: string;
 }
 
 export interface Product {
@@ -26,5 +23,5 @@ export interface Product {
 	/** Not every product has one — the primary call-to-action button, when there is one. */
 	primaryCta?: ProductCta;
 	/** Absent until a real screenshot/logo is dropped in. */
-	image?: ProductImage;
+	image?: ContentImage;
 }

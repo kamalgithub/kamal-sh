@@ -3,6 +3,7 @@
 @plugin '@tailwindcss/typography';
 @import '../lib/styles/tokens.css';
 @import '../lib/styles/fonts.css';
+@import '../lib/styles/theme-image.css';
 
 body {
 	background-color: var(--color-bg);

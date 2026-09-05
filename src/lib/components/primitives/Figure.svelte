@@ -1,14 +1,10 @@
 <script lang="ts">
 	import IconImage from '$lib/components/icons/IconImage.svelte';
-
-	interface FigureImage {
-		src: string;
-		alt: string;
-	}
+	import type { ContentImage } from '$lib/content/image.types';
 
 	interface Props {
 		/** Absent until a real asset is dropped in — renders a labeled placeholder instead of breaking layout. */
-		image?: FigureImage;
+		image?: ContentImage;
 		width: number;
 		height: number;
 		/** What the pending image will show — doubles as the placeholder's accessible label. */
@@ -19,14 +15,33 @@
 </script>
 
 {#if image}
-	<img
-		src={image.src}
-		alt={image.alt}
-		{width}
-		{height}
-		loading="lazy"
-		class="h-auto w-full rounded-sm border border-border object-cover"
-	/>
+	{#if image.darkSrc}
+		<img
+			src={image.src}
+			alt={image.alt}
+			{width}
+			{height}
+			loading="lazy"
+			class="theme-image-light h-auto w-full rounded-sm border border-border object-cover"
+		/>
+		<img
+			src={image.darkSrc}
+			alt={image.alt}
+			{width}
+			{height}
+			loading="lazy"
+			class="theme-image-dark h-auto w-full rounded-sm border border-border object-cover"
+		/>
+	{:else}
+		<img
+			src={image.src}
+			alt={image.alt}
+			{width}
+			{height}
+			loading="lazy"
+			class="h-auto w-full rounded-sm border border-border object-cover"
+		/>
+	{/if}
 {:else}
 	<div
 		class="flex w-full flex-col items-center justify-center gap-2 rounded-sm border border-dashed border-border bg-surface px-4 text-text-muted"

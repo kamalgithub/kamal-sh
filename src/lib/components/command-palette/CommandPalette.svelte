@@ -8,13 +8,28 @@
 	import { getStoredTheme, applyTheme, type Theme } from '$lib/utils/theme';
 	import { COMMAND_PALETTE_OPEN_EVENT } from '$lib/utils/commandPaletteEvent';
 	import IconSearch from '$lib/components/icons/IconSearch.svelte';
+	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
+	import IconArrowUpRight from '$lib/components/icons/IconArrowUpRight.svelte';
+	import IconTerminal from '$lib/components/icons/IconTerminal.svelte';
+	import IconSun from '$lib/components/icons/IconSun.svelte';
+	import IconMoon from '$lib/components/icons/IconMoon.svelte';
+	import IconMonitor from '$lib/components/icons/IconMonitor.svelte';
 
 	const commands = buildCommands(nav, profile.socials, copy);
 	const THEME_CYCLE: Record<Theme, Theme> = { dark: 'light', light: 'system', system: 'dark' };
+	const STATIC_ICONS = { page: IconArrowRight, resume: IconTerminal, social: IconArrowUpRight };
+	const THEME_ICONS: Record<Theme, typeof IconSun> = {
+		light: IconSun,
+		dark: IconMoon,
+		system: IconMonitor
+	};
 
 	let dialogEl: HTMLDialogElement | undefined = $state();
 	let query = $state('');
 	let activeIndex = $state(0);
+	// Read fresh each time the palette opens (see openPalette) — the theme rarely changes
+	// while it's open, and running the command closes the palette immediately anyway.
+	let currentTheme: Theme = $state('system');
 
 	const filtered = $derived.by(() => {
 		const q = query.trim().toLowerCase();
@@ -33,6 +48,7 @@
 	function openPalette() {
 		query = '';
 		activeIndex = 0;
+		currentTheme = getStoredTheme();
 		dialogEl?.showModal();
 	}
 
@@ -43,6 +59,11 @@
 	function togglePalette() {
 		if (dialogEl?.open) closePalette();
 		else openPalette();
+	}
+
+	function commandIcon(command: Command) {
+		if (command.id === THEME_TOGGLE_COMMAND_ID) return THEME_ICONS[currentTheme];
+		return command.icon ? STATIC_ICONS[command.icon] : undefined;
 	}
 
 	function run(command: Command) {
@@ -100,7 +121,7 @@
 	onclick={onBackdropClick}
 	onkeydown={onDialogKeydown}
 	aria-label={copy.triggerLabel}
-	class="mx-auto mt-24 w-[calc(100%-2rem)] max-w-lg rounded-sm border border-border-strong bg-surface p-0 backdrop:bg-bg/80"
+	class="mx-auto mt-24 w-[calc(100%-2rem)] max-w-lg overflow-hidden rounded-sm border border-border-strong bg-surface p-0 backdrop:bg-bg/80"
 >
 	<div class="flex items-center gap-3 border-b border-border px-4 py-3">
 		<IconSearch size={18} />
@@ -113,16 +134,25 @@
 	</div>
 	<ul class="max-h-80 overflow-y-auto p-2">
 		{#each filtered as command, i (command.id)}
+			{@const Icon = commandIcon(command)}
+			{#if command.group !== filtered[i - 1]?.group}
+				<li class="px-3 pt-3 pb-1 text-small text-text-muted first:pt-1">{command.group}</li>
+			{/if}
 			<li>
 				<button
 					type="button"
 					onclick={() => run(command)}
 					onmouseenter={() => (activeIndex = i)}
-					class="block w-full rounded-sm px-3 py-2 text-left text-body transition-colors duration-(--duration-fast) ease-standard {i ===
+					class="flex w-full items-center gap-2.5 rounded-sm px-3 py-2 text-left text-body transition-colors duration-(--duration-fast) ease-standard {i ===
 					activeIndex
 						? 'bg-text text-bg'
 						: 'text-text'}"
 				>
+					{#if Icon}
+						<span class="shrink-0 {i === activeIndex ? '' : 'text-text-muted'}"
+							><Icon size={16} /></span
+						>
+					{/if}
 					{command.label}
 				</button>
 			</li>
@@ -130,4 +160,9 @@
 			<li class="px-3 py-2 text-body text-text-muted">{copy.emptyLabel}</li>
 		{/each}
 	</ul>
+	<div class="flex items-center gap-4 border-t border-border px-4 py-2 text-small text-text-muted">
+		<span>{copy.navigateHint}</span>
+		<span>{copy.selectHint}</span>
+		<span>{copy.closeHint}</span>
+	</div>
 </dialog>

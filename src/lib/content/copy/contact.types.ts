@@ -15,6 +15,7 @@ export interface ContactFormCopy {
 export interface ContactCopy {
 	heading: string;
 	intro: string;
+	directEmailLabel: string;
 	bookingHeading: string;
 	form: ContactFormCopy;
 }

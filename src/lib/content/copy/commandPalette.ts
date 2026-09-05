@@ -7,5 +7,12 @@ export const commandPaletteCopy: CommandPaletteCopy = {
 	themeToggleLabel: 'Toggle theme',
 	searchPlaceholder: 'Type a command or search',
 	emptyLabel: 'No matching commands.',
-	triggerLabel: 'Open command palette'
+	triggerLabel: 'Open command palette',
+	pagesGroupLabel: 'Pages',
+	resumeGroupLabel: 'Resume',
+	socialGroupLabel: 'Social',
+	themeGroupLabel: 'Theme',
+	navigateHint: '↑↓ navigate',
+	selectHint: '↵ select',
+	closeHint: 'esc close'
 };

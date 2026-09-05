@@ -26,4 +26,20 @@ describe('Figure.svelte', () => {
 		await expect.element(placeholder).toBeInTheDocument();
 		await expect.element(page.getByText('Portrait pending')).toBeInTheDocument();
 	});
+
+	it('renders both variants, theme-toggled by CSS, when a dark variant is provided', async () => {
+		const { container } = await render(Figure, {
+			image: { src: '/images/portrait.jpg', darkSrc: '/images/portrait-dark.jpg', alt: 'Kamal' },
+			width: 480,
+			height: 480,
+			label: 'Kamal'
+		});
+
+		const images = container.querySelectorAll('img');
+		expect(images).toHaveLength(2);
+		expect(images[0].getAttribute('src')).toBe('/images/portrait.jpg');
+		expect(images[0].className).toContain('theme-image-light');
+		expect(images[1].getAttribute('src')).toBe('/images/portrait-dark.jpg');
+		expect(images[1].className).toContain('theme-image-dark');
+	});
 });

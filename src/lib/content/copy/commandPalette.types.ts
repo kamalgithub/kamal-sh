@@ -6,4 +6,11 @@ export interface CommandPaletteCopy {
 	searchPlaceholder: string;
 	emptyLabel: string;
 	triggerLabel: string;
+	pagesGroupLabel: string;
+	resumeGroupLabel: string;
+	socialGroupLabel: string;
+	themeGroupLabel: string;
+	navigateHint: string;
+	selectHint: string;
+	closeHint: string;
 }

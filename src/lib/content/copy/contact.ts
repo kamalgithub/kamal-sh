@@ -4,6 +4,7 @@ export const contactCopy: ContactCopy = {
 	heading: "Let's build together",
 	intro:
 		"Whether it's a cloud migration, a DevOps transformation, or just a technical discussion — send a message or book a time directly.",
+	directEmailLabel: 'Prefer email?',
 	bookingHeading: 'Book a time',
 	form: {
 		nameLabel: 'Name',

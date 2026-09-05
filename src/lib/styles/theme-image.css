@@ -1,0 +1,30 @@
+/*
+ * Theme-aware image swapping for Figure.svelte's optional dark/light image variants.
+ * Mirrors tokens.css's exact override logic (dark is the default, light applies via
+ * prefers-color-scheme, an explicit choice applies via [data-theme]) so an image never
+ * disagrees with the color tokens rendered around it. Pure CSS — no flash, no JS, works
+ * identically on a fully prerendered page.
+ */
+
+.theme-image-light {
+	display: none;
+}
+.theme-image-dark {
+	display: block;
+}
+
+@media (prefers-color-scheme: light) {
+	:root:not([data-theme='dark']) .theme-image-light {
+		display: block;
+	}
+	:root:not([data-theme='dark']) .theme-image-dark {
+		display: none;
+	}
+}
+
+:root[data-theme='light'] .theme-image-light {
+	display: block;
+}
+:root[data-theme='light'] .theme-image-dark {
+	display: none;
+}

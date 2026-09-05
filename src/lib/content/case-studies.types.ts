@@ -1,3 +1,5 @@
+import type { ContentImage } from './image.types';
+
 export interface CaseStudyNarrativeBlock {
 	type: 'narrative';
 	heading: string;
@@ -29,11 +31,6 @@ export interface CaseStudyTradeoffsBlock {
 export type CaseStudyBlock =
 	CaseStudyNarrativeBlock | CaseStudyStatGridBlock | CaseStudyTradeoffsBlock;
 
-export interface CaseStudyImage {
-	src: string;
-	alt: string;
-}
-
 export interface CaseStudy {
 	slug: string;
 	title: string;
@@ -42,5 +39,5 @@ export interface CaseStudy {
 	technologies: string[];
 	blocks: CaseStudyBlock[];
 	/** Absent until a real architecture diagram/screenshot is dropped in. */
-	image?: CaseStudyImage;
+	image?: ContentImage;
 }
