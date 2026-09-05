@@ -9,9 +9,18 @@
 		height: number;
 		/** What the pending image will show — doubles as the placeholder's accessible label. */
 		label: string;
+		/** Override the default sizing/border classes — for a caller framing the image itself
+		 *  (see Hero.svelte's portrait, which wraps this in its own matte/border treatment). */
+		class?: string;
 	}
 
-	let { image, width, height, label }: Props = $props();
+	let {
+		image,
+		width,
+		height,
+		label,
+		class: className = 'h-auto w-full rounded-sm border border-border object-cover'
+	}: Props = $props();
 </script>
 
 {#if image}
@@ -22,7 +31,7 @@
 			{width}
 			{height}
 			loading="lazy"
-			class="theme-image-light h-auto w-full rounded-sm border border-border object-cover"
+			class="theme-image-light {className}"
 		/>
 		<img
 			src={image.darkSrc}
@@ -30,17 +39,10 @@
 			{width}
 			{height}
 			loading="lazy"
-			class="theme-image-dark h-auto w-full rounded-sm border border-border object-cover"
+			class="theme-image-dark {className}"
 		/>
 	{:else}
-		<img
-			src={image.src}
-			alt={image.alt}
-			{width}
-			{height}
-			loading="lazy"
-			class="h-auto w-full rounded-sm border border-border object-cover"
-		/>
+		<img src={image.src} alt={image.alt} {width} {height} loading="lazy" class={className} />
 	{/if}
 {:else}
 	<div

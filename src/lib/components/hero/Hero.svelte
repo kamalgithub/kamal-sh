@@ -27,8 +27,14 @@
 					<Button href="/work" variant="secondary">{copy.heroCtaSecondaryLabel}</Button>
 				</div>
 			</div>
-			<div class="w-40 shrink-0 md:w-56">
-				<Figure image={profile.photo} width={480} height={480} label="Portrait — {profile.name}" />
+			<div class="w-40 shrink-0 rounded-sm border border-border-strong bg-surface p-1.5 md:w-56">
+				<Figure
+					image={profile.photo}
+					width={480}
+					height={480}
+					label="Portrait — {profile.name}"
+					class="aspect-square h-auto w-full rounded-[2px] object-cover"
+				/>
 			</div>
 		</div>
 	</Container>

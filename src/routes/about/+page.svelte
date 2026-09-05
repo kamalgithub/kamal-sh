@@ -6,6 +6,8 @@
 	import { aboutCopy } from '$lib/content/copy/about';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
+	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import IconUser from '$lib/components/icons/IconUser.svelte';
 	import EducationList from '$lib/components/education/EducationList.svelte';
 	import CertificationsGrid from '$lib/components/certifications/CertificationsGrid.svelte';
 	import GithubActivity from '$lib/components/github/GithubActivity.svelte';
@@ -23,7 +25,7 @@
 
 <Section tint={2}>
 	<Container>
-		<h1 class="font-display text-display font-medium text-text">{aboutCopy.heading}</h1>
+		<PageHeading icon={IconUser} heading={aboutCopy.heading} />
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{profile.tagline}</p>
 	</Container>
 </Section>
@@ -48,6 +50,7 @@
 </Section>
 <TestimonialsPreview
 	testimonials={featuredTestimonials}
+	totalCount={testimonials.length}
 	heading={aboutCopy.testimonialsHeading}
 	viewAllLabel={aboutCopy.testimonialsViewAllLabel}
 />

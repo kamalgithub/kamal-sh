@@ -1,8 +1,13 @@
+/** A string key, not a component reference — content data stays framework-agnostic (see buildCommands.ts's CommandIcon for the same pattern). */
+export type GithubActivityIcon =
+	'commit' | 'branch' | 'repo' | 'tag' | 'pullRequest' | 'issue' | 'release';
+
 /** Display-ready shape the About page actually renders — everything else about the raw GitHub event is discarded. */
 export interface GithubActivityItem {
 	id: string;
 	repo: string;
 	summary: string;
+	icon: GithubActivityIcon;
 	url: string;
 	createdAt: string;
 }
@@ -48,6 +53,19 @@ function summarize(type: string, payload: Record<string, unknown>): string | und
 	return undefined;
 }
 
+/** Assumes `type` is one of SUPPORTED_EVENT_TYPES — the CreateEvent branch falls back to
+ *  'branch' for a ref_type other than the three GitHub currently documents (repository/branch/tag). */
+function iconFor(type: string, payload: Record<string, unknown>): GithubActivityIcon {
+	if (type === 'PushEvent') return 'commit';
+	if (type === 'PullRequestEvent') return 'pullRequest';
+	if (type === 'IssuesEvent') return 'issue';
+	if (type === 'ReleaseEvent') return 'release';
+	const refType = typeof payload.ref_type === 'string' ? payload.ref_type : undefined;
+	if (refType === 'repository') return 'repo';
+	if (refType === 'tag') return 'tag';
+	return 'branch';
+}
+
 /** Defensive by necessity — this is an unauthenticated third-party API response, not our own typed content. */
 export function parseGithubEvents(raw: unknown, limit = 6): GithubActivityItem[] {
 	if (!Array.isArray(raw)) return [];
@@ -66,7 +84,14 @@ export function parseGithubEvents(raw: unknown, limit = 6): GithubActivityItem[]
 		const summary = summarize(type, payload);
 		if (!summary) continue;
 
-		items.push({ id, repo: repo.name, summary, url: `https://github.com/${repo.name}`, createdAt });
+		items.push({
+			id,
+			repo: repo.name,
+			summary,
+			icon: iconFor(type, payload),
+			url: `https://github.com/${repo.name}`,
+			createdAt
+		});
 	}
 	return items;
 }

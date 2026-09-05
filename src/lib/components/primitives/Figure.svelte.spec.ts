@@ -27,6 +27,32 @@ describe('Figure.svelte', () => {
 		await expect.element(page.getByText('Portrait pending')).toBeInTheDocument();
 	});
 
+	it('uses the default sizing/border classes when no override is given', async () => {
+		await render(Figure, {
+			image: { src: '/images/example.jpg', alt: 'Example' },
+			width: 800,
+			height: 600,
+			label: 'Example'
+		});
+
+		const img = page.getByAltText('Example').element() as HTMLImageElement;
+		expect(img.className).toContain('rounded-sm');
+		expect(img.className).toContain('border');
+	});
+
+	it('lets a caller override the sizing/border classes', async () => {
+		await render(Figure, {
+			image: { src: '/images/example.jpg', alt: 'Example' },
+			width: 480,
+			height: 480,
+			label: 'Example',
+			class: 'aspect-square h-auto w-full rounded-[2px] object-cover'
+		});
+
+		const img = page.getByAltText('Example').element() as HTMLImageElement;
+		expect(img.className).toBe('aspect-square h-auto w-full rounded-[2px] object-cover');
+	});
+
 	it('renders both variants, theme-toggled by CSS, when a dark variant is provided', async () => {
 		const { container } = await render(Figure, {
 			image: { src: '/images/portrait.jpg', darkSrc: '/images/portrait-dark.jpg', alt: 'Kamal' },

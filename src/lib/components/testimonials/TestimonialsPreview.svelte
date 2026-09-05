@@ -8,9 +8,16 @@
 
 	let {
 		testimonials,
+		totalCount,
 		heading,
 		viewAllLabel
-	}: { testimonials: Testimonial[]; heading: string; viewAllLabel: string } = $props();
+	}: {
+		testimonials: Testimonial[];
+		/** The full list's length — `testimonials` here is only the featured preview slice. */
+		totalCount: number;
+		heading: string;
+		viewAllLabel: string;
+	} = $props();
 </script>
 
 <Section>
@@ -21,7 +28,7 @@
 			href={resolve('/testimonials')}
 			class="mt-8 inline-flex items-center gap-1 text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
 		>
-			{viewAllLabel} ({testimonials.length})
+			{viewAllLabel} ({totalCount})
 			<IconArrowRight size={14} />
 		</a>
 	</Container>

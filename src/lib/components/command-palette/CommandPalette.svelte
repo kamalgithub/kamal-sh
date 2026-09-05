@@ -53,7 +53,7 @@
 
 	// Keeps the highlighted row visible when arrow keys move it past the scrollable list's edge.
 	$effect(() => {
-		itemRefs[activeIndex]?.scrollIntoView({ block: 'nearest' });
+		itemRefs[activeIndex]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 	});
 
 	// Imperative, not effect-driven: showModal()/close() run in direct response to the

@@ -3,9 +3,9 @@
 
 	interface Props {
 		/** A small section mark, set above the headline rather than beside it so it never
-		 *  competes with --text-display's scale. Reserved for the site's secondary/meta
-		 *  pages (architecture, security, costs, postmortems) — not the core narrative
-		 *  pages, where the serif headline itself already carries the identity. */
+		 *  competes with --text-display's scale. Used on every page's opening heading
+		 *  except Home, which has its own photo-based Hero layout instead — see
+		 *  docs/design-tokens.md's Icons section for why Home stays the exception. */
 		icon: Component<{ size?: number }>;
 		heading: string;
 	}

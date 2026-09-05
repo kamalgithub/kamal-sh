@@ -5,8 +5,8 @@ import type { CostLineItem } from './costs.types';
 export const costLineItems: CostLineItem[] = [
 	{
 		label: 'Domain (kamal.sh)',
-		monthlyEstimate: '₹667',
-		note: 'The one real, confirmed number on this page — ₹8,000/year for the .sh domain, amortized monthly. Everything else below is $0 on a free tier.'
+		monthlyEstimate: '$8',
+		note: 'The one real, confirmed number on this page — ₹8,000/year for the .sh domain, converted to ~$96/year (~$8/month) at a rough ₹83/$1 rate. Everything else below is $0 on a free tier.'
 	},
 	{
 		label: 'Hosting (Cloudflare Workers)',

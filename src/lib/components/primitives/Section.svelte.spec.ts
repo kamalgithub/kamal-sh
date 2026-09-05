@@ -30,11 +30,12 @@ describe('Section.svelte', () => {
 		expect(wrapper?.className).not.toMatch(/bg-tint-/);
 	});
 
-	it('applies the requested tint class', async () => {
+	it('applies the requested tint class plus its hairline separator', async () => {
 		const children = createRawSnippet(() => ({ render: () => `<p>content</p>` }));
 		const { container } = await render(Section, { tint: 2, children });
 
 		const wrapper = container.querySelector('section');
 		expect(wrapper?.className).toContain('bg-tint-2');
+		expect(wrapper?.className).toContain('border-b');
 	});
 });

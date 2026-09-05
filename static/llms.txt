@@ -26,3 +26,4 @@
 - [resume.md](https://kamal.sh/resume.md): Markdown résumé.
 - [sitemap.xml](https://kamal.sh/sitemap.xml): Full page index.
 - [rss.xml](https://kamal.sh/rss.xml): Writing feed.
+- [linkedin](https://kamal.sh/linkedin), [youtube](https://kamal.sh/youtube), [github](https://kamal.sh/github): short-URL redirects to the matching profile.

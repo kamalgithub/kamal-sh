@@ -13,6 +13,9 @@
 	};
 </script>
 
-<section class="py-16 md:py-24 {tint ? TINT_CLASS[tint] : ''}" use:reveal>
+<section
+	class="py-16 md:py-24 {tint ? `${TINT_CLASS[tint]} border-b border-border` : ''}"
+	use:reveal
+>
 	{@render children()}
 </section>

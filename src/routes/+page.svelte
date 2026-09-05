@@ -41,6 +41,7 @@
 	{:else if section === 'testimonials'}
 		<TestimonialsPreview
 			testimonials={featuredTestimonials}
+			totalCount={testimonials.length}
 			heading={homeCopy.testimonialsHeading}
 			viewAllLabel={homeCopy.testimonialsViewAllLabel}
 		/>

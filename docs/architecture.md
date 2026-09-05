@@ -23,10 +23,11 @@ No `src/lib/index.ts` barrel file. Import directly from the file that defines wh
 ## Routing & rendering strategy
 
 - **Prerender by default.** `src/routes/+layout.ts` sets `export const prerender = true` at the root, so every route is static at build time unless it explicitly opts out — this is a personal site, almost everything should be served as static assets for instant loads.
-- **SSR only where genuinely required.** Three routes currently opt out with `export const prerender = false`, each for a specific per-request need:
+- **SSR only where genuinely required.** A handful of routes opt out with `export const prerender = false`, each for a specific per-request need:
   - `/contact` — the form submission action.
   - `/about` — `+page.server.ts` fetches `api.github.com/.../events/public` live on every request (see "Live external data" below); prerendering would freeze that feed at build time, defeating the point.
   - `/` (`src/routes/+page.ts`) — the one exception that isn't about the page's own content. `src/hooks.server.ts` inspects every request's User-Agent so `curl kamal.sh` (or wget/iwr/any other CLI client) gets the résumé instead of the homepage; see "CLI content negotiation" below. This means every homepage visit — CLI or browser — is a real SSR render instead of a static-asset hit; acceptable on Workers' edge compute for this site's traffic, but a real, deliberate tradeoff, not a free one.
+  - `/linkedin`, `/youtube`, `/github` — short-URL redirects (see "Short-URL redirects" below). Their destination is fully static, but a prerendered "redirect" on this adapter can only ever be a 200 HTML page with a meta-refresh, not a real 3xx — and a real HTTP redirect is what makes link-preview crawlers (Slack, Twitter, iMessage, etc.) follow through to the destination and show _its_ preview instead of ours. That specific need — a genuine status code, not per-request computation — is the justification for SSR here.
 
   Don't reach for SSR because it's the path of least resistance; justify it against "does this truly need per-request server computation." Note the tradeoff this creates: on `@sveltejs/adapter-cloudflare`, prerendered routes are served straight from `env.ASSETS.fetch()` and never reach `src/hooks.server.ts` — see "Response headers" below for why that matters.
 
@@ -39,6 +40,10 @@ No `src/lib/index.ts` barrel file. Import directly from the file that defines wh
 `/` and `/resume` are ANSI bold/color **by default** — a deliberate choice, not the original one. There is no HTTP header that reveals whether a client's stdout is even a terminal (piping to a file or a non-ANSI-aware tool looks identical to the server), so this does carry real risk of garbled output for a genuinely legacy CLI or a script that expects plain text. `/resume/raw` is the uncolored escape hatch for exactly that case. `buildResumeText.ts`'s `color` option (default `false`) is what every one of these routes shares — keep any future formatting addition behind that same explicit, named opt-in rather than guessing client capability.
 
 The same default-to-styled idea applies to the JSON surfaces, for a different reason: `/json` is a colorized, human-readable view (`src/lib/utils/colorizeJson.ts` — a few targeted regexes over our own known-shaped data, not a general JSON tokenizer), served as `text/plain` because the ANSI codes make it invalid JSON. `/json/raw` and `/resume.json` are the real `application/json` endpoints for the rare case someone wants to parse this data — nobody needs to consume a personal résumé as an API result, so the memorable short path optimizes for "looks good in a terminal."
+
+## Short-URL redirects
+
+`/linkedin`, `/youtube`, `/github` each `Response.redirect` (301) to the matching URL already in `profile.links` — no destination is duplicated as a new string. Deliberately real HTTP redirects rather than prerendered meta-refresh pages: a link-preview unfurler fetches the URL, follows the `Location` header, and renders the _destination's_ Open Graph tags — exactly "the preview should match the destination" with zero bespoke OG-tag copying to keep in sync by hand. Add a new one the same way if another platform link needs a short URL: a single-purpose `+server.ts`, `prerender = false`, pulling its target from existing `profile` data.
 
 ## Prerendered `+server.ts` endpoints
 

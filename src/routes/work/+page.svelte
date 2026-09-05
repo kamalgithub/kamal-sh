@@ -8,6 +8,8 @@
 	import { getDisplayStats } from '$lib/utils/getDisplayStats';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
+	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
+	import IconBriefcase from '$lib/components/icons/IconBriefcase.svelte';
 	import StatsBand from '$lib/components/stats/StatsBand.svelte';
 	import CaseStudyLinks from '$lib/components/case-studies/CaseStudyLinks.svelte';
 	import ExperienceTimeline from '$lib/components/experience/ExperienceTimeline.svelte';
@@ -23,7 +25,7 @@
 
 <Section tint={1}>
 	<Container>
-		<h1 class="font-display text-display font-medium text-text">{workCopy.heading}</h1>
+		<PageHeading icon={IconBriefcase} heading={workCopy.heading} />
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{workCopy.intro}</p>
 	</Container>
 </Section>
