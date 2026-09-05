@@ -11,7 +11,7 @@
 	import IconMail from '$lib/components/icons/IconMail.svelte';
 	import type { PageProps } from './$types';
 
-	let { form }: PageProps = $props();
+	let { data, form }: PageProps = $props();
 </script>
 
 <svelte:head>
@@ -35,7 +35,11 @@
 		</p>
 		<div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
 			<Card>
-				<ContactForm form={form ?? undefined} copy={contactCopy.form} />
+				<ContactForm
+					form={form ?? undefined}
+					copy={contactCopy.form}
+					turnstileSiteKey={data.turnstileSiteKey}
+				/>
 			</Card>
 			<Card>
 				<BookingFlow copy={bookingCopy} bookingUrl={profile.links.booking} />

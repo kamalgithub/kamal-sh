@@ -9,7 +9,12 @@ export const securityPosture: SecurityPostureItem[] = [
 	{
 		label: 'Secrets never committed',
 		description:
-			'The one real secret this site has — the Mailgun API key — is set via Cloudflare’s encrypted secret store, never in source control or a committed environment file.'
+			'Real secrets this site has — the Mailgun API key and the Turnstile secret key — are set via Cloudflare’s encrypted secret store, never in source control or a committed environment file.'
+	},
+	{
+		label: 'Contact form abuse protection',
+		description:
+			'Cloudflare Turnstile blocks automated submissions, and a 2-messages-per-4-hours cap is enforced both client-side and by IP — the IP itself is hashed before use and never stored as plain text.'
 	},
 	{
 		label: 'Minimal, deliberate dependencies',

@@ -12,6 +12,10 @@
 	"preview_urls": true,
 	"vars": {
 		"MAILGUN_DOMAIN": "mail.kamal.sh",
-		"MAILGUN_TO_ADDRESS": "kamal@kamal.sh"
+		"MAILGUN_TO_ADDRESS": "kamal@kamal.sh",
+		// Turnstile's site key is public by design (embedded in the page HTML) — not a
+		// secret. Empty until a real Turnstile widget is created in the Cloudflare
+		// dashboard; the contact form fails closed (Turnstile not configured) until then.
+		"TURNSTILE_SITE_KEY": ""
 	}
 }

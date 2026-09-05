@@ -17,6 +17,9 @@ export const contactCopy: ContactCopy = {
 		emailInvalidError: 'Please enter a valid email address.',
 		messageRequiredError: 'Please enter a message.',
 		sendFailedError: 'Something went wrong sending your message — please email directly instead.',
-		notConfiguredError: 'Email sending is not configured yet — please email directly instead.'
+		notConfiguredError: 'Email sending is not configured yet — please email directly instead.',
+		verificationFailedError: 'Verification failed — please try again.',
+		rateLimitedMessage:
+			"You've sent a couple of messages recently — please wait a bit before sending another, or email directly instead."
 	}
 };

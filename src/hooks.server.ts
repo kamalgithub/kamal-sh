@@ -13,14 +13,19 @@ import type { Handle } from '@sveltejs/kit';
  * built-in CSP hashing only covers its own generated tags, not ours), and a couple of
  * components use Svelte's `style:` directive, which renders as an inline style attribute.
  * Everything else stays as strict as this static, no-database site allows.
+ *
+ * `challenges.cloudflare.com` (script/frame/connect) is Cloudflare Turnstile — only
+ * actually loaded on /contact, but this one policy is shared across all three SSR
+ * routes, so the allowance is granted here rather than added as a per-route branch.
  */
 const CONTENT_SECURITY_POLICY = [
 	"default-src 'self'",
-	"script-src 'self' 'unsafe-inline'",
+	"script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
 	"style-src 'self' 'unsafe-inline'",
 	"img-src 'self' https://*.ytimg.com https://blog.aicademy.ac data:",
 	"font-src 'self'",
-	"connect-src 'self' https://api.github.com",
+	"connect-src 'self' https://api.github.com https://challenges.cloudflare.com",
+	'frame-src https://challenges.cloudflare.com',
 	"object-src 'none'",
 	"base-uri 'self'",
 	"form-action 'self'",
