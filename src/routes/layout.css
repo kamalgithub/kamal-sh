@@ -10,6 +10,18 @@ body {
 	min-height: 100dvh;
 	flex-direction: column;
 	background-color: var(--color-bg);
+	/* A faint dot grid, not a flat fill — ties into the "blueprint/cyanotype" idea already
+	   behind --color-accent (a nod to technical drawings) rather than adding an unrelated
+	   texture. Reuses --color-border (the existing decorative-hairline token) so it needs
+	   no new dark/light-specific values and stays exactly as subtle in both themes as the
+	   hairline dividers already are. Fixed attachment so it reads as the page's paper, not
+	   something that scrolls with content. First pass — revisit after a visual look; a
+	   noise texture or a plain flat background are the other options worth trying if this
+	   doesn't land. */
+	background-image: radial-gradient(circle, var(--color-border) 1px, transparent 1px);
+	background-position: 0 0;
+	background-size: 24px 24px;
+	background-attachment: fixed;
 	color: var(--color-text);
 	font-family: var(--font-body);
 	/* Dark-mode-only default weight lives in tokens.css (next to the other dark/light

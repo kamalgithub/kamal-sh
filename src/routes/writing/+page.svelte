@@ -28,7 +28,7 @@
 <Section tint={1}>
 	<Container>
 		<PageHeading icon={IconPen} heading={writingCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{writingCopy.intro}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{writingCopy.intro}</p>
 	</Container>
 </Section>
 <Section>

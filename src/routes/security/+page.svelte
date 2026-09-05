@@ -20,7 +20,7 @@
 <Section tint={2}>
 	<Container>
 		<PageHeading icon={IconShield} heading={securityCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{securityCopy.intro}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{securityCopy.intro}</p>
 	</Container>
 </Section>
 <Section>
@@ -31,14 +31,14 @@
 <Section>
 	<Container>
 		<h2 class="font-display text-h2 font-medium text-text">{securityCopy.cspNoteHeading}</h2>
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{securityCopy.cspNoteBody}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{securityCopy.cspNoteBody}</p>
 	</Container>
 </Section>
 <Section>
 	<Container>
 		<h2 class="font-display text-h2 font-medium text-text">{securityCopy.reportingHeading}</h2>
 		<!-- eslint-disable svelte/no-navigation-without-resolve -- mailto: and a static file, neither is an internal route -->
-		<p class="mt-3 max-w-2xl text-body text-text-muted">
+		<p class="mt-5 max-w-2xl text-body text-text-muted">
 			{securityCopy.reportingEmailLeadIn}<a href="mailto:{profile.email}" class={LINK_CLASS}
 				>{profile.email}</a
 			>{securityCopy.reportingBetween}<a href="/.well-known/security.txt" class={LINK_CLASS}

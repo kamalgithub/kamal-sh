@@ -32,7 +32,7 @@
 						href={link.href}
 						aria-current={active ? 'page' : undefined}
 						class="text-small transition-colors duration-(--duration-fast) ease-standard {active
-							? 'font-semibold text-text'
+							? 'text-accent'
 							: 'text-text-muted hover:text-text'}"
 					>
 						{link.label}

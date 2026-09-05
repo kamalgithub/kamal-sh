@@ -16,7 +16,7 @@
 <Section tint={1}>
 	<Container>
 		<PageHeading icon={IconActivity} heading={postmortemsCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{postmortemsCopy.intro}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{postmortemsCopy.intro}</p>
 	</Container>
 </Section>
 <Section>

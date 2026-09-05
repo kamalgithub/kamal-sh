@@ -22,7 +22,7 @@
 <Section tint={3}>
 	<Container>
 		<PageHeading icon={IconMail} heading={contactCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{contactCopy.intro}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{contactCopy.intro}</p>
 		<p class="mt-4 flex items-center gap-2 text-body text-text-muted">
 			<IconMail size={18} />
 			{contactCopy.directEmailLabel}

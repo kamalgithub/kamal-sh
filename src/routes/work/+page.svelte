@@ -26,7 +26,7 @@
 <Section tint={1}>
 	<Container>
 		<PageHeading icon={IconBriefcase} heading={workCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{workCopy.intro}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{workCopy.intro}</p>
 	</Container>
 </Section>
 <StatsBand stats={displayStats} />

@@ -18,7 +18,7 @@
 <Section tint={3}>
 	<Container>
 		<PageHeading icon={IconTool} heading={buildingCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{buildingCopy.intro}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{buildingCopy.intro}</p>
 	</Container>
 </Section>
 <BuildingShowcase {products} linkLabel={buildingCopy.linkLabel} />

@@ -19,5 +19,5 @@
 	>
 		<Icon size={22} />
 	</span>
-	<h1 class="font-display text-display font-medium text-text">{heading}</h1>
+	<h1 class="mb-3 font-display text-display font-medium text-text">{heading}</h1>
 </div>

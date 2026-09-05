@@ -16,7 +16,7 @@
 <Section tint={2}>
 	<Container>
 		<PageHeading icon={IconLayers} heading={architectureCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{architectureCopy.intro}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{architectureCopy.intro}</p>
 	</Container>
 </Section>
 <Section>

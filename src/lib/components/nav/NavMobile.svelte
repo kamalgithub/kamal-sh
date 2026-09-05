@@ -2,7 +2,10 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import type { NavLink } from '$lib/content/nav.types';
+	import { requestCommandPaletteOpen } from '$lib/utils/commandPaletteEvent';
+	import { commandPaletteCopy } from '$lib/content/copy/commandPalette';
 	import ThemeToggle from './ThemeToggle.svelte';
+	import IconSearch from '$lib/components/icons/IconSearch.svelte';
 
 	let { links, name }: { links: NavLink[]; name: string } = $props();
 	let dialogEl: HTMLDialogElement | undefined = $state();
@@ -30,7 +33,15 @@
 		<span class="text-accent" aria-hidden="true">$</span>
 		{name}
 	</a>
-	<div class="flex items-center gap-2">
+	<div class="flex items-center gap-1">
+		<button
+			type="button"
+			onclick={requestCommandPaletteOpen}
+			aria-label={commandPaletteCopy.triggerLabel}
+			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-text"
+		>
+			<IconSearch size={18} />
+		</button>
 		<ThemeToggle />
 		<button
 			type="button"

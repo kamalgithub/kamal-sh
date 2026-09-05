@@ -20,7 +20,7 @@
 <Section tint={1}>
 	<Container>
 		<PageHeading icon={IconQuote} heading={testimonialsCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{testimonialsCopy.intro}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{testimonialsCopy.intro}</p>
 		<!-- eslint-disable svelte/no-navigation-without-resolve -- external URL, not an internal route -->
 		<a
 			href={linkedInRecommendationsUrl}

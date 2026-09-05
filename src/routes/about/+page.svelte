@@ -26,7 +26,7 @@
 <Section tint={2}>
 	<Container>
 		<PageHeading icon={IconUser} heading={aboutCopy.heading} />
-		<p class="mt-3 max-w-2xl text-body text-text-muted">{profile.tagline}</p>
+		<p class="mt-5 max-w-2xl text-body text-text-muted">{profile.tagline}</p>
 	</Container>
 </Section>
 <Section>
