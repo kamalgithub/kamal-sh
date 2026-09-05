@@ -19,6 +19,7 @@ const nodes: ArchitectureNode[] = [
 		id: 'gateway',
 		label: 'Gateway',
 		category: 'flow',
+		icon: 'layers',
 		summary: 'Gateway summary',
 		rationale: 'Gateway rationale',
 		tradeoffs: [{ considered: 'Direct calls', rejectedBecause: 'No shared policy' }]
@@ -27,6 +28,7 @@ const nodes: ArchitectureNode[] = [
 		id: 'evals',
 		label: 'Evals',
 		category: 'cross-cutting',
+		icon: 'checkCircle',
 		summary: 'Evals summary',
 		rationale: 'Evals rationale',
 		tradeoffs: []

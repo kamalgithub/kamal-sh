@@ -5,6 +5,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'gateway',
 		label: 'Edge gateway',
 		category: 'flow',
+		icon: 'layers',
 		summary:
 			'Single entry point for every model call — auth, rate limiting, and routing live here, not scattered across services.',
 		rationale:
@@ -26,6 +27,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'authn',
 		label: 'AuthN / AuthZ',
 		category: 'flow',
+		icon: 'shield',
 		summary:
 			'Every request is attributed to a real caller — service identity or end user — before it reaches a model. No anonymous traffic past the edge.',
 		rationale:
@@ -42,6 +44,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'guardrails-in',
 		label: 'Input guardrails',
 		category: 'flow',
+		icon: 'shield',
 		summary:
 			'Prompt-injection detection, PII redaction, and policy checks run on the way in, before a token reaches a model provider.',
 		rationale:
@@ -58,6 +61,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'router',
 		label: 'Model router',
 		category: 'flow',
+		icon: 'gauge',
 		summary:
 			'Picks which model serves a request based on task type, cost ceiling, and latency budget — not a hardcoded model name in application code.',
 		rationale:
@@ -79,6 +83,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'providers',
 		label: 'Model providers',
 		category: 'flow',
+		icon: 'layers',
 		summary:
 			'Multiple providers sit behind the router with a named fallback chain — not a single vendor as a single point of failure.',
 		rationale:
@@ -95,6 +100,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'guardrails-out',
 		label: 'Output guardrails',
 		category: 'flow',
+		icon: 'shield',
 		summary:
 			'The response is checked before it reaches the caller — schema validation, safety filtering, and a check against the original policy.',
 		rationale:
@@ -111,6 +117,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'evals',
 		label: 'Evals',
 		category: 'cross-cutting',
+		icon: 'checkCircle',
 		summary:
 			'Every prompt, model, or guardrail change ships against a versioned eval set before it reaches production traffic — the same discipline as a test suite for a compiler.',
 		rationale:
@@ -127,6 +134,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'governance',
 		label: 'Governance & cost',
 		category: 'cross-cutting',
+		icon: 'gauge',
 		summary:
 			'Per-team budgets, per-model cost attribution, and an approval path for adding a new model or provider — cost is a first-class control, not a monthly surprise in the cloud bill.',
 		rationale:
@@ -143,6 +151,7 @@ export const architectureNodes: ArchitectureNode[] = [
 		id: 'observability',
 		label: 'Observability',
 		category: 'cross-cutting',
+		icon: 'activity',
 		summary:
 			'Every request is traced end-to-end — gateway, guardrail verdicts, model call, guardrail verdicts, response — with token counts and latency at each hop.',
 		rationale:

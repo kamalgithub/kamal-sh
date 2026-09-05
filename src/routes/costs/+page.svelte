@@ -3,7 +3,9 @@
 	import { costsCopy } from '$lib/content/copy/costs';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
+	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
 	import CostList from '$lib/components/costs/CostList.svelte';
+	import IconGauge from '$lib/components/icons/IconGauge.svelte';
 </script>
 
 <svelte:head>
@@ -13,7 +15,7 @@
 
 <Section>
 	<Container>
-		<h1 class="font-display text-display font-medium text-text">{costsCopy.heading}</h1>
+		<PageHeading icon={IconGauge} heading={costsCopy.heading} />
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{costsCopy.intro}</p>
 	</Container>
 </Section>

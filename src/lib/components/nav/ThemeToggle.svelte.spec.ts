@@ -9,20 +9,34 @@ describe('ThemeToggle.svelte', () => {
 		document.documentElement.removeAttribute('data-theme');
 	});
 
-	it('defaults to the system option pressed', async () => {
+	it('is a single trigger with the menu closed by default', async () => {
 		await render(ThemeToggle);
 		await expect
-			.element(page.getByRole('button', { name: 'Match system theme' }))
-			.toHaveAttribute('aria-pressed', 'true');
+			.element(page.getByRole('button', { name: 'Change theme (currently system)' }))
+			.toBeInTheDocument();
+		await expect.element(page.getByRole('menu')).not.toBeInTheDocument();
 	});
 
-	it('sets data-theme and updates pressed state when dark is chosen', async () => {
+	it('opens the menu on click and selecting an option applies and closes it', async () => {
 		await render(ThemeToggle);
-		const darkButton = page.getByRole('button', { name: 'Dark theme' });
-		await darkButton.click();
+		await page.getByRole('button', { name: 'Change theme (currently system)' }).click();
+		await expect.element(page.getByRole('menu')).toBeInTheDocument();
 
-		await expect.element(darkButton).toHaveAttribute('aria-pressed', 'true');
+		await page.getByRole('menuitemradio', { name: 'Dark' }).click();
+
 		expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
 		expect(localStorage.getItem('theme')).toBe('dark');
+		await expect.element(page.getByRole('menu')).not.toBeInTheDocument();
+	});
+
+	it('closes the menu on an outside click without changing the theme', async () => {
+		await render(ThemeToggle);
+		await page.getByRole('button', { name: 'Change theme (currently system)' }).click();
+		await expect.element(page.getByRole('menu')).toBeInTheDocument();
+
+		document.body.click();
+
+		await expect.element(page.getByRole('menu')).not.toBeInTheDocument();
+		expect(localStorage.getItem('theme')).toBeNull();
 	});
 });

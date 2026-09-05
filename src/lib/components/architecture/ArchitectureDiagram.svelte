@@ -1,11 +1,24 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
-	import type { ArchitectureNode } from '$lib/content/architecture.types';
+	import type { ArchitectureNode, ArchitectureNodeIcon } from '$lib/content/architecture.types';
 	import type { ArchitectureCopy } from '$lib/content/copy/architecture.types';
 	import Card from '$lib/components/primitives/Card.svelte';
 	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
+	import IconLayers from '$lib/components/icons/IconLayers.svelte';
+	import IconShield from '$lib/components/icons/IconShield.svelte';
+	import IconGauge from '$lib/components/icons/IconGauge.svelte';
+	import IconCheckCircle from '$lib/components/icons/IconCheckCircle.svelte';
+	import IconActivity from '$lib/components/icons/IconActivity.svelte';
 
 	let { nodes, copy }: { nodes: ArchitectureNode[]; copy: ArchitectureCopy } = $props();
+
+	const ICONS: Record<ArchitectureNodeIcon, typeof IconLayers> = {
+		layers: IconLayers,
+		shield: IconShield,
+		gauge: IconGauge,
+		checkCircle: IconCheckCircle,
+		activity: IconActivity
+	};
 
 	const flowNodes = $derived(nodes.filter((node) => node.category === 'flow'));
 	const crossCuttingNodes = $derived(nodes.filter((node) => node.category === 'cross-cutting'));
@@ -17,7 +30,7 @@
 
 	function nodeButtonClass(isSelected: boolean): string {
 		const base =
-			'rounded-sm border px-4 py-3 text-left text-small font-medium transition-colors duration-(--duration-fast) ease-standard';
+			'flex items-center gap-2 rounded-sm border px-4 py-3 text-left text-small font-medium transition-colors duration-(--duration-fast) ease-standard';
 		return isSelected
 			? `${base} border-text bg-text text-bg`
 			: `${base} border-border-strong text-text hover:border-accent`;
@@ -28,12 +41,14 @@
 	<p class="text-small text-text-muted">{copy.flowLabel}</p>
 	<div class="mt-3 flex flex-wrap items-center gap-2">
 		{#each flowNodes as node, i (node.id)}
+			{@const NodeIcon = ICONS[node.icon]}
 			<button
 				type="button"
 				aria-pressed={selectedId === node.id}
 				onclick={() => (selectedId = node.id)}
 				class={nodeButtonClass(selectedId === node.id)}
 			>
+				<NodeIcon size={16} />
 				{node.label}
 			</button>
 			{#if i < flowNodes.length - 1}
@@ -45,22 +60,32 @@
 	<p class="mt-8 text-small text-text-muted">{copy.crossCuttingLabel}</p>
 	<div class="mt-3 flex flex-wrap gap-2">
 		{#each crossCuttingNodes as node (node.id)}
+			{@const NodeIcon = ICONS[node.icon]}
 			<button
 				type="button"
 				aria-pressed={selectedId === node.id}
 				onclick={() => (selectedId = node.id)}
 				class={nodeButtonClass(selectedId === node.id)}
 			>
+				<NodeIcon size={16} />
 				{node.label}
 			</button>
 		{/each}
 	</div>
 
 	{#if selected}
+		{@const SelectedIcon = ICONS[selected.icon]}
 		<div class="mt-8">
 			<Card>
-				<h2 class="font-display text-h2 font-medium text-text">{selected.label}</h2>
-				<p class="mt-2 text-body text-text-muted">{selected.summary}</p>
+				<div class="flex items-center gap-3">
+					<span
+						class="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-bg text-accent"
+					>
+						<SelectedIcon size={20} />
+					</span>
+					<h2 class="font-display text-h2 font-medium text-text">{selected.label}</h2>
+				</div>
+				<p class="mt-4 text-body text-text-muted">{selected.summary}</p>
 
 				<h3 class="mt-6 text-small text-text-muted">{copy.rationaleLabel}</h3>
 				<p class="mt-2 text-body text-text">{selected.rationale}</p>

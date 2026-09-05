@@ -3,7 +3,9 @@
 	import { postmortemsCopy } from '$lib/content/copy/postmortems';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
+	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
 	import PostmortemList from '$lib/components/postmortems/PostmortemList.svelte';
+	import IconActivity from '$lib/components/icons/IconActivity.svelte';
 </script>
 
 <svelte:head>
@@ -13,7 +15,7 @@
 
 <Section>
 	<Container>
-		<h1 class="font-display text-display font-medium text-text">{postmortemsCopy.heading}</h1>
+		<PageHeading icon={IconActivity} heading={postmortemsCopy.heading} />
 		<p class="mt-3 max-w-2xl text-body text-text-muted">{postmortemsCopy.intro}</p>
 	</Container>
 </Section>
