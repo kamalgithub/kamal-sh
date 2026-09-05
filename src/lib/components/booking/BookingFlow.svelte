@@ -4,9 +4,11 @@
 	import { getTimeSlotsForDate } from '$lib/utils/getTimeSlotsForDate';
 	import { buildCalComUrl } from '$lib/utils/buildCalComUrl';
 	import { buildCalendarWeeks } from '$lib/utils/buildCalendarWeeks';
-	import type { CalendarDate } from '$lib/utils/ist';
+	import { getMonthDates, addMonths } from '$lib/utils/getMonthDates';
+	import { getIstCalendarDate, type CalendarDate } from '$lib/utils/ist';
 	import type { BookingCopy } from '$lib/content/copy/booking.types';
 	import Button from '$lib/components/primitives/Button.svelte';
+	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
 
 	const BOOKABLE_DAYS = 14;
 	const DURATIONS_MINUTES = [15, 30, 45, 60];
@@ -32,9 +34,34 @@
 	let step = $state<(typeof STEPS)[number]>('date');
 	let selectedDate = $state<CalendarDate | undefined>(undefined);
 	let selectedDuration = $state<number | undefined>(undefined);
+	let monthOffset = $state(0);
+	// The one open tooltip at a time, keyed "year-month-day" — shared by hover and tap so
+	// clicking a disabled date shows the exact same message a mouse user gets on hover.
+	let openTooltipKey = $state<string | undefined>(undefined);
 
 	const dates = $derived(now ? getBookableDates(now, BOOKABLE_DAYS) : []);
-	const calendarWeeks = $derived(buildCalendarWeeks(dates));
+	const today = $derived(now ? getIstCalendarDate(now) : undefined);
+	// Bounded to months that actually contain a bookable date — navigating further would
+	// only ever show an entirely faded, unbookable month, which is just noise.
+	const maxMonthOffset = $derived(
+		today && dates.length > 0
+			? (dates[dates.length - 1].year - today.year) * 12 +
+					(dates[dates.length - 1].month - today.month)
+			: 0
+	);
+	const viewedMonth = $derived(today ? addMonths(today.year, today.month, monthOffset) : undefined);
+	const monthWeeks = $derived(
+		viewedMonth ? buildCalendarWeeks(getMonthDates(viewedMonth.year, viewedMonth.month)) : []
+	);
+	const monthLabel = $derived(
+		viewedMonth
+			? new Date(Date.UTC(viewedMonth.year, viewedMonth.month, 1)).toLocaleDateString(undefined, {
+					month: 'long',
+					year: 'numeric',
+					timeZone: 'UTC'
+				})
+			: ''
+	);
 	const slots = $derived(
 		now && selectedDate && selectedDuration
 			? getTimeSlotsForDate(selectedDate, selectedDuration, now)
@@ -50,18 +77,14 @@
 		return a.year === b.year && a.month === b.month && a.day === b.day;
 	}
 
-	// The day number alone is ambiguous across a month boundary, so the first bookable
-	// day and the 1st of any later month also show a short month name.
-	function formatDayLabel(date: CalendarDate): string {
-		const isRangeStart = dates.length > 0 && isSameDate(date, dates[0]);
-		if (isRangeStart || date.day === 1) {
-			return new Date(Date.UTC(date.year, date.month, date.day)).toLocaleDateString(undefined, {
-				month: 'short',
-				day: 'numeric',
-				timeZone: 'UTC'
-			});
-		}
-		return String(date.day);
+	function dateKey(date: CalendarDate): string {
+		return `${date.year}-${date.month}-${date.day}`;
+	}
+
+	// The month is now always shown separately in the header above, so a day cell only
+	// ever needs its own number — no more "Sep 5" special-casing at range/month starts.
+	function isBookable(date: CalendarDate): boolean {
+		return dates.some((d) => isSameDate(d, date));
 	}
 
 	function formatDateAriaLabel(date: CalendarDate): string {
@@ -90,6 +113,21 @@
 	function goBack() {
 		step = step === 'time' ? 'duration' : 'date';
 	}
+
+	// Click toggles (so tapping the same date again dismisses it); hover shows/hides via
+	// the CSS below independently — either way the visitor sees the identical message.
+	function toggleTooltip(date: CalendarDate) {
+		const key = dateKey(date);
+		openTooltipKey = openTooltipKey === key ? undefined : key;
+	}
+
+	function goToPreviousMonth() {
+		if (monthOffset > 0) monthOffset -= 1;
+	}
+
+	function goToNextMonth() {
+		if (monthOffset < maxMonthOffset) monthOffset += 1;
+	}
 </script>
 
 <div>
@@ -102,21 +140,73 @@
 			<div class="flex-1">
 				{#if step === 'date'}
 					<p class="mb-3 text-small text-text-muted">{copy.dateStepLabel}</p>
+					<!-- Month named here, once, instead of buried in the date cells (was ambiguous
+					     on mobile where a first-of-month cell easily gets missed/cropped). -->
+					<div class="mb-2 flex items-center justify-between">
+						<button
+							type="button"
+							onclick={goToPreviousMonth}
+							disabled={monthOffset <= 0}
+							aria-label={copy.previousMonthLabel}
+							class="flex h-10 w-10 items-center justify-center rounded-sm text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-text disabled:pointer-events-none disabled:opacity-30"
+						>
+							<span class="block rotate-180"><IconArrowRight size={16} /></span>
+						</button>
+						<p class="font-display text-body font-medium text-text">{monthLabel}</p>
+						<button
+							type="button"
+							onclick={goToNextMonth}
+							disabled={monthOffset >= maxMonthOffset}
+							aria-label={copy.nextMonthLabel}
+							class="flex h-10 w-10 items-center justify-center rounded-sm text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-text disabled:pointer-events-none disabled:opacity-30"
+						>
+							<IconArrowRight size={16} />
+						</button>
+					</div>
 					<div class="grid grid-cols-7 gap-1 text-center">
 						{#each WEEKDAY_LABELS as weekday (weekday)}
 							<span class="py-1 text-small text-text-muted">{weekday}</span>
 						{/each}
-						{#each calendarWeeks as week, weekIndex (weekIndex)}
+						{#each monthWeeks as week, weekIndex (weekIndex)}
 							{#each week as date, dayIndex (dayIndex)}
 								{#if date}
-									<button
-										type="button"
-										onclick={() => selectDate(date)}
-										aria-label={formatDateAriaLabel(date)}
-										class="aspect-square rounded-sm border border-border-strong text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
-									>
-										{formatDayLabel(date)}
-									</button>
+									{@const bookable = isBookable(date)}
+									{@const key = dateKey(date)}
+									<div class="group relative">
+										{#if bookable}
+											<button
+												type="button"
+												onclick={() => selectDate(date)}
+												aria-label={formatDateAriaLabel(date)}
+												class="aspect-square w-full rounded-sm border border-border-strong text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+											>
+												{date.day}
+											</button>
+										{:else}
+											<button
+												type="button"
+												onclick={() => toggleTooltip(date)}
+												aria-label="{formatDateAriaLabel(date)} — {copy.outsideWindowTooltip}"
+												aria-disabled="true"
+												class="aspect-square w-full rounded-sm border border-border text-small text-text-muted/60"
+											>
+												{date.day}
+											</button>
+											<span
+												role="tooltip"
+												class="pointer-events-none absolute top-full z-10 mt-1 w-36 max-w-[calc(100vw-2rem)] rounded-sm border border-border-strong bg-surface px-2 py-1 text-left text-small text-text opacity-0 shadow-none transition-opacity duration-(--duration-fast) ease-standard group-hover:opacity-100 {dayIndex <=
+												1
+													? 'left-0'
+													: dayIndex >= 5
+														? 'right-0'
+														: 'left-1/2 -translate-x-1/2'} {openTooltipKey === key
+													? 'opacity-100'
+													: ''}"
+											>
+												{copy.outsideWindowTooltip}
+											</span>
+										{/if}
+									</div>
 								{:else}
 									<span></span>
 								{/if}
