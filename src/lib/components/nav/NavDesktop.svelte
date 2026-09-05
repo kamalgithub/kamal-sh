@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import type { NavLink } from '$lib/content/nav.types';
 	import { requestCommandPaletteOpen } from '$lib/utils/commandPaletteEvent';
 	import { commandPaletteCopy } from '$lib/content/copy/commandPalette';
@@ -7,6 +8,10 @@
 	import IconSearch from '$lib/components/icons/IconSearch.svelte';
 
 	let { links, name }: { links: NavLink[]; name: string } = $props();
+
+	function isActive(href: string): boolean {
+		return page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
+	}
 </script>
 
 <div class="sticky top-0 z-40 border-b border-border bg-bg">
@@ -16,17 +21,18 @@
 			class="flex items-center gap-1.5 font-mono text-lg font-semibold text-text"
 		>
 			<span class="text-accent" aria-hidden="true">$</span>
-			curl {name}
+			{name}
 		</a>
 		<div class="flex items-center gap-8">
 			<nav class="flex items-center gap-6" aria-label="Primary">
 				{#each links as link (link.href)}
+					{@const active = isActive(link.href)}
 					<!-- eslint-disable svelte/no-navigation-without-resolve -- content-authored href, not a compile-time literal -->
 					<a
 						href={link.href}
-						class="text-small transition-colors duration-(--duration-fast) ease-standard {link.href ===
-						'/contact'
-							? 'text-accent hover:underline'
+						aria-current={active ? 'page' : undefined}
+						class="text-small transition-colors duration-(--duration-fast) ease-standard {active
+							? 'font-semibold text-text'
 							: 'text-text-muted hover:text-text'}"
 					>
 						{link.label}

@@ -29,6 +29,14 @@ const NAV_KEYWORDS: Record<string, string[]> = {
 	'/contact': ['email', 'message', 'book', 'call', 'meeting']
 };
 
+/** Every social entry always gets 'social' plus whatever's platform-specific here — a
+ * platform not listed still gets the shared 'social' keyword, just no extras. */
+const SOCIAL_KEYWORDS: Record<string, string[]> = {
+	GitHub: ['code', 'repos', 'follow'],
+	LinkedIn: ['profile', 'follow', 'network'],
+	YouTube: ['videos', 'channel', 'subscribe']
+};
+
 /** Assembles the palette's command list from existing content — no copy is duplicated or hand-maintained here. */
 export function buildCommands(
 	navLinks: NavLink[],
@@ -66,7 +74,8 @@ export function buildCommands(
 			label: social.label,
 			group: copy.socialGroupLabel,
 			icon: 'social' as const,
-			href: social.url
+			href: social.url,
+			keywords: ['social', ...(SOCIAL_KEYWORDS[social.label] ?? [])]
 		})),
 		{
 			id: THEME_TOGGLE_COMMAND_ID,

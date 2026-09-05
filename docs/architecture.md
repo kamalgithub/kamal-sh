@@ -47,6 +47,11 @@ No `src/lib/index.ts` barrel file. Import directly from the file that defines wh
 
 Used only where mobile and desktop behavior _genuinely diverges_ — different interaction model, different information density, not just a different arrangement of the same elements. Don't reach for this pattern for something a CSS breakpoint handles fine.
 
+**Decide mobile and desktop separately, every time a feature is keyboard- or pointer-shaped** (see CLAUDE.md rule 8). A feature built around a desktop assumption — a keyboard shortcut, hover-revealed content, a wide multi-column layout — usually doesn't have a good mobile equivalent by just adding responsive classes to the same markup. Two honest outcomes, decided on purpose:
+
+- **Build a genuinely different mobile version** via the dual-native split below, when the feature matters enough on mobile to deserve its own design.
+- **Deliberately don't expose it on mobile at all**, when it doesn't. Example: the command palette (`CommandPalette.svelte`) is a keyboard-driven power-user feature — Cmd/Ctrl+K and `/` are meaningless without a keyboard, and a touch-friendly command-palette redesign wasn't worth building for a personal site. `NavMobile.svelte` has no trigger button for it on purpose; the underlying component still mounts (so an external keyboard still works), but nothing on the mobile UI implies the feature is there. This is a deliberate omission, not an oversight — don't "fix" it by adding a search icon to the mobile nav without redesigning the whole interaction for touch first.
+
 **Mechanism (CSS-only dual render, decided 2026-09-04):** the orchestrator renders both variants unconditionally; Tailwind responsive classes show exactly one. No JavaScript is needed for the switch, there's no hydration mismatch or flash-of-wrong-variant risk, and it composes cleanly with full prerendering.
 
 ```svelte

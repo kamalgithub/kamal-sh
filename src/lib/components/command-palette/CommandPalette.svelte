@@ -8,7 +8,6 @@
 	import { getResolvedTheme, toggleLightDark, type ResolvedTheme } from '$lib/utils/theme';
 	import { bestFuzzyScore } from '$lib/utils/fuzzyScore';
 	import { COMMAND_PALETTE_OPEN_EVENT } from '$lib/utils/commandPaletteEvent';
-	import IconSearch from '$lib/components/icons/IconSearch.svelte';
 	import IconArrowRight from '$lib/components/icons/IconArrowRight.svelte';
 	import IconArrowUpRight from '$lib/components/icons/IconArrowUpRight.svelte';
 	import IconTerminal from '$lib/components/icons/IconTerminal.svelte';
@@ -151,12 +150,12 @@
 	class="mx-auto mt-24 w-[calc(100%-2rem)] max-w-lg overflow-hidden rounded-sm border border-border-strong bg-surface p-0 backdrop:bg-bg/80"
 >
 	<div class="flex items-center gap-3 border-b border-border px-4 py-3">
-		<IconSearch size={18} />
+		<span class="font-mono text-body text-accent" aria-hidden="true">&gt;</span>
 		<input
 			type="text"
 			bind:value={query}
 			placeholder={copy.searchPlaceholder}
-			class="w-full rounded-sm bg-transparent text-body text-text placeholder:text-text-muted focus:outline-hidden focus-visible:ring-2 focus-visible:ring-accent"
+			class="w-full rounded-sm bg-transparent font-mono text-body text-text placeholder:text-text-muted focus:outline-hidden focus-visible:ring-2 focus-visible:ring-accent"
 		/>
 	</div>
 	<ul class="max-h-80 overflow-y-auto p-2">
@@ -188,7 +187,9 @@
 			<li class="px-3 py-2 text-body text-text-muted">{copy.emptyLabel}</li>
 		{/each}
 	</ul>
-	<div class="flex items-center gap-4 border-t border-border px-4 py-2 text-small text-text-muted">
+	<div
+		class="flex items-center gap-4 border-t border-border px-4 py-2 font-mono text-small text-text-muted"
+	>
 		<span>{copy.navigateHint}</span>
 		<span>{copy.selectHint}</span>
 		<span>{copy.closeHint}</span>

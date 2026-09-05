@@ -1,10 +1,15 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import type { NavLink } from '$lib/content/nav.types';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	let { links, name }: { links: NavLink[]; name: string } = $props();
 	let dialogEl: HTMLDialogElement | undefined = $state();
+
+	function isActive(href: string): boolean {
+		return page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
+	}
 
 	function openMenu() {
 		dialogEl?.showModal();
@@ -73,11 +78,13 @@
 		</div>
 		<nav class="flex flex-1 flex-col items-start justify-center gap-2 px-6" aria-label="Primary">
 			{#each links as link (link.href)}
+				{@const active = isActive(link.href)}
 				<!-- eslint-disable svelte/no-navigation-without-resolve -- content-authored href, not a compile-time literal -->
 				<a
 					href={link.href}
 					onclick={closeMenu}
-					class="py-3 text-2xl font-medium {link.href === '/contact' ? 'text-accent' : 'text-text'}"
+					aria-current={active ? 'page' : undefined}
+					class="py-3 text-2xl font-medium {active ? 'text-accent' : 'text-text'}"
 				>
 					{link.label}
 				</a>
