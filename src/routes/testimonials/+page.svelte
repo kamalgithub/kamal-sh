@@ -24,7 +24,7 @@
 			href={linkedInRecommendationsUrl}
 			target="_blank"
 			rel="noreferrer"
-			class="mt-4 inline-flex items-center gap-1 text-small text-accent transition-[text-decoration-color] duration-(--duration-fast) ease-standard hover:underline"
+			class="mt-4 inline-flex items-center gap-1 text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
 		>
 			{testimonialsCopy.linkedInLabel}
 			<IconArrowUpRight size={14} />

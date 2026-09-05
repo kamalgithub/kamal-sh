@@ -100,4 +100,18 @@ describe('CommandPalette.svelte', () => {
 
 		window.matchMedia = originalMatchMedia;
 	});
+
+	it('scrolls the highlighted row into view as ArrowDown moves past the visible list', async () => {
+		await render(CommandPalette);
+		requestCommandPaletteOpen();
+
+		const input = page.getByPlaceholder('Type a command or search').element() as HTMLElement;
+		const list = document.querySelector('ul') as HTMLUListElement;
+
+		for (let i = 0; i < 12; i++) {
+			input.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }));
+		}
+
+		await expect.poll(() => list.scrollTop).toBeGreaterThan(0);
+	});
 });

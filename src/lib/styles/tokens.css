@@ -12,6 +12,13 @@
 	   the same as headings, but only headings were reported as already looking fine. */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	/* Dark-only: default weight for anything that doesn't set its own (paragraphs, labels,
+	   muted nav text). Switzer's Regular (400) read as "boldish" specifically in dark mode,
+	   especially on Windows where the smoothing fix above does little (it's largely a
+	   WebKit/macOS thing). Inherited, so headings/buttons/anything with an explicit
+	   font-medium/font-semibold/font-bold class is unaffected. Explicitly reset to 400 in
+	   both light-mode blocks below — light mode never had this problem. */
+	font-weight: 300;
 
 	/* Color — dark is the default. True neutral grays throughout (no warm cast). */
 	--color-bg: #0a0a0a;
@@ -62,6 +69,7 @@
 		color-scheme: light;
 		-webkit-font-smoothing: auto;
 		-moz-osx-font-smoothing: auto;
+		font-weight: 400;
 		--color-bg: #fafafa;
 		--color-surface: #ffffff;
 		--color-border: #e2e2e2;
@@ -81,6 +89,7 @@
 	color-scheme: light;
 	-webkit-font-smoothing: auto;
 	-moz-osx-font-smoothing: auto;
+	font-weight: 400;
 	--color-bg: #fafafa;
 	--color-surface: #ffffff;
 	--color-border: #e2e2e2;

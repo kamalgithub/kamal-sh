@@ -7,11 +7,9 @@ import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-// A separate, opt-in static route rather than a ?color query param on /resume: the
-// output here is still fully determined at build time (no per-request branching), so
-// it stays a free static asset instead of forcing /resume itself onto SSR just to read
-// a query string. Whoever wants ANSI styling asks for it by URL, explicitly.
+// Plain ASCII, no ANSI codes — the escape hatch for a client that can't render color
+// (piping to a file, an older terminal, a script parsing the output as plain text).
 export const GET: RequestHandler = () => {
-	const body = buildResumeText({ profile, experience, education, certifications }, { color: true });
+	const body = buildResumeText({ profile, experience, education, certifications });
 	return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };

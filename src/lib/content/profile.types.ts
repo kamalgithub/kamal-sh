@@ -3,6 +3,7 @@ import type { ContentImage } from './image.types';
 export interface ProfileLinks {
 	linkedin: string;
 	github: string;
+	youtube: string;
 	booking: string;
 	resumePdf: string;
 }

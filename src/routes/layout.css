@@ -12,11 +12,7 @@ body {
 	background-color: var(--color-bg);
 	color: var(--color-text);
 	font-family: var(--font-body);
-	/* Base weight for anything that doesn't set its own (paragraphs, labels, muted nav
-	   text) — Switzer's Regular (400) read as "boldish" on real displays, especially on
-	   Windows where tokens.css's -webkit-font-smoothing fix has little to no effect (that
-	   property is largely a WebKit/macOS thing). This is inherited, so headings/buttons/
-	   anything with an explicit font-medium/font-semibold/font-bold class is unaffected —
-	   only true default-weight text gets lighter. */
-	font-weight: 300;
+	/* Dark-mode-only default weight lives in tokens.css (next to the other dark/light
+	   overrides) — it must NOT apply in light mode, where Switzer's Regular (400) never
+	   looked too heavy in the first place. */
 }

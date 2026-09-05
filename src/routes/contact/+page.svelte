@@ -27,7 +27,7 @@
 			{contactCopy.directEmailLabel}
 			<a
 				href="mailto:{profile.email}"
-				class="text-accent transition-[text-decoration-color] duration-(--duration-fast) ease-standard hover:underline"
+				class="text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
 			>
 				{profile.email}
 			</a>

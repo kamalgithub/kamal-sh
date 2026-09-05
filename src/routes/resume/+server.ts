@@ -7,10 +7,10 @@ import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-// Always plain text — for both `curl kamal.sh/resume` and a browser hit alike.
-// No content-negotiation branching: a browser renders text/plain fine, and it
-// lets this render to a static file at build time instead of needing SSR.
+// ANSI bold/color by default, same as the root domain — see /security for the tradeoff
+// this accepts. /resume/raw is the plain-text escape hatch for a client that can't
+// handle the color codes; both are still static, still free at request time.
 export const GET: RequestHandler = () => {
-	const body = buildResumeText({ profile, experience, education, certifications });
+	const body = buildResumeText({ profile, experience, education, certifications }, { color: true });
 	return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };

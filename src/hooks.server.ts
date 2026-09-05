@@ -18,7 +18,7 @@ const CONTENT_SECURITY_POLICY = [
 	"default-src 'self'",
 	"script-src 'self' 'unsafe-inline'",
 	"style-src 'self' 'unsafe-inline'",
-	"img-src 'self' https://*.ytimg.com data:",
+	"img-src 'self' https://*.ytimg.com https://blog.aicademy.ac data:",
 	"font-src 'self'",
 	"connect-src 'self' https://api.github.com",
 	"object-src 'none'",

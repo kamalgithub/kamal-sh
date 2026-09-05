@@ -6,13 +6,14 @@ function request(userAgent: string): Request {
 }
 
 describe('buildRootCliResponse', () => {
-	it('returns a plain-text résumé response for a CLI client hitting the root path', async () => {
+	it('returns a colored résumé response for a CLI client hitting the root path', async () => {
 		const response = buildRootCliResponse(new URL('https://kamal.sh/'), request('curl/8.4.0'));
 
 		expect(response).toBeDefined();
 		expect(response?.headers.get('Content-Type')).toBe('text/plain; charset=utf-8');
 		const body = await response?.text();
 		expect(body).toContain('KAMAL KUMAR');
+		expect(body).toContain('\x1b[1;94m'); // colored by default — /resume/raw is the plain escape hatch
 	});
 
 	it('returns undefined for a real browser, so normal page rendering takes over', () => {

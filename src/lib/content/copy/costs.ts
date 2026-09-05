@@ -3,7 +3,7 @@ import type { CostsCopy } from './costs.types';
 export const costsCopy: CostsCopy = {
 	heading: 'What this site costs to run',
 	intro:
-		"Cost governance is part of the platform-engineering job, not just something to preach about for other people's infrastructure. Here's an honest, line-by-line estimate for kamal.sh itself, built from each vendor's published pricing rather than an invoice — treat it as a forecast, not an audited bill.",
-	totalLabel: 'Estimated total',
-	totalEstimate: '~$2/month — almost entirely the domain'
+		"Cost governance is part of the platform-engineering job, not just something to preach about for other people's infrastructure. Here's an honest, line-by-line breakdown for kamal.sh itself — the domain is a real, confirmed number; everything else is $0 on a vendor's free tier, not an audited bill.",
+	totalLabel: 'Total',
+	totalEstimate: '₹667/month (₹8,000/year) — almost entirely the domain'
 };

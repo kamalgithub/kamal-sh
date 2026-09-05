@@ -12,10 +12,10 @@
 	const DURATIONS_MINUTES = [15, 30, 45, 60];
 	const STEPS = ['date', 'duration', 'time'] as const;
 	const WEEKDAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-	// Tall enough for the calendar step (its worst case: a header row + up to three
-	// 7-column weeks) so the footer (Back button + step dots) lands in the same place
-	// no matter which step is showing — that's the point of this fixed reservation.
-	const CONTENT_MIN_HEIGHT = 'min-h-[22rem]';
+	// Covers the whole step area — content AND footer share this one budget (the content
+	// is flex-1, the footer sits after it) so the footer reuses space that would otherwise
+	// go unused on shorter steps, instead of adding its own height on top.
+	const STEP_AREA_MIN_HEIGHT = 'min-h-[20rem]';
 
 	let { copy, bookingUrl }: { copy: BookingCopy; bookingUrl: string } = $props();
 
@@ -98,78 +98,80 @@
 	{#if !now}
 		<p class="text-small text-text-muted">{copy.loadingLabel}</p>
 	{:else}
-		<div class={CONTENT_MIN_HEIGHT}>
-			{#if step === 'date'}
-				<p class="mb-3 text-small text-text-muted">{copy.dateStepLabel}</p>
-				<div class="grid grid-cols-7 gap-1 text-center">
-					{#each WEEKDAY_LABELS as weekday (weekday)}
-						<span class="py-1 text-small text-text-muted">{weekday}</span>
-					{/each}
-					{#each calendarWeeks as week, weekIndex (weekIndex)}
-						{#each week as date, dayIndex (dayIndex)}
-							{#if date}
-								<button
-									type="button"
-									onclick={() => selectDate(date)}
-									aria-label={formatDateAriaLabel(date)}
-									class="aspect-square rounded-sm border border-border-strong text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
-								>
-									{formatDayLabel(date)}
-								</button>
-							{:else}
-								<span></span>
-							{/if}
+		<div class="flex {STEP_AREA_MIN_HEIGHT} flex-col gap-6">
+			<div class="flex-1">
+				{#if step === 'date'}
+					<p class="mb-3 text-small text-text-muted">{copy.dateStepLabel}</p>
+					<div class="grid grid-cols-7 gap-1 text-center">
+						{#each WEEKDAY_LABELS as weekday (weekday)}
+							<span class="py-1 text-small text-text-muted">{weekday}</span>
 						{/each}
-					{/each}
-				</div>
-			{:else if step === 'duration'}
-				<p class="mb-3 text-small text-text-muted">{copy.durationStepLabel}</p>
-				<div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
-					{#each DURATIONS_MINUTES as minutes (minutes)}
-						<button
-							type="button"
-							onclick={() => selectDuration(minutes)}
-							class="rounded-sm border border-border-strong px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
-						>
-							{minutes} min
-						</button>
-					{/each}
-				</div>
-			{:else if step === 'time' && selectedDate && selectedDuration}
-				<p class="mb-3 text-small text-text-muted">{copy.timeStepLabel}</p>
-				{#if slots.length === 0}
-					<p class="text-small text-text-muted">{copy.noSlotsMessage}</p>
-				{:else}
-					<div class="grid grid-cols-[repeat(auto-fill,minmax(84px,1fr))] gap-2">
-						{#each slots as slot (slot.toISOString())}
-							<!-- eslint-disable svelte/no-navigation-without-resolve -- external cal.com URL, not an internal route -->
-							<a
-								href={buildCalComUrl(calComUsername, selectedDuration, slot)}
-								target="_blank"
-								rel="noopener"
-								class="rounded-sm border border-border-strong px-3 py-3 text-center text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent hover:bg-surface"
-							>
-								{formatTimeLabel(slot)}
-							</a>
-							<!-- eslint-enable svelte/no-navigation-without-resolve -->
+						{#each calendarWeeks as week, weekIndex (weekIndex)}
+							{#each week as date, dayIndex (dayIndex)}
+								{#if date}
+									<button
+										type="button"
+										onclick={() => selectDate(date)}
+										aria-label={formatDateAriaLabel(date)}
+										class="aspect-square rounded-sm border border-border-strong text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+									>
+										{formatDayLabel(date)}
+									</button>
+								{:else}
+									<span></span>
+								{/if}
+							{/each}
 						{/each}
 					</div>
+				{:else if step === 'duration'}
+					<p class="mb-3 text-small text-text-muted">{copy.durationStepLabel}</p>
+					<div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+						{#each DURATIONS_MINUTES as minutes (minutes)}
+							<button
+								type="button"
+								onclick={() => selectDuration(minutes)}
+								class="rounded-sm border border-border-strong px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+							>
+								{minutes} min
+							</button>
+						{/each}
+					</div>
+				{:else if step === 'time' && selectedDate && selectedDuration}
+					<p class="mb-3 text-small text-text-muted">{copy.timeStepLabel}</p>
+					{#if slots.length === 0}
+						<p class="text-small text-text-muted">{copy.noSlotsMessage}</p>
+					{:else}
+						<div class="grid grid-cols-[repeat(auto-fill,minmax(84px,1fr))] gap-2">
+							{#each slots as slot (slot.toISOString())}
+								<!-- eslint-disable svelte/no-navigation-without-resolve -- external cal.com URL, not an internal route -->
+								<a
+									href={buildCalComUrl(calComUsername, selectedDuration, slot)}
+									target="_blank"
+									rel="noopener"
+									class="rounded-sm border border-border-strong px-3 py-3 text-center text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent hover:bg-surface"
+								>
+									{formatTimeLabel(slot)}
+								</a>
+								<!-- eslint-enable svelte/no-navigation-without-resolve -->
+							{/each}
+						</div>
+					{/if}
 				{/if}
-			{/if}
-		</div>
+			</div>
 
-		<div class="mt-6 flex flex-col items-center gap-4">
-			{#if step !== 'date'}
-				<Button variant="secondary" onclick={goBack}>{copy.backLabel}</Button>
-			{/if}
-			<div class="flex items-center gap-2">
-				<span class="sr-only">{stepProgressText}</span>
-				{#each STEPS as s (s)}
-					<span
-						aria-hidden="true"
-						class="h-1.5 w-1.5 rounded-full {step === s ? 'bg-accent' : 'bg-border-strong'}"
-					></span>
-				{/each}
+			<div class="flex flex-col items-center gap-4">
+				{#if step !== 'date'}
+					<Button variant="secondary" onclick={goBack}>{copy.backLabel}</Button>
+				{/if}
+				<div class="flex items-center gap-2">
+					<span class="sr-only">{stepProgressText}</span>
+					{#each STEPS as s (s)}
+						<span
+							aria-hidden="true"
+							class="h-1.5 w-1.5 rounded-full {step === s ? 'bg-accent' : 'bg-border-strong'}"
+						></span>
+					{/each}
+				</div>
 			</div>
 		</div>
 	{/if}

@@ -5,5 +5,7 @@ export const writingCopy: WritingCopy = {
 	intro:
 		'Notes on cloud, DevOps, and platform engineering — synced from the Aicademy blog and channel.',
 	readHeading: 'Read',
-	watchHeading: 'Watch'
+	readAllLabel: 'All posts on the blog',
+	watchHeading: 'Watch',
+	watchChannelLabel: 'More on YouTube'
 };

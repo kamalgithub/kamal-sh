@@ -19,9 +19,9 @@
 		<TestimonialsGrid {testimonials} />
 		<a
 			href={resolve('/testimonials')}
-			class="mt-8 inline-flex items-center gap-1 text-small text-accent transition-[text-decoration-color] duration-(--duration-fast) ease-standard hover:underline"
+			class="mt-8 inline-flex items-center gap-1 text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
 		>
-			{viewAllLabel}
+			{viewAllLabel} ({testimonials.length})
 			<IconArrowRight size={14} />
 		</a>
 	</Container>

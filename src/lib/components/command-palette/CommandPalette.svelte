@@ -62,7 +62,9 @@
 	function openPalette() {
 		query = '';
 		activeIndex = 0;
-		itemRefs = [];
+		// itemRefs is intentionally not reset here — the list is always mounted (only the
+		// dialog's open state is toggled), so bind:this already populated it once and
+		// clearing it here would permanently orphan those refs with nothing left to repopulate them.
 		currentResolvedTheme = getResolvedTheme();
 		dialogEl?.showModal();
 	}

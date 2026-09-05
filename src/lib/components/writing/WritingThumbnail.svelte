@@ -7,7 +7,7 @@
 
 {#if failed}
 	<div
-		class="flex h-16 w-16 shrink-0 items-center justify-center rounded-sm border border-dashed border-border bg-surface text-text-muted"
+		class="flex aspect-[4/3] w-24 shrink-0 items-center justify-center rounded-sm border border-dashed border-border bg-surface text-text-muted"
 		role="img"
 		aria-label={alt}
 	>
@@ -19,6 +19,6 @@
 		{alt}
 		loading="lazy"
 		onerror={() => (failed = true)}
-		class="h-16 w-16 shrink-0 rounded-sm object-cover"
+		class="aspect-[4/3] w-24 shrink-0 rounded-sm object-cover"
 	/>
 {/if}

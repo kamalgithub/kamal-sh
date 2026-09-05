@@ -10,6 +10,7 @@ export const profile: Profile = {
 	links: {
 		linkedin: 'https://www.linkedin.com/in/kamal18',
 		github: 'https://github.com/devcrypted',
+		youtube: 'https://youtube.com/@aicademy-ac',
 		booking: 'https://cal.com/kamalk',
 		resumePdf: '/resume.pdf'
 	},
