@@ -24,6 +24,14 @@
 
 **Gotcha:** `wrangler types` embeds a self-referencing type import of the compiled worker (`mainModule: typeof import("./.svelte-kit/cloudflare/_worker")`) whenever `.svelte-kit/cloudflare/_worker.js` exists, so the generated file — and whether `wrangler types --check` passes — depends on whether a previous build left its output behind. It also makes `bun run check` fail with hundreds of unrelated implicit-`any` errors from the built output itself. `build`, `check`, and `gen` therefore run `scripts/clean-build-artifacts.ts` first, which deletes `.svelte-kit/cloudflare`, `.svelte-kit/cloudflare-tmp`, and `.svelte-kit/output` (with retries for transient Windows file locks), keeping the committed `worker-configuration.d.ts` always the no-`mainModule` variant. The clean step can fail with `EPERM` if `bun run preview` is running — stop it first. If you run `wrangler types` by hand instead of via `bun run gen`, delete those directories yourself before it, or you'll reintroduce the bad state.
 
+## CI
+
+`.github/workflows/ci.yml` runs on every push and pull request: `check` → `lint` → `build` → `test`, as separate steps so a failure is legible at a glance. `build` runs in CI (not just `check`) deliberately — it's the only command that actually prerenders every route and catches build-time-only failures (e.g. adapter-cloudflare's requirement that `_headers` live at the repo root, not `static/`) that `check`/`lint`/`test` can't see. `content-sync.yml` is a separate, unrelated scheduled workflow (pulls the blog/YouTube RSS feeds every ~48h — see `scripts/sync-blog.ts`/`scripts/sync-youtube.ts`) — it doesn't run the quality gate.
+
+## `_headers` and the CSP sync guard
+
+`_headers` (Cloudflare's native static-asset header mechanism) must live at the **repo root**, not `static/` — `@sveltejs/adapter-cloudflare` v7 errors at build time if it finds one in `static/`, a real error only `bun run build` catches (see the CI note above). It carries the same security headers as `src/hooks.server.ts`'s `handle` hook, because adapter-cloudflare's generated worker serves every prerendered page straight from `env.ASSETS.fetch()`, bypassing `handle` entirely — prerendered pages get their headers from `_headers`, the handful of genuinely SSR'd routes get them from the hook. The two Content-Security-Policy values must stay identical by hand; `src/hooks.server.spec.ts` is the automated guard that fails CI the moment they drift, rather than relying on someone noticing.
+
 ## Environment variables / secrets
 
 - Local dev: put secrets in `.env` (gitignored) or a wrangler `.dev.vars` file if a feature needs `platform.env` access during `wrangler dev`.

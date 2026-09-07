@@ -9,6 +9,15 @@ import type { Actions, PageServerLoad } from './$types';
 export const prerender = false;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const NAME_MIN_LENGTH = 2;
+const NAME_MAX_LENGTH = 100;
+// RFC 5321's own limit on a full email address — a bound on the format check above, not a new rule.
+const EMAIL_MAX_LENGTH = 254;
+const SUBJECT_MIN_LENGTH = 3;
+const SUBJECT_MAX_LENGTH = 150;
+// Long enough to rule out drive-by one-liners, short enough not to demand an essay.
+const MESSAGE_MIN_LENGTH = 80;
+const MESSAGE_MAX_LENGTH = 500;
 // 2 messages per sender per 4 hours — see docs/architecture.md's "Contact form abuse
 // protection" for why this is IP-based (Cache API) rather than a real database.
 const RATE_LIMIT_MAX = 2;
@@ -38,9 +47,17 @@ export const actions: Actions = {
 
 		const errors: { name?: string; email?: string; subject?: string; message?: string } = {};
 		if (!name) errors.name = copy.nameRequiredError;
-		if (!email || !EMAIL_PATTERN.test(email)) errors.email = copy.emailInvalidError;
+		else if (name.length < NAME_MIN_LENGTH) errors.name = copy.nameTooShortError;
+		else if (name.length > NAME_MAX_LENGTH) errors.name = copy.nameTooLongError;
+		if (!email || !EMAIL_PATTERN.test(email) || email.length > EMAIL_MAX_LENGTH) {
+			errors.email = copy.emailInvalidError;
+		}
 		if (!subject) errors.subject = copy.subjectRequiredError;
+		else if (subject.length < SUBJECT_MIN_LENGTH) errors.subject = copy.subjectTooShortError;
+		else if (subject.length > SUBJECT_MAX_LENGTH) errors.subject = copy.subjectTooLongError;
 		if (!message) errors.message = copy.messageRequiredError;
+		else if (message.length < MESSAGE_MIN_LENGTH) errors.message = copy.messageTooShortError;
+		else if (message.length > MESSAGE_MAX_LENGTH) errors.message = copy.messageTooLongError;
 
 		if (Object.keys(errors).length > 0) {
 			return fail(400, { errors, values });

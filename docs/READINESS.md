@@ -12,11 +12,9 @@
 
 ## Tier 1 — high value, low risk
 
-### T1.1 CI quality gate (G1 — HIGH)
+### T1.1 CI quality gate (G1 — HIGH) — ✅ done 2026-09-07
 
-- **Problem:** the only GitHub workflow is `content-sync.yml`. Nothing runs `check`/`lint`/`build`/`test` on push/PR — docs/architecture.md:58 already records a build-only failure going unnoticed for exactly this reason.
-- **Fix:** add `.github/workflows/ci.yml` triggered on push (all branches) and `pull_request`: `oven-sh/setup-bun@v2` → `bun install --frozen-lockfile` → `bun run check` → `bun run lint` → `bun run build` → `bun run test`. Keep steps separate so failures are legible.
-- **Doc update:** tooling.md — add a "CI" note: what runs, and that the wrangler-types flip-flop gotcha (see tooling.md's existing gotcha) is why `build` belongs in CI, not just `check`.
+`.github/workflows/ci.yml` added: `check` → `lint` → `build` → `test` on every push/PR. Doc update landed in tooling.md's new "CI" section.
 
 ### T1.2 Hero portrait is lazy-loaded LCP image (A1 — HIGH)
 
@@ -30,18 +28,15 @@
 - **Fix:** `SeoHead.svelte` already imports `profile` — compose `{title} | {profile.name}` internally. Add an optional `fullTitle?: string` escape hatch; Home passes `fullTitle="{profile.name} | {profile.title}"` (reversed order, deliberate) and `+error.svelte` passes `fullTitle="{page.status} | {profile.name}"`. Update all ~18 call sites to pass bare page names ("Work", "Contact", …).
 - **Doc update:** conventions.md — "page titles: pass the bare page name to SeoHead; the suffix is composed inside it; use `fullTitle` only when the shape is genuinely different (Home, error)."
 
-### T1.4 Fetch timeouts on all outbound calls (F1 — MED)
+### T1.4 Fetch timeouts on all outbound calls (F1 — MED) — ✅ done 2026-09-07
 
-- **Problem:** no timeout on any outbound fetch — a hung upstream (GitHub, Mailjet, Turnstile, Cloudflare GraphQL) stalls SSR and the contact/newsletter submits indefinitely.
-- **Fix:** add `signal: AbortSignal.timeout(4000)` (tune per call: 2500 for the About/GitHub fetch is fine) to: `about/+page.server.ts` GitHub fetch, `mailjet.ts` sendContactEmail, `mailjetList.ts`, `turnstile.ts`, `cloudflareAnalytics.ts`. Catch `TimeoutError` like any other failure — every one of these paths already degrades gracefully.
-- **Doc update:** CLAUDE.md hard-rules list or conventions.md — "every outbound fetch sets an `AbortSignal.timeout`; no request may wait on an upstream indefinitely." Also update the /security page copy if it describes this behavior (verify before editing).
+`signal: AbortSignal.timeout(...)` added to every outbound fetch (4000ms default, 2500ms for the non-critical About/GitHub call). `turnstile.ts` additionally got its own try/catch — it was the one call whose caller didn't already wrap it, so a thrown `TimeoutError` would have surfaced as an unhandled 500 instead of "verification failed." Doc update landed in conventions.md's new "Outbound fetch timeouts" section; `/security`'s copy didn't describe this behavior, so nothing to sync there.
 
-### T1.5 Security-header comment + CSP sync (B1, B2 — MED)
+### T1.5 Security-header comment + CSP sync (B1, B2 — MED) — ✅ done 2026-09-07
 
-- **Problem 1:** `hooks.server.ts:5` and `_headers:4` both claim the SSR routes are "(/, /about, /contact)" — stale: `/status` and `/newsletter` are also `prerender = false`. Headers themselves still apply (handle runs for every Worker request); only the comments lie.
-- **Problem 2:** `_headers:7` CSP has drifted from `hooks.server.ts`: missing `https://challenges.cloudflare.com` in `script-src` and `connect-src`, and the whole `frame-src` directive. Harmless today (prerendered pages don't embed Turnstile) but it proves the "keep in sync by hand" rule already failed.
-- **Fix:** sync the two CSPs (add the Turnstile allowances + `frame-src` to `_headers`), update both route lists to the real set (`/`, `/about`, `/contact`, `/status`, `/newsletter`, and `[shortlink]` passes through hooks too — check and state it precisely), and add `src/lib/utils/cspPolicy.spec.ts`-style guard: a spec that asserts the two policies match, so CI (T1.1) catches future drift. Keep both files as the source; the spec imports/parses both strings.
-- **Doc update:** tooling.md — document that `_headers` lives at the **repo root** (adapter-cloudflare v7 requires it there, warns if found in `static/`; the `static/_headers → _headers` move of 2026-09-05 was correct) and that the spec is the sync check.
+Both problems fixed: route-list comments in `hooks.server.ts` and `_headers` now say `/`, `/about`, `/contact`, `/newsletter`, `/status`; `_headers`' CSP now includes the Turnstile allowances (`script-src`, `connect-src`, `frame-src`) matching `hooks.server.ts` exactly. `src/hooks.server.spec.ts` added as the drift guard — it reads `_headers` from disk and asserts its CSP line matches the exported `CONTENT_SECURITY_POLICY` constant, so CI (T1.1) now fails loudly if the two are ever edited out of sync again. Doc update landed in tooling.md's new "`_headers` and the CSP sync guard" section.
+
+While in the same code: also added site-wide `Cache-Control` (a separate ask, not originally in this audit) — `public, max-age=300, must-revalidate` on every page via the same two mechanisms, except `/` (User-Agent branching) and `/status` (live metrics) which get `no-store`, and `/about` which keeps its own more nuanced `setHeaders` value untouched.
 
 ## Tier 2 — performance & DRY
 

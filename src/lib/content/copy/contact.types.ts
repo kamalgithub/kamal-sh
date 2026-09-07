@@ -7,9 +7,15 @@ export interface ContactFormCopy {
 	sendingLabel: string;
 	successMessage: string;
 	nameRequiredError: string;
+	nameTooShortError: string;
+	nameTooLongError: string;
 	emailInvalidError: string;
 	subjectRequiredError: string;
+	subjectTooShortError: string;
+	subjectTooLongError: string;
 	messageRequiredError: string;
+	messageTooShortError: string;
+	messageTooLongError: string;
 	sendFailedError: string;
 	notConfiguredError: string;
 	/** Shown when Turnstile hasn't verified the visitor yet, or verification failed. */

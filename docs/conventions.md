@@ -61,6 +61,10 @@ A component must render correctly no matter how many items or how long the text 
 
 `Button.svelte` (`src/lib/components/primitives/Button.svelte`) is the canonical implementation of the no-hover-scale/no-shift interaction rule (see CLAUDE.md rule 2) — it only ever animates `background-color`, `border-color`, `box-shadow`, and `opacity`. Every future component with a clickable action should use `Button.svelte` rather than hand-rolling `<button>`/`<a>` styling.
 
+## Outbound fetch timeouts
+
+Every server-side `fetch` to a third-party API (GitHub, Mailjet, Turnstile, Cloudflare's GraphQL API) sets `signal: AbortSignal.timeout(...)` — a hung upstream must never stall a request indefinitely. 4000ms is the default; the About page's GitHub fetch uses 2500ms since it's not on a critical path (a failure there just means an empty activity feed, not a broken page). The caller must still handle the resulting `TimeoutError` the same way it already handles any other failure from that call — most routes already degrade gracefully (empty state, honest "unavailable" message); `turnstile.ts` is the one exception that wraps its own fetch in a try/catch (returning `false`) rather than relying on the caller, since Turnstile verification isn't optional and a thrown error there must resolve to "not verified," not an unhandled 500.
+
 ## Structured data (`{@html}`)
 
 JSON-LD (`buildPersonJsonLd.ts`, `buildCaseStudyJsonLd.ts` in `src/lib/utils/`) is the one legitimate use of Svelte's `{@html}` in this codebase — a `<script type="application/ld+json">` has to be injected as raw markup, there's no other way to render it. `src/lib/utils/jsonLd.ts`'s `toJsonLdScript()` is the only function allowed to produce that HTML string: it escapes every `<` in the serialized JSON so a value can never close the script tag early, even though every current caller only ever passes our own static, typed content. Each `{@html}` call site carries an `eslint-disable-next-line svelte/no-at-html-tags` comment explaining why it's safe. Don't add a second, ad hoc way to inject a script tag — extend `jsonLd.ts` if a new structured-data type is needed.

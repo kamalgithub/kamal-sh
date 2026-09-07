@@ -22,15 +22,15 @@
 		// fails closed (not configured) until then, same pattern as Turnstile below.
 		// MAILJET_KEY, MAILJET_SECRET, and MAILJET_DOMAIN are real credentials and are set
 		// as secrets instead (wrangler secret put / the Cloudflare dashboard), not here.
-		"MAILJET_LIST_ID": "",
+		"MAILJET_LIST_ID": "10703134",
 		// Turnstile's site key is public by design (embedded in the page HTML) — not a
 		// secret. Empty until a real Turnstile widget is created in the Cloudflare
 		// dashboard; the contact form fails closed (Turnstile not configured) until then.
-		"TURNSTILE_SITE_KEY": "",
+		"TURNSTILE_SITE_KEY": "0x4AAAAAAErTCr7mGTC8WLZU",
 		// Cloudflare account ID — not a secret (visible in the dashboard URL/sidebar for
 		// any account). /status reads real request/error metrics for this account via
 		// Cloudflare's GraphQL Analytics API using this plus the CF_API_TOKEN secret below.
 		// Empty until set; /status fails closed (not configured) until then.
-		"CF_ACCOUNT_ID": ""
+		"CF_ACCOUNT_ID": "f3eb205091787c1d66fce394cb009687"
 	}
 }

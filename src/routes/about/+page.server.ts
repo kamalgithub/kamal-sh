@@ -13,7 +13,8 @@ export const load: PageServerLoad = async ({ fetch, setHeaders }) => {
 
 	try {
 		const response = await fetch(`https://api.github.com/users/${githubUsername}/events/public`, {
-			headers: { Accept: 'application/vnd.github+json' }
+			headers: { Accept: 'application/vnd.github+json' },
+			signal: AbortSignal.timeout(2500)
 		});
 		if (!response.ok) return { githubActivity: [] };
 		return { githubActivity: parseGithubEvents(await response.json()) };

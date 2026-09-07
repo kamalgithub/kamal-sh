@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      - run: bun run check
+
+      - run: bun run lint
+
+      # Catches real build-time errors check/lint can't (e.g. adapter-cloudflare's
+      # _headers-location requirement) — see docs/tooling.md's CI note.
+      - run: bun run build
+
+      - run: bun run test

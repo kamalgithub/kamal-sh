@@ -61,7 +61,8 @@ export async function fetchWorkerMetrics(
 				since: since.toISOString(),
 				until: until.toISOString()
 			}
-		})
+		}),
+		signal: AbortSignal.timeout(4000)
 	});
 
 	if (!response.ok) {

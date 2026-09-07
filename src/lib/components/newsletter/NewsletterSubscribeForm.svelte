@@ -40,6 +40,7 @@
 				name="email"
 				type="email"
 				required
+				maxlength="254"
 				placeholder={copy.emailLabel}
 				aria-invalid={status === 'error' ? 'true' : undefined}
 				aria-describedby={status === 'error' ? 'newsletter-email-error' : undefined}

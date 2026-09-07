@@ -99,6 +99,8 @@
 				name="name"
 				type="text"
 				required
+				minlength="2"
+				maxlength="100"
 				value={form?.values?.name ?? ''}
 				aria-invalid={form?.errors?.name ? 'true' : undefined}
 				aria-describedby={form?.errors?.name ? 'name-error' : undefined}
@@ -116,6 +118,7 @@
 				name="email"
 				type="email"
 				required
+				maxlength="254"
 				value={form?.values?.email ?? ''}
 				aria-invalid={form?.errors?.email ? 'true' : undefined}
 				aria-describedby={form?.errors?.email ? 'email-error' : undefined}
@@ -133,6 +136,8 @@
 				name="subject"
 				type="text"
 				required
+				minlength="3"
+				maxlength="150"
 				value={form?.values?.subject ?? ''}
 				aria-invalid={form?.errors?.subject ? 'true' : undefined}
 				aria-describedby={form?.errors?.subject ? 'subject-error' : undefined}
@@ -149,6 +154,8 @@
 				id="message"
 				name="message"
 				required
+				minlength="80"
+				maxlength="500"
 				rows="5"
 				aria-invalid={form?.errors?.message ? 'true' : undefined}
 				aria-describedby={form?.errors?.message ? 'message-error' : undefined}

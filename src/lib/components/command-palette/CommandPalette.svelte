@@ -166,6 +166,7 @@
 		<span class="font-mono text-body text-accent" aria-hidden="true">&gt;</span>
 		<input
 			type="text"
+			maxlength="100"
 			bind:value={query}
 			placeholder={copy.searchPlaceholder}
 			class="w-full rounded-sm bg-transparent font-mono text-body text-text placeholder:text-text-muted focus:outline-hidden focus-visible:ring-2 focus-visible:ring-accent"

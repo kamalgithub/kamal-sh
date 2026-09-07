@@ -20,7 +20,8 @@ export async function subscribeToMailingList(
 				Authorization: `Basic ${btoa(`${config.apiKey}:${config.apiSecret}`)}`,
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ Action: 'addnoforce', Email: email })
+			body: JSON.stringify({ Action: 'addnoforce', Email: email }),
+			signal: AbortSignal.timeout(4000)
 		}
 	);
 

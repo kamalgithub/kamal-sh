@@ -49,7 +49,8 @@ export async function sendContactEmail(
 					TextPart: buildEmailBody(contact)
 				}
 			]
-		})
+		}),
+		signal: AbortSignal.timeout(4000)
 	});
 
 	if (!response.ok) {
