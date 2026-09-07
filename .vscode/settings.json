@@ -3,8 +3,5 @@
 		"*.css": "tailwindcss"
 	},
 	"explorer.excludeGitIgnore": false,
-	"cSpell.words": [
-		"aicademycli",
-		"devcrypted"
-	]
+	"cSpell.words": ["aicademycli", "devcrypted"]
 }
