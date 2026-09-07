@@ -16,6 +16,14 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
+      # wrangler types (run by check/build/gen) infers which secret-only bindings exist
+      # from a local .dev.vars file, even with empty values — with no .dev.vars at all,
+      # CI would generate a narrower Env interface than the committed
+      # worker-configuration.d.ts (generated on a machine with real .dev.vars values) and
+      # `wrangler types --check` would always fail here. .dev.vars.example carries the
+      # same key set for exactly this reason — see docs/tooling.md.
+      - run: cp .dev.vars.example .dev.vars
+
       - run: bun run check
 
       - run: bun run lint
