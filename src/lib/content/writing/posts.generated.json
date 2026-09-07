@@ -1,5 +1,33 @@
 [
 	{
+		"title": "Is Your Terraform State Hiding Sensitive Data? The Power of `terraform_data` in v1.16",
+		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-deep-dive",
+		"pubDate": "2026-09-07T10:33:21.000Z",
+		"slug": "tf-1-16-terraform-data-deep-dive",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/tf-1-16-terraform-data-deep-dive.webp"
+	},
+	{
+		"title": "What Linux Kernel 7.2 Means for Your Cloud-Native Workloads",
+		"link": "https://blog.aicademy.ac/linux-kernel-7-2-cloud-native",
+		"pubDate": "2026-09-06T09:33:53.000Z",
+		"slug": "linux-kernel-7-2-cloud-native",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-7-2-cloud-native.webp"
+	},
+	{
+		"title": "Is Your Kubernetes 1.37 Cluster Actually Stable? A 5-Minute Post-Upgrade Audit",
+		"link": "https://blog.aicademy.ac/k8s-1-37-post-upgrade-audit",
+		"pubDate": "2026-09-05T09:12:12.000Z",
+		"slug": "k8s-1-37-post-upgrade-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-post-upgrade-audit.webp"
+	},
+	{
+		"title": "One kubectl Command That Unlocks GPU-Aware Scheduling with Kubernetes 1.37 DRA",
+		"link": "https://blog.aicademy.ac/k8s-1-37-one-command-gpu",
+		"pubDate": "2026-09-04T16:00:50.000Z",
+		"slug": "k8s-1-37-one-command-gpu",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-one-command-gpu.webp"
+	},
+	{
 		"title": "How to Ensure Your Kubernetes 1.37 Upgrade Doesn't Corrupt Your Nodes and Static Pods",
 		"link": "https://blog.aicademy.ac/k8s-1-37-node-static-pods",
 		"pubDate": "2026-09-02T09:45:53.000Z",
@@ -26,33 +54,5 @@
 		"pubDate": "2026-08-24T16:10:24.000Z",
 		"slug": "ebpf-runtime-security-architecture",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-runtime-security-architecture.webp"
-	},
-	{
-		"title": "The `aws s3 sync` Flag That Deletes Your Production Data (Without Warning)",
-		"link": "https://blog.aicademy.ac/aws-s3-sync-data-loss-gotcha",
-		"pubDate": "2026-08-23T15:14:36.000Z",
-		"slug": "aws-s3-sync-data-loss-gotcha",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-s3-sync-data-loss-gotcha.webp"
-	},
-	{
-		"title": "5 Flagship AI Engineering Projects",
-		"link": "https://blog.aicademy.ac/ai-5-flagship-projects",
-		"pubDate": "2026-08-22T08:37:39.000Z",
-		"slug": "ai-5-flagship-projects",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-5-flagship-projects.webp"
-	},
-	{
-		"title": "The 'Golden Path' That Led to a Dead End: Platform Engineering War Story",
-		"link": "https://blog.aicademy.ac/golden-path-dead-end-war-story",
-		"pubDate": "2026-08-22T05:50:07.000Z",
-		"slug": "golden-path-dead-end-war-story",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/golden-path-dead-end-war-story.webp"
-	},
-	{
-		"title": "Is Your AI Database Ready for Production Scale? A 5-Minute HorizonDB Checklist",
-		"link": "https://blog.aicademy.ac/horizondb-production-checklist",
-		"pubDate": "2026-08-21T05:55:19.000Z",
-		"slug": "horizondb-production-checklist",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/horizondb-production-checklist.webp"
 	}
 ]
