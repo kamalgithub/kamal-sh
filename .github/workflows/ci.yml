@@ -16,6 +16,12 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
+      # The "client" Vitest project runs component tests in real headless Chromium via
+      # @vitest/browser-playwright (see docs/tooling.md) — `bun install` only installs the
+      # playwright npm package, not the actual browser binary, which a fresh CI runner never
+      # has cached.
+      - run: bunx playwright install --with-deps chromium
+
       # wrangler types (run by check/build/gen) infers which secret-only bindings exist
       # from a local .dev.vars file, even with empty values — with no .dev.vars at all,
       # CI would generate a narrower Env interface than the committed
