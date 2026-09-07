@@ -1,8 +1,9 @@
 import { fail } from '@sveltejs/kit';
-import { sendContactEmail } from '$lib/server/mailgun';
+import { sendContactEmail } from '$lib/server/mailjet';
 import { verifyTurnstileToken } from '$lib/server/turnstile';
 import { checkRateLimit } from '$lib/server/rateLimiter';
 import { contactCopy } from '$lib/content/copy/contact';
+import { profile } from '$lib/content/profile';
 import type { Actions, PageServerLoad } from './$types';
 
 export const prerender = false;
@@ -47,7 +48,7 @@ export const actions: Actions = {
 
 		const env = platform?.env;
 
-		// Counted before Turnstile/Mailgun so a bot can't get unlimited free retries just
+		// Counted before Turnstile/Mailjet so a bot can't get unlimited free retries just
 		// by sending a request that later fails verification — the cap is on attempts
 		// that clear basic validation, not only on successfully-sent messages.
 		if (platform?.caches) {
@@ -75,16 +76,17 @@ export const actions: Actions = {
 			return fail(400, { errors: { message: copy.verificationFailedError }, values });
 		}
 
-		if (!env?.MAILGUN_API_KEY) {
+		if (!env?.MAILJET_KEY || !env?.MAILJET_SECRET || !env?.MAILJET_DOMAIN) {
 			return fail(500, { errors: { message: copy.notConfiguredError }, values });
 		}
 
 		try {
 			await sendContactEmail(
 				{
-					apiKey: env.MAILGUN_API_KEY,
-					domain: env.MAILGUN_DOMAIN,
-					toAddress: env.MAILGUN_TO_ADDRESS
+					apiKey: env.MAILJET_KEY,
+					apiSecret: env.MAILJET_SECRET,
+					domain: env.MAILJET_DOMAIN,
+					toAddress: profile.email
 				},
 				{ name, email, subject, message }
 			);

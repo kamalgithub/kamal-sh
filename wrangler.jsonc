@@ -10,14 +10,19 @@
 	},
 	"workers_dev": true,
 	"preview_urls": true,
+	// Binds this Worker to the kamal.sh zone. Cloudflare provisions the DNS/SSL for this
+	// automatically since the zone is already on the same Cloudflare account — no manual
+	// dashboard step needed. This replaces whatever origin the zone previously pointed to
+	// (a Netlify-hosted site) for all traffic to the apex domain.
+	"routes": [{ "pattern": "kamal.sh", "custom_domain": true }],
 	"vars": {
-		"MAILGUN_DOMAIN": "mail.kamal.sh",
-		"MAILGUN_TO_ADDRESS": "kamal@kamal.sh",
-		// The mailing list new /writing subscribers are added to (Mailgun's Mailing Lists
-		// API). Non-secret — a list address, not a credential. Empty until the list is
-		// created in the Mailgun dashboard; /newsletter fails closed (not configured) until
-		// then, same pattern as Mailgun/Turnstile below.
-		"MAILGUN_LIST_ADDRESS": "",
+		// The contact list new /writing subscribers are added to (Mailjet's Contact Lists
+		// API) — its numeric list ID, not a credential, so it lives here rather than as a
+		// secret. Empty until the list is created in the Mailjet dashboard; /newsletter
+		// fails closed (not configured) until then, same pattern as Turnstile below.
+		// MAILJET_KEY, MAILJET_SECRET, and MAILJET_DOMAIN are real credentials and are set
+		// as secrets instead (wrangler secret put / the Cloudflare dashboard), not here.
+		"MAILJET_LIST_ID": "",
 		// Turnstile's site key is public by design (embedded in the page HTML) — not a
 		// secret. Empty until a real Turnstile widget is created in the Cloudflare
 		// dashboard; the contact form fails closed (Turnstile not configured) until then.

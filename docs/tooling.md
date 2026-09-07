@@ -29,19 +29,19 @@
 - Local dev: put secrets in `.env` (gitignored) or a wrangler `.dev.vars` file if a feature needs `platform.env` access during `wrangler dev`.
 - Production: set via `wrangler secret put <NAME>` (never commit secrets), read at runtime through `platform.env.<NAME>` in server-only code (`+page.server.ts`, `+server.ts`).
 - `.env.example` / `.dev.vars.example` document every var a fresh clone needs, without real values.
-- Non-secret config (`MAILGUN_DOMAIN`, `MAILGUN_TO_ADDRESS`) lives directly in `wrangler.jsonc`'s `vars` — committed, since neither value is sensitive. `wrangler types` picks up `vars` automatically; for `.dev.vars`-only keys (real secrets) it also generates a type as long as the key exists in a local `.dev.vars` file, even with an empty value.
+- Non-secret config (`MAILJET_LIST_ID`) lives directly in `wrangler.jsonc`'s `vars` — committed, since it's an identifier, not a credential. `wrangler types` picks up `vars` automatically; for `.dev.vars`-only keys (real secrets) it also generates a type as long as the key exists in a local `.dev.vars` file, even with an empty value.
 
-**Mailgun (contact form email) — code is complete, account setup is not:**
+**Mailjet (contact form email) — code is complete, wire in real credentials to finish:**
 
-- Domain: `mail.kamal.sh` (a dedicated sending subdomain, chosen over `m.kamal.sh` — a fuller word reads better in SPF/DKIM records and sender addresses).
-- Outstanding, human-only steps before this actually sends email: (1) create the Mailgun account, (2) add `mail.kamal.sh` as a domain in Mailgun and add the SPF/DKIM/MX DNS records it gives you at your DNS provider, (3) once verified, get the domain's private API key from Mailgun and run `wrangler secret put MAILGUN_API_KEY` for production, and set the same value in a local `.dev.vars` (gitignored) for local testing.
-- Until `MAILGUN_API_KEY` is set, the contact form's action returns a clear "email sending is not configured yet" error to the visitor instead of silently failing — see `src/routes/contact/+page.server.ts`.
-- `src/lib/server/mailgun.ts` calls Mailgun's HTTP API directly via `fetch` (no SDK dependency, per the native-first policy below).
+- Domain: `mail.kamal.sh` (a dedicated sending subdomain, chosen over `m.kamal.sh` — a fuller word reads better in SPF/DKIM records and sender addresses). It must be added and verified (SPF/DKIM) under the Mailjet account before send requests will succeed.
+- `MAILJET_KEY`, `MAILJET_SECRET`, and `MAILJET_DOMAIN` are all real credentials, so all three are set as secrets rather than plain `vars` — `wrangler secret put <NAME>` for production, and real values in the local, gitignored `.dev.vars` for local testing (see `.dev.vars.example` for the exact keys).
+- Until all three are set, the contact form's action returns a clear "email sending is not configured yet" error to the visitor instead of silently failing — see `src/routes/contact/+page.server.ts`.
+- `src/lib/server/mailjet.ts` calls Mailjet's Send API v3.1 directly via `fetch` (no SDK dependency, per the native-first policy below).
 
-**Mailgun mailing list (`/newsletter` — writing updates) — code is complete, list creation is not:**
+**Mailjet contact list (`/newsletter` — writing updates) — code is complete, list creation is not:**
 
-- Outstanding step: create a mailing list in the Mailgun dashboard under the same `mail.kamal.sh` domain (e.g. `writing@mail.kamal.sh`), then set `MAILGUN_LIST_ADDRESS` in `wrangler.jsonc`'s `vars` (non-secret — a list address, not a credential) to that address and run `bun run gen`. Reuses the same `MAILGUN_API_KEY` secret as the contact form.
-- Until `MAILGUN_LIST_ADDRESS` is set, `/newsletter`'s action fails closed with the same "not configured yet" pattern as the contact form — see `src/routes/newsletter/+page.server.ts`.
+- Outstanding step: create a contact list in the Mailjet dashboard, then set `MAILJET_LIST_ID` in `wrangler.jsonc`'s `vars` (non-secret — a numeric list ID, not a credential) to that list's ID and run `bun run gen`. Reuses the same `MAILJET_KEY`/`MAILJET_SECRET` credentials as the contact form.
+- Until `MAILJET_LIST_ID` is set, `/newsletter`'s action fails closed with the same "not configured yet" pattern as the contact form — see `src/routes/newsletter/+page.server.ts`.
 
 **Cloudflare Analytics (`/status` — live request/error counts) — code is complete, credentials are not:**
 

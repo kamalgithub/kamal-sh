@@ -1,5 +1,5 @@
 import { fail } from '@sveltejs/kit';
-import { subscribeToMailingList } from '$lib/server/mailgunList';
+import { subscribeToMailingList } from '$lib/server/mailjetList';
 import { checkRateLimit } from '$lib/server/rateLimiter';
 import { newsletterCopy } from '$lib/content/copy/newsletter';
 import type { Actions } from './$types';
@@ -42,13 +42,13 @@ export const actions: Actions = {
 		}
 
 		const env = platform?.env;
-		if (!env?.MAILGUN_API_KEY || !env?.MAILGUN_LIST_ADDRESS) {
+		if (!env?.MAILJET_KEY || !env?.MAILJET_SECRET || !env?.MAILJET_LIST_ID) {
 			return fail(500, { error: newsletterCopy.notConfiguredError });
 		}
 
 		try {
 			await subscribeToMailingList(
-				{ apiKey: env.MAILGUN_API_KEY, listAddress: env.MAILGUN_LIST_ADDRESS },
+				{ apiKey: env.MAILJET_KEY, apiSecret: env.MAILJET_SECRET, listId: env.MAILJET_LIST_ID },
 				email
 			);
 		} catch (err) {

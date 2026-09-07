@@ -15,5 +15,10 @@ export const spch: Product = {
 		'Atomic writes — a crash never leaves a half-written file'
 	],
 	links: [{ label: 'PyPI', url: 'https://pypi.org/project/spch/' }],
-	installCommand: 'pip install spch'
+	installCommand: 'pip install spch',
+	image: {
+		src: '/images/products/spch.webp',
+		darkSrc: '/images/products/spch-dark.webp',
+		alt: 'spch overview: zero-shot voice cloning, speech-to-text, and text-to-speech, all running locally via F5-TTS and faster-whisper.'
+	}
 };

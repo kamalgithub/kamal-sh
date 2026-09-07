@@ -4,7 +4,7 @@ This is Kamal Kumar's personal site (kamal.sh) — a fast, minimal, skimmable **
 
 ## Hard rules — non-negotiable
 
-1. **No database.** Content is static, typed data. The only dynamic surface is the contact form (Mailgun) and, later, the booking flow.
+1. **No database.** Content is static, typed data. The only dynamic surface is the contact form (Mailjet) and, later, the booking flow.
 2. **No hover scale, no hover position shift, ever.** Interactive elements never change size or move on hover/focus. Feedback is color, opacity, border only — click targets must stay exactly where the user expects them.
 3. **Native-first dependency policy.** Before adding any package: can Svelte 5 runes or a browser API do this? Is there a SvelteKit-official or Svelte-core-maintained package? Only after both are "no" do you reach for a third-party library, and then exactly one — the most reliable option, never two libraries solving the same problem.
 4. **Data/logic separation is absolute.** Anything a visitor can read — headings, labels, button text, alt text — lives in a typed `src/lib/content/*.ts` module. Components render data; they never contain hardcoded copy. See [docs/conventions.md](./docs/conventions.md).

@@ -5,8 +5,9 @@ export interface ContactMessage {
 	message: string;
 }
 
-export interface MailgunConfig {
+export interface MailjetConfig {
 	apiKey: string;
+	apiSecret: string;
 	domain: string;
 	/** Where the contact form's notification email is delivered — Kamal's real inbox. */
 	toAddress: string;
@@ -27,30 +28,32 @@ function buildEmailBody(contact: ContactMessage): string {
 	].join('\n');
 }
 
-/** Sends a contact-form submission as an email via Mailgun's HTTP API (native fetch, no SDK dependency). */
+/** Sends a contact-form submission as an email via Mailjet's Send API v3.1 (native fetch, no SDK dependency). */
 export async function sendContactEmail(
-	config: MailgunConfig,
+	config: MailjetConfig,
 	contact: ContactMessage
 ): Promise<void> {
-	const body = new URLSearchParams({
-		from: `kamal.sh contact form <postmaster@${config.domain}>`,
-		to: config.toAddress,
-		'h:Reply-To': contact.email,
-		subject: `[Query] ${contact.subject}`,
-		text: buildEmailBody(contact)
-	});
-
-	const response = await fetch(`https://api.mailgun.net/v3/${config.domain}/messages`, {
+	const response = await fetch('https://api.mailjet.com/v3.1/send', {
 		method: 'POST',
 		headers: {
-			Authorization: `Basic ${btoa(`api:${config.apiKey}`)}`,
-			'Content-Type': 'application/x-www-form-urlencoded'
+			Authorization: `Basic ${btoa(`${config.apiKey}:${config.apiSecret}`)}`,
+			'Content-Type': 'application/json'
 		},
-		body
+		body: JSON.stringify({
+			Messages: [
+				{
+					From: { Email: `postmaster@${config.domain}`, Name: 'kamal.sh contact form' },
+					To: [{ Email: config.toAddress }],
+					ReplyTo: { Email: contact.email, Name: contact.name },
+					Subject: `[Query] ${contact.subject}`,
+					TextPart: buildEmailBody(contact)
+				}
+			]
+		})
 	});
 
 	if (!response.ok) {
 		const detail = await response.text();
-		throw new Error(`Mailgun request failed: ${response.status} ${detail}`);
+		throw new Error(`Mailjet request failed: ${response.status} ${detail}`);
 	}
 }

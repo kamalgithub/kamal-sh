@@ -50,7 +50,12 @@ export const caseStudies: CaseStudy[] = [
 				whatIdChangeNow:
 					"I'd invest earlier in the synthetic-traffic validation harness that checked each decomposed service before its cutover — it existed, but arrived a few services later than it should have."
 			}
-		]
+		],
+		image: {
+			src: '/images/case-studies/aks-migration.webp',
+			darkSrc: '/images/case-studies/aks-migration-dark.webp',
+			alt: 'Before/after diagram: a single 30-component Java/C++ monolith decomposed into independent services on AKS, with 99.99% reliability, 94% faster deployments, and 70% faster provisioning after migration.'
+		}
 	},
 	{
 		slug: 'finops-savings',
@@ -94,6 +99,11 @@ export const caseStudies: CaseStudy[] = [
 				whatIdChangeNow:
 					"I'd tie the Kubecost dashboards to a per-team digest from day one instead of a monthly review — the fastest way to keep a cost win from eroding is making it visible to the people generating the spend, not just to the platform team."
 			}
-		]
+		],
+		image: {
+			src: '/images/case-studies/finops-savings.webp',
+			darkSrc: '/images/case-studies/finops-savings-dark.webp',
+			alt: 'Diagram of the FinOps program: Kubecost visibility, workload rightsizing, and sustained control via Azure Cost Management, resulting in $1.4M+ annual savings and a 25% cost reduction.'
+		}
 	}
 ];

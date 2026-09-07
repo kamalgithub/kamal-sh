@@ -1,5 +1,7 @@
 # Copy to .dev.vars for local dev. Never commit the real value.
-MAILGUN_API_KEY=
+MAILJET_KEY=
+MAILJET_SECRET=
+MAILJET_DOMAIN=
 TURNSTILE_SECRET_KEY=
 # Cloudflare API token, scoped to Account Analytics:Read only, for /status.
 CF_API_TOKEN=

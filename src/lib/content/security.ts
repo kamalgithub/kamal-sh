@@ -9,7 +9,7 @@ export const securityPosture: SecurityPostureItem[] = [
 	{
 		label: 'Secrets never committed',
 		description:
-			'Real secrets this site has — the Mailgun API key and the Turnstile secret key — are set via Cloudflare’s encrypted secret store, never in source control or a committed environment file.'
+			'Real secrets this site has — the Mailjet API key and secret, and the Turnstile secret key — are set via Cloudflare’s encrypted secret store, never in source control or a committed environment file.'
 	},
 	{
 		label: 'Contact form abuse protection',

@@ -12,5 +12,10 @@ export const cli: Product = {
 		'`verify` command checks your solution against the lab objective'
 	],
 	links: [],
-	installCommand: 'uv tool install aicademy'
+	installCommand: 'uv tool install aicademy',
+	image: {
+		src: '/images/products/cli.webp',
+		darkSrc: '/images/products/cli-dark.webp',
+		alt: 'Aicademy CLI terminal preview showing `aicademy --help` output, the install/login/list/start workflow, and links to each learning track.'
+	}
 };

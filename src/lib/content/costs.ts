@@ -19,9 +19,9 @@ export const costLineItems: CostLineItem[] = [
 		note: 'Included in the same Cloudflare Workers free tier as hosting.'
 	},
 	{
-		label: 'Transactional email (Mailgun)',
+		label: 'Transactional email (Mailjet)',
 		monthlyEstimate: '$0 (est.)',
-		note: "Contact-form volume is low enough to stay on Mailgun's free tier. Account setup is still pending, so this is a forecast, not a bill."
+		note: "Contact-form and newsletter volume is low enough to stay on Mailjet's free tier — this is a forecast based on published pricing, not a bill."
 	},
 	{
 		label: 'Fonts (Fraunces, Switzer)',

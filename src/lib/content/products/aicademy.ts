@@ -17,5 +17,10 @@ export const aicademy: Product = {
 		{ label: 'YouTube', url: 'https://youtube.com/@aicademy-ac' },
 		{ label: 'Blog', url: 'https://blog.aicademy.ac' }
 	],
-	primaryCta: { label: 'Workshops', url: 'https://www.aicademy.ac/workshops' }
+	primaryCta: { label: 'Workshops', url: 'https://www.aicademy.ac/workshops' },
+	image: {
+		src: '/images/products/aicademy.webp',
+		darkSrc: '/images/products/aicademy-dark.webp',
+		alt: 'Aicademy overview: 50 hands-on projects each in the AI Engineer and AI Architect tracks, 100+ hands-on labs each for CKA, CKS, and CKAD, and live weekend workshops.'
+	}
 };

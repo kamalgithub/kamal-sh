@@ -1,7 +1,12 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { sendContactEmail } from './mailgun';
+import { sendContactEmail } from './mailjet';
 
-const CONFIG = { apiKey: 'key', domain: 'mail.kamal.sh', toAddress: 'kamal@kamal.sh' };
+const CONFIG = {
+	apiKey: 'key',
+	apiSecret: 'secret',
+	domain: 'mail.kamal.sh',
+	toAddress: 'kamal@kamal.sh'
+};
 const CONTACT = {
 	name: 'Ada Lovelace',
 	email: 'ada@example.com',
@@ -21,8 +26,8 @@ describe('sendContactEmail', () => {
 		await sendContactEmail(CONFIG, CONTACT);
 
 		const [, init] = fetchMock.mock.calls[0];
-		const body = new URLSearchParams(init.body as string);
-		expect(body.get('subject')).toBe('[Query] Cloud migration question');
+		const body = JSON.parse(init.body as string);
+		expect(body.Messages[0].Subject).toBe('[Query] Cloud migration question');
 	});
 
 	it('sets Reply-To to the sender email, not the site address', async () => {
@@ -32,9 +37,9 @@ describe('sendContactEmail', () => {
 		await sendContactEmail(CONFIG, CONTACT);
 
 		const [, init] = fetchMock.mock.calls[0];
-		const body = new URLSearchParams(init.body as string);
-		expect(body.get('h:Reply-To')).toBe('ada@example.com');
-		expect(body.get('to')).toBe('kamal@kamal.sh');
+		const body = JSON.parse(init.body as string);
+		expect(body.Messages[0].ReplyTo.Email).toBe('ada@example.com');
+		expect(body.Messages[0].To[0].Email).toBe('kamal@kamal.sh');
 	});
 
 	it('sends the message as the body, followed by a signature footer', async () => {
@@ -44,8 +49,8 @@ describe('sendContactEmail', () => {
 		await sendContactEmail(CONFIG, CONTACT);
 
 		const [, init] = fetchMock.mock.calls[0];
-		const body = new URLSearchParams(init.body as string);
-		const text = body.get('text') ?? '';
+		const body = JSON.parse(init.body as string);
+		const text = body.Messages[0].TextPart as string;
 		expect(text.startsWith(CONTACT.message)).toBe(true);
 		expect(text).toContain('Regards,');
 		expect(text).toContain('Ada Lovelace');
@@ -53,9 +58,9 @@ describe('sendContactEmail', () => {
 		expect(text).toContain('Sent using kamal.sh contact form');
 	});
 
-	it('throws when Mailgun responds with a non-ok status', async () => {
+	it('throws when Mailjet responds with a non-ok status', async () => {
 		vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('bad request', { status: 400 })));
 
-		await expect(sendContactEmail(CONFIG, CONTACT)).rejects.toThrow('Mailgun request failed');
+		await expect(sendContactEmail(CONFIG, CONTACT)).rejects.toThrow('Mailjet request failed');
 	});
 });

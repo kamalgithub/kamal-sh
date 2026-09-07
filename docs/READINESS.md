@@ -32,8 +32,8 @@
 
 ### T1.4 Fetch timeouts on all outbound calls (F1 — MED)
 
-- **Problem:** no timeout on any outbound fetch — a hung upstream (GitHub, Mailgun, Turnstile, Cloudflare GraphQL) stalls SSR and the contact/newsletter submits indefinitely.
-- **Fix:** add `signal: AbortSignal.timeout(4000)` (tune per call: 2500 for the About/GitHub fetch is fine) to: `about/+page.server.ts` GitHub fetch, `mailgun.ts` sendContactEmail, `mailgunList.ts`, `turnstile.ts`, `cloudflareAnalytics.ts`. Catch `TimeoutError` like any other failure — every one of these paths already degrades gracefully.
+- **Problem:** no timeout on any outbound fetch — a hung upstream (GitHub, Mailjet, Turnstile, Cloudflare GraphQL) stalls SSR and the contact/newsletter submits indefinitely.
+- **Fix:** add `signal: AbortSignal.timeout(4000)` (tune per call: 2500 for the About/GitHub fetch is fine) to: `about/+page.server.ts` GitHub fetch, `mailjet.ts` sendContactEmail, `mailjetList.ts`, `turnstile.ts`, `cloudflareAnalytics.ts`. Catch `TimeoutError` like any other failure — every one of these paths already degrades gracefully.
 - **Doc update:** CLAUDE.md hard-rules list or conventions.md — "every outbound fetch sets an `AbortSignal.timeout`; no request may wait on an upstream indefinitely." Also update the /security page copy if it describes this behavior (verify before editing).
 
 ### T1.5 Security-header comment + CSP sync (B1, B2 — MED)
