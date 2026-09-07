@@ -38,6 +38,16 @@
 - Until `MAILGUN_API_KEY` is set, the contact form's action returns a clear "email sending is not configured yet" error to the visitor instead of silently failing — see `src/routes/contact/+page.server.ts`.
 - `src/lib/server/mailgun.ts` calls Mailgun's HTTP API directly via `fetch` (no SDK dependency, per the native-first policy below).
 
+**Mailgun mailing list (`/newsletter` — writing updates) — code is complete, list creation is not:**
+
+- Outstanding step: create a mailing list in the Mailgun dashboard under the same `mail.kamal.sh` domain (e.g. `writing@mail.kamal.sh`), then set `MAILGUN_LIST_ADDRESS` in `wrangler.jsonc`'s `vars` (non-secret — a list address, not a credential) to that address and run `bun run gen`. Reuses the same `MAILGUN_API_KEY` secret as the contact form.
+- Until `MAILGUN_LIST_ADDRESS` is set, `/newsletter`'s action fails closed with the same "not configured yet" pattern as the contact form — see `src/routes/newsletter/+page.server.ts`.
+
+**Cloudflare Analytics (`/status` — live request/error counts) — code is complete, credentials are not:**
+
+- Outstanding steps: (1) find the account ID in the Cloudflare dashboard (visible in the URL/sidebar — not a secret) and set `CF_ACCOUNT_ID` in `wrangler.jsonc`'s `vars`, (2) create an API token scoped to **Account Analytics: Read** only and run `wrangler secret put CF_API_TOKEN` for production, plus a local `.dev.vars` value for testing.
+- Until both are set, `/status` shows an honest "not configured yet" state rather than a fabricated number — see `src/routes/status/+page.server.ts` and `src/lib/server/cloudflareAnalytics.ts`.
+
 ## Adding a dependency — checklist
 
 Before running `bun add`:

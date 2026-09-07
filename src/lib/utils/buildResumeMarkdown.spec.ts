@@ -14,8 +14,7 @@ const data: ResumeData = {
 			linkedin: 'https://linkedin.com/in/ada',
 			github: 'https://github.com/ada',
 			youtube: 'https://youtube.com/@ada',
-			booking: 'https://cal.com/ada',
-			resumePdf: '/resume.pdf'
+			booking: 'https://cal.com/ada'
 		},
 		socials: []
 	},

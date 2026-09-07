@@ -14,6 +14,12 @@ const staticRoutes = [
 	'/about',
 	'/testimonials',
 	'/contact',
+	'/newsletter',
+	'/now',
+	'/uses',
+	'/changelog',
+	'/status',
+	'/resume-print',
 	'/security',
 	'/costs',
 	'/postmortems'

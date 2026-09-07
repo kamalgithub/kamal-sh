@@ -12,7 +12,7 @@
 <SeoHead
 	title="{data.product.name} | Kamal Kumar"
 	description={data.product.tagline}
-	image={data.product.image?.src}
+	image={data.product.image?.src ?? `/images/og/products/${data.product.slug}.png`}
 />
 
 <Section>

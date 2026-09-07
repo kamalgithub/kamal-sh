@@ -1,3 +1,5 @@
 # Copy to .dev.vars for local dev. Never commit the real value.
 MAILGUN_API_KEY=
 TURNSTILE_SECRET_KEY=
+# Cloudflare API token, scoped to Account Analytics:Read only, for /status.
+CF_API_TOKEN=

@@ -34,6 +34,6 @@
 </Section>
 <Section>
 	<Container>
-		<TestimonialsGrid {testimonials} />
+		<TestimonialsGrid {testimonials} copy={testimonialsCopy} />
 	</Container>
 </Section>

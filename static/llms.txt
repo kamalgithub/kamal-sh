@@ -11,6 +11,10 @@
 - [Writing](https://kamal.sh/writing): Blog posts and videos.
 - [About](https://kamal.sh/about): Background, education, certifications, live GitHub activity.
 - [Testimonials](https://kamal.sh/testimonials): What colleagues and clients have said.
+- [Now](https://kamal.sh/now): What I'm actually spending time on right now.
+- [Uses](https://kamal.sh/uses): The real, provable stack — day job and this site.
+- [Changelog](https://kamal.sh/changelog): A running, public log of real changes to this site.
+- [Status](https://kamal.sh/status): Live request/latency/error metrics for this site.
 - [Security](https://kamal.sh/security): Security posture of this site, in plain terms.
 - [Costs](https://kamal.sh/costs): What this site costs to run, line by line.
 - [Postmortems](https://kamal.sh/postmortems): Public, blameless incident writeups.
@@ -24,6 +28,7 @@
 - [json](https://kamal.sh/json): Colorized, human-readable résumé data (not valid JSON once colorized — see json-raw).
 - [json-raw](https://kamal.sh/json-raw) / [resume.json](https://kamal.sh/resume.json): Actual structured `application/json` résumé data.
 - [resume.md](https://kamal.sh/resume.md): Markdown résumé.
+- [resume-print](https://kamal.sh/resume-print): Print-ready HTML résumé (use your browser's Print / Save as PDF).
 - [sitemap.xml](https://kamal.sh/sitemap.xml): Full page index.
 - [rss.xml](https://kamal.sh/rss.xml): Writing feed.
 - [linkedin](https://kamal.sh/linkedin), [youtube](https://kamal.sh/youtube), [github](https://kamal.sh/github): short-URL redirects to the matching profile.

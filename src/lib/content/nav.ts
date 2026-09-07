@@ -11,6 +11,10 @@ export const nav: NavLink[] = [
 
 /** Secondary, lower-traffic links — rendered in the footer, not the primary nav. */
 export const footerLinks: NavLink[] = [
+	{ label: 'Now', href: '/now' },
+	{ label: 'Uses', href: '/uses' },
+	{ label: 'Changelog', href: '/changelog' },
+	{ label: 'Status', href: '/status' },
 	{ label: 'Security', href: '/security' },
 	{ label: 'Costs', href: '/costs' },
 	{ label: 'Postmortems', href: '/postmortems' }

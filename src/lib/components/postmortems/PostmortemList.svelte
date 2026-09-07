@@ -1,16 +1,9 @@
 <script lang="ts">
 	import type { Postmortem } from '$lib/content/postmortems.types';
 	import type { PostmortemsCopy } from '$lib/content/copy/postmortems.types';
+	import { formatDate } from '$lib/utils/formatDate';
 
 	let { postmortems, copy }: { postmortems: Postmortem[]; copy: PostmortemsCopy } = $props();
-
-	function formatDate(iso: string): string {
-		return new Date(iso).toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		});
-	}
 </script>
 
 {#if postmortems.length === 0}

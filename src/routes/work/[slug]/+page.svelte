@@ -15,7 +15,7 @@
 <SeoHead
 	title="{data.study.title} | Kamal Kumar"
 	description={data.study.summary}
-	image={data.study.image?.src}
+	image={data.study.image?.src ?? `/images/og/case-studies/${data.study.slug}.png`}
 />
 <svelte:head>
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -- toJsonLdScript escapes every "<" itself; content is our own static case-study data, never user input -->

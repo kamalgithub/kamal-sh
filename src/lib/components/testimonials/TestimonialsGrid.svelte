@@ -1,10 +1,22 @@
 <script lang="ts">
 	import type { Testimonial } from '$lib/content/testimonials.types';
+	import type { TestimonialsCopy } from '$lib/content/copy/testimonials.types';
 	import IconQuote from '$lib/components/icons/IconQuote.svelte';
 	import IconStar from '$lib/components/icons/IconStar.svelte';
 	import TestimonialAvatar from './TestimonialAvatar.svelte';
+	import TestimonialQuote from './TestimonialQuote.svelte';
 
-	let { testimonials }: { testimonials: Testimonial[] } = $props();
+	let {
+		testimonials,
+		copy,
+		truncateQuotes = false
+	}: {
+		testimonials: Testimonial[];
+		copy: TestimonialsCopy;
+		/** Clamp quotes to a preview length with a show more toggle — used on the homepage
+		 *  preview; the full /testimonials page always shows quotes in full. */
+		truncateQuotes?: boolean;
+	} = $props();
 
 	const STAR_SLOTS = [0, 1, 2, 3, 4];
 </script>
@@ -23,9 +35,7 @@
 					<IconStar size={13} filled={i < testimonial.rating} />
 				{/each}
 			</div>
-			<p class="mt-2 pl-10 font-display text-body font-normal text-text">
-				&ldquo;{testimonial.quote}&rdquo;
-			</p>
+			<TestimonialQuote quote={testimonial.quote} truncate={truncateQuotes} {copy} />
 			<div class="mt-4 flex items-center gap-3 pl-10">
 				<TestimonialAvatar name={testimonial.name} />
 				{#if testimonial.profileUrl}

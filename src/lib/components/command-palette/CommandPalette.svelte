@@ -2,7 +2,10 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { profile } from '$lib/content/profile';
-	import { nav } from '$lib/content/nav';
+	import { nav, footerLinks } from '$lib/content/nav';
+	import { caseStudies } from '$lib/content/case-studies';
+	import { products } from '$lib/content/products/products';
+	import writingPosts from '$lib/content/writing/posts.generated.json';
 	import { commandPaletteCopy as copy } from '$lib/content/copy/commandPalette';
 	import { buildCommands, THEME_TOGGLE_COMMAND_ID, type Command } from '$lib/utils/buildCommands';
 	import { getResolvedTheme, toggleLightDark, type ResolvedTheme } from '$lib/utils/theme';
@@ -14,8 +17,16 @@
 	import IconSun from '$lib/components/icons/IconSun.svelte';
 	import IconMoon from '$lib/components/icons/IconMoon.svelte';
 
-	const commands = buildCommands(nav, profile.socials, copy);
-	const STATIC_ICONS = { page: IconArrowRight, resume: IconTerminal, social: IconArrowUpRight };
+	const commands = buildCommands(
+		nav,
+		footerLinks,
+		caseStudies,
+		products,
+		writingPosts,
+		profile.socials,
+		copy
+	);
+	const STATIC_ICONS = { page: IconArrowRight, resume: IconTerminal, external: IconArrowUpRight };
 	const RESOLVED_THEME_ICONS: Record<ResolvedTheme, typeof IconSun> = {
 		light: IconSun,
 		dark: IconMoon

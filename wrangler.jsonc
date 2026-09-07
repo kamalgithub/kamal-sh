@@ -13,9 +13,19 @@
 	"vars": {
 		"MAILGUN_DOMAIN": "mail.kamal.sh",
 		"MAILGUN_TO_ADDRESS": "kamal@kamal.sh",
+		// The mailing list new /writing subscribers are added to (Mailgun's Mailing Lists
+		// API). Non-secret — a list address, not a credential. Empty until the list is
+		// created in the Mailgun dashboard; /newsletter fails closed (not configured) until
+		// then, same pattern as Mailgun/Turnstile below.
+		"MAILGUN_LIST_ADDRESS": "",
 		// Turnstile's site key is public by design (embedded in the page HTML) — not a
 		// secret. Empty until a real Turnstile widget is created in the Cloudflare
 		// dashboard; the contact form fails closed (Turnstile not configured) until then.
-		"TURNSTILE_SITE_KEY": ""
+		"TURNSTILE_SITE_KEY": "",
+		// Cloudflare account ID — not a secret (visible in the dashboard URL/sidebar for
+		// any account). /status reads real request/error metrics for this account via
+		// Cloudflare's GraphQL Analytics API using this plus the CF_API_TOKEN secret below.
+		// Empty until set; /status fails closed (not configured) until then.
+		"CF_ACCOUNT_ID": ""
 	}
 }

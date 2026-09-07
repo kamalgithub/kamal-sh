@@ -4,6 +4,7 @@
 	import { profile } from '$lib/content/profile';
 	import { aicademy } from '$lib/content/products/aicademy';
 	import { writingCopy } from '$lib/content/copy/writing';
+	import { newsletterCopy } from '$lib/content/copy/newsletter';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import PageHeading from '$lib/components/primitives/PageHeading.svelte';
@@ -12,6 +13,7 @@
 	import WritingFeed from '$lib/components/writing/WritingFeed.svelte';
 	import VideoFeed from '$lib/components/writing/VideoFeed.svelte';
 	import IconArrowUpRight from '$lib/components/icons/IconArrowUpRight.svelte';
+	import NewsletterSubscribeForm from '$lib/components/newsletter/NewsletterSubscribeForm.svelte';
 
 	const LINK_CLASS =
 		'inline-flex items-center gap-1 text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text';
@@ -29,6 +31,10 @@
 	<Container>
 		<PageHeading icon={IconPen} heading={writingCopy.heading} />
 		<p class="mt-5 max-w-2xl text-body text-text-muted">{writingCopy.intro}</p>
+		<div class="mt-6 max-w-md">
+			<p class="mb-2 text-small font-medium text-text">{newsletterCopy.heading}</p>
+			<NewsletterSubscribeForm copy={newsletterCopy} />
+		</div>
 	</Container>
 </Section>
 <Section>

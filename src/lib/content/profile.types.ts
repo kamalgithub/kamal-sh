@@ -5,7 +5,6 @@ export interface ProfileLinks {
 	github: string;
 	youtube: string;
 	booking: string;
-	resumePdf: string;
 }
 
 export interface ProfileSocial {

@@ -1,10 +1,25 @@
+import { execSync } from 'node:child_process';
 import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import tailwindcss from '@tailwindcss/vite';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { sveltekit } from '@sveltejs/kit/vite';
 
+// Not every build environment is a git checkout (or has git installed) — 'unknown'
+// is an honest fallback, never a guessed commit hash. See src/lib/utils/buildInfo.ts.
+function getGitSha(): string {
+	try {
+		return execSync('git rev-parse --short HEAD').toString().trim();
+	} catch {
+		return 'unknown';
+	}
+}
+
 export default defineConfig({
+	define: {
+		__BUILD_SHA__: JSON.stringify(getGitSha()),
+		__BUILD_DATE__: JSON.stringify(new Date().toISOString())
+	},
 	plugins: [
 		tailwindcss(),
 		sveltekit({

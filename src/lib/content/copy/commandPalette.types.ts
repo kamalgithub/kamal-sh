@@ -1,6 +1,7 @@
 export interface CommandPaletteCopy {
 	homeLabel: string;
 	resumeLabel: string;
+	resumePrintLabel: string;
 	testimonialsLabel: string;
 	themeToggleLabel: string;
 	searchPlaceholder: string;
@@ -10,6 +11,7 @@ export interface CommandPaletteCopy {
 	pagesGroupLabel: string;
 	resumeGroupLabel: string;
 	socialGroupLabel: string;
+	writingGroupLabel: string;
 	themeGroupLabel: string;
 	navigateHint: string;
 	selectHint: string;

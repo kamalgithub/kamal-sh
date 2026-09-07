@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Profile } from '$lib/content/profile.types';
 	import type { NavLink } from '$lib/content/nav.types';
+	import { buildInfo } from '$lib/utils/buildInfo';
+	import { formatDate } from '$lib/utils/formatDate';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import IconArrowUpRight from '$lib/components/icons/IconArrowUpRight.svelte';
 
@@ -37,5 +39,8 @@
 				{/each}
 			</div>
 		</div>
+		<p class="mt-4 text-center text-small text-text-muted sm:text-left">
+			Built {formatDate(buildInfo.date)} from commit {buildInfo.sha}
+		</p>
 	</Container>
 </footer>
