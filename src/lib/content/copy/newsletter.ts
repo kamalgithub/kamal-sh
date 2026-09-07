@@ -12,5 +12,6 @@ export const newsletterCopy: NewsletterCopy = {
 	notConfiguredError: "Subscriptions aren't set up yet — check back soon.",
 	sendFailedError: 'Something went wrong. Try again in a moment.',
 	rateLimitedError: 'Too many attempts. Try again later.',
+	verificationFailedError: 'Verification failed — please try again.',
 	genericErrorMessage: 'Something went wrong. Try again in a moment.'
 };

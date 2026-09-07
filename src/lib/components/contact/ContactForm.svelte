@@ -174,16 +174,18 @@
 		</div>
 
 		{#if turnstileSiteKey}
-			<!-- "compact" (150x140), not the 300px-wide default — this form sits inside a
-			     Card on a single mobile column, where the default size would overflow the
-			     narrowest phone widths. Same size on desktop too: no genuine interaction
-			     difference between a tap and a click here to justify a dual-native split. -->
+			<!-- "flexible" adapts its width to the container instead of rendering at a fixed
+			     150x140 ("compact") or 300x65 ("normal") box — this form sits inside a Card
+			     on a single mobile column, where either fixed size either overflows the
+			     narrowest phone widths or looks like a stray square. Same size on desktop
+			     too: no genuine interaction difference between a tap and a click here to
+			     justify a dual-native split. -->
 			<div
 				class="cf-turnstile"
 				data-sitekey={turnstileSiteKey}
 				data-callback="onTurnstileSuccess"
 				data-expired-callback="onTurnstileExpired"
-				data-size="compact"
+				data-size="flexible"
 			></div>
 		{/if}
 

@@ -9,5 +9,7 @@ export interface NewsletterCopy {
 	notConfiguredError: string;
 	sendFailedError: string;
 	rateLimitedError: string;
+	/** Shown when Turnstile hasn't verified the visitor yet, or verification failed. */
+	verificationFailedError: string;
 	genericErrorMessage: string;
 }

@@ -23,6 +23,7 @@ declare global {
 	// to actually respect.
 	const __BUILD_SHA__: string;
 	const __BUILD_DATE__: string;
+	const __TURNSTILE_SITE_KEY__: string;
 }
 
 export {};

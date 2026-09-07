@@ -12,9 +12,9 @@ export const securityPosture: SecurityPostureItem[] = [
 			'Real secrets this site has — the Mailjet API key and secret, and the Turnstile secret key — are set via Cloudflare’s encrypted secret store, never in source control or a committed environment file.'
 	},
 	{
-		label: 'Contact form abuse protection',
+		label: 'Form abuse protection',
 		description:
-			'Cloudflare Turnstile blocks automated submissions, and a 2-messages-per-4-hours cap is enforced both client-side and by IP — the IP itself is hashed before use and never stored as plain text.'
+			'Cloudflare Turnstile blocks automated submissions on both the contact form and the newsletter signup. The contact form additionally caps at 2 messages per 4 hours, enforced both client-side and by IP — the IP itself is hashed before use and never stored as plain text.'
 	},
 	{
 		label: 'Minimal, deliberate dependencies',

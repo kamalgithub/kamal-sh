@@ -1,4 +1,5 @@
 import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import tailwindcss from '@tailwindcss/vite';
@@ -15,10 +16,26 @@ function getGitSha(): string {
 	}
 }
 
+// TURNSTILE_SITE_KEY is public/non-secret by design (Cloudflare's own model — it's meant
+// to be embedded in page HTML) and already committed in wrangler.jsonc's `vars`. Reading
+// it here — rather than only via `platform.env` at request time — lets the newsletter
+// form's Turnstile widget render on /writing, which must stay prerendered and has no
+// env access at request time. A small regex, not a full JSONC parse, since this is the
+// one value we need and adding a parser dependency for it isn't worth it.
+function getTurnstileSiteKey(): string {
+	try {
+		const wranglerConfig = readFileSync('wrangler.jsonc', 'utf-8');
+		return wranglerConfig.match(/"TURNSTILE_SITE_KEY"\s*:\s*"([^"]*)"/)?.[1] ?? '';
+	} catch {
+		return '';
+	}
+}
+
 export default defineConfig({
 	define: {
 		__BUILD_SHA__: JSON.stringify(getGitSha()),
-		__BUILD_DATE__: JSON.stringify(new Date().toISOString())
+		__BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+		__TURNSTILE_SITE_KEY__: JSON.stringify(getTurnstileSiteKey())
 	},
 	plugins: [
 		tailwindcss(),
