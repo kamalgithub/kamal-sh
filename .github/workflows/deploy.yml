@@ -1,0 +1,42 @@
+name: Deploy
+
+# Runs after CI succeeds on main — not on every push directly, so a deploy never ships
+# code that failed check/lint/build/test. This covers every push to main, not just
+# content-sync's: before this workflow existed, NOTHING in this repo auto-deployed —
+# every previous deploy was a manual `wrangler deploy` from a local machine, which is
+# exactly why content-sync's bi-daily blog/video sync commits could land on main and
+# never actually reach the live site until someone happened to deploy for an unrelated
+# reason. See docs/tooling.md's CI section for the full story.
+on:
+  workflow_run:
+    workflows: ['CI']
+    types: [completed]
+    branches: [main]
+
+jobs:
+  deploy:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      # Pins to the exact commit CI just verified, not whatever main happens to be by
+      # the time this job starts — those can differ if another push lands in between.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      # Embeds this exact commit's SHA into the footer's "Built ... from commit ..."
+      # line (see src/lib/utils/buildInfo.ts) — building here, in the same job that then
+      # deploys, is what keeps that line accurate; building separately from deploying
+      # (as every manual deploy this repo has had so far did) risks shipping a stale SHA.
+      - run: bun run build
+
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

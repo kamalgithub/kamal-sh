@@ -15,8 +15,9 @@ import type { Handle } from '@sveltejs/kit';
  * Everything else stays as strict as this static, no-database site allows.
  *
  * `challenges.cloudflare.com` (script/frame/connect) is Cloudflare Turnstile — only
- * actually loaded on /contact, but this one policy is shared across all three SSR
- * routes, so the allowance is granted here rather than added as a per-route branch.
+ * actually loaded on /contact and /newsletter, but this one policy is shared across
+ * all five SSR routes, so the allowance is granted here rather than added as a
+ * per-route branch.
  */
 // Exported so hooks.server.spec.ts can assert it stays in sync with _headers' copy —
 // see that file's docstring, and docs/READINESS.md's T1.5.
