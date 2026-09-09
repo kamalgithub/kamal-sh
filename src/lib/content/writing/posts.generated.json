@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Is Your Terraform State Secure? A 5-Minute Audit for `terraform_data` Usage in v1.16",
+		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-audit",
+		"pubDate": "2026-09-09T09:57:45.000Z",
+		"slug": "tf-1-16-terraform-data-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/tf-1-16-terraform-data-audit.webp"
+	},
+	{
+		"title": "The Terraform `null_resource` Anti-Pattern `terraform_data` Finally Replaces for Private Data",
+		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-before-after",
+		"pubDate": "2026-09-08T09:54:24.000Z",
+		"slug": "tf-1-16-terraform-data-before-after",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/tf-1-16-terraform-data-before-after.webp"
+	},
+	{
 		"title": "Is Your Terraform State Hiding Sensitive Data? The Power of `terraform_data` in v1.16",
 		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-deep-dive",
 		"pubDate": "2026-09-07T10:33:21.000Z",
@@ -40,19 +54,5 @@
 		"pubDate": "2026-09-01T10:16:43.000Z",
 		"slug": "k8s-1-37-ipvs-hidden-gotcha",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-ipvs-hidden-gotcha.webp"
-	},
-	{
-		"title": "The `bpftool prog show` Command That Unmasks Hidden Kernel Backdoors",
-		"link": "https://blog.aicademy.ac/bpftool-unmask-backdoors",
-		"pubDate": "2026-08-25T17:31:57.000Z",
-		"slug": "bpftool-unmask-backdoors",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/bpftool-unmask-backdoors.webp"
-	},
-	{
-		"title": "eBPF for the Impatient: Architecting Runtime Security at the Kernel Edge",
-		"link": "https://blog.aicademy.ac/ebpf-runtime-security-architecture",
-		"pubDate": "2026-08-24T16:10:24.000Z",
-		"slug": "ebpf-runtime-security-architecture",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-runtime-security-architecture.webp"
 	}
 ]
