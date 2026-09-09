@@ -3,16 +3,14 @@
 	import { page } from '$app/state';
 	import type { NavLink } from '$lib/content/nav.types';
 	import { requestCommandPaletteOpen } from '$lib/utils/commandPaletteEvent';
+	import { isNavLinkActive } from '$lib/utils/isNavLinkActive';
 	import { commandPaletteCopy } from '$lib/content/copy/commandPalette';
+	import { navCopy } from '$lib/content/copy/nav';
 	import ThemeToggle from './ThemeToggle.svelte';
 	import IconSearch from '$lib/components/icons/IconSearch.svelte';
 
 	let { links, name }: { links: NavLink[]; name: string } = $props();
 	let dialogEl: HTMLDialogElement | undefined = $state();
-
-	function isActive(href: string): boolean {
-		return page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
-	}
 
 	function openMenu() {
 		dialogEl?.showModal();
@@ -38,7 +36,7 @@
 			type="button"
 			onclick={requestCommandPaletteOpen}
 			aria-label={commandPaletteCopy.triggerLabel}
-			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-text"
+			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text-muted transition-theme hover:text-text"
 		>
 			<IconSearch size={18} />
 		</button>
@@ -46,8 +44,8 @@
 		<button
 			type="button"
 			onclick={openMenu}
-			aria-label="Open menu"
-			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text transition-colors duration-(--duration-fast) ease-standard hover:bg-surface"
+			aria-label={navCopy.openMenuLabel}
+			class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text transition-theme hover:bg-surface"
 		>
 			<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
 				<path
@@ -74,8 +72,8 @@
 			<button
 				type="button"
 				onclick={closeMenu}
-				aria-label="Close menu"
-				class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text transition-colors duration-(--duration-fast) ease-standard hover:bg-surface"
+				aria-label={navCopy.closeMenuLabel}
+				class="flex min-h-11 min-w-11 items-center justify-center rounded-full text-text transition-theme hover:bg-surface"
 			>
 				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
 					<path
@@ -89,7 +87,7 @@
 		</div>
 		<nav class="flex flex-1 flex-col items-start justify-center gap-2 px-6" aria-label="Primary">
 			{#each links as link (link.href)}
-				{@const active = isActive(link.href)}
+				{@const active = isNavLinkActive(page.url.pathname, link.href)}
 				<!-- eslint-disable svelte/no-navigation-without-resolve -- content-authored href, not a compile-time literal -->
 				<a
 					href={link.href}

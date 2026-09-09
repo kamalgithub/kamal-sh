@@ -1,18 +1,21 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { profile } from '$lib/content/profile';
 	import { errorCopy } from '$lib/content/copy/error';
 	import Container from '$lib/components/primitives/Container.svelte';
 	import Section from '$lib/components/primitives/Section.svelte';
 	import Button from '$lib/components/primitives/Button.svelte';
+	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 
 	// The only joke on the whole site, and only for the harmless case — a real error
 	// (500, etc.) gets a plain, reassuring message instead. See docs/conventions.md.
 	const isNotFound = $derived(page.status === 404);
 </script>
 
-<svelte:head>
-	<title>{page.status} | Kamal Kumar</title>
-</svelte:head>
+<SeoHead
+	fullTitle="{page.status} | {profile.name}"
+	description={isNotFound ? errorCopy.notFoundBody : errorCopy.genericBody}
+/>
 
 <Section>
 	<Container>

@@ -148,3 +148,15 @@
 	--duration-fast: var(--duration-fast);
 	--duration-base: var(--duration-base);
 }
+
+/* The one sanctioned way to write a hover/focus color transition on a non-Button element —
+   composes Tailwind's own transition-colors with this site's shared timing tokens, so every
+   interactive element's hover feedback moves at exactly the same speed/ease, and so this
+   class can only ever animate color-related properties (reinforcing CLAUDE.md's
+   no-scale/no-shift rule mechanically). @apply, not hand-duplicated properties, so this
+   inherits transition-colors' exact property list from Tailwind itself. Button.svelte stays
+   on its own explicit transition-[...] list (see conventions.md) since it also needs
+   opacity, which transition-colors doesn't cover — this utility is for everything else. */
+@utility transition-theme {
+	@apply transition-colors duration-(--duration-fast) ease-standard;
+}

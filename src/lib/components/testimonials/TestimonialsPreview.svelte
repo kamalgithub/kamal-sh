@@ -27,7 +27,7 @@
 		<TestimonialsGrid {testimonials} copy={testimonialsCopy} truncateQuotes />
 		<a
 			href={resolve('/testimonials')}
-			class="mt-8 inline-flex items-center gap-1 text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
+			class="mt-8 inline-flex items-center gap-1 text-small text-accent transition-theme hover:text-text"
 		>
 			{viewAllLabel} ({totalCount})
 			<IconArrowRight size={14} />

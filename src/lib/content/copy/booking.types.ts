@@ -12,4 +12,8 @@ export interface BookingCopy {
 	outsideWindowTooltip: string;
 	previousMonthLabel: string;
 	nextMonthLabel: string;
+	/** Sun-first, matching the calendar grid's own column order. */
+	weekdayLabels: string[];
+	/** Template with a `{minutes}` placeholder, e.g. "{minutes} min". */
+	durationLabelTemplate: string;
 }

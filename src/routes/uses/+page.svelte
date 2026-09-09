@@ -9,7 +9,7 @@
 	import UsesList from '$lib/components/uses/UsesList.svelte';
 </script>
 
-<SeoHead title="Uses | Kamal Kumar" description={usesCopy.intro} />
+<SeoHead title="Uses" description={usesCopy.intro} />
 
 <Section tint={2}>
 	<Container>

@@ -2,14 +2,12 @@ import { fail } from '@sveltejs/kit';
 import { subscribeToMailingList } from '$lib/server/mailjetList';
 import { verifyTurnstileToken } from '$lib/server/turnstile';
 import { checkRateLimit } from '$lib/server/rateLimiter';
+import { isValidEmail } from '$lib/utils/isValidEmail';
 import { newsletterCopy } from '$lib/content/copy/newsletter';
 import type { Actions } from './$types';
 
 export const prerender = false;
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// RFC 5321's own limit on a full email address — a bound on the format check above, not a new rule.
-const EMAIL_MAX_LENGTH = 254;
 // Generous compared to the contact form's 2-per-4h — subscribing carries far less abuse
 // value than sending arbitrary messages, this just guards against a scripted flood.
 const RATE_LIMIT_MAX = 5;
@@ -28,7 +26,7 @@ export const actions: Actions = {
 			return { success: true };
 		}
 
-		if (!email || !EMAIL_PATTERN.test(email) || email.length > EMAIL_MAX_LENGTH) {
+		if (!isValidEmail(email)) {
 			return fail(400, { error: newsletterCopy.invalidEmailError });
 		}
 

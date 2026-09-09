@@ -23,7 +23,7 @@
 	const careerTimeline = buildCareerTimeline(experience, education, certifications);
 </script>
 
-<SeoHead title="About | Kamal Kumar" description={profile.tagline} />
+<SeoHead title="About" description={profile.tagline} />
 
 <Section tint={2}>
 	<Container>

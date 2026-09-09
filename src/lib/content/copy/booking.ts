@@ -11,5 +11,7 @@ export const bookingCopy: BookingCopy = {
 	stepProgressLabel: 'Step {current} of {total}',
 	outsideWindowTooltip: 'Bookable only within the next 2 weeks',
 	previousMonthLabel: 'Previous month',
-	nextMonthLabel: 'Next month'
+	nextMonthLabel: 'Next month',
+	weekdayLabels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+	durationLabelTemplate: '{minutes} min'
 };

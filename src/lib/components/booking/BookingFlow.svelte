@@ -13,7 +13,6 @@
 	const BOOKABLE_DAYS = 14;
 	const DURATIONS_MINUTES = [15, 30, 45, 60];
 	const STEPS = ['date', 'duration', 'time'] as const;
-	const WEEKDAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 	// Covers the whole step area — content AND footer share this one budget (the content
 	// is flex-1, the footer sits after it) so the footer reuses space that would otherwise
 	// go unused on shorter steps, instead of adding its own height on top.
@@ -148,7 +147,7 @@
 							onclick={goToPreviousMonth}
 							disabled={monthOffset <= 0}
 							aria-label={copy.previousMonthLabel}
-							class="flex h-10 w-10 items-center justify-center rounded-sm text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-text disabled:pointer-events-none disabled:opacity-30"
+							class="flex h-10 w-10 items-center justify-center rounded-sm text-text-muted transition-theme hover:text-text disabled:pointer-events-none disabled:opacity-30"
 						>
 							<span class="block rotate-180"><IconArrowRight size={16} /></span>
 						</button>
@@ -158,13 +157,13 @@
 							onclick={goToNextMonth}
 							disabled={monthOffset >= maxMonthOffset}
 							aria-label={copy.nextMonthLabel}
-							class="flex h-10 w-10 items-center justify-center rounded-sm text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-text disabled:pointer-events-none disabled:opacity-30"
+							class="flex h-10 w-10 items-center justify-center rounded-sm text-text-muted transition-theme hover:text-text disabled:pointer-events-none disabled:opacity-30"
 						>
 							<IconArrowRight size={16} />
 						</button>
 					</div>
 					<div class="grid grid-cols-7 gap-1 text-center">
-						{#each WEEKDAY_LABELS as weekday (weekday)}
+						{#each copy.weekdayLabels as weekday (weekday)}
 							<span class="py-1 text-small text-text-muted">{weekday}</span>
 						{/each}
 						{#each monthWeeks as week, weekIndex (weekIndex)}
@@ -178,7 +177,7 @@
 												type="button"
 												onclick={() => selectDate(date)}
 												aria-label={formatDateAriaLabel(date)}
-												class="aspect-square w-full rounded-sm border border-border-strong text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+												class="aspect-square w-full rounded-sm border border-border-strong text-small text-text transition-theme hover:border-accent"
 											>
 												{date.day}
 											</button>
@@ -220,9 +219,9 @@
 							<button
 								type="button"
 								onclick={() => selectDuration(minutes)}
-								class="rounded-sm border border-border-strong px-3 py-3 text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent"
+								class="rounded-sm border border-border-strong px-3 py-3 text-small text-text transition-theme hover:border-accent"
 							>
-								{minutes} min
+								{copy.durationLabelTemplate.replace('{minutes}', String(minutes))}
 							</button>
 						{/each}
 					</div>
@@ -238,7 +237,7 @@
 									href={buildCalComUrl(calComUsername, selectedDuration, slot)}
 									target="_blank"
 									rel="noopener"
-									class="rounded-sm border border-border-strong px-3 py-3 text-center text-small text-text transition-colors duration-(--duration-fast) ease-standard hover:border-accent hover:bg-surface"
+									class="rounded-sm border border-border-strong px-3 py-3 text-center text-small text-text transition-theme hover:border-accent hover:bg-surface"
 								>
 									{formatTimeLabel(slot)}
 								</a>

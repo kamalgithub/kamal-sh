@@ -206,7 +206,7 @@
 					type="button"
 					onclick={() => run(command)}
 					onmouseenter={() => (activeIndex = i)}
-					class="flex w-full items-center gap-2.5 rounded-sm px-3 py-2 text-left text-body transition-colors duration-(--duration-fast) ease-standard {i ===
+					class="flex w-full items-center gap-2.5 rounded-sm px-3 py-2 text-left text-body transition-theme {i ===
 					activeIndex
 						? 'bg-text text-bg'
 						: 'text-text'}"

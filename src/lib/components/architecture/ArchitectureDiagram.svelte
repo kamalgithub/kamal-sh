@@ -30,7 +30,7 @@
 
 	function nodeButtonClass(isSelected: boolean): string {
 		const base =
-			'flex items-center gap-2 rounded-sm border px-4 py-3 text-left text-small font-medium transition-colors duration-(--duration-fast) ease-standard';
+			'flex items-center gap-2 rounded-sm border px-4 py-3 text-left text-small font-medium transition-theme';
 		return isSelected
 			? `${base} border-text bg-text text-bg`
 			: `${base} border-border-strong text-text hover:border-accent`;

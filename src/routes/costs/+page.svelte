@@ -9,7 +9,7 @@
 	import IconGauge from '$lib/components/icons/IconGauge.svelte';
 </script>
 
-<SeoHead title="Costs | Kamal Kumar" description={costsCopy.intro} />
+<SeoHead title="Costs" description={costsCopy.intro} />
 
 <Section tint={3}>
 	<Container>

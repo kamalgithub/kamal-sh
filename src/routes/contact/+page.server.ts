@@ -2,17 +2,15 @@ import { fail } from '@sveltejs/kit';
 import { sendContactEmail } from '$lib/server/mailjet';
 import { verifyTurnstileToken } from '$lib/server/turnstile';
 import { checkRateLimit } from '$lib/server/rateLimiter';
+import { isValidEmail } from '$lib/utils/isValidEmail';
 import { contactCopy } from '$lib/content/copy/contact';
 import { profile } from '$lib/content/profile';
 import type { Actions, PageServerLoad } from './$types';
 
 export const prerender = false;
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_MIN_LENGTH = 2;
 const NAME_MAX_LENGTH = 100;
-// RFC 5321's own limit on a full email address — a bound on the format check above, not a new rule.
-const EMAIL_MAX_LENGTH = 254;
 const SUBJECT_MIN_LENGTH = 3;
 const SUBJECT_MAX_LENGTH = 150;
 // Long enough to rule out drive-by one-liners, short enough not to demand an essay.
@@ -49,7 +47,7 @@ export const actions: Actions = {
 		if (!name) errors.name = copy.nameRequiredError;
 		else if (name.length < NAME_MIN_LENGTH) errors.name = copy.nameTooShortError;
 		else if (name.length > NAME_MAX_LENGTH) errors.name = copy.nameTooLongError;
-		if (!email || !EMAIL_PATTERN.test(email) || email.length > EMAIL_MAX_LENGTH) {
+		if (!isValidEmail(email)) {
 			errors.email = copy.emailInvalidError;
 		}
 		if (!subject) errors.subject = copy.subjectRequiredError;

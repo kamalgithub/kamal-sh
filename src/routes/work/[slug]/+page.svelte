@@ -13,7 +13,7 @@
 </script>
 
 <SeoHead
-	title="{data.study.title} | Kamal Kumar"
+	title={data.study.title}
 	description={data.study.summary}
 	image={data.study.image?.src ?? `/images/og/case-studies/${data.study.slug}.png`}
 />

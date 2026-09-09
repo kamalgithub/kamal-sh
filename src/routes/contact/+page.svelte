@@ -15,7 +15,7 @@
 	let { data, form }: PageProps = $props();
 </script>
 
-<SeoHead title="Contact | Kamal Kumar" description={contactCopy.intro} />
+<SeoHead title="Contact" description={contactCopy.intro} />
 
 <Section tint={3}>
 	<Container>
@@ -24,10 +24,7 @@
 		<p class="mt-4 flex items-center gap-2 text-body text-text-muted">
 			<IconMail size={18} />
 			{contactCopy.directEmailLabel}
-			<a
-				href="mailto:{profile.email}"
-				class="text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
-			>
+			<a href="mailto:{profile.email}" class="text-accent transition-theme hover:text-text">
 				{profile.email}
 			</a>
 		</p>

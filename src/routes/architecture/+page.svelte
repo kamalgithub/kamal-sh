@@ -9,7 +9,7 @@
 	import IconLayers from '$lib/components/icons/IconLayers.svelte';
 </script>
 
-<SeoHead title="Architecture | Kamal Kumar" description={architectureCopy.intro} />
+<SeoHead title="Architecture" description={architectureCopy.intro} />
 
 <Section tint={2}>
 	<Container>

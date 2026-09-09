@@ -11,8 +11,8 @@ function metaContent(property: string): string | null {
 }
 
 describe('SeoHead.svelte', () => {
-	it('sets the title, description, and canonical URL', async () => {
-		await render(SeoHead, { title: 'Work | Kamal Kumar', description: 'Case studies.' });
+	it('composes the " | Kamal Kumar" suffix onto a bare page title', async () => {
+		await render(SeoHead, { title: 'Work', description: 'Case studies.' });
 
 		expect(document.title).toBe('Work | Kamal Kumar');
 		expect(metaContent('description')).toBe('Case studies.');
@@ -21,8 +21,17 @@ describe('SeoHead.svelte', () => {
 		);
 	});
 
-	it('mirrors title/description onto Open Graph and Twitter Card tags', async () => {
-		await render(SeoHead, { title: 'Work | Kamal Kumar', description: 'Case studies.' });
+	it('uses fullTitle verbatim, with no suffix appended', async () => {
+		await render(SeoHead, {
+			fullTitle: 'Kamal Kumar | Builder',
+			description: 'Intro.'
+		});
+
+		expect(document.title).toBe('Kamal Kumar | Builder');
+	});
+
+	it('mirrors the resolved title/description onto Open Graph and Twitter Card tags', async () => {
+		await render(SeoHead, { title: 'Work', description: 'Case studies.' });
 
 		expect(metaContent('og:title')).toBe('Work | Kamal Kumar');
 		expect(metaContent('og:description')).toBe('Case studies.');

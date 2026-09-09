@@ -12,7 +12,7 @@
 			<li class="py-8">
 				<a href={resolve('/work/[slug]', { slug: study.slug })} class="group block">
 					<h3
-						class="flex items-center gap-2 font-display text-h2 font-medium text-text transition-colors duration-(--duration-fast) ease-standard group-hover:text-accent"
+						class="flex items-center gap-2 font-display text-h2 font-medium text-text transition-theme group-hover:text-accent"
 					>
 						{study.title}
 						<span

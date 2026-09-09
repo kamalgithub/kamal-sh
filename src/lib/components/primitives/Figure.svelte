@@ -12,6 +12,10 @@
 		/** Override the default sizing/border classes — for a caller framing the image itself
 		 *  (see Hero.svelte's portrait, which wraps this in its own matte/border treatment). */
 		class?: string;
+		/** 'eager' + fetchpriority 'high' only for a genuine LCP candidate above the fold
+		 *  (Hero's portrait) — every other Figure stays the default 'lazy'. See
+		 *  conventions.md's "Above-the-fold images" rule before changing this on a new caller. */
+		loading?: 'lazy' | 'eager';
 	}
 
 	let {
@@ -19,8 +23,11 @@
 		width,
 		height,
 		label,
-		class: className = 'h-auto w-full rounded-sm border border-border object-cover'
+		class: className = 'h-auto w-full rounded-sm border border-border object-cover',
+		loading = 'lazy'
 	}: Props = $props();
+
+	const fetchpriority = $derived(loading === 'eager' ? 'high' : 'auto');
 </script>
 
 {#if image}
@@ -30,7 +37,9 @@
 			alt={image.alt}
 			{width}
 			{height}
-			loading="lazy"
+			{loading}
+			{fetchpriority}
+			decoding="async"
 			class="theme-image-light {className}"
 		/>
 		<img
@@ -38,11 +47,22 @@
 			alt={image.alt}
 			{width}
 			{height}
-			loading="lazy"
+			{loading}
+			{fetchpriority}
+			decoding="async"
 			class="theme-image-dark {className}"
 		/>
 	{:else}
-		<img src={image.src} alt={image.alt} {width} {height} loading="lazy" class={className} />
+		<img
+			src={image.src}
+			alt={image.alt}
+			{width}
+			{height}
+			{loading}
+			{fetchpriority}
+			decoding="async"
+			class={className}
+		/>
 	{/if}
 {:else}
 	<div

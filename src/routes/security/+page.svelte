@@ -9,11 +9,10 @@
 	import SecurityPostureList from '$lib/components/security/SecurityPostureList.svelte';
 	import IconShield from '$lib/components/icons/IconShield.svelte';
 
-	const LINK_CLASS =
-		'text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text';
+	const LINK_CLASS = 'text-accent transition-theme hover:text-text';
 </script>
 
-<SeoHead title="Security | Kamal Kumar" description={securityCopy.intro} />
+<SeoHead title="Security" description={securityCopy.intro} />
 
 <Section tint={2}>
 	<Container>

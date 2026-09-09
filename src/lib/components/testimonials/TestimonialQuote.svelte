@@ -30,7 +30,7 @@
 {#if isTruncatable}
 	<button
 		type="button"
-		class="mt-1 pl-10 text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
+		class="mt-1 pl-10 text-small text-accent transition-theme hover:text-text"
 		onclick={() => (expanded = !expanded)}
 	>
 		{expanded ? copy.showLessLabel : copy.showMoreLabel}

@@ -40,14 +40,12 @@
 				{@const Icon = ICONS[item.icon]}
 				<li class="py-4">
 					<!-- eslint-disable svelte/no-navigation-without-resolve -- external URL, not an internal route -->
-					<a href={item.url} target="_blank" rel="noreferrer" class="group flex items-start gap-3">
+					<a href={item.url} target="_blank" rel="noopener" class="group flex items-start gap-3">
 						<span class="mt-0.5 shrink-0 text-text-muted">
 							<Icon size={16} />
 						</span>
 						<span>
-							<p
-								class="text-body text-text transition-colors duration-(--duration-fast) ease-standard group-hover:text-accent"
-							>
+							<p class="text-body text-text transition-theme group-hover:text-accent">
 								{item.summary} in {item.repo}
 							</p>
 							<p class="mt-1 text-small text-text-muted">{formatDate(item.createdAt)}</p>

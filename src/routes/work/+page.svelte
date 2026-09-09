@@ -19,7 +19,7 @@
 	const displayStats = getDisplayStats(stats, certifications.length);
 </script>
 
-<SeoHead title="Work | Kamal Kumar" description={workCopy.intro} />
+<SeoHead title="Work" description={workCopy.intro} />
 
 <Section tint={1}>
 	<Container>

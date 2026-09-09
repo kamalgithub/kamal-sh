@@ -1,33 +1,13 @@
 import { caseStudies } from '$lib/content/case-studies';
 import { products } from '$lib/content/products/products';
-import { site } from '$lib/content/site';
+import { site, siteRoutes } from '$lib/content/site';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-const staticRoutes = [
-	'/',
-	'/work',
-	'/architecture',
-	'/building',
-	'/writing',
-	'/about',
-	'/testimonials',
-	'/contact',
-	'/newsletter',
-	'/now',
-	'/uses',
-	'/changelog',
-	'/status',
-	'/resume-print',
-	'/security',
-	'/costs',
-	'/postmortems'
-];
-
 export const GET: RequestHandler = () => {
 	const routes = [
-		...staticRoutes,
+		...siteRoutes,
 		...caseStudies.map((study) => `/work/${study.slug}`),
 		...products.map((product) => `/building/${product.slug}`)
 	];

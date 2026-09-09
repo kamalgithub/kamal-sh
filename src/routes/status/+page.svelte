@@ -11,7 +11,7 @@
 	let { data }: PageProps = $props();
 </script>
 
-<SeoHead title="Status | Kamal Kumar" description={statusCopy.intro} />
+<SeoHead title="Status" description={statusCopy.intro} />
 
 <Section tint={3}>
 	<Container>

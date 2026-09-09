@@ -43,8 +43,8 @@
 					<a
 						href={testimonial.profileUrl}
 						target="_blank"
-						rel="noreferrer"
-						class="text-small text-text-muted transition-colors duration-(--duration-fast) ease-standard hover:text-accent"
+						rel="noopener"
+						class="text-small text-text-muted transition-theme hover:text-accent"
 					>
 						{testimonial.name}, {testimonial.role}
 					</a>

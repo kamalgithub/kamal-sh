@@ -10,7 +10,7 @@
 	import SeoHead from '$lib/components/seo/SeoHead.svelte';
 </script>
 
-<SeoHead title="Résumé | Kamal Kumar" description={resumePrintCopy.intro} />
+<SeoHead title="Résumé" description={resumePrintCopy.intro} />
 
 <div class="print:hidden">
 	<Container>

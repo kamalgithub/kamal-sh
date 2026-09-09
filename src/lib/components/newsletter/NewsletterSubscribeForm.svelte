@@ -26,6 +26,14 @@
 		withCallbacks.onNewsletterTurnstileExpired = () => {
 			turnstileVerified = false;
 		};
+
+		// This same form mounts on both /writing and the standalone /newsletter page —
+		// cleaning up on unmount avoids a stale callback from one page's mount referencing
+		// a torn-down instance's state after the visitor navigates to the other.
+		return () => {
+			delete withCallbacks.onNewsletterTurnstileSuccess;
+			delete withCallbacks.onNewsletterTurnstileExpired;
+		};
 	});
 </script>
 
@@ -72,7 +80,7 @@
 					placeholder={copy.emailLabel}
 					aria-invalid={status === 'error' ? 'true' : undefined}
 					aria-describedby={status === 'error' ? 'newsletter-email-error' : undefined}
-					class="w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+					class="w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-theme focus:border-accent focus:outline-hidden"
 				/>
 				<!-- Honeypot — hidden from sighted users, invisible to real visitors, filled in only by bots. -->
 				<div class="hidden" aria-hidden="true">

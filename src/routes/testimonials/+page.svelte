@@ -13,7 +13,7 @@
 	const linkedInRecommendationsUrl = `${profile.links.linkedin}/details/recommendations`;
 </script>
 
-<SeoHead title="Testimonials | Kamal Kumar" description={testimonialsCopy.intro} />
+<SeoHead title="Testimonials" description={testimonialsCopy.intro} />
 
 <Section tint={1}>
 	<Container>
@@ -23,8 +23,8 @@
 		<a
 			href={linkedInRecommendationsUrl}
 			target="_blank"
-			rel="noreferrer"
-			class="mt-4 inline-flex items-center gap-1 text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
+			rel="noopener"
+			class="mt-4 inline-flex items-center gap-1 text-small text-accent transition-theme hover:text-text"
 		>
 			{testimonialsCopy.linkedInLabel}
 			<IconArrowUpRight size={14} />

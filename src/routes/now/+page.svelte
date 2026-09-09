@@ -9,7 +9,7 @@
 	import NowList from '$lib/components/now/NowList.svelte';
 </script>
 
-<SeoHead title="Now | Kamal Kumar" description={nowCopy.intro} />
+<SeoHead title="Now" description={nowCopy.intro} />
 
 <Section tint={1}>
 	<Container>

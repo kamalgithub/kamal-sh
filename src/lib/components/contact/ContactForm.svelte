@@ -62,6 +62,14 @@
 		withCallbacks.onTurnstileExpired = () => {
 			turnstileVerified = false;
 		};
+
+		// This component isn't typically unmounted mid-session (the form lives on its own
+		// page), but leaving a stale global callback referencing a torn-down component's
+		// state is a real leak if that ever changes — cheap to avoid.
+		return () => {
+			delete withCallbacks.onTurnstileSuccess;
+			delete withCallbacks.onTurnstileExpired;
+		};
 	});
 
 	const isRateLimited = $derived(form?.rateLimited === true || clientRateLimited);
@@ -104,7 +112,7 @@
 				value={form?.values?.name ?? ''}
 				aria-invalid={form?.errors?.name ? 'true' : undefined}
 				aria-describedby={form?.errors?.name ? 'name-error' : undefined}
-				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-theme focus:border-accent focus:outline-hidden"
 			/>
 			{#if form?.errors?.name}
 				<p id="name-error" class="mt-1 text-small text-error">{form.errors.name}</p>
@@ -122,7 +130,7 @@
 				value={form?.values?.email ?? ''}
 				aria-invalid={form?.errors?.email ? 'true' : undefined}
 				aria-describedby={form?.errors?.email ? 'email-error' : undefined}
-				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-theme focus:border-accent focus:outline-hidden"
 			/>
 			{#if form?.errors?.email}
 				<p id="email-error" class="mt-1 text-small text-error">{form.errors.email}</p>
@@ -141,7 +149,7 @@
 				value={form?.values?.subject ?? ''}
 				aria-invalid={form?.errors?.subject ? 'true' : undefined}
 				aria-describedby={form?.errors?.subject ? 'subject-error' : undefined}
-				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+				class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-theme focus:border-accent focus:outline-hidden"
 			/>
 			{#if form?.errors?.subject}
 				<p id="subject-error" class="mt-1 text-small text-error">{form.errors.subject}</p>
@@ -159,7 +167,7 @@
 				rows="5"
 				aria-invalid={form?.errors?.message ? 'true' : undefined}
 				aria-describedby={form?.errors?.message ? 'message-error' : undefined}
-				class="mt-1 max-h-80 min-h-32 w-full resize-none overflow-y-auto rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-colors duration-(--duration-fast) ease-standard focus:border-accent focus:outline-hidden"
+				class="mt-1 max-h-80 min-h-32 w-full resize-none overflow-y-auto rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-theme focus:border-accent focus:outline-hidden"
 				>{form?.values?.message ?? ''}</textarea
 			>
 			{#if form?.errors?.message}

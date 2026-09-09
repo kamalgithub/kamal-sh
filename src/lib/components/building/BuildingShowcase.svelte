@@ -32,7 +32,7 @@
 					</div>
 					<a
 						href={resolve('/building/[slug]', { slug: product.slug })}
-						class="flex shrink-0 items-center gap-1 text-small text-accent transition-colors duration-(--duration-fast) ease-standard hover:text-text"
+						class="flex shrink-0 items-center gap-1 text-small text-accent transition-theme hover:text-text"
 					>
 						{linkLabel}
 						<IconArrowRight size={14} />

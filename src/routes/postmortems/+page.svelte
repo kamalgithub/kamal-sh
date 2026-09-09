@@ -9,7 +9,7 @@
 	import IconActivity from '$lib/components/icons/IconActivity.svelte';
 </script>
 
-<SeoHead title="Postmortems | Kamal Kumar" description={postmortemsCopy.intro} />
+<SeoHead title="Postmortems" description={postmortemsCopy.intro} />
 
 <Section tint={1}>
 	<Container>

@@ -3,7 +3,28 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="text-scale" content="scale" />
+		<!-- Browser chrome (address bar, task switcher) matches the page background per theme
+		     — see tokens.css's --color-bg. This is `prefers-color-scheme`-driven only, same as
+		     the light-mode CSS block below it; it won't follow a manual dark/light override
+		     from the theme toggle (see the inline script below), only system preference. A
+		     genuinely correct value for that case would mean duplicating the toggle's logic
+		     here before first paint — not worth it for a cosmetic browser-chrome color. -->
+		<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+		<!-- The two above-fold faces — Fraunces (headings) and Switzer's dark-mode default
+		     weight, 300 (body/UI text; see tokens.css's unconditional :root default before
+		     any light-mode override). font-display: swap means text still renders before
+		     these arrive, but preloading removes the "discovered late via CSS" delay that
+		     otherwise shows briefly in the fallback font first. crossorigin is required for
+		     font preloads even when same-origin — the browser silently ignores it without. -->
+		<link
+			rel="preload"
+			href="/fonts/Fraunces-Variable.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link rel="preload" href="/fonts/Switzer-Light.woff2" as="font" type="font/woff2" crossorigin />
 		<script>
 			// Must run before the stylesheet SvelteKit injects below, so the
 			// explicit theme override (if any) is on the element before first

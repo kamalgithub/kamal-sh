@@ -10,7 +10,7 @@
 </script>
 
 <SeoHead
-	title="{data.product.name} | Kamal Kumar"
+	title={data.product.name}
 	description={data.product.tagline}
 	image={data.product.image?.src ?? `/images/og/products/${data.product.slug}.png`}
 />

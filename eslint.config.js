@@ -35,8 +35,11 @@ export default defineConfig(
 		}
 	},
 	{
-		// Override or add rule settings here, such as:
-		// 'svelte/button-has-type': 'error'
-		rules: {}
+		rules: {
+			// A <button> with no explicit type defaults to type="submit" — inside any <form>
+			// (contact, newsletter, booking) that's a real bug waiting to happen the moment
+			// a non-submit button gets added without someone remembering the default.
+			'svelte/button-has-type': 'error'
+		}
 	}
 );

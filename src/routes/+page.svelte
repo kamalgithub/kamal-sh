@@ -24,7 +24,7 @@
 	const sectionOrder = $derived(getHomeSectionOrder(page.url.searchParams.get('for')));
 </script>
 
-<SeoHead title="{profile.name} | {profile.title}" description={profile.tagline} />
+<SeoHead fullTitle="{profile.name} | {profile.title}" description={profile.tagline} />
 
 <Hero {profile} copy={homeCopy} />
 {#each sectionOrder as section (section)}

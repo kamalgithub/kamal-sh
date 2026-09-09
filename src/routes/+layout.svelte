@@ -32,7 +32,7 @@
 	{site.skipToContentLabel}
 </a>
 <CommandPalette />
-<Nav links={nav} name="kamal.sh" />
+<Nav links={nav} name={site.name} />
 <main id="main-content" class="flex-1">
 	{@render children()}
 </main>

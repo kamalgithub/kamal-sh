@@ -8,7 +8,7 @@
 	import NewsletterSubscribeForm from '$lib/components/newsletter/NewsletterSubscribeForm.svelte';
 </script>
 
-<SeoHead title="Subscribe | Kamal Kumar" description={newsletterCopy.intro} />
+<SeoHead title="Subscribe" description={newsletterCopy.intro} />
 
 <Section tint={1}>
 	<Container>

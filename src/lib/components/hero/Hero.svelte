@@ -34,6 +34,7 @@
 					height={480}
 					label="Portrait — {profile.name}"
 					class="aspect-square h-auto w-full rounded-[2px] object-cover"
+					loading="eager"
 				/>
 			</div>
 		</div>

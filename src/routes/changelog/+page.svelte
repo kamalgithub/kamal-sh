@@ -9,7 +9,7 @@
 	import ChangelogList from '$lib/components/changelog/ChangelogList.svelte';
 </script>
 
-<SeoHead title="Changelog | Kamal Kumar" description={changelogCopy.intro} />
+<SeoHead title="Changelog" description={changelogCopy.intro} />
 
 <Section tint={1}>
 	<Container>

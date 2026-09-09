@@ -48,6 +48,8 @@ export interface Testimonial {
 
 Never `<p>"Kamal brought a rare combination of..."</p>` hardcoded in a component — that string belongs in `testimonials.ts`.
 
+**The boundary for `aria-label`/`aria-describedby`/etc:** a _structural or landmark_ label — `aria-label="Primary"` on a `<nav>`, `role="img"`'s accessible name for a decorative element — describes the DOM's shape, not visitor-facing copy, and is exempt from this rule; it can stay inline. A _user-action_ label — "Open menu", "Change theme (currently {theme})", anything a screen-reader user hears as the wording for something they can do — is exactly the kind of visible string this rule means, and belongs in a typed `copy/*.ts` module like any other. When in doubt: would rewording it show up in a copy review? If yes, it's content.
+
 ## Layout robustness to data changes (hard rule — see CLAUDE.md)
 
 A component must render correctly no matter how many items or how long the text is in the data it's given — adding, removing, or editing a content entry must never visually break its component.
@@ -57,9 +59,19 @@ A component must render correctly no matter how many items or how long the text 
 - **Optional fields**: if a type marks a field optional, the component must have a real, considered rendering for its absence — not just hope it's always there.
 - **Mentally test at both extremes** before considering a component done: does it still look right with 1 item? With 20?
 
+## Page titles
+
+`SeoHead.svelte` composes the `" | Kamal Kumar"` suffix internally — pass it the bare page name (`title="Work"`, not `title="Work | Kamal Kumar"`). Use its `fullTitle` prop instead only when a page's title genuinely doesn't fit the "Page | Kamal Kumar" shape — currently just Home (`"Kamal Kumar | Builder — Cloud & DevOps Engineer"`, name-first) and the error page (`"{page.status} | Kamal Kumar"`). Pass exactly one of `title`/`fullTitle`, never both, never neither.
+
+## Above-the-fold images
+
+`Figure.svelte`'s `loading` prop defaults to `'lazy'` — correct for almost every image on the site, since almost every image sits below the fold on first paint. The one exception is a genuine LCP candidate visible without scrolling (currently: the Hero portrait). That caller passes `loading="eager"`, which also flips `fetchpriority` to `'high'` and sets `decoding="async"` internally — don't set `fetchpriority`/`decoding` by hand, `loading="eager"` is the one prop that decides all three. Before adding `loading="eager"` to a new caller, confirm the image is actually above the fold on first paint; marking something eager that isn't just competes with the real LCP candidate for bandwidth.
+
 ## No-scale/no-shift interactions
 
 `Button.svelte` (`src/lib/components/primitives/Button.svelte`) is the canonical implementation of the no-hover-scale/no-shift interaction rule (see CLAUDE.md rule 2) — it only ever animates `background-color`, `border-color`, `box-shadow`, and `opacity`. Every future component with a clickable action should use `Button.svelte` rather than hand-rolling `<button>`/`<a>` styling.
+
+For a hand-rolled interactive element that genuinely can't use `Button.svelte` (a nav link, an inline text link, a hairline-list row) — use the `transition-theme` utility (`src/lib/styles/tokens.css`) for the hover/focus color transition, not a hand-written `transition-colors duration-(--duration-fast) ease-standard` string. It's the same thing, just defined once via Tailwind v4's `@utility` + `@apply`, so every element's hover feedback moves at the same speed and the class can only ever animate color-related properties. Reach for `Button.svelte` first regardless — this utility is for the cases that genuinely aren't a button.
 
 ## Outbound fetch timeouts
 
@@ -68,6 +80,14 @@ Every server-side `fetch` to a third-party API (GitHub, Mailjet, Turnstile, Clou
 ## Structured data (`{@html}`)
 
 JSON-LD (`buildPersonJsonLd.ts`, `buildCaseStudyJsonLd.ts` in `src/lib/utils/`) is the one legitimate use of Svelte's `{@html}` in this codebase — a `<script type="application/ld+json">` has to be injected as raw markup, there's no other way to render it. `src/lib/utils/jsonLd.ts`'s `toJsonLdScript()` is the only function allowed to produce that HTML string: it escapes every `<` in the serialized JSON so a value can never close the script tag early, even though every current caller only ever passes our own static, typed content. Each `{@html}` call site carries an `eslint-disable-next-line svelte/no-at-html-tags` comment explaining why it's safe. Don't add a second, ad hoc way to inject a script tag — extend `jsonLd.ts` if a new structured-data type is needed.
+
+## New-page checklist
+
+Adding a page that belongs in navigation: add it to `nav`/`footerLinks` in `src/lib/content/nav.ts`, **and** to `siteRoutes` in `src/lib/content/site.ts` (`sitemap.xml/+server.ts` reads that list, not nav/footerLinks directly). Forget the second half and `site.spec.ts` fails the next time tests run — it asserts every nav/footer href appears in `siteRoutes` — so the gap gets caught before it ships as a silent sitemap drop, not after.
+
+## External links
+
+Every `target="_blank"` link uses `rel="noopener"`, not `rel="noreferrer"` — standardized on the weaker of the two deliberately. `noopener` alone already closes the real security hole (the new tab can't reach back into `window.opener`); `noreferrer` additionally strips the `Referer` header, which for this site's outbound links (LinkedIn, GitHub, a blog post, a case study source) means the destination loses a legitimate, harmless signal that the click came from kamal.sh. Nothing here is sensitive enough to be worth losing that attribution.
 
 ## Prop typing
 

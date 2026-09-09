@@ -11,7 +11,7 @@
 	import ClosingCta from '$lib/components/cta/ClosingCta.svelte';
 </script>
 
-<SeoHead title="Building | Kamal Kumar" description={buildingCopy.intro} />
+<SeoHead title="Building" description={buildingCopy.intro} />
 
 <Section tint={3}>
 	<Container>

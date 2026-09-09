@@ -27,6 +27,33 @@ describe('Figure.svelte', () => {
 		await expect.element(page.getByText('Portrait pending')).toBeInTheDocument();
 	});
 
+	it('defaults to lazy loading with no fetchpriority boost', async () => {
+		await render(Figure, {
+			image: { src: '/images/example.jpg', alt: 'Example' },
+			width: 800,
+			height: 600,
+			label: 'Example'
+		});
+
+		const img = page.getByAltText('Example');
+		await expect.element(img).toHaveAttribute('loading', 'lazy');
+		await expect.element(img).toHaveAttribute('fetchpriority', 'auto');
+	});
+
+	it('renders eager with a high fetchpriority when the caller marks it as an LCP candidate', async () => {
+		await render(Figure, {
+			image: { src: '/images/example.jpg', alt: 'Example' },
+			width: 800,
+			height: 600,
+			label: 'Example',
+			loading: 'eager'
+		});
+
+		const img = page.getByAltText('Example');
+		await expect.element(img).toHaveAttribute('loading', 'eager');
+		await expect.element(img).toHaveAttribute('fetchpriority', 'high');
+	});
+
 	it('uses the default sizing/border classes when no override is given', async () => {
 		await render(Figure, {
 			image: { src: '/images/example.jpg', alt: 'Example' },
