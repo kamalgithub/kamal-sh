@@ -71,7 +71,10 @@ export default defineConfig({
 				test: {
 					name: 'server',
 					environment: 'node',
-					include: ['src/**/*.{test,spec}.{js,ts}'],
+					// scripts/lib holds pure, build-time-only helpers (feed parsing, dedup, etc.)
+					// used by the content-sync scripts — same testing bar as src/lib/utils, just
+					// outside src/ since nothing under scripts/ ships in the deployed app.
+					include: ['src/**/*.{test,spec}.{js,ts}', 'scripts/**/*.{test,spec}.{js,ts}'],
 					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
 				}
 			}

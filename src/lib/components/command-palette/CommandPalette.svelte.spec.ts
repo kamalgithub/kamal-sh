@@ -51,7 +51,12 @@ describe('CommandPalette.svelte', () => {
 		requestCommandPaletteOpen();
 
 		await page.getByPlaceholder('Type a command or search').fill('rchtctr');
-		await expect.element(page.getByRole('button', { name: 'Architecture' })).toBeInTheDocument();
+		// exact: true — with the full writing archive searchable, several post titles
+		// ("Serverless Architectures in...", etc.) also legitimately match this fuzzy
+		// query and would otherwise make this locator ambiguous.
+		await expect
+			.element(page.getByRole('button', { name: 'Architecture', exact: true }))
+			.toBeInTheDocument();
 	});
 
 	it('opens on "/" when focus is not in an editable field', async () => {

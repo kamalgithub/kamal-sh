@@ -3,6 +3,7 @@ import type { ProfileSocial } from '$lib/content/profile.types';
 import type { CaseStudy } from '$lib/content/case-studies.types';
 import type { Product } from '$lib/content/products/product.types';
 import type { WritingPost } from '$lib/content/writing/writing.types';
+import type { YoutubeVideo } from '$lib/content/youtube/video.types';
 import type { CommandPaletteCopy } from '$lib/content/copy/commandPalette.types';
 
 export const THEME_TOGGLE_COMMAND_ID = 'toggle-theme';
@@ -23,6 +24,10 @@ export interface Command {
 	href?: string;
 	/** Extra search terms a query can match besides the visible label — e.g. "dark"/"light" for Theme. */
 	keywords?: string[];
+	/** Excluded from the palette's idle (no-query) view, but still fully matched once the
+	 *  visitor types a query — how older writing/video archive entries stay searchable
+	 *  without turning idle browsing into a scroll through years of history. */
+	hiddenWhenIdle?: boolean;
 }
 
 /** Hand-curated synonyms for the fixed nav routes — extend here, not by guessing in the fuzzy matcher. */
@@ -50,21 +55,24 @@ const SOCIAL_KEYWORDS: Record<string, string[]> = {
 	YouTube: ['videos', 'channel', 'subscribe']
 };
 
-/** Most-recent-first, capped so the palette's idle (no-query) view stays a "site pages"
- *  list, not a full blog archive — /writing itself is where the complete list lives. */
-const MAX_WRITING_POSTS_IN_PALETTE = 10;
+/** Most-recent-first; only this many stay visible in the palette's idle (no-query) view
+ *  so browsing without typing doesn't turn into a scroll through years of archive — the
+ *  rest of each list is still fully matched the moment a query narrows the results. */
+const MAX_WRITING_POSTS_IDLE = 10;
+const MAX_VIDEOS_IDLE = 10;
 
 /** Assembles the palette's command list from existing content — no copy is duplicated or
  *  hand-maintained here. Covers every real page (primary nav + secondary footer links),
- *  not just the primary nav, plus the content one level down (case studies, products,
- *  recent writing) so the palette's search genuinely covers the site, not just its top
- *  navigation. */
+ *  the content one level down (case studies, products), and the *complete* writing/video
+ *  history (not just what /writing itself displays) so search genuinely reaches
+ *  everything ever published, not only the handful shown on the page. */
 export function buildCommands(
 	navLinks: NavLink[],
 	footerLinks: NavLink[],
 	caseStudies: CaseStudy[],
 	products: Product[],
 	writingPosts: WritingPost[],
+	videos: YoutubeVideo[],
 	socials: ProfileSocial[],
 	copy: CommandPaletteCopy
 ): Command[] {
@@ -102,12 +110,21 @@ export function buildCommands(
 			href: `/building/${product.slug}`,
 			keywords: product.highlights
 		})),
-		...writingPosts.slice(0, MAX_WRITING_POSTS_IN_PALETTE).map((post) => ({
+		...writingPosts.map((post, index) => ({
 			id: `writing-${post.slug}`,
 			label: post.title,
 			group: copy.writingGroupLabel,
 			icon: 'external' as const,
-			href: post.link
+			href: post.link,
+			hiddenWhenIdle: index >= MAX_WRITING_POSTS_IDLE
+		})),
+		...videos.map((video, index) => ({
+			id: `video-${video.videoId}`,
+			label: video.title,
+			group: copy.videosGroupLabel,
+			icon: 'external' as const,
+			href: video.link,
+			hiddenWhenIdle: index >= MAX_VIDEOS_IDLE
 		})),
 		{
 			id: 'resume',

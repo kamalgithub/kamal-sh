@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name "aicademy-content-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add src/lib/content/writing/posts.generated.json src/lib/content/youtube/videos.generated.json
+          git add src/lib/content/writing/posts.generated.json src/lib/content/writing/posts-archive.generated.json src/lib/content/youtube/videos.generated.json src/lib/content/youtube/videos-archive.generated.json
           git diff --cached --quiet && echo "no content changes" && exit 0
           git commit -m "chore: sync writing + youtube content"
           git push

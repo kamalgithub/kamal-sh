@@ -14,6 +14,7 @@ export const commandPaletteCopy: CommandPaletteCopy = {
 	resumeGroupLabel: 'Resume',
 	socialGroupLabel: 'Social',
 	writingGroupLabel: 'Writing',
+	videosGroupLabel: 'Videos',
 	themeGroupLabel: 'Theme',
 	navigateHint: '↑↓ navigate',
 	selectHint: '↵ select',

@@ -1,0 +1,2025 @@
+[
+	{
+		"title": "Is Your Terraform State Secure? A 5-Minute Audit for `terraform_data` Usage in v1.16",
+		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-audit",
+		"pubDate": "2026-09-09T09:57:45.000Z",
+		"slug": "tf-1-16-terraform-data-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/tf-1-16-terraform-data-audit.webp"
+	},
+	{
+		"title": "The Terraform `null_resource` Anti-Pattern `terraform_data` Finally Replaces for Private Data",
+		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-before-after",
+		"pubDate": "2026-09-08T09:54:24.000Z",
+		"slug": "tf-1-16-terraform-data-before-after",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/tf-1-16-terraform-data-before-after.webp"
+	},
+	{
+		"title": "Is Your Terraform State Hiding Sensitive Data? The Power of `terraform_data` in v1.16",
+		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-deep-dive",
+		"pubDate": "2026-09-07T10:33:21.000Z",
+		"slug": "tf-1-16-terraform-data-deep-dive",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/tf-1-16-terraform-data-deep-dive.webp"
+	},
+	{
+		"title": "What Linux Kernel 7.2 Means for Your Cloud-Native Workloads",
+		"link": "https://blog.aicademy.ac/linux-kernel-7-2-cloud-native",
+		"pubDate": "2026-09-06T09:33:53.000Z",
+		"slug": "linux-kernel-7-2-cloud-native",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-7-2-cloud-native.webp"
+	},
+	{
+		"title": "Is Your Kubernetes 1.37 Cluster Actually Stable? A 5-Minute Post-Upgrade Audit",
+		"link": "https://blog.aicademy.ac/k8s-1-37-post-upgrade-audit",
+		"pubDate": "2026-09-05T09:12:12.000Z",
+		"slug": "k8s-1-37-post-upgrade-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-post-upgrade-audit.webp"
+	},
+	{
+		"title": "One kubectl Command That Unlocks GPU-Aware Scheduling with Kubernetes 1.37 DRA",
+		"link": "https://blog.aicademy.ac/k8s-1-37-one-command-gpu",
+		"pubDate": "2026-09-04T16:00:50.000Z",
+		"slug": "k8s-1-37-one-command-gpu",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-one-command-gpu.webp"
+	},
+	{
+		"title": "How to Ensure Your Kubernetes 1.37 Upgrade Doesn't Corrupt Your Nodes and Static Pods",
+		"link": "https://blog.aicademy.ac/k8s-1-37-node-static-pods",
+		"pubDate": "2026-09-02T09:45:53.000Z",
+		"slug": "k8s-1-37-node-static-pods",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-node-static-pods.webp"
+	},
+	{
+		"title": "Why Your Kubernetes Cluster Might Silently Break After a 1.37 Upgrade",
+		"link": "https://blog.aicademy.ac/k8s-1-37-ipvs-hidden-gotcha",
+		"pubDate": "2026-09-01T10:16:43.000Z",
+		"slug": "k8s-1-37-ipvs-hidden-gotcha",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-ipvs-hidden-gotcha.webp"
+	},
+	{
+		"title": "The `bpftool prog show` Command That Unmasks Hidden Kernel Backdoors",
+		"link": "https://blog.aicademy.ac/bpftool-unmask-backdoors",
+		"pubDate": "2026-08-25T17:31:57.000Z",
+		"slug": "bpftool-unmask-backdoors",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/bpftool-unmask-backdoors.webp"
+	},
+	{
+		"title": "eBPF for the Impatient: Architecting Runtime Security at the Kernel Edge",
+		"link": "https://blog.aicademy.ac/ebpf-runtime-security-architecture",
+		"pubDate": "2026-08-24T16:10:24.000Z",
+		"slug": "ebpf-runtime-security-architecture",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-runtime-security-architecture.webp"
+	},
+	{
+		"title": "The `aws s3 sync` Flag That Deletes Your Production Data (Without Warning)",
+		"link": "https://blog.aicademy.ac/aws-s3-sync-data-loss-gotcha",
+		"pubDate": "2026-08-23T15:14:36.000Z",
+		"slug": "aws-s3-sync-data-loss-gotcha",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-s3-sync-data-loss-gotcha.webp"
+	},
+	{
+		"title": "5 Flagship AI Engineering Projects",
+		"link": "https://blog.aicademy.ac/ai-5-flagship-projects",
+		"pubDate": "2026-08-22T08:37:39.000Z",
+		"slug": "ai-5-flagship-projects",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-5-flagship-projects.webp"
+	},
+	{
+		"title": "The 'Golden Path' That Led to a Dead End: Platform Engineering War Story",
+		"link": "https://blog.aicademy.ac/golden-path-dead-end-war-story",
+		"pubDate": "2026-08-22T05:50:07.000Z",
+		"slug": "golden-path-dead-end-war-story",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/golden-path-dead-end-war-story.webp"
+	},
+	{
+		"title": "Is Your AI Database Ready for Production Scale? A 5-Minute HorizonDB Checklist",
+		"link": "https://blog.aicademy.ac/horizondb-production-checklist",
+		"pubDate": "2026-08-21T05:55:19.000Z",
+		"slug": "horizondb-production-checklist",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/horizondb-production-checklist.webp"
+	},
+	{
+		"title": "From Vector-DB Sprawl to Centralized AI Data: Migrating to Azure HorizonDB",
+		"link": "https://blog.aicademy.ac/horizondb-migration-strategy",
+		"pubDate": "2026-08-20T05:54:03.000Z",
+		"slug": "horizondb-migration-strategy",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/horizondb-migration-strategy.webp"
+	},
+	{
+		"title": "Azure HorizonDB: The Cloud-Native PostgreSQL That Finally Scales for AI Workloads",
+		"link": "https://blog.aicademy.ac/azure-horizondb-ai-deep-dive",
+		"pubDate": "2026-08-19T05:53:41.000Z",
+		"slug": "azure-horizondb-ai-deep-dive",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-horizondb-ai-deep-dive.webp"
+	},
+	{
+		"title": "The `cosign verify` Command You're Not Running (That Saves Your Supply Chain)",
+		"link": "https://blog.aicademy.ac/cosign-verify-command-security",
+		"pubDate": "2026-08-18T05:56:43.000Z",
+		"slug": "cosign-verify-command-security",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cosign-verify-command-security.webp"
+	},
+	{
+		"title": "Docker's 'Minimal Image' Myth: Why Alpine Isn't Always Your Smallest or Safest Bet",
+		"link": "https://blog.aicademy.ac/docker-alpine-myth-busting",
+		"pubDate": "2026-08-17T05:57:21.000Z",
+		"slug": "docker-alpine-myth-busting",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-alpine-myth-busting.webp"
+	},
+	{
+		"title": "Manual Policy Reviews vs. Automated `tfpolicy` Guardrails: Accelerate Compliance by 90%",
+		"link": "https://blog.aicademy.ac/tfpolicy-automated-compliance",
+		"pubDate": "2026-08-16T05:50:44.000Z",
+		"slug": "tfpolicy-automated-compliance",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/tfpolicy-automated-compliance.webp"
+	},
+	{
+		"title": "Why Your `tfpolicy` `deny` Rule Is Silently Failing in Production (And How to Debug It)",
+		"link": "https://blog.aicademy.ac/tfpolicy-deny-rule-gotcha",
+		"pubDate": "2026-08-15T05:48:01.000Z",
+		"slug": "tfpolicy-deny-rule-gotcha",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/tfpolicy-deny-rule-gotcha.webp"
+	},
+	{
+		"title": "The `tfpolicy` Block No One Reads That Controls Your Entire Cloud Governance",
+		"link": "https://blog.aicademy.ac/hcp-terraform-tfpolicy-deep-dive",
+		"pubDate": "2026-08-14T06:51:06.000Z",
+		"slug": "hcp-terraform-tfpolicy-deep-dive",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/hcp-terraform-tfpolicy-deep-dive.webp"
+	},
+	{
+		"title": "The `perf_event_open` System Call: Unlocking Deep CPU Telemetry",
+		"link": "https://blog.aicademy.ac/perf-event-open-deep-dive",
+		"pubDate": "2026-08-12T06:51:09.000Z",
+		"slug": "perf-event-open-deep-dive",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/perf-event-open-deep-dive.webp"
+	},
+	{
+		"title": "Cut Your CI/CD Build Times by 60%: Old Cache Busting vs. Intelligent Layering",
+		"link": "https://blog.aicademy.ac/ci-cd-build-time-optimization",
+		"pubDate": "2026-08-11T06:12:56.000Z",
+		"slug": "ci-cd-build-time-optimization",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ci-cd-build-time-optimization.webp"
+	},
+	{
+		"title": "The 'Phantom Pod' Incident: How a Corrupted Admission Controller Grounded Our Cluster",
+		"link": "https://blog.aicademy.ac/kubernetes-phantom-pod-war-story",
+		"pubDate": "2026-08-10T06:48:54.000Z",
+		"slug": "kubernetes-phantom-pod-war-story",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-phantom-pod-war-story.webp"
+	},
+	{
+		"title": "5 FinOps Strategies to Maximize Your Graviton5 Savings (Beyond Just Lowering Bills)",
+		"link": "https://blog.aicademy.ac/graviton5-finops-strategies",
+		"pubDate": "2026-08-09T06:05:45.000Z",
+		"slug": "graviton5-finops-strategies",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/graviton5-finops-strategies.webp"
+	},
+	{
+		"title": "Migrate Your Legacy Monolith to Graviton5: A 3-Step Plan to 25% Performance Gains",
+		"link": "https://blog.aicademy.ac/graviton5-migration-guide",
+		"pubDate": "2026-08-08T06:03:19.000Z",
+		"slug": "graviton5-migration-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/graviton5-migration-guide.webp"
+	},
+	{
+		"title": "Is Graviton5 Really Faster for Your Workloads? Debunking Performance Myths",
+		"link": "https://blog.aicademy.ac/graviton5-performance-myths",
+		"pubDate": "2026-08-07T06:40:05.000Z",
+		"slug": "graviton5-performance-myths",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/graviton5-performance-myths.webp"
+	},
+	{
+		"title": "The 'Polite' LLM Prompt That Undermines Your Security Audits",
+		"link": "https://blog.aicademy.ac/llm-prompt-security-gotcha",
+		"pubDate": "2026-08-06T08:00:34.000Z",
+		"slug": "llm-prompt-security-gotcha",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/llm-prompt-security-gotcha.webp"
+	},
+	{
+		"title": "The `mount.ntfs3` Flag That Silently Corrupts Your Data on Linux Kernel 7.1.x",
+		"link": "https://blog.aicademy.ac/linux-kernel-7-1-ntfs-hidden-gotcha",
+		"pubDate": "2026-08-05T08:00:03.000Z",
+		"slug": "linux-kernel-7-1-ntfs-hidden-gotcha",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-7-1-ntfs-hidden-gotcha.webp"
+	},
+	{
+		"title": "Is Your SBOM-Driven Risk Assessment Actionable? A 5-Minute Audit for CISA 2026 Compliance",
+		"link": "https://blog.aicademy.ac/sbom-risk-audit-checklist",
+		"pubDate": "2026-08-03T08:46:28.000Z",
+		"slug": "sbom-risk-audit-checklist",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/sbom-risk-audit-checklist.webp"
+	},
+	{
+		"title": "Automate Your SBOM Generation: Painful Old Ways vs. CISA 2026's New Mandates",
+		"link": "https://blog.aicademy.ac/automated-sbom-generation",
+		"pubDate": "2026-08-02T07:43:57.000Z",
+		"slug": "automated-sbom-generation",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/automated-sbom-generation.webp"
+	},
+	{
+		"title": "Why Your SBOMs Probably Don't Meet CISA's 2026 Requirements (And How to Fix It)",
+		"link": "https://blog.aicademy.ac/cisa-2026-sbom-compliance-audit",
+		"pubDate": "2026-08-01T07:40:49.000Z",
+		"slug": "cisa-2026-sbom-compliance-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cisa-2026-sbom-compliance-audit.webp"
+	},
+	{
+		"title": "The Future of DevOps Tooling: Consolidation and Specialization",
+		"link": "https://blog.aicademy.ac/future-devops-tooling-consolidation-specialization",
+		"pubDate": "2026-07-31T08:14:36.000Z",
+		"slug": "future-devops-tooling-consolidation-specialization",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/future-devops-tooling-consolidation-specialization.webp"
+	},
+	{
+		"title": "8 CLI Development Tools: Compare Top Apps for Dev Workflow",
+		"link": "https://blog.aicademy.ac/cli-development-tools-compare-top-8-apps",
+		"pubDate": "2026-07-30T11:03:58.000Z",
+		"slug": "cli-development-tools-compare-top-8-apps",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cli-development-tools-compare-top-8-apps.webp"
+	},
+	{
+		"title": "AI-Driven Observability: Proactive Insights for Cloud-Native",
+		"link": "https://blog.aicademy.ac/ai-driven-observability-proactive-insights",
+		"pubDate": "2026-07-30T09:26:21.000Z",
+		"slug": "ai-driven-observability-proactive-insights",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-driven-observability-proactive-insights.webp"
+	},
+	{
+		"title": "Cloud Migration Strategies: Optimizing for AI and Modern Apps",
+		"link": "https://blog.aicademy.ac/cloud-migration-strategies-ai-modern-apps",
+		"pubDate": "2026-07-29T08:02:07.000Z",
+		"slug": "cloud-migration-strategies-ai-modern-apps",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cloud-migration-strategies-ai-modern-apps.webp"
+	},
+	{
+		"title": "Vector Databases: The High-Dimensional Indexing You Actually Need",
+		"link": "https://blog.aicademy.ac/vector-databases-indexing",
+		"pubDate": "2026-07-28T18:58:37.000Z",
+		"slug": "vector-databases-indexing",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vector-databases-indexing.webp"
+	},
+	{
+		"title": "Linux System Hardening in 2026: Beyond the Basics",
+		"link": "https://blog.aicademy.ac/linux-system-hardening-2026-advanced",
+		"pubDate": "2026-07-28T07:57:53.000Z",
+		"slug": "linux-system-hardening-2026-advanced",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-system-hardening-2026-advanced.webp"
+	},
+	{
+		"title": "VSCode Extensions: Supercharging Your Cloud Development Workflow",
+		"link": "https://blog.aicademy.ac/vscode-extensions-supercharge-cloud-dev",
+		"pubDate": "2026-07-27T08:50:31.000Z",
+		"slug": "vscode-extensions-supercharge-cloud-dev",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vscode-extensions-supercharge-cloud-dev.webp"
+	},
+	{
+		"title": "The Antigravity Breakthrough: Implications for Cloud and Space",
+		"link": "https://blog.aicademy.ac/antigravity-breakthrough-implications-cloud-space",
+		"pubDate": "2026-07-26T07:53:02.000Z",
+		"slug": "antigravity-breakthrough-implications-cloud-space",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/antigravity-breakthrough-implications-cloud-space.webp"
+	},
+	{
+		"title": "Terraform Provider Development: Extending Your IaC Capabilities",
+		"link": "https://blog.aicademy.ac/terraform-provider-development-extend-iac",
+		"pubDate": "2026-07-25T07:30:29.000Z",
+		"slug": "terraform-provider-development-extend-iac",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-provider-development-extend-iac.webp"
+	},
+	{
+		"title": "Docker & Kubernetes: Advanced Orchestration Patterns",
+		"link": "https://blog.aicademy.ac/docker-kubernetes-advanced-orchestration-patterns",
+		"pubDate": "2026-07-24T07:43:32.000Z",
+		"slug": "docker-kubernetes-advanced-orchestration-patterns",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-kubernetes-advanced-orchestration-patterns.webp"
+	},
+	{
+		"title": "DevSecOps Shift Left: Securing the Supply Chain from Day One",
+		"link": "https://blog.aicademy.ac/devsecops-shift-left-securing-supply-chain",
+		"pubDate": "2026-07-23T07:46:45.000Z",
+		"slug": "devsecops-shift-left-securing-supply-chain",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/devsecops-shift-left-securing-supply-chain.webp"
+	},
+	{
+		"title": "Generative AI for Developers: Code, Tests, and Documentation",
+		"link": "https://blog.aicademy.ac/generative-ai-developers-code-tests-docs",
+		"pubDate": "2026-07-22T07:44:37.000Z",
+		"slug": "generative-ai-developers-code-tests-docs",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/generative-ai-developers-code-tests-docs.webp"
+	},
+	{
+		"title": "Serverless Architectures in 2026: Beyond FaaS with AI",
+		"link": "https://blog.aicademy.ac/serverless-architectures-2026-beyond-faas-ai",
+		"pubDate": "2026-07-21T07:44:21.000Z",
+		"slug": "serverless-architectures-2026-beyond-faas-ai",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/serverless-architectures-2026-beyond-faas-ai.webp"
+	},
+	{
+		"title": "The AI Architect Roadmap for DevOps and Cloud Engineers",
+		"link": "https://blog.aicademy.ac/ai-architect-roadmap",
+		"pubDate": "2026-07-20T21:28:05.000Z",
+		"slug": "ai-architect-roadmap",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-architect-roadmap.webp"
+	},
+	{
+		"title": "Cloud Networking Security: Zero Trust in a Hybrid World",
+		"link": "https://blog.aicademy.ac/cloud-networking-security-zero-trust-hybrid",
+		"pubDate": "2026-07-20T08:20:46.000Z",
+		"slug": "cloud-networking-security-zero-trust-hybrid",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cloud-networking-security-zero-trust-hybrid.webp"
+	},
+	{
+		"title": "OpenTofu Modules & Providers: Expanding the IaC Ecosystem",
+		"link": "https://blog.aicademy.ac/opentofu-modules-providers-expanding-ecosystem",
+		"pubDate": "2026-07-19T07:37:30.000Z",
+		"slug": "opentofu-modules-providers-expanding-ecosystem",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-modules-providers-expanding-ecosystem.webp"
+	},
+	{
+		"title": "AWS AI Services: Powering Innovation Across the Stack",
+		"link": "https://blog.aicademy.ac/aws-ai-services-powering-innovation-stack",
+		"pubDate": "2026-07-18T07:12:39.000Z",
+		"slug": "aws-ai-services-powering-innovation-stack",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-ai-services-powering-innovation-stack.webp"
+	},
+	{
+		"title": "Linux Containerization Deep Dive: Beyond Docker and runC",
+		"link": "https://blog.aicademy.ac/linux-containerization-deep-dive-beyond-docker",
+		"pubDate": "2026-07-17T07:31:18.000Z",
+		"slug": "linux-containerization-deep-dive-beyond-docker",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-containerization-deep-dive-beyond-docker.webp"
+	},
+	{
+		"title": "Kubernetes at Scale: Mastering Multi-Cluster Architectures",
+		"link": "https://blog.aicademy.ac/kubernetes-scale-multi-cluster-architectures",
+		"pubDate": "2026-07-16T07:33:35.000Z",
+		"slug": "kubernetes-scale-multi-cluster-architectures",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-scale-multi-cluster-architectures.webp"
+	},
+	{
+		"title": "AI in Cloud Security: Proactive Defense for AWS and Azure",
+		"link": "https://blog.aicademy.ac/ai-cloud-security-proactive-defense-aws-azure",
+		"pubDate": "2026-07-15T07:26:14.000Z",
+		"slug": "ai-cloud-security-proactive-defense-aws-azure",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-cloud-security-proactive-defense-aws-azure.webp"
+	},
+	{
+		"title": "Platform Engineering: Building a Developer-Centric IDP",
+		"link": "https://blog.aicademy.ac/platform-engineering-developer-centric-idp",
+		"pubDate": "2026-07-14T07:23:00.000Z",
+		"slug": "platform-engineering-developer-centric-idp",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-developer-centric-idp.webp"
+	},
+	{
+		"title": "eBPF Unleashed: The Future of Cloud-Native Observability",
+		"link": "https://blog.aicademy.ac/ebpf-unleashed-future-cloud-native-observability",
+		"pubDate": "2026-07-13T08:29:49.000Z",
+		"slug": "ebpf-unleashed-future-cloud-native-observability",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-unleashed-future-cloud-native-observability.webp"
+	},
+	{
+		"title": "Ansible Automation in Hybrid Cloud: Bridging the Divide",
+		"link": "https://blog.aicademy.ac/ansible-automation-hybrid-cloud-bridging-divide",
+		"pubDate": "2026-07-12T07:38:56.000Z",
+		"slug": "ansible-automation-hybrid-cloud-bridging-divide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ansible-automation-hybrid-cloud-bridging-divide.webp"
+	},
+	{
+		"title": "CKS Complete Exam Reference: Zero-Gap Pointer Guide",
+		"link": "https://blog.aicademy.ac/cks-complete-exam-reference",
+		"pubDate": "2026-07-12T00:00:00.000Z",
+		"slug": "cks-complete-exam-reference",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cks-complete-exam-reference.webp"
+	},
+	{
+		"title": "AZ-305 Complete Exam Reference: Zero-Gap Pointer Guide",
+		"link": "https://blog.aicademy.ac/az-305-complete-exam-reference",
+		"pubDate": "2026-07-12T00:00:00.000Z",
+		"slug": "az-305-complete-exam-reference",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/az-305-complete-exam-reference.webp"
+	},
+	{
+		"title": "FinOps in Azure: Mastering Cloud Cost Management with AI",
+		"link": "https://blog.aicademy.ac/finops-azure-mastering-cloud-cost-management-ai",
+		"pubDate": "2026-07-11T07:21:27.000Z",
+		"slug": "finops-azure-mastering-cloud-cost-management-ai",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/finops-azure-mastering-cloud-cost-management-ai.webp"
+	},
+	{
+		"title": "Docker's Evolution: From Containers to Cloud-Native Ecosystems",
+		"link": "https://blog.aicademy.ac/docker-evolution-containers-cloud-native-2026",
+		"pubDate": "2026-07-10T08:46:13.000Z",
+		"slug": "docker-evolution-containers-cloud-native-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-evolution-containers-cloud-native-2026.webp"
+	},
+	{
+		"title": "Terraform vs. OpenTofu: A Strategic Choice for Enterprise IaC",
+		"link": "https://blog.aicademy.ac/terraform-opentofu-strategic-choice-enterprise",
+		"pubDate": "2026-07-09T08:59:55.000Z",
+		"slug": "terraform-opentofu-strategic-choice-enterprise",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-opentofu-strategic-choice-enterprise.webp"
+	},
+	{
+		"title": "Gemini 1.5 Pro and Beyond: The Future of Multimodal AI",
+		"link": "https://blog.aicademy.ac/gemini-pro-beyond-future-multimodal-ai",
+		"pubDate": "2026-07-08T07:43:29.000Z",
+		"slug": "gemini-pro-beyond-future-multimodal-ai",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gemini-pro-beyond-future-multimodal-ai.webp"
+	},
+	{
+		"title": "DevSecOps Automation: The Imperative for Cloud-Native",
+		"link": "https://blog.aicademy.ac/devsecops-automation-cloud-native-imperative",
+		"pubDate": "2026-07-07T08:47:46.000Z",
+		"slug": "devsecops-automation-cloud-native-imperative",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/devsecops-automation-cloud-native-imperative.webp"
+	},
+	{
+		"title": "Linux in the Cloud Era: Optimizing for Performance and Security",
+		"link": "https://blog.aicademy.ac/linux-cloud-era-performance-security-2026",
+		"pubDate": "2026-07-06T09:14:16.000Z",
+		"slug": "linux-cloud-era-performance-security-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-cloud-era-performance-security-2026.webp"
+	},
+	{
+		"title": "VSCode's AI Transformation: Copilot X and Beyond",
+		"link": "https://blog.aicademy.ac/vscode-ai-transformation-copilotx-beyond",
+		"pubDate": "2026-07-05T08:22:22.000Z",
+		"slug": "vscode-ai-transformation-copilotx-beyond",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vscode-ai-transformation-copilotx-beyond.webp"
+	},
+	{
+		"title": "Azure Cloud Networking in 2026: The Mesh Revolution",
+		"link": "https://blog.aicademy.ac/azure-cloud-networking-2026-mesh-revolution",
+		"pubDate": "2026-07-04T08:07:48.000Z",
+		"slug": "azure-cloud-networking-2026-mesh-revolution",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-cloud-networking-2026-mesh-revolution.webp"
+	},
+	{
+		"title": "Kubernetes Security in 2026: Beyond the Basics with AI & eBPF",
+		"link": "https://blog.aicademy.ac/kubernetes-security-ai-ebpf-2026-advanced",
+		"pubDate": "2026-07-03T08:31:19.000Z",
+		"slug": "kubernetes-security-ai-ebpf-2026-advanced",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-security-ai-ebpf-2026-advanced.webp"
+	},
+	{
+		"title": "OpenTofu's First Year: Stability, Adoption, and Community Growth",
+		"link": "https://blog.aicademy.ac/opentofu-first-year-stability-adoption-growth",
+		"pubDate": "2026-07-02T08:27:38.000Z",
+		"slug": "opentofu-first-year-stability-adoption-growth",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-first-year-stability-adoption-growth.webp"
+	},
+	{
+		"title": "Slash Your AI Coding Costs: A Guide to 80% Token Reduction",
+		"link": "https://blog.aicademy.ac/slash-ai-coding-costs",
+		"pubDate": "2026-07-01T12:18:45.000Z",
+		"slug": "slash-ai-coding-costs",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/slash-ai-coding-costs.webp"
+	},
+	{
+		"title": "Beyond DevOps: The Rise of AI-Powered Platform Engineering",
+		"link": "https://blog.aicademy.ac/ai-powered-platform-engineering-future-devops",
+		"pubDate": "2026-07-01T08:57:27.000Z",
+		"slug": "ai-powered-platform-engineering-future-devops",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-powered-platform-engineering-future-devops.webp"
+	},
+	{
+		"title": "Generative AI's Impact on IT Roles: Reskilling and the Future Workforce in 2026",
+		"link": "https://blog.aicademy.ac/generative-ai-impact-it-roles-reskilling-2026",
+		"pubDate": "2026-06-30T08:40:07.000Z",
+		"slug": "generative-ai-impact-it-roles-reskilling-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/generative-ai-impact-it-roles-reskilling-2026.webp"
+	},
+	{
+		"title": "Optimizing Docker Development Workflows with VS Code & AI Agents",
+		"link": "https://blog.aicademy.ac/optimizing-docker-dev-workflows-vscode-ai",
+		"pubDate": "2026-06-29T10:03:37.000Z",
+		"slug": "optimizing-docker-dev-workflows-vscode-ai",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/optimizing-docker-dev-workflows-vscode-ai.webp"
+	},
+	{
+		"title": "AI-Driven Threat Hunting: Proactive Security Tooling for 2026",
+		"link": "https://blog.aicademy.ac/ai-driven-threat-hunting-proactive-security-2026",
+		"pubDate": "2026-06-28T08:30:18.000Z",
+		"slug": "ai-driven-threat-hunting-proactive-security-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-driven-threat-hunting-proactive-security-2026.webp"
+	},
+	{
+		"title": "Neuro-Digital Interfaces: The Future of Computing (May 2026 Research)",
+		"link": "https://blog.aicademy.ac/neuro-digital-interfaces-future-computing-2026",
+		"pubDate": "2026-06-27T08:07:53.000Z",
+		"slug": "neuro-digital-interfaces-future-computing-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/neuro-digital-interfaces-future-computing-2026.webp"
+	},
+	{
+		"title": "Azure AI Services 2026: New Horizons in Cognitive Cloud Computing",
+		"link": "https://blog.aicademy.ac/azure-ai-services-2026-cognitive-cloud-horizons",
+		"pubDate": "2026-06-26T08:37:17.000Z",
+		"slug": "azure-ai-services-2026-cognitive-cloud-horizons",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-ai-services-2026-cognitive-cloud-horizons.webp"
+	},
+	{
+		"title": "Terraform Policy as Code: Enforcing Compliance with AI-Powered Guardrails",
+		"link": "https://blog.aicademy.ac/terraform-policy-as-code-ai-powered-guardrails",
+		"pubDate": "2026-06-25T08:33:49.000Z",
+		"slug": "terraform-policy-as-code-ai-powered-guardrails",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-policy-as-code-ai-powered-guardrails.webp"
+	},
+	{
+		"title": "Beyond CVEs: AI-Driven Supply Chain Security for DevSecOps in 2026",
+		"link": "https://blog.aicademy.ac/ai-driven-supply-chain-security-devsecops-2026",
+		"pubDate": "2026-06-24T08:37:28.000Z",
+		"slug": "ai-driven-supply-chain-security-devsecops-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-driven-supply-chain-security-devsecops-2026.webp"
+	},
+	{
+		"title": "Kubernetes as Your Internal Developer Platform: A Platform Engineering Guide",
+		"link": "https://blog.aicademy.ac/kubernetes-internal-developer-platform-guide",
+		"pubDate": "2026-06-23T08:40:25.000Z",
+		"slug": "kubernetes-internal-developer-platform-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-internal-developer-platform-guide.webp"
+	},
+	{
+		"title": "Linux on the Edge: Powering Next-Gen AIoT Devices and Gateways",
+		"link": "https://blog.aicademy.ac/linux-edge-powering-aiot-devices-gateways",
+		"pubDate": "2026-06-22T11:09:41.000Z",
+		"slug": "linux-edge-powering-aiot-devices-gateways",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-edge-powering-aiot-devices-gateways.webp"
+	},
+	{
+		"title": "FinOps for AI: Optimizing Cloud Spend for Machine Learning Workloads on AWS",
+		"link": "https://blog.aicademy.ac/finops-ai-optimizing-cloud-spend-aws-ml-workloads",
+		"pubDate": "2026-06-21T09:05:56.000Z",
+		"slug": "finops-ai-optimizing-cloud-spend-aws-ml-workloads",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/finops-ai-optimizing-cloud-spend-aws-ml-workloads.webp"
+	},
+	{
+		"title": "Ethical AI in DevSecOps: Building Trustworthy & Fair Security Systems",
+		"link": "https://blog.aicademy.ac/ethical-ai-devsecops-trustworthy-security-systems",
+		"pubDate": "2026-06-20T08:30:17.000Z",
+		"slug": "ethical-ai-devsecops-trustworthy-security-systems",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ethical-ai-devsecops-trustworthy-security-systems.webp"
+	},
+	{
+		"title": "OpenTofu's 2026 Release: Enhanced State Locking and Collaborative Workflows",
+		"link": "https://blog.aicademy.ac/opentofu-2026-enhanced-state-locking-collaboration",
+		"pubDate": "2026-06-19T09:56:40.000Z",
+		"slug": "opentofu-2026-enhanced-state-locking-collaboration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-2026-enhanced-state-locking-collaboration.webp"
+	},
+	{
+		"title": "Optimizing Multi-Cloud Networking for AI Workloads: A 2026 Guide",
+		"link": "https://blog.aicademy.ac/optimizing-multi-cloud-networking-ai-workloads",
+		"pubDate": "2026-06-18T09:50:21.000Z",
+		"slug": "optimizing-multi-cloud-networking-ai-workloads",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/optimizing-multi-cloud-networking-ai-workloads.webp"
+	},
+	{
+		"title": "Gemini 2.0 & Copilot Pro: The AI Agents Revolutionizing IT Operations",
+		"link": "https://blog.aicademy.ac/gemini-copilot-pro-ai-agents-it-operations",
+		"pubDate": "2026-06-17T10:11:35.000Z",
+		"slug": "gemini-copilot-pro-ai-agents-it-operations",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gemini-copilot-pro-ai-agents-it-operations.webp"
+	},
+	{
+		"title": "DevOps Beyond Automation: Reducing Cognitive Load with AI & Platform Engineering",
+		"link": "https://blog.aicademy.ac/devops-reducing-cognitive-load-ai-platform-eng",
+		"pubDate": "2026-06-16T10:22:25.000Z",
+		"slug": "devops-reducing-cognitive-load-ai-platform-eng",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/devops-reducing-cognitive-load-ai-platform-eng.webp"
+	},
+	{
+		"title": "Quantum-Safe Security Tooling: Preparing for the Post-Quantum Era in 2026",
+		"link": "https://blog.aicademy.ac/quantum-safe-security-tooling-post-quantum-era",
+		"pubDate": "2026-06-15T11:25:42.000Z",
+		"slug": "quantum-safe-security-tooling-post-quantum-era",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/quantum-safe-security-tooling-post-quantum-era.webp"
+	},
+	{
+		"title": "BREAKING: Quantum Antigravity Propulsion Achieved in Lab Test",
+		"link": "https://blog.aicademy.ac/quantum-antigravity-propulsion-lab-test-2026",
+		"pubDate": "2026-06-14T08:51:50.000Z",
+		"slug": "quantum-antigravity-propulsion-lab-test-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/quantum-antigravity-propulsion-lab-test-2026.webp"
+	},
+	{
+		"title": "Ansible & OpenTofu: Automating Hybrid Cloud with Declarative IaC",
+		"link": "https://blog.aicademy.ac/ansible-opentofu-hybrid-cloud-automation-iac",
+		"pubDate": "2026-06-13T08:35:04.000Z",
+		"slug": "ansible-opentofu-hybrid-cloud-automation-iac",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ansible-opentofu-hybrid-cloud-automation-iac.webp"
+	},
+	{
+		"title": "Azure Arc's Hybrid Cloud Evolution: A Look at the 2026 Landscape",
+		"link": "https://blog.aicademy.ac/azure-arc-hybrid-cloud-evolution-2026-landscape",
+		"pubDate": "2026-06-12T09:39:39.000Z",
+		"slug": "azure-arc-hybrid-cloud-evolution-2026-landscape",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-arc-hybrid-cloud-evolution-2026-landscape.webp"
+	},
+	{
+		"title": "Docker's Next Frontier: AI-Optimized Containers for Edge & Cloud",
+		"link": "https://blog.aicademy.ac/docker-ai-optimized-containers-edge-cloud",
+		"pubDate": "2026-06-11T09:47:59.000Z",
+		"slug": "docker-ai-optimized-containers-edge-cloud",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-ai-optimized-containers-edge-cloud.webp"
+	},
+	{
+		"title": "Securing Terraform State: Best Practices in a Multi-Cloud World",
+		"link": "https://blog.aicademy.ac/securing-terraform-state-multi-cloud-best-practices",
+		"pubDate": "2026-06-10T09:02:48.000Z",
+		"slug": "securing-terraform-state-multi-cloud-best-practices",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/securing-terraform-state-multi-cloud-best-practices.webp"
+	},
+	{
+		"title": "Beyond Text and Image: The Multimodal AI Revolution of 2026",
+		"link": "https://blog.aicademy.ac/multimodal-ai-revolution-beyond-text-image-2026",
+		"pubDate": "2026-06-09T08:44:00.000Z",
+		"slug": "multimodal-ai-revolution-beyond-text-image-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/multimodal-ai-revolution-beyond-text-image-2026.webp"
+	},
+	{
+		"title": "AWS Lambda Edge 2.0: Serverless Computing Meets Intelligent Edge",
+		"link": "https://blog.aicademy.ac/aws-lambda-edge-2-intelligent-edge-computing",
+		"pubDate": "2026-06-08T09:59:14.000Z",
+		"slug": "aws-lambda-edge-2-intelligent-edge-computing",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-lambda-edge-2-intelligent-edge-computing.webp"
+	},
+	{
+		"title": "Mastering Envoy Proxy on AKS: A Zero-to-Production Guide",
+		"link": "https://blog.aicademy.ac/envoy-proxy-aks-gateway-api-guide",
+		"pubDate": "2026-06-07T11:30:00.000Z",
+		"slug": "envoy-proxy-aks-gateway-api-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/envoy-proxy-aks-gateway-api-guide.webp"
+	},
+	{
+		"title": "VS Code's 2026 AI Evolution: Beyond Autocomplete to Autonomous Development",
+		"link": "https://blog.aicademy.ac/vscode-ai-evolution-autonomous-development",
+		"pubDate": "2026-06-07T11:26:51.000Z",
+		"slug": "vscode-ai-evolution-autonomous-development",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vscode-ai-evolution-autonomous-development.webp"
+	},
+	{
+		"title": "DevSecOps 2.0: Integrating AI into Your Security Pipeline",
+		"link": "https://blog.aicademy.ac/devsecops-ai-security-pipeline-integration",
+		"pubDate": "2026-06-04T09:06:38.000Z",
+		"slug": "devsecops-ai-security-pipeline-integration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/devsecops-ai-security-pipeline-integration.webp"
+	},
+	{
+		"title": "OpenTofu vs. Terraform: Feature Parity and the Road Ahead for IaC",
+		"link": "https://blog.aicademy.ac/opentofu-vs-terraform-feature-parity-2026",
+		"pubDate": "2026-06-03T10:14:33.000Z",
+		"slug": "opentofu-vs-terraform-feature-parity-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-vs-terraform-feature-parity-2026.webp"
+	},
+	{
+		"title": "AWS re:Invent 2025 Retrospective: Game-Changing Networking Services",
+		"link": "https://blog.aicademy.ac/aws-reinvent-2025-networking-services-impact",
+		"pubDate": "2026-06-02T09:44:24.000Z",
+		"slug": "aws-reinvent-2025-networking-services-impact",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-reinvent-2025-networking-services-impact.webp"
+	},
+	{
+		"title": "Platform Engineering: The AI-Driven Future of Developer Experience",
+		"link": "https://blog.aicademy.ac/ai-driven-platform-engineering-developer-experience",
+		"pubDate": "2026-06-01T10:35:35.000Z",
+		"slug": "ai-driven-platform-engineering-developer-experience",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-driven-platform-engineering-developer-experience.webp"
+	},
+	{
+		"title": "The Future of Cloud: AI, Green, and Beyond – A 2026 Vision",
+		"link": "https://blog.aicademy.ac/future-of-cloud-ai-green-beyond-2026",
+		"pubDate": "2026-05-31T18:27:49.000Z",
+		"slug": "future-of-cloud-ai-green-beyond-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/future-of-cloud-ai-green-beyond-2026.webp"
+	},
+	{
+		"title": "Ansible Security Automation: Automating Compliance & Remediation",
+		"link": "https://blog.aicademy.ac/ansible-security-automation-compliance",
+		"pubDate": "2026-05-30T07:59:43.000Z",
+		"slug": "ansible-security-automation-compliance",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ansible-security-automation-compliance.webp"
+	},
+	{
+		"title": "AI-Powered Network Observability: Predicting and Preventing Outages",
+		"link": "https://blog.aicademy.ac/ai-network-observability-outage-prevention",
+		"pubDate": "2026-05-29T08:54:31.000Z",
+		"slug": "ai-network-observability-outage-prevention",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-network-observability-outage-prevention.webp"
+	},
+	{
+		"title": "AWS Graviton Processors: Sustained Dominance in Performance & Cost",
+		"link": "https://blog.aicademy.ac/aws-graviton-processors-dominance-2026",
+		"pubDate": "2026-05-28T08:56:24.000Z",
+		"slug": "aws-graviton-processors-dominance-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-graviton-processors-dominance-2026.webp"
+	},
+	{
+		"title": "Quantum Computing's Cloud Future: Early Steps and Integration in 2026",
+		"link": "https://blog.aicademy.ac/quantum-computing-cloud-future-2026",
+		"pubDate": "2026-05-27T08:51:11.000Z",
+		"slug": "quantum-computing-cloud-future-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/quantum-computing-cloud-future-2026.webp"
+	},
+	{
+		"title": "Platform Engineering & IDPs: Accelerating Developer Experience in 2026",
+		"link": "https://blog.aicademy.ac/platform-engineering-idps-developer-experience",
+		"pubDate": "2026-05-26T08:46:52.000Z",
+		"slug": "platform-engineering-idps-developer-experience",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-idps-developer-experience.webp"
+	},
+	{
+		"title": "Zero Trust Security: Next-Gen Tooling for the Distributed Enterprise",
+		"link": "https://blog.aicademy.ac/zero-trust-security-next-gen-tooling",
+		"pubDate": "2026-05-25T09:09:25.000Z",
+		"slug": "zero-trust-security-next-gen-tooling",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/zero-trust-security-next-gen-tooling.webp"
+	},
+	{
+		"title": "Cloud Governance with Policy as Code: Ensuring Compliance at Scale",
+		"link": "https://blog.aicademy.ac/cloud-governance-policy-as-code-2026",
+		"pubDate": "2026-05-24T08:02:37.000Z",
+		"slug": "cloud-governance-policy-as-code-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cloud-governance-policy-as-code-2026.webp"
+	},
+	{
+		"title": "VSCode Remote Development & WSL: The Ultimate Dev Environment 2026",
+		"link": "https://blog.aicademy.ac/vscode-remote-dev-wsl-ultimate-2026",
+		"pubDate": "2026-05-23T07:45:39.000Z",
+		"slug": "vscode-remote-dev-wsl-ultimate-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vscode-remote-dev-wsl-ultimate-2026.webp"
+	},
+	{
+		"title": "Azure AI Services: Powering Enterprise Innovation in 2026",
+		"link": "https://blog.aicademy.ac/azure-ai-services-enterprise-innovation-2026",
+		"pubDate": "2026-05-22T08:34:54.000Z",
+		"slug": "azure-ai-services-enterprise-innovation-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-ai-services-enterprise-innovation-2026.webp"
+	},
+	{
+		"title": "Linux Distros for AI Workloads: Optimizing for Performance in 2026",
+		"link": "https://blog.aicademy.ac/linux-distros-ai-workloads-2026",
+		"pubDate": "2026-05-21T08:44:40.000Z",
+		"slug": "linux-distros-ai-workloads-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-distros-ai-workloads-2026.webp"
+	},
+	{
+		"title": "OpenTofu Module Registry: What the Future Holds for Community IaC",
+		"link": "https://blog.aicademy.ac/opentofu-module-registry-future",
+		"pubDate": "2026-05-20T08:38:40.000Z",
+		"slug": "opentofu-module-registry-future",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-module-registry-future.webp"
+	},
+	{
+		"title": "DevSecOps Shift-Left in Practice: Embedding Security from Inception",
+		"link": "https://blog.aicademy.ac/devsecops-shift-left-practice-2026",
+		"pubDate": "2026-05-19T08:41:25.000Z",
+		"slug": "devsecops-shift-left-practice-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/devsecops-shift-left-practice-2026.webp"
+	},
+	{
+		"title": "AWS Lambda & Serverless Refinements: Edge, AI, and Beyond in 2026",
+		"link": "https://blog.aicademy.ac/aws-lambda-serverless-refinements-2026",
+		"pubDate": "2026-05-18T08:55:29.000Z",
+		"slug": "aws-lambda-serverless-refinements-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-lambda-serverless-refinements-2026.webp"
+	},
+	{
+		"title": "Kubernetes Operators & AIOps: The Path to Self-Healing Clusters",
+		"link": "https://blog.aicademy.ac/kubernetes-operators-aiops-self-healing",
+		"pubDate": "2026-05-17T07:53:37.000Z",
+		"slug": "kubernetes-operators-aiops-self-healing",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-operators-aiops-self-healing.webp"
+	},
+	{
+		"title": "Terraform State Management: Advanced Best Practices for Enterprise",
+		"link": "https://blog.aicademy.ac/terraform-state-management-enterprise",
+		"pubDate": "2026-05-16T07:28:29.000Z",
+		"slug": "terraform-state-management-enterprise",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-state-management-enterprise.webp"
+	},
+	{
+		"title": "GPT-5 and Claude 4: Redefining Software Development in 2026",
+		"link": "https://blog.aicademy.ac/gpt5-claude4-redefining-software-2026",
+		"pubDate": "2026-05-15T08:19:26.000Z",
+		"slug": "gpt5-claude4-redefining-software-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gpt5-claude4-redefining-software-2026.webp"
+	},
+	{
+		"title": "Ansible for Hybrid Cloud Automation: Bridging On-Prem and Cloud in 2026",
+		"link": "https://blog.aicademy.ac/ansible-hybrid-cloud-automation-2026",
+		"pubDate": "2026-05-13T08:14:22.000Z",
+		"slug": "ansible-hybrid-cloud-automation-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ansible-hybrid-cloud-automation-2026.webp"
+	},
+	{
+		"title": "Azure Sentinel & Microsoft Defender: Unified Threat Hunting in 2026",
+		"link": "https://blog.aicademy.ac/azure-sentinel-defender-threat-hunting-2026",
+		"pubDate": "2026-05-12T08:06:49.000Z",
+		"slug": "azure-sentinel-defender-threat-hunting-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-sentinel-defender-threat-hunting-2026.webp"
+	},
+	{
+		"title": "Docker & Containerization: The Next Wave of Innovation in 2026",
+		"link": "https://blog.aicademy.ac/docker-containerization-innovation-2026",
+		"pubDate": "2026-05-11T08:39:50.000Z",
+		"slug": "docker-containerization-innovation-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-containerization-innovation-2026.webp"
+	},
+	{
+		"title": "Unconfirmed Breakthrough: The Race for Practical Antigravity in 2026",
+		"link": "https://blog.aicademy.ac/unconfirmed-breakthrough-antigravity-2026",
+		"pubDate": "2026-05-10T07:37:21.000Z",
+		"slug": "unconfirmed-breakthrough-antigravity-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/unconfirmed-breakthrough-antigravity-2026.webp"
+	},
+	{
+		"title": "Cloud Networking 2.0: Architecting for Speed and Security in 2026",
+		"link": "https://blog.aicademy.ac/cloud-networking-2-0-speed-security-2026",
+		"pubDate": "2026-05-09T07:22:24.000Z",
+		"slug": "cloud-networking-2-0-speed-security-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cloud-networking-2-0-speed-security-2026.webp"
+	},
+	{
+		"title": "Gemini & Copilot in DevOps: The AI-Powered Workflow Revolution",
+		"link": "https://blog.aicademy.ac/gemini-copilot-devops-ai-revolution",
+		"pubDate": "2026-05-08T07:00:58.000Z",
+		"slug": "gemini-copilot-devops-ai-revolution",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gemini-copilot-devops-ai-revolution.webp"
+	},
+	{
+		"title": "Linux Kernel 6.10: Unveiling 2026's Performance and Security Features",
+		"link": "https://blog.aicademy.ac/linux-kernel-6-10-performance-security-2026",
+		"pubDate": "2026-05-07T08:01:22.000Z",
+		"slug": "linux-kernel-6-10-performance-security-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-6-10-performance-security-2026.webp"
+	},
+	{
+		"title": "VSCode's AI Renaissance: Top Extensions for Developers in 2026",
+		"link": "https://blog.aicademy.ac/vscode-ai-renaissance-extensions-2026",
+		"pubDate": "2026-05-06T07:45:19.000Z",
+		"slug": "vscode-ai-renaissance-extensions-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vscode-ai-renaissance-extensions-2026.webp"
+	},
+	{
+		"title": "AWS Cost Optimization Masterclass: Cutting Your Bill in 2026",
+		"link": "https://blog.aicademy.ac/aws-cost-optimization-masterclass-2026",
+		"pubDate": "2026-05-05T07:29:07.000Z",
+		"slug": "aws-cost-optimization-masterclass-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-cost-optimization-masterclass-2026.webp"
+	},
+	{
+		"title": "Securing Kubernetes in Production: Advanced Strategies for 2026",
+		"link": "https://blog.aicademy.ac/securing-kubernetes-production-2026",
+		"pubDate": "2026-05-04T08:04:47.000Z",
+		"slug": "securing-kubernetes-production-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/securing-kubernetes-production-2026.webp"
+	},
+	{
+		"title": "Azure AI Co-Pilot for Cloud Architects: Designing 2026's Infrastructure",
+		"link": "https://blog.aicademy.ac/azure-ai-copilot-cloud-architects-2026",
+		"pubDate": "2026-05-01T07:40:02.000Z",
+		"slug": "azure-ai-copilot-cloud-architects-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-ai-copilot-cloud-architects-2026.webp"
+	},
+	{
+		"title": "AI's Impact on Tech Roles: Adapting to the Augmented Workforce of 2026",
+		"link": "https://blog.aicademy.ac/ais-impact-tech-roles-2026",
+		"pubDate": "2026-04-30T07:40:44.000Z",
+		"slug": "ais-impact-tech-roles-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ais-impact-tech-roles-2026.webp"
+	},
+	{
+		"title": "Cloud FinOps: Achieving Financial Accountability in Multi-Cloud",
+		"link": "https://blog.aicademy.ac/cloud-finops-financial-accountability",
+		"pubDate": "2026-04-29T07:37:05.000Z",
+		"slug": "cloud-finops-financial-accountability",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cloud-finops-financial-accountability.webp"
+	},
+	{
+		"title": "AWS Lambda SnapStart: Supercharging Serverless Cold Starts in 2026",
+		"link": "https://blog.aicademy.ac/aws-lambda-snapstart-supercharging-2026",
+		"pubDate": "2026-04-28T07:43:35.000Z",
+		"slug": "aws-lambda-snapstart-supercharging-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-lambda-snapstart-supercharging-2026.webp"
+	},
+	{
+		"title": "Containerization in Embedded Systems: Docker & Kubernetes on the Edge",
+		"link": "https://blog.aicademy.ac/containerization-embedded-systems-edge",
+		"pubDate": "2026-04-27T07:43:33.000Z",
+		"slug": "containerization-embedded-systems-edge",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/containerization-embedded-systems-edge.webp"
+	},
+	{
+		"title": "Gemini & Copilot for Non-Code Tasks: AI Beyond Programming in 2026",
+		"link": "https://blog.aicademy.ac/gemini-copilot-non-code-tasks-2026",
+		"pubDate": "2026-04-26T07:08:31.000Z",
+		"slug": "gemini-copilot-non-code-tasks-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gemini-copilot-non-code-tasks-2026.webp"
+	},
+	{
+		"title": "Terraform Provider Development: Best Practices for Cloud Integrations",
+		"link": "https://blog.aicademy.ac/terraform-provider-development-best-practices",
+		"pubDate": "2026-04-25T06:49:03.000Z",
+		"slug": "terraform-provider-development-best-practices",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-provider-development-best-practices.webp"
+	},
+	{
+		"title": "DevSecOps Culture: Fostering Security Champions Beyond Tooling",
+		"link": "https://blog.aicademy.ac/devsecops-culture-security-champions",
+		"pubDate": "2026-04-24T07:14:35.000Z",
+		"slug": "devsecops-culture-security-champions",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/devsecops-culture-security-champions.webp"
+	},
+	{
+		"title": "Cloud Security Posture Management (CSPM): Beyond Compliance in 2026",
+		"link": "https://blog.aicademy.ac/cloud-security-posture-management-2026",
+		"pubDate": "2026-04-23T07:12:22.000Z",
+		"slug": "cloud-security-posture-management-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cloud-security-posture-management-2026.webp"
+	},
+	{
+		"title": "Linux Distro of the Year: Fedora's Bold Move Towards Cloud-Native Desktops",
+		"link": "https://blog.aicademy.ac/linux-distro-year-fedora-cloud-native",
+		"pubDate": "2026-04-22T07:09:35.000Z",
+		"slug": "linux-distro-year-fedora-cloud-native",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-distro-year-fedora-cloud-native.webp"
+	},
+	{
+		"title": "Azure AI Services: Latest Innovations and Enterprise Use Cases in 2026",
+		"link": "https://blog.aicademy.ac/azure-ai-services-innovations-2026",
+		"pubDate": "2026-04-21T07:10:02.000Z",
+		"slug": "azure-ai-services-innovations-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-ai-services-innovations-2026.webp"
+	},
+	{
+		"title": "Antigravity Breakthrough: Implications for Space, Tech & Beyond",
+		"link": "https://blog.aicademy.ac/antigravity-breakthrough-2026",
+		"pubDate": "2026-04-20T07:25:54.000Z",
+		"slug": "antigravity-breakthrough-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/antigravity-breakthrough-2026.webp"
+	},
+	{
+		"title": "Kubernetes GitOps: FluxCD & ArgoCD as the Control Plane",
+		"link": "https://blog.aicademy.ac/kubernetes-gitops-fluxcd-argocd",
+		"pubDate": "2026-04-19T06:55:45.000Z",
+		"slug": "kubernetes-gitops-fluxcd-argocd",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-gitops-fluxcd-argocd.webp"
+	},
+	{
+		"title": "Ethical AI Governance: Navigating Bias, Transparency & Accountability",
+		"link": "https://blog.aicademy.ac/ethical-ai-governance-2026",
+		"pubDate": "2026-04-18T06:42:17.000Z",
+		"slug": "ethical-ai-governance-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ethical-ai-governance-2026.webp"
+	},
+	{
+		"title": "AWS Graviton: Unlocking New Performance & Cost Efficiencies in 2026",
+		"link": "https://blog.aicademy.ac/aws-graviton-performance-cost-2026",
+		"pubDate": "2026-04-17T07:08:47.000Z",
+		"slug": "aws-graviton-performance-cost-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-graviton-performance-cost-2026.webp"
+	},
+	{
+		"title": "OpenTofu vs. Terraform: The State Management Showdown in Cloud IaC",
+		"link": "https://blog.aicademy.ac/opentofu-terraform-state-management",
+		"pubDate": "2026-04-16T07:08:06.000Z",
+		"slug": "opentofu-terraform-state-management",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-terraform-state-management.webp"
+	},
+	{
+		"title": "Quantum Computing's March: What Developers Need to Know in 2026",
+		"link": "https://blog.aicademy.ac/quantum-computing-developers-2026",
+		"pubDate": "2026-04-14T07:05:33.000Z",
+		"slug": "quantum-computing-developers-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/quantum-computing-developers-2026.webp"
+	},
+	{
+		"title": "GenAI Model Fine-Tuning: Customizing Large Language Models for Enterprise",
+		"link": "https://blog.aicademy.ac/genai-model-fine-tuning-enterprise",
+		"pubDate": "2026-04-12T06:51:51.000Z",
+		"slug": "genai-model-fine-tuning-enterprise",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/genai-model-fine-tuning-enterprise.webp"
+	},
+	{
+		"title": "Platform Engineering: Building Golden Paths for Developer Productivity",
+		"link": "https://blog.aicademy.ac/platform-engineering-golden-paths",
+		"pubDate": "2026-04-10T07:04:54.000Z",
+		"slug": "platform-engineering-golden-paths",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-golden-paths.webp"
+	},
+	{
+		"title": "Cloud Networking's Evolution: The SASE Model and Beyond in 2026",
+		"link": "https://blog.aicademy.ac/cloud-networking-sase-model-2026",
+		"pubDate": "2026-04-09T06:52:31.000Z",
+		"slug": "cloud-networking-sase-model-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cloud-networking-sase-model-2026.webp"
+	},
+	{
+		"title": "VSCode & Gemini/Copilot: The Future of AI-Powered Pair Programming",
+		"link": "https://blog.aicademy.ac/vscode-gemini-copilot-ai-pair-programming",
+		"pubDate": "2026-04-08T06:52:50.000Z",
+		"slug": "vscode-gemini-copilot-ai-pair-programming",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vscode-gemini-copilot-ai-pair-programming.webp"
+	},
+	{
+		"title": "AWS Serverless Evolution: Beyond Lambda Functions in 2026",
+		"link": "https://blog.aicademy.ac/aws-serverless-evolution-beyond-lambda",
+		"pubDate": "2026-04-07T06:49:40.000Z",
+		"slug": "aws-serverless-evolution-beyond-lambda",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-serverless-evolution-beyond-lambda.webp"
+	},
+	{
+		"title": "Linux Kernel 6.x: Pushing Boundaries for Cloud and AI Performance",
+		"link": "https://blog.aicademy.ac/linux-kernel-6x-cloud-ai-performance",
+		"pubDate": "2026-04-06T07:07:17.000Z",
+		"slug": "linux-kernel-6x-cloud-ai-performance",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-6x-cloud-ai-performance.webp"
+	},
+	{
+		"title": "Kubernetes Cost Optimization: Smart Strategies for AWS & Azure in 2026",
+		"link": "https://blog.aicademy.ac/kubernetes-cost-optimization-aws-azure-2026",
+		"pubDate": "2026-04-05T06:40:28.000Z",
+		"slug": "kubernetes-cost-optimization-aws-azure-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-cost-optimization-aws-azure-2026.webp"
+	},
+	{
+		"title": "DevSecOps Shift Left 2.0: AI-Powered Security in the CI/CD Pipeline",
+		"link": "https://blog.aicademy.ac/devsecops-shift-left-ai-powered-security",
+		"pubDate": "2026-04-04T06:16:20.000Z",
+		"slug": "devsecops-shift-left-ai-powered-security",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/devsecops-shift-left-ai-powered-security.webp"
+	},
+	{
+		"title": "Azure Container Apps: Simplifying Microservices in 2026",
+		"link": "https://blog.aicademy.ac/azure-container-apps-simplifying-microservices",
+		"pubDate": "2026-04-03T06:42:22.000Z",
+		"slug": "azure-container-apps-simplifying-microservices",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-container-apps-simplifying-microservices.webp"
+	},
+	{
+		"title": "OpenTofu's Maturity: The Terraform Alternative's Rise in 2026",
+		"link": "https://blog.aicademy.ac/opentofu-maturity-terraform-alternative-2026",
+		"pubDate": "2026-04-02T06:45:29.000Z",
+		"slug": "opentofu-maturity-terraform-alternative-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-maturity-terraform-alternative-2026.webp"
+	},
+	{
+		"title": "AI on the Edge: Next-Gen Compute Beyond the Datacenter",
+		"link": "https://blog.aicademy.ac/ai-on-edge-next-gen-compute",
+		"pubDate": "2026-04-01T06:57:08.000Z",
+		"slug": "ai-on-edge-next-gen-compute",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-on-edge-next-gen-compute.webp"
+	},
+	{
+		"title": "Platform Engineering 2.0: AI-Powered IDPs & Self-Service Orchestration",
+		"link": "https://blog.aicademy.ac/platform-engineering-ai-idp-orchestration",
+		"pubDate": "2026-03-31T06:46:53.000Z",
+		"slug": "platform-engineering-ai-idp-orchestration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-ai-idp-orchestration.webp"
+	},
+	{
+		"title": "Proactive Security Posture: AI for Cloud & Code Risk Intelligence",
+		"link": "https://blog.aicademy.ac/proactive-security-posture-ai-risk-intel",
+		"pubDate": "2026-03-30T07:03:55.000Z",
+		"slug": "proactive-security-posture-ai-risk-intel",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/proactive-security-posture-ai-risk-intel.webp"
+	},
+	{
+		"title": "Smooth Migration to OpenTofu: A Step-by-Step Enterprise Guide",
+		"link": "https://blog.aicademy.ac/smooth-migration-opentofu-enterprise-guide",
+		"pubDate": "2026-03-29T06:39:12.000Z",
+		"slug": "smooth-migration-opentofu-enterprise-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/smooth-migration-opentofu-enterprise-guide.webp"
+	},
+	{
+		"title": "Kubernetes at the Edge: Deploying and Managing K8s Off-Cloud",
+		"link": "https://blog.aicademy.ac/kubernetes-at-edge-off-cloud-k3s",
+		"pubDate": "2026-03-28T06:14:31.000Z",
+		"slug": "kubernetes-at-edge-off-cloud-k3s",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-at-edge-off-cloud-k3s.webp"
+	},
+	{
+		"title": "Linux Desktop in 2026: Wayland, Gaming, and Enterprise Adoption",
+		"link": "https://blog.aicademy.ac/linux-desktop-2026-wayland-gaming",
+		"pubDate": "2026-03-27T06:42:49.000Z",
+		"slug": "linux-desktop-2026-wayland-gaming",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-desktop-2026-wayland-gaming.webp"
+	},
+	{
+		"title": "AI-Driven Cloud Ops: Predictive Scaling & Anomaly Detection on Azure/AWS",
+		"link": "https://blog.aicademy.ac/ai-driven-cloud-ops-predictive-anomaly",
+		"pubDate": "2026-03-26T06:41:53.000Z",
+		"slug": "ai-driven-cloud-ops-predictive-anomaly",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-driven-cloud-ops-predictive-anomaly.webp"
+	},
+	{
+		"title": "The Converging Stack: DevOps and Modern Security Tooling Integration",
+		"link": "https://blog.aicademy.ac/converging-stack-devops-security-tooling",
+		"pubDate": "2026-03-25T06:36:39.000Z",
+		"slug": "converging-stack-devops-security-tooling",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/converging-stack-devops-security-tooling.webp"
+	},
+	{
+		"title": "Kubernetes Observability: Advanced Monitoring, Logging, & Tracing in 2026",
+		"link": "https://blog.aicademy.ac/kubernetes-observability-monitoring-logging",
+		"pubDate": "2026-03-24T06:36:13.000Z",
+		"slug": "kubernetes-observability-monitoring-logging",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-observability-monitoring-logging.webp"
+	},
+	{
+		"title": "Advanced OpenTofu: Custom Providers, Modules & State Management Strategies",
+		"link": "https://blog.aicademy.ac/advanced-opentofu-custom-providers-modules",
+		"pubDate": "2026-03-23T06:44:40.000Z",
+		"slug": "advanced-opentofu-custom-providers-modules",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/advanced-opentofu-custom-providers-modules.webp"
+	},
+	{
+		"title": "AI for Developer Experience: Boosting Productivity Beyond Code Generation",
+		"link": "https://blog.aicademy.ac/ai-developer-experience-productivity-2026",
+		"pubDate": "2026-03-22T06:09:31.000Z",
+		"slug": "ai-developer-experience-productivity-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-developer-experience-productivity-2026.webp"
+	},
+	{
+		"title": "The Future of Cloud Networking: Programmable, Secure, & Multi-Cloud",
+		"link": "https://blog.aicademy.ac/future-cloud-networking-programmable-secure",
+		"pubDate": "2026-03-21T05:58:59.000Z",
+		"slug": "future-cloud-networking-programmable-secure",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/future-cloud-networking-programmable-secure.webp"
+	},
+	{
+		"title": "Hardening Linux: Kernel Security & Advanced System Protections in 2026",
+		"link": "https://blog.aicademy.ac/hardening-linux-kernel-security-2026",
+		"pubDate": "2026-03-20T06:09:40.000Z",
+		"slug": "hardening-linux-kernel-security-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/hardening-linux-kernel-security-2026.webp"
+	},
+	{
+		"title": "AWS Serverless Evolution: Beyond Lambda to Event-Driven Architectures",
+		"link": "https://blog.aicademy.ac/aws-serverless-evolution-event-driven-2026",
+		"pubDate": "2026-03-19T06:14:48.000Z",
+		"slug": "aws-serverless-evolution-event-driven-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-serverless-evolution-event-driven-2026.webp"
+	},
+	{
+		"title": "Azure Bicep for Enterprise: Streamlining ARM Template Deployments",
+		"link": "https://blog.aicademy.ac/azure-bicep-enterprise-streamlining-arm",
+		"pubDate": "2026-03-18T06:37:07.000Z",
+		"slug": "azure-bicep-enterprise-streamlining-arm",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-bicep-enterprise-streamlining-arm.webp"
+	},
+	{
+		"title": "AI Governance in 2026: Ethical Frameworks and Global Regulatory Shifts",
+		"link": "https://blog.aicademy.ac/ai-governance-2026-ethical-regulatory",
+		"pubDate": "2026-03-17T06:36:10.000Z",
+		"slug": "ai-governance-2026-ethical-regulatory",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-governance-2026-ethical-regulatory.webp"
+	},
+	{
+		"title": "Docker's Evolution: Beyond the Engine to Cloud-Native Ecosystem in 2026",
+		"link": "https://blog.aicademy.ac/dockers-evolution-cloud-native-ecosystem",
+		"pubDate": "2026-03-16T06:51:13.000Z",
+		"slug": "dockers-evolution-cloud-native-ecosystem",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/dockers-evolution-cloud-native-ecosystem.webp"
+	},
+	{
+		"title": "Kubernetes Zero Trust: Hardening Your Clusters from Within",
+		"link": "https://blog.aicademy.ac/kubernetes-zero-trust-hardening-clusters",
+		"pubDate": "2026-03-15T06:14:25.000Z",
+		"slug": "kubernetes-zero-trust-hardening-clusters",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-zero-trust-hardening-clusters.webp"
+	},
+	{
+		"title": "Automating Hybrid Cloud with Ansible: Beyond On-Premises Management",
+		"link": "https://blog.aicademy.ac/automating-hybrid-cloud-ansible-2026",
+		"pubDate": "2026-03-14T06:03:31.000Z",
+		"slug": "automating-hybrid-cloud-ansible-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/automating-hybrid-cloud-ansible-2026.webp"
+	},
+	{
+		"title": "Gemini vs. Copilot vs. Claude: The AI Coding Assistant Showdown of 2026",
+		"link": "https://blog.aicademy.ac/gemini-copilot-claude-ai-coding-showdown-2026",
+		"pubDate": "2026-03-13T06:07:00.000Z",
+		"slug": "gemini-copilot-claude-ai-coding-showdown-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gemini-copilot-claude-ai-coding-showdown-2026.webp"
+	},
+	{
+		"title": "VSCode for Cloud Dev: Remoting, Dev Containers & AI Assistants Mastery",
+		"link": "https://blog.aicademy.ac/vscode-cloud-dev-remoting-ai-2026",
+		"pubDate": "2026-03-12T06:08:32.000Z",
+		"slug": "vscode-cloud-dev-remoting-ai-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vscode-cloud-dev-remoting-ai-2026.webp"
+	},
+	{
+		"title": "Terraform Security Best Practices: Guardrails for Your IaC in 2026",
+		"link": "https://blog.aicademy.ac/terraform-security-best-practices-2026",
+		"pubDate": "2026-03-11T06:06:26.000Z",
+		"slug": "terraform-security-best-practices-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-security-best-practices-2026.webp"
+	},
+	{
+		"title": "Linux Containers Unleashed: Podman, Containerd, and cgroups v3 Deep Dive",
+		"link": "https://blog.aicademy.ac/linux-containers-podman-containerd-cgroups",
+		"pubDate": "2026-03-10T06:03:59.000Z",
+		"slug": "linux-containers-podman-containerd-cgroups",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-containers-podman-containerd-cgroups.webp"
+	},
+	{
+		"title": "AWS Networking Power-Up: Advanced VPC & Hybrid Cloud Connectivity",
+		"link": "https://blog.aicademy.ac/aws-networking-powerup-vpc-hybrid-2026",
+		"pubDate": "2026-03-09T06:14:14.000Z",
+		"slug": "aws-networking-powerup-vpc-hybrid-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-networking-powerup-vpc-hybrid-2026.webp"
+	},
+	{
+		"title": "Mastering Azure AI: Cognitive Services & Machine Learning Studio for Developers",
+		"link": "https://blog.aicademy.ac/mastering-azure-ai-cognitive-ml-dev",
+		"pubDate": "2026-03-08T06:00:57.000Z",
+		"slug": "mastering-azure-ai-cognitive-ml-dev",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/mastering-azure-ai-cognitive-ml-dev.webp"
+	},
+	{
+		"title": "The Antigravity Buzz: Early Tech & Market Speculation for 2026",
+		"link": "https://blog.aicademy.ac/antigravity-buzz-early-tech-2026",
+		"pubDate": "2026-03-07T05:56:30.000Z",
+		"slug": "antigravity-buzz-early-tech-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/antigravity-buzz-early-tech-2026.webp"
+	},
+	{
+		"title": "OpenTofu in 2026: An Enterprise Adoption and Feature Report",
+		"link": "https://blog.aicademy.ac/opentofu-2026-enterprise-adoption-features",
+		"pubDate": "2026-03-06T06:03:03.000Z",
+		"slug": "opentofu-2026-enterprise-adoption-features",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-2026-enterprise-adoption-features.webp"
+	},
+	{
+		"title": "AI-Powered DevSecOps: Shifting Security Further Left with Intelligence",
+		"link": "https://blog.aicademy.ac/ai-powered-devsecops-shift-left-2026",
+		"pubDate": "2026-03-05T06:05:51.000Z",
+		"slug": "ai-powered-devsecops-shift-left-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-powered-devsecops-shift-left-2026.webp"
+	},
+	{
+		"title": "Beyond DevOps: The Solidification of Platform Engineering",
+		"link": "https://blog.aicademy.ac/beyond-devops-platform-engineering",
+		"pubDate": "2026-03-04T06:03:11.000Z",
+		"slug": "beyond-devops-platform-engineering",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/beyond-devops-platform-engineering.webp"
+	},
+	{
+		"title": "Serverless Kubernetes in 2026: AKS Virtual Nodes & EKS Fargate Deep Dive",
+		"link": "https://blog.aicademy.ac/serverless-kubernetes-aks-eks-fargate-2026",
+		"pubDate": "2026-03-03T06:06:58.000Z",
+		"slug": "serverless-kubernetes-aks-eks-fargate-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/serverless-kubernetes-aks-eks-fargate-2026.webp"
+	},
+	{
+		"title": "Taming Cloud Sprawl: FinOps for AI/ML Workloads on AWS & Azure",
+		"link": "https://blog.aicademy.ac/taming-cloud-sprawl-finops-ai-ml-workloads",
+		"pubDate": "2026-03-02T06:09:37.000Z",
+		"slug": "taming-cloud-sprawl-finops-ai-ml-workloads",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/taming-cloud-sprawl-finops-ai-ml-workloads.webp"
+	},
+	{
+		"title": "AI's New Frontier: Generative Code in VSCode for 2026",
+		"link": "https://blog.aicademy.ac/ai-generative-code-vscode-2026",
+		"pubDate": "2026-03-01T06:06:28.000Z",
+		"slug": "ai-generative-code-vscode-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-generative-code-vscode-2026.webp"
+	},
+	{
+		"title": "Platform Engineering: Predicting the Next 5 Years of IDP Evolution",
+		"link": "https://blog.aicademy.ac/platform-engineering-next-5-years-idp-evolution",
+		"pubDate": "2026-02-28T05:52:58.000Z",
+		"slug": "platform-engineering-next-5-years-idp-evolution",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-next-5-years-idp-evolution.webp"
+	},
+	{
+		"title": "Beyond 'Hello World': Advanced Prompt Engineering with LLMs",
+		"link": "https://blog.aicademy.ac/advanced-prompt-engineering-llms-2026",
+		"pubDate": "2026-02-27T06:09:17.000Z",
+		"slug": "advanced-prompt-engineering-llms-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/advanced-prompt-engineering-llms-2026.webp"
+	},
+	{
+		"title": "Next-Gen Cloud Networking: Programmable Infrastructure & AI Ops",
+		"link": "https://blog.aicademy.ac/next-gen-cloud-networking-ai-ops-2026",
+		"pubDate": "2026-02-26T06:15:22.000Z",
+		"slug": "next-gen-cloud-networking-ai-ops-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/next-gen-cloud-networking-ai-ops-2026.webp"
+	},
+	{
+		"title": "GitOps with Argo CD & Flux CD: The Evolution of Cloud-Native Ops",
+		"link": "https://blog.aicademy.ac/gitops-argo-flux-evolution-cloud-native-ops",
+		"pubDate": "2026-02-25T06:37:02.000Z",
+		"slug": "gitops-argo-flux-evolution-cloud-native-ops",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gitops-argo-flux-evolution-cloud-native-ops.webp"
+	},
+	{
+		"title": "Advanced Secrets Management for DevSecOps Pipelines",
+		"link": "https://blog.aicademy.ac/advanced-secrets-management-devsecops-pipelines",
+		"pubDate": "2026-02-24T06:16:33.000Z",
+		"slug": "advanced-secrets-management-devsecops-pipelines",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/advanced-secrets-management-devsecops-pipelines.webp"
+	},
+	{
+		"title": "Terraform Cloud & Enterprise: Embracing Policy as Code (PaC)",
+		"link": "https://blog.aicademy.ac/terraform-cloud-enterprise-policy-as-code",
+		"pubDate": "2026-02-23T06:38:48.000Z",
+		"slug": "terraform-cloud-enterprise-policy-as-code",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-cloud-enterprise-policy-as-code.webp"
+	},
+	{
+		"title": "Azure AD Evolution: Identity & Access Management in the AI Era",
+		"link": "https://blog.aicademy.ac/azure-ad-evolution-iam-ai-era-2026",
+		"pubDate": "2026-02-22T06:07:55.000Z",
+		"slug": "azure-ad-evolution-iam-ai-era-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-ad-evolution-iam-ai-era-2026.webp"
+	},
+	{
+		"title": "Linux on the Edge: Optimizing for Performance and Security",
+		"link": "https://blog.aicademy.ac/linux-on-the-edge-performance-security",
+		"pubDate": "2026-02-21T06:00:45.000Z",
+		"slug": "linux-on-the-edge-performance-security",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-on-the-edge-performance-security.webp"
+	},
+	{
+		"title": "AI for Developers: Practical Applications Beyond Code Generation",
+		"link": "https://blog.aicademy.ac/ai-for-developers-practical-applications-2026",
+		"pubDate": "2026-02-20T06:11:41.000Z",
+		"slug": "ai-for-developers-practical-applications-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-for-developers-practical-applications-2026.webp"
+	},
+	{
+		"title": "OpenTofu's Ecosystem Grows: New Providers & Community Tools",
+		"link": "https://blog.aicademy.ac/opentofu-ecosystem-growth-new-providers",
+		"pubDate": "2026-02-19T06:34:15.000Z",
+		"slug": "opentofu-ecosystem-growth-new-providers",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-ecosystem-growth-new-providers.webp"
+	},
+	{
+		"title": "Kubernetes Multi-Cluster Management with GitOps & Service Mesh",
+		"link": "https://blog.aicademy.ac/kubernetes-multi-cluster-gitops-service-mesh",
+		"pubDate": "2026-02-18T06:35:29.000Z",
+		"slug": "kubernetes-multi-cluster-gitops-service-mesh",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-multi-cluster-gitops-service-mesh.webp"
+	},
+	{
+		"title": "AWS Cost Optimization Strategies for a Tightening Economy",
+		"link": "https://blog.aicademy.ac/aws-cost-optimization-strategies-2026",
+		"pubDate": "2026-02-17T06:14:55.000Z",
+		"slug": "aws-cost-optimization-strategies-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-cost-optimization-strategies-2026.webp"
+	},
+	{
+		"title": "DevOps Metrics That Matter: Driving Success in 2026",
+		"link": "https://blog.aicademy.ac/devops-metrics-that-matter-2026",
+		"pubDate": "2026-02-16T06:38:35.000Z",
+		"slug": "devops-metrics-that-matter-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/devops-metrics-that-matter-2026.webp"
+	},
+	{
+		"title": "The Quantum Leap: Antigravity Propulsion in Commercial Aviation?",
+		"link": "https://blog.aicademy.ac/quantum-leap-antigravity-commercial-aviation",
+		"pubDate": "2026-02-15T06:11:27.000Z",
+		"slug": "quantum-leap-antigravity-commercial-aviation",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/quantum-leap-antigravity-commercial-aviation.webp"
+	},
+	{
+		"title": "Securing the Software Supply Chain: Lessons from 2025 Breaches",
+		"link": "https://blog.aicademy.ac/securing-software-supply-chain-2026",
+		"pubDate": "2026-02-14T06:03:10.000Z",
+		"slug": "securing-software-supply-chain-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/securing-software-supply-chain-2026.webp"
+	},
+	{
+		"title": "Ansible Automation Platform 2.X: Scaling Operations Across Clouds",
+		"link": "https://blog.aicademy.ac/ansible-automation-platform-scaling-clouds",
+		"pubDate": "2026-02-13T06:33:36.000Z",
+		"slug": "ansible-automation-platform-scaling-clouds",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ansible-automation-platform-scaling-clouds.webp"
+	},
+	{
+		"title": "Ethical AI in Practice: Building Trustworthy Systems in 2026",
+		"link": "https://blog.aicademy.ac/ethical-ai-in-practice-trustworthy-systems",
+		"pubDate": "2026-02-12T06:37:02.000Z",
+		"slug": "ethical-ai-in-practice-trustworthy-systems",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ethical-ai-in-practice-trustworthy-systems.webp"
+	},
+	{
+		"title": "Docker in 2026: Beyond Containers with WebAssembly Integration",
+		"link": "https://blog.aicademy.ac/docker-2026-webassembly-integration",
+		"pubDate": "2026-02-11T06:39:02.000Z",
+		"slug": "docker-2026-webassembly-integration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-2026-webassembly-integration.webp"
+	},
+	{
+		"title": "Mastering Hybrid Cloud Networking with SD-WAN & SASE",
+		"link": "https://blog.aicademy.ac/mastering-hybrid-cloud-networking-sdwan-sase",
+		"pubDate": "2026-02-10T06:40:51.000Z",
+		"slug": "mastering-hybrid-cloud-networking-sdwan-sase",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/mastering-hybrid-cloud-networking-sdwan-sase.webp"
+	},
+	{
+		"title": "VS Code's AI Extensions: Supercharging Developer Productivity",
+		"link": "https://blog.aicademy.ac/vscode-ai-extensions-developer-productivity",
+		"pubDate": "2026-02-09T06:39:45.000Z",
+		"slug": "vscode-ai-extensions-developer-productivity",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vscode-ai-extensions-developer-productivity.webp"
+	},
+	{
+		"title": "Azure Functions v4: Beyond Serverless with AI Integration",
+		"link": "https://blog.aicademy.ac/azure-functions-v4-serverless-ai-integration",
+		"pubDate": "2026-02-08T06:11:26.000Z",
+		"slug": "azure-functions-v4-serverless-ai-integration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-functions-v4-serverless-ai-integration.webp"
+	},
+	{
+		"title": "Linux Kernel 6.X: Pushing Boundaries for Cloud and Edge",
+		"link": "https://blog.aicademy.ac/linux-kernel-6x-cloud-edge-boundaries-2026",
+		"pubDate": "2026-02-07T06:01:14.000Z",
+		"slug": "linux-kernel-6x-cloud-edge-boundaries-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-6x-cloud-edge-boundaries-2026.webp"
+	},
+	{
+		"title": "Shift Left with AI: The Future of DevSecOps Automation",
+		"link": "https://blog.aicademy.ac/shift-left-ai-devsecops-automation-future",
+		"pubDate": "2026-02-06T06:10:36.000Z",
+		"slug": "shift-left-ai-devsecops-automation-future",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/shift-left-ai-devsecops-automation-future.webp"
+	},
+	{
+		"title": "Terraform vs. OpenTofu: Navigating the Open Source Fork in 2026",
+		"link": "https://blog.aicademy.ac/terraform-opentofu-navigating-fork-2026",
+		"pubDate": "2026-02-05T06:14:07.000Z",
+		"slug": "terraform-opentofu-navigating-fork-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-opentofu-navigating-fork-2026.webp"
+	},
+	{
+		"title": "Kubernetes Security: Beyond the Basics with eBPF and OPA",
+		"link": "https://blog.aicademy.ac/kubernetes-security-ebpf-opa-advanced-strategies",
+		"pubDate": "2026-02-04T06:07:17.000Z",
+		"slug": "kubernetes-security-ebpf-opa-advanced-strategies",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-security-ebpf-opa-advanced-strategies.webp"
+	},
+	{
+		"title": "AWS re:Invent 2025 Retrospective: Game-Changing Services",
+		"link": "https://blog.aicademy.ac/aws-reinvent-2025-game-changing-services",
+		"pubDate": "2026-02-03T06:09:05.000Z",
+		"slug": "aws-reinvent-2025-game-changing-services",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-reinvent-2025-game-changing-services.webp"
+	},
+	{
+		"title": "Platform Engineering: Architecting for Developer Velocity",
+		"link": "https://blog.aicademy.ac/platform-engineering-developer-velocity-2026",
+		"pubDate": "2026-02-02T06:36:20.000Z",
+		"slug": "platform-engineering-developer-velocity-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-developer-velocity-2026.webp"
+	},
+	{
+		"title": "The Rise of Multimodal AI Agents in 2026",
+		"link": "https://blog.aicademy.ac/multimodal-ai-agents-2026-rise-applications",
+		"pubDate": "2026-02-01T06:11:27.000Z",
+		"slug": "multimodal-ai-agents-2026-rise-applications",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/multimodal-ai-agents-2026-rise-applications.webp"
+	},
+	{
+		"title": "January 2026 Month in Review",
+		"link": "https://blog.aicademy.ac/january-2026-tech-month-in-review",
+		"pubDate": "2026-01-30T06:05:58.000Z",
+		"slug": "january-2026-tech-month-in-review",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/january-2026-tech-month-in-review.webp"
+	},
+	{
+		"title": "Developer Metrics in the Agent Era",
+		"link": "https://blog.aicademy.ac/developer-productivity-metrics-ai-era",
+		"pubDate": "2026-01-29T06:04:12.000Z",
+		"slug": "developer-productivity-metrics-ai-era",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/developer-productivity-metrics-ai-era.webp"
+	},
+	{
+		"title": "Refactoring with AI: The 'Rack Drop'",
+		"link": "https://blog.aicademy.ac/ai-refactoring-technical-debt-strategy",
+		"pubDate": "2026-01-28T05:49:41.000Z",
+		"slug": "ai-refactoring-technical-debt-strategy",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-refactoring-technical-debt-strategy.webp"
+	},
+	{
+		"title": "WebAssembly vs Containers: 2026 View",
+		"link": "https://blog.aicademy.ac/wasm-vs-containers-2026-comparison",
+		"pubDate": "2026-01-27T05:48:42.000Z",
+		"slug": "wasm-vs-containers-2026-comparison",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/wasm-vs-containers-2026-comparison.webp"
+	},
+	{
+		"title": "Chaos Engineering for AI Agents",
+		"link": "https://blog.aicademy.ac/chaos-engineering-for-ai-agents",
+		"pubDate": "2026-01-26T05:52:45.000Z",
+		"slug": "chaos-engineering-for-ai-agents",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/chaos-engineering-for-ai-agents.webp"
+	},
+	{
+		"title": "Physical AI Deep Dive: Robotics",
+		"link": "https://blog.aicademy.ac/physical-ai-robotics-orchestration",
+		"pubDate": "2026-01-25T05:48:21.000Z",
+		"slug": "physical-ai-robotics-orchestration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/physical-ai-robotics-orchestration.webp"
+	},
+	{
+		"title": "Build Your AI-Powered Portfolio: Gemini Studio to Vercel (No Code)",
+		"link": "https://blog.aicademy.ac/build-ai-powered-portfolio-gemini-studio-vercel",
+		"pubDate": "2026-01-24T13:56:23.000Z",
+		"slug": "build-ai-powered-portfolio-gemini-studio-vercel",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/build-ai-powered-portfolio-gemini-studio-vercel.webp"
+	},
+	{
+		"title": "Build a Modern Portfolio with Gemini Studio & React (In Minutes)",
+		"link": "https://blog.aicademy.ac/build-modern-portfolio-gemini-studio-react",
+		"pubDate": "2026-01-24T13:54:24.000Z",
+		"slug": "build-modern-portfolio-gemini-studio-react",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/build-modern-portfolio-gemini-studio-react.webp"
+	},
+	{
+		"title": "Build a Modern Portfolio with Gemini Studio & React TS",
+		"link": "https://blog.aicademy.ac/build-modern-portfolio-gemini-studio-react-ts",
+		"pubDate": "2026-01-24T13:54:24.000Z",
+		"slug": "build-modern-portfolio-gemini-studio-react-ts",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/build-modern-portfolio-gemini-studio-react-ts.webp"
+	},
+	{
+		"title": "Green Cloud: Measuring AI Carbon",
+		"link": "https://blog.aicademy.ac/measuring-ai-carbon-footprint-kubernetes",
+		"pubDate": "2026-01-24T05:42:22.000Z",
+		"slug": "measuring-ai-carbon-footprint-kubernetes",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/measuring-ai-carbon-footprint-kubernetes.webp"
+	},
+	{
+		"title": "Digital Provenance: Trusting Content",
+		"link": "https://blog.aicademy.ac/digital-provenance-c2pa-2026",
+		"pubDate": "2026-01-23T05:49:26.000Z",
+		"slug": "digital-provenance-c2pa-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/digital-provenance-c2pa-2026.webp"
+	},
+	{
+		"title": "OpenTofu Encryption at Rest",
+		"link": "https://blog.aicademy.ac/opentofu-state-encryption-guide",
+		"pubDate": "2026-01-22T05:51:01.000Z",
+		"slug": "opentofu-state-encryption-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-state-encryption-guide.webp"
+	},
+	{
+		"title": "Cursor vs Copilot: 2026 Comparison",
+		"link": "https://blog.aicademy.ac/cursor-vs-github-copilot-2026-review",
+		"pubDate": "2026-01-21T05:49:41.000Z",
+		"slug": "cursor-vs-github-copilot-2026-review",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cursor-vs-github-copilot-2026-review.webp"
+	},
+	{
+		"title": "SQL Server 2025: Vector Search & AI",
+		"link": "https://blog.aicademy.ac/sql-server-2025-vector-search-ai",
+		"pubDate": "2026-01-20T05:50:40.000Z",
+		"slug": "sql-server-2025-vector-search-ai",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/sql-server-2025-vector-search-ai.webp"
+	},
+	{
+		"title": "Physical AI: KubeCon Edge Recap",
+		"link": "https://blog.aicademy.ac/kubecon-na-2025-edge-physical-ai",
+		"pubDate": "2026-01-19T05:52:00.000Z",
+		"slug": "kubecon-na-2025-edge-physical-ai",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubecon-na-2025-edge-physical-ai.webp"
+	},
+	{
+		"title": "In-Place Pod Resizing: K8s Autoscaling",
+		"link": "https://blog.aicademy.ac/kubernetes-in-place-pod-resizing-guide",
+		"pubDate": "2026-01-18T05:44:45.000Z",
+		"slug": "kubernetes-in-place-pod-resizing-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-in-place-pod-resizing-guide.webp"
+	},
+	{
+		"title": "'Death by AI': Legal Risks in 2026",
+		"link": "https://blog.aicademy.ac/death-by-ai-legal-claims-2026",
+		"pubDate": "2026-01-17T05:41:56.000Z",
+		"slug": "death-by-ai-legal-claims-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/death-by-ai-legal-claims-2026.webp"
+	},
+	{
+		"title": "The Death of the Chatbot: 2026 and the Rise of AI Agents",
+		"link": "https://blog.aicademy.ac/death-of-chatbot-2026-rise-of-ai-agents",
+		"pubDate": "2026-01-16T18:15:42.000Z",
+		"slug": "death-of-chatbot-2026-rise-of-ai-agents",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/death-of-chatbot-2026-rise-of-ai-agents.webp"
+	},
+	{
+		"title": "Azure Cobalt 200: ARM in the Cloud",
+		"link": "https://blog.aicademy.ac/azure-cobalt-200-arm-chip-analysis",
+		"pubDate": "2026-01-16T17:57:50.000Z",
+		"slug": "azure-cobalt-200-arm-chip-analysis",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-cobalt-200-arm-chip-analysis.webp"
+	},
+	{
+		"title": "Navigating GitHub's Awesome Lists: A Guide to Curated Resources",
+		"link": "https://blog.aicademy.ac/navigating-github-awesome-lists",
+		"pubDate": "2026-01-09T20:26:08.000Z",
+		"slug": "navigating-github-awesome-lists",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/navigating-github-awesome-lists.webp"
+	},
+	{
+		"title": "Customizing Intelligence: A First Look at AWS Nova Forge",
+		"link": "https://blog.aicademy.ac/aws-nova-forge-custom-model-guide",
+		"pubDate": "2025-12-31T05:45:10.000Z",
+		"slug": "aws-nova-forge-custom-model-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-nova-forge-custom-model-guide.webp"
+	},
+	{
+		"title": "ArgoCD in 2025: Integrating AI into GitOps Pipelines",
+		"link": "https://blog.aicademy.ac/argocd-2025-ai-gitops-integration",
+		"pubDate": "2025-12-30T05:44:34.000Z",
+		"slug": "argocd-2025-ai-gitops-integration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/argocd-2025-ai-gitops-integration.webp"
+	},
+	{
+		"title": "Implementing GreenOps: Using OpenCost and Kube-green to Reduce Carbon",
+		"link": "https://blog.aicademy.ac/greenops-kubernetes-opencost-kube-green",
+		"pubDate": "2025-12-29T05:49:07.000Z",
+		"slug": "greenops-kubernetes-opencost-kube-green",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/greenops-kubernetes-opencost-kube-green.webp"
+	},
+	{
+		"title": "FinOps for AI: Budgeting for the Variable Cost of Agents",
+		"link": "https://blog.aicademy.ac/finops-for-ai-cost-optimization-strategies",
+		"pubDate": "2025-12-28T05:44:47.000Z",
+		"slug": "finops-for-ai-cost-optimization-strategies",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/finops-for-ai-cost-optimization-strategies.webp"
+	},
+	{
+		"title": "Grafana 12: SQL Expressions and Canvas Visualization",
+		"link": "https://blog.aicademy.ac/grafana-12-features-sql-expressions",
+		"pubDate": "2025-12-27T05:42:34.000Z",
+		"slug": "grafana-12-features-sql-expressions",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/grafana-12-features-sql-expressions.webp"
+	},
+	{
+		"title": "The Fourth Signal: Introduction to OpenTelemetry Profiling",
+		"link": "https://blog.aicademy.ac/opentelemetry-profiling-introduction-2025",
+		"pubDate": "2025-12-26T05:43:08.000Z",
+		"slug": "opentelemetry-profiling-introduction-2025",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentelemetry-profiling-introduction-2025.webp"
+	},
+	{
+		"title": "Is TOGAF Still Valid in 2026?",
+		"link": "https://blog.aicademy.ac/is-togaf-still-valid-in-2026",
+		"pubDate": "2025-12-25T12:34:56.000Z",
+		"slug": "is-togaf-still-valid-in-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/is-togaf-still-valid-in-2026.webp"
+	},
+	{
+		"title": "Prometheus 3.0: A New UI and Native OTLP Support",
+		"link": "https://blog.aicademy.ac/prometheus-3-0-features-otlp-utf8",
+		"pubDate": "2025-12-25T05:44:37.000Z",
+		"slug": "prometheus-3-0-features-otlp-utf8",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/prometheus-3-0-features-otlp-utf8.webp"
+	},
+	{
+		"title": "Securing the Agent: The Rise of Non-Human Identity Management (NHIM)",
+		"link": "https://blog.aicademy.ac/non-human-identity-management-ai-agents",
+		"pubDate": "2025-12-24T05:45:19.000Z",
+		"slug": "non-human-identity-management-ai-agents",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/non-human-identity-management-ai-agents.webp"
+	},
+	{
+		"title": "Snyk vs. Wiz in 2025: Convergence of Code and Cloud Security",
+		"link": "https://blog.aicademy.ac/snyk-vs-wiz-2025-cnapp-comparison",
+		"pubDate": "2025-12-23T05:45:17.000Z",
+		"slug": "snyk-vs-wiz-2025-cnapp-comparison",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/snyk-vs-wiz-2025-cnapp-comparison.webp"
+	},
+	{
+		"title": "Preparing for Q-Day: The DevOps Guide to Post-Quantum Cryptography",
+		"link": "https://blog.aicademy.ac/post-quantum-cryptography-devops-guide",
+		"pubDate": "2025-12-22T05:44:53.000Z",
+		"slug": "post-quantum-cryptography-devops-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/post-quantum-cryptography-devops-guide.webp"
+	},
+	{
+		"title": "The AI-Optimized Dockerfile: Using Agents to Shrink Image Sizes",
+		"link": "https://blog.aicademy.ac/optimizing-docker-images-with-ai-agents",
+		"pubDate": "2025-12-21T05:41:35.000Z",
+		"slug": "optimizing-docker-images-with-ai-agents",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/optimizing-docker-images-with-ai-agents.webp"
+	},
+	{
+		"title": "Running LLMs Locally: A Guide to Docker Desktop’s AI Model Runner",
+		"link": "https://blog.aicademy.ac/docker-desktop-ai-model-runner-guide",
+		"pubDate": "2025-12-20T05:41:24.000Z",
+		"slug": "docker-desktop-ai-model-runner-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-desktop-ai-model-runner-guide.webp"
+	},
+	{
+		"title": "WebAssembly on the Server: Real-World Use Cases in 2025",
+		"link": "https://blog.aicademy.ac/webassembly-server-side-use-cases-2025",
+		"pubDate": "2025-12-19T05:42:54.000Z",
+		"slug": "webassembly-server-side-use-cases-2025",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/webassembly-server-side-use-cases-2025.webp"
+	},
+	{
+		"title": "VS Code 1.106: Managing Your AI Team with Agent Sessions",
+		"link": "https://blog.aicademy.ac/vs-code-agent-sessions-ai-features",
+		"pubDate": "2025-12-18T05:44:14.000Z",
+		"slug": "vs-code-agent-sessions-ai-features",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/vs-code-agent-sessions-ai-features.webp"
+	},
+	{
+		"title": "Go 1.25: Turbocharging Tests with the 'synctest' Package",
+		"link": "https://blog.aicademy.ac/go-1-25-features-synctest-json-v2",
+		"pubDate": "2025-12-17T05:44:36.000Z",
+		"slug": "go-1-25-features-synctest-json-v2",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/go-1-25-features-synctest-json-v2.webp"
+	},
+	{
+		"title": "Python 3.14 Deep Dive: Free-Threading and the End of the GIL",
+		"link": "https://blog.aicademy.ac/python-3-14-features-gil-free-threading",
+		"pubDate": "2025-12-16T05:44:06.000Z",
+		"slug": "python-3-14-features-gil-free-threading",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/python-3-14-features-gil-free-threading.webp"
+	},
+	{
+		"title": "Platform Engineering 2.0: Moving From 'Portals' to Standardized Vending Machines",
+		"link": "https://blog.aicademy.ac/platform-engineering-2-0-standardization-trends",
+		"pubDate": "2025-12-15T05:46:17.000Z",
+		"slug": "platform-engineering-2-0-standardization-trends",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-2-0-standardization-trends.webp"
+	},
+	{
+		"title": "The Great IaC Schism: Terraform under IBM vs. OpenTofu in 2025",
+		"link": "https://blog.aicademy.ac/the-great-iac-schism-terraform-ibm-vs-opentofu-2025",
+		"pubDate": "2025-12-14T14:46:54.000Z",
+		"slug": "the-great-iac-schism-terraform-ibm-vs-opentofu-2025",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/the-great-iac-schism-terraform-ibm-vs-opentofu-2025.webp"
+	},
+	{
+		"title": "Provisioning the AI Stack: Using Ansible to Deploy GPU Clusters and Vector DBs",
+		"link": "https://blog.aicademy.ac/ansible-provisioning-ai-gpu-infrastructure",
+		"pubDate": "2025-12-14T05:40:58.000Z",
+		"slug": "ansible-provisioning-ai-gpu-infrastructure",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ansible-provisioning-ai-gpu-infrastructure.webp"
+	},
+	{
+		"title": "Mastering GitHub Copilot in Large-Scale Applications",
+		"link": "https://blog.aicademy.ac/advanced-github-copilot-for-large-projects",
+		"pubDate": "2025-12-13T20:37:37.000Z",
+		"slug": "advanced-github-copilot-for-large-projects",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/advanced-github-copilot-for-large-projects.webp"
+	},
+	{
+		"title": "The AI Job Extinction Survival Guide: 2027 Edition",
+		"link": "https://blog.aicademy.ac/ai-job-extinction-survival-guide-2027",
+		"pubDate": "2025-12-13T20:31:12.000Z",
+		"slug": "ai-job-extinction-survival-guide-2027",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ai-job-extinction-survival-guide-2027.webp"
+	},
+	{
+		"title": "Future of DevOps, Cloud Engineering & Software Engineering in next 2 Years",
+		"link": "https://blog.aicademy.ac/future-devops-cloud-software-engineering-ai-impact-2028",
+		"pubDate": "2025-12-13T18:22:14.000Z",
+		"slug": "future-devops-cloud-software-engineering-ai-impact-2028",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/future-devops-cloud-software-engineering-ai-impact-2028.webp"
+	},
+	{
+		"title": "The Event-Driven Enterprise: Self-Healing Infra with Ansible and AI",
+		"link": "https://blog.aicademy.ac/event-driven-ansible-ai-self-healing",
+		"pubDate": "2025-12-13T05:41:43.000Z",
+		"slug": "event-driven-ansible-ai-self-healing",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/event-driven-ansible-ai-self-healing.webp"
+	},
+	{
+		"title": "Mastering Azure Network Watcher: A Deep Dive",
+		"link": "https://blog.aicademy.ac/azure-network-watcher-deep-dive",
+		"pubDate": "2025-12-12T16:51:46.000Z",
+		"slug": "azure-network-watcher-deep-dive",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-network-watcher-deep-dive.webp"
+	},
+	{
+		"title": "Securing Your Infrastructure: Implementing Native State Encryption in OpenTofu",
+		"link": "https://blog.aicademy.ac/opentofu-native-state-encryption-tutorial",
+		"pubDate": "2025-12-12T05:43:26.000Z",
+		"slug": "opentofu-native-state-encryption-tutorial",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-native-state-encryption-tutorial.webp"
+	},
+	{
+		"title": "The DeepSeek Disruption: How Open Weights are Challenging Proprietary Giants",
+		"link": "https://blog.aicademy.ac/deepseek-v3-vs-proprietary-models-coding",
+		"pubDate": "2025-12-11T07:19:54.000Z",
+		"slug": "deepseek-v3-vs-proprietary-models-coding",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/deepseek-v3-vs-proprietary-models-coding.webp"
+	},
+	{
+		"title": "Gemini 3 Pro vs. GPT-5.1: Choosing the Right Model for Agentic Workflows",
+		"link": "https://blog.aicademy.ac/gemini-3-pro-vs-gpt-5-1-benchmark-comparison",
+		"pubDate": "2025-12-11T07:16:16.000Z",
+		"slug": "gemini-3-pro-vs-gpt-5-1-benchmark-comparison",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gemini-3-pro-vs-gpt-5-1-benchmark-comparison.webp"
+	},
+	{
+		"title": "ARM in the Cloud: Migrating Workloads to Azure Cobalt 100 VMs",
+		"link": "https://blog.aicademy.ac/migrating-to-azure-cobalt-100-arm-vms",
+		"pubDate": "2025-12-11T07:13:55.000Z",
+		"slug": "migrating-to-azure-cobalt-100-arm-vms",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/migrating-to-azure-cobalt-100-arm-vms.webp"
+	},
+	{
+		"title": "Terraform vs. OpenTofu in 2025: The Definitive Feature Comparison",
+		"link": "https://blog.aicademy.ac/terraform-vs-opentofu-2025-comparison",
+		"pubDate": "2025-12-11T05:44:36.000Z",
+		"slug": "terraform-vs-opentofu-2025-comparison",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/terraform-vs-opentofu-2025-comparison.webp"
+	},
+	{
+		"title": "Create & Host Portfolio Website for Free (No Coding Skills Required)",
+		"link": "https://blog.aicademy.ac/create-host-portfolio-website-free-no-coding",
+		"pubDate": "2025-12-10T21:46:13.000Z",
+		"slug": "create-host-portfolio-website-free-no-coding",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/create-host-portfolio-website-free-no-coding.webp"
+	},
+	{
+		"title": "Orchestrating the Enterprise: A Deep Dive into Azure AI Agent Service",
+		"link": "https://blog.aicademy.ac/azure-ai-agent-service-enterprise-orchestration",
+		"pubDate": "2025-12-10T13:09:39.000Z",
+		"slug": "azure-ai-agent-service-enterprise-orchestration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-ai-agent-service-enterprise-orchestration.webp"
+	},
+	{
+		"title": "Meet Kiro and Nova: Inside AWS's New Frontier Agent Ecosystem",
+		"link": "https://blog.aicademy.ac/aws-frontier-agents-kiro-nova-explained",
+		"pubDate": "2025-12-10T11:52:55.000Z",
+		"slug": "aws-frontier-agents-kiro-nova-explained",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-frontier-agents-kiro-nova-explained.webp"
+	},
+	{
+		"title": "Beyond Chatbots: The Economics of Deploying Agent Fleets on AWS Trainium3",
+		"link": "https://blog.aicademy.ac/aws-trainium3-agent-fleets-economics-2025",
+		"pubDate": "2025-12-10T11:47:11.000Z",
+		"slug": "aws-trainium3-agent-fleets-economics-2025",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-trainium3-agent-fleets-economics-2025.webp"
+	},
+	{
+		"title": "Linux Kernel 6.18 LTS: Rust Drivers and Critical Security Updates",
+		"link": "https://blog.aicademy.ac/linux-kernel-6-18-lts-features-rust",
+		"pubDate": "2025-12-10T05:42:44.000Z",
+		"slug": "linux-kernel-6-18-lts-features-rust",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-6-18-lts-features-rust.webp"
+	},
+	{
+		"title": "Securely Connecting Azure Web App to Private Azure SQL: A Hands-On Lab with AZ CLI",
+		"link": "https://blog.aicademy.ac/securely-connecting-azure-web-app-private-azure-sql-az-cli-l",
+		"pubDate": "2025-12-09T19:12:11.000Z",
+		"slug": "securely-connecting-azure-web-app-private-azure-sql-az-cli-l",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/securely-connecting-azure-web-app-private-azure-sql-az-cli-l.webp"
+	},
+	{
+		"title": "Sidecar-Free Service Mesh: Understanding Cilium’s eBPF Architecture",
+		"link": "https://blog.aicademy.ac/cilium-ebpf-sidecar-free-service-mesh",
+		"pubDate": "2025-12-09T05:41:31.000Z",
+		"slug": "cilium-ebpf-sidecar-free-service-mesh",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/cilium-ebpf-sidecar-free-service-mesh.webp"
+	},
+	{
+		"title": "Gateway API is GA: Why It’s Time to Deprecate Your Ingress Controller",
+		"link": "https://blog.aicademy.ac/kubernetes-gateway-api-vs-ingress-migration",
+		"pubDate": "2025-12-08T05:43:22.000Z",
+		"slug": "kubernetes-gateway-api-vs-ingress-migration",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-gateway-api-vs-ingress-migration.webp"
+	},
+	{
+		"title": "From Coding to Orchestrating: What Gemini 3 Taught Us About the Future of Cloud Engineering Last Month",
+		"link": "https://blog.aicademy.ac/gemini-3-ai-agents-future-cloud-engineering",
+		"pubDate": "2025-12-07T20:17:08.000Z",
+		"slug": "gemini-3-ai-agents-future-cloud-engineering",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gemini-3-ai-agents-future-cloud-engineering.webp"
+	},
+	{
+		"title": "Build Azure Hub and Spoke Architecture using Terraform",
+		"link": "https://blog.aicademy.ac/build-azure-hub-spoke-architecture-using-terraform",
+		"pubDate": "2025-12-07T08:23:52.000Z",
+		"slug": "build-azure-hub-spoke-architecture-using-terraform",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/build-azure-hub-spoke-architecture-using-terraform.webp"
+	},
+	{
+		"title": "Top 10 Infrastructure as Code (IAC) Tools in 2026",
+		"link": "https://blog.aicademy.ac/top-10-iac-tools-2026",
+		"pubDate": "2025-12-06T19:27:52.000Z",
+		"slug": "top-10-iac-tools-2026",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/top-10-iac-tools-2026.webp"
+	},
+	{
+		"title": "Kubernetes 1.35: Key Features and Upgrade Guide for Platform Engineers",
+		"link": "https://blog.aicademy.ac/kubernetes-1-35-features-upgrade-guide",
+		"pubDate": "2025-12-06T19:10:37.000Z",
+		"slug": "kubernetes-1-35-features-upgrade-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-35-features-upgrade-guide.webp"
+	},
+	{
+		"title": "The 'Kobayashi Maru' of Azure Networking: A 16-Hour Deep-Dive Complex Exercise for Networking Experts",
+		"link": "https://blog.aicademy.ac/azure-networking-exercise-01",
+		"pubDate": "2025-12-06T19:03:33.000Z",
+		"slug": "azure-networking-exercise-01",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-networking-exercise-01.webp"
+	},
+	{
+		"title": "Unlock the Power of Winget: Master Windows Package Management",
+		"link": "https://blog.aicademy.ac/everything-about-winget",
+		"pubDate": "2025-01-22T18:30:00.000Z",
+		"slug": "everything-about-winget",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/everything-about-winget.webp"
+	},
+	{
+		"title": "Windows 11 Setup - Clean & Minimal",
+		"link": "https://blog.aicademy.ac/desktop-setup",
+		"pubDate": "2024-12-21T18:30:00.000Z",
+		"slug": "desktop-setup",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/desktop-setup.webp"
+	},
+	{
+		"title": "4 Ways To Create Azure Resources",
+		"link": "https://blog.aicademy.ac/4-ways-to-create-azure-resource",
+		"pubDate": "2024-12-21T18:30:00.000Z",
+		"slug": "4-ways-to-create-azure-resource",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/4-ways-to-create-azure-resource.webp"
+	},
+	{
+		"title": "Azure Pricing Explained | Day 2 of Cloud Engineering",
+		"link": "https://blog.aicademy.ac/azure-pricing-explained",
+		"pubDate": "2024-11-26T18:30:00.000Z",
+		"slug": "azure-pricing-explained",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-pricing-explained.webp"
+	},
+	{
+		"title": "How Microsoft Azure is Structured? | Day 1 of Cloud Engineering",
+		"link": "https://blog.aicademy.ac/introduction-to-azure-building-blocks",
+		"pubDate": "2024-11-20T18:30:00.000Z",
+		"slug": "introduction-to-azure-building-blocks",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/introduction-to-azure-building-blocks.webp"
+	},
+	{
+		"title": "Introduction to Azure Networking",
+		"link": "https://blog.aicademy.ac/introduction-to-azure-networking",
+		"pubDate": "2024-11-17T18:30:00.000Z",
+		"slug": "introduction-to-azure-networking",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/introduction-to-azure-networking.webp"
+	},
+	{
+		"title": "Integrate AI with VS Code | GitHub Copilot Free Alternative",
+		"link": "https://blog.aicademy.ac/integrate-ai-with-vs-code",
+		"pubDate": "2024-10-05T18:30:00.000Z",
+		"slug": "integrate-ai-with-vs-code",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/integrate-ai-with-vs-code.webp"
+	},
+	{
+		"title": "PowerShell 102 - Getting Comfortable with PowerShell Terminal!",
+		"link": "https://blog.aicademy.ac/getting-comfortable-with-terminal",
+		"pubDate": "2024-08-30T18:30:00.000Z",
+		"slug": "getting-comfortable-with-terminal",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/getting-comfortable-with-terminal.webp"
+	},
+	{
+		"title": "PowerShell 101 - Introduction to Scripting & Automation!",
+		"link": "https://blog.aicademy.ac/introduction-to-automation-using-powershell",
+		"pubDate": "2024-08-24T18:30:00.000Z",
+		"slug": "introduction-to-automation-using-powershell",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/introduction-to-automation-using-powershell.webp"
+	},
+	{
+		"title": "Customize HTML Template and Template Inheritance using Jinja",
+		"link": "https://blog.aicademy.ac/customize-html-template-and-inheritance-using-jinja",
+		"pubDate": "2024-01-25T18:30:00.000Z",
+		"slug": "customize-html-template-and-inheritance-using-jinja",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/customize-html-template-and-inheritance-using-jinja.webp"
+	},
+	{
+		"title": "Pass Python Variables in HTML Template using Jinja2",
+		"link": "https://blog.aicademy.ac/embedding-python-code-in-html-using-jinja",
+		"pubDate": "2024-01-20T18:30:00.000Z",
+		"slug": "embedding-python-code-in-html-using-jinja",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/embedding-python-code-in-html-using-jinja.webp"
+	},
+	{
+		"title": "How to Use Poetry and Understand Jinja Templating Engine",
+		"link": "https://blog.aicademy.ac/poetry-and-jinja-templates-in-flask",
+		"pubDate": "2024-01-19T18:30:00.000Z",
+		"slug": "poetry-and-jinja-templates-in-flask",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/poetry-and-jinja-templates-in-flask.webp"
+	},
+	{
+		"title": "Getting Started With Flask Web Framework",
+		"link": "https://blog.aicademy.ac/getting-started-with-flask",
+		"pubDate": "2024-01-16T18:30:00.000Z",
+		"slug": "getting-started-with-flask",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/getting-started-with-flask.webp"
+	},
+	{
+		"title": "Introduction to Web Development Using Python (Flask)",
+		"link": "https://blog.aicademy.ac/introduction-to-flask-course",
+		"pubDate": "2024-01-14T18:30:00.000Z",
+		"slug": "introduction-to-flask-course",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/introduction-to-flask-course.webp"
+	}
+]

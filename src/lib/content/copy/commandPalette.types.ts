@@ -12,6 +12,7 @@ export interface CommandPaletteCopy {
 	resumeGroupLabel: string;
 	socialGroupLabel: string;
 	writingGroupLabel: string;
+	videosGroupLabel: string;
 	themeGroupLabel: string;
 	navigateHint: string;
 	selectHint: string;

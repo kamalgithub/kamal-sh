@@ -5,7 +5,6 @@
 	import { nav, footerLinks } from '$lib/content/nav';
 	import { caseStudies } from '$lib/content/case-studies';
 	import { products } from '$lib/content/products/products';
-	import writingPosts from '$lib/content/writing/posts.generated.json';
 	import { commandPaletteCopy as copy } from '$lib/content/copy/commandPalette';
 	import { buildCommands, THEME_TOGGLE_COMMAND_ID, type Command } from '$lib/utils/buildCommands';
 	import { getResolvedTheme, toggleLightDark, type ResolvedTheme } from '$lib/utils/theme';
@@ -17,15 +16,35 @@
 	import IconSun from '$lib/components/icons/IconSun.svelte';
 	import IconMoon from '$lib/components/icons/IconMoon.svelte';
 
-	const commands = buildCommands(
-		nav,
-		footerLinks,
-		caseStudies,
-		products,
-		writingPosts,
-		profile.socials,
-		copy
+	// Pages/case-studies/products/socials are cheap and built eagerly. The full writing +
+	// video archive (~18KB gz combined) is dynamically imported only once the visitor
+	// actually opens the palette (see loadArchive) — every other page pays nothing for it,
+	// and the palette still opens instantly with everything except archive results while
+	// that tiny fetch resolves. See docs/READINESS.md's T2.3.
+	let commands: Command[] = $state(
+		buildCommands(nav, footerLinks, caseStudies, products, [], [], profile.socials, copy)
 	);
+	let archiveLoaded = false;
+
+	async function loadArchive() {
+		if (archiveLoaded) return;
+		archiveLoaded = true;
+		const [writingArchive, videoArchive] = await Promise.all([
+			import('$lib/content/writing/posts-archive.generated.json'),
+			import('$lib/content/youtube/videos-archive.generated.json')
+		]);
+		commands = buildCommands(
+			nav,
+			footerLinks,
+			caseStudies,
+			products,
+			writingArchive.default,
+			videoArchive.default,
+			profile.socials,
+			copy
+		);
+	}
+
 	const STATIC_ICONS = { page: IconArrowRight, resume: IconTerminal, external: IconArrowUpRight };
 	const RESOLVED_THEME_ICONS: Record<ResolvedTheme, typeof IconSun> = {
 		light: IconSun,
@@ -47,7 +66,7 @@
 	const isSearching = $derived(query.trim() !== '');
 	const filtered = $derived.by(() => {
 		const q = query.trim();
-		if (q === '') return commands;
+		if (q === '') return commands.filter((command) => !command.hiddenWhenIdle);
 		return commands
 			.map((command) => ({
 				command,
@@ -78,6 +97,9 @@
 		// clearing it here would permanently orphan those refs with nothing left to repopulate them.
 		currentResolvedTheme = getResolvedTheme();
 		dialogEl?.showModal();
+		// Fire-and-forget: the dialog opens immediately with whatever's already built;
+		// `commands` updates reactively once the archive resolves, near-instant in practice.
+		void loadArchive();
 	}
 
 	function closePalette() {

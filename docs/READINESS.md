@@ -52,10 +52,9 @@ While in the same code: also added site-wide `Cache-Control` (a separate ask, no
 - **Fix:** fetch Fontshare's Switzer variable woff2 into `static/fonts/`, replace the five `@font-face` blocks in `fonts.css` with one (`font-weight: 100 900`), delete the statics. Visually verify all weights render (buttons 500, headings 600, dark-mode weight override from tokens.css unaffected).
 - **Doc update:** design-tokens.md — note Switzer is now variable, same rationale as Fraunces.
 
-### T2.3 Lazy CommandPalette command list (A4 — MED)
+### T2.3 Lazy CommandPalette command list (A4 — MED) — ✅ done 2026-09-09
 
-- **Problem:** `CommandPalette.svelte` is mounted in the root layout and eagerly imports every content domain (case studies, products, posts.generated.json, profile, nav) on every page — needed only after the palette opens. Roughly 10–15KB gz of initial bundle.
-- **Fix:** mount the dialog contents (or build `buildCommands`' inputs) on first open — dynamic `import()` inside the open path, or `{#if opened}` around the list, whichever keeps the global Cmd-K / `/` / `onPaletteOpen` listeners immediate (they must stay eager).
+Landed as part of adding full writing/video archive search (a separate, user-requested change that made this fix load-bearing rather than optional — the archive data alone runs ~18KB gz). `CommandPalette.svelte` builds pages/case-studies/products/socials eagerly (cheap), and dynamically `import()`s `posts-archive.generated.json`/`videos-archive.generated.json` only inside `openPalette()`, reactively updating `commands` (a `$state`) once it resolves — the global Cmd-K/`/`/`onPaletteOpen` listeners stay eager throughout, unaffected. See docs/architecture.md's "Command palette search: recent display vs. full archive".
 - **Doc update:** architecture.md command-palette section — one sentence on the lazy strategy and the constraint that global listeners stay eager.
 
 ### T2.4 DRY extractions (C2, C3, C4 — MED)
