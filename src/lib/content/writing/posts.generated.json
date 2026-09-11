@@ -1,5 +1,19 @@
 [
 	{
+		"title": "How Gordon Docker Desktop's AI Agent Streamlines Your Container Development Workflow",
+		"link": "https://blog.aicademy.ac/docker-gordon-ai-agent",
+		"pubDate": "2026-09-11T09:53:23.000Z",
+		"slug": "docker-gordon-ai-agent",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-gordon-ai-agent.webp"
+	},
+	{
+		"title": "How AWS Security Hub Now Cross-Pollinates Cloud Vulnerabilities with Azure",
+		"link": "https://blog.aicademy.ac/aws-securityhub-cross-cloud",
+		"pubDate": "2026-09-10T09:54:25.000Z",
+		"slug": "aws-securityhub-cross-cloud",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-securityhub-cross-cloud.webp"
+	},
+	{
 		"title": "Is Your Terraform State Secure? A 5-Minute Audit for `terraform_data` Usage in v1.16",
 		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-audit",
 		"pubDate": "2026-09-09T09:57:45.000Z",
@@ -40,19 +54,5 @@
 		"pubDate": "2026-09-04T16:00:50.000Z",
 		"slug": "k8s-1-37-one-command-gpu",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-one-command-gpu.webp"
-	},
-	{
-		"title": "How to Ensure Your Kubernetes 1.37 Upgrade Doesn't Corrupt Your Nodes and Static Pods",
-		"link": "https://blog.aicademy.ac/k8s-1-37-node-static-pods",
-		"pubDate": "2026-09-02T09:45:53.000Z",
-		"slug": "k8s-1-37-node-static-pods",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-node-static-pods.webp"
-	},
-	{
-		"title": "Why Your Kubernetes Cluster Might Silently Break After a 1.37 Upgrade",
-		"link": "https://blog.aicademy.ac/k8s-1-37-ipvs-hidden-gotcha",
-		"pubDate": "2026-09-01T10:16:43.000Z",
-		"slug": "k8s-1-37-ipvs-hidden-gotcha",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-ipvs-hidden-gotcha.webp"
 	}
 ]
