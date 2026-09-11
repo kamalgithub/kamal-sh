@@ -12,6 +12,10 @@ on:
     workflows: ['CI']
     types: [completed]
     branches: [main]
+  schedule:
+    # Approximately every 48 hours.
+    - cron: '18 6 */2 * *'
+  workflow_dispatch: {}
 
 jobs:
   deploy:
