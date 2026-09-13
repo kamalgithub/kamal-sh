@@ -1,5 +1,19 @@
 [
 	{
+		"title": "The Docker 'Hardened Images' Myth: Why Your Default Images Aren't Production-Ready",
+		"link": "https://blog.aicademy.ac/docker-hardened-images-myth",
+		"pubDate": "2026-09-13T10:25:35.000Z",
+		"slug": "docker-hardened-images-myth",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-hardened-images-myth.webp"
+	},
+	{
+		"title": "The One Docker Desktop Command That Runs Any Local AI Model",
+		"link": "https://blog.aicademy.ac/docker-one-command-ai-model",
+		"pubDate": "2026-09-12T09:29:50.000Z",
+		"slug": "docker-one-command-ai-model",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-one-command-ai-model.webp"
+	},
+	{
 		"title": "How Gordon Docker Desktop's AI Agent Streamlines Your Container Development Workflow",
 		"link": "https://blog.aicademy.ac/docker-gordon-ai-agent",
 		"pubDate": "2026-09-11T09:53:23.000Z",

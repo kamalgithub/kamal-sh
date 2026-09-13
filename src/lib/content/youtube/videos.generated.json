@@ -1,5 +1,12 @@
 [
 	{
+		"title": "https://aicademy.ac",
+		"link": "https://www.youtube.com/shorts/_qC84SU71vQ",
+		"videoId": "_qC84SU71vQ",
+		"publishedAt": "2026-09-12T10:11:11.000Z",
+		"thumbnail": "https://i4.ytimg.com/vi/_qC84SU71vQ/hqdefault.jpg"
+	},
+	{
 		"title": "Create your Portfolio Using Gemini Studio",
 		"link": "https://www.youtube.com/watch?v=zsFpHvNQUh8",
 		"videoId": "zsFpHvNQUh8",
@@ -47,12 +54,5 @@
 		"videoId": "cEg9INnN2p0",
 		"publishedAt": "2024-11-22T07:53:26.000Z",
 		"thumbnail": "https://i4.ytimg.com/vi/cEg9INnN2p0/hqdefault.jpg"
-	},
-	{
-		"title": "Azure Networking Basics Explained in Hindi",
-		"link": "https://www.youtube.com/watch?v=N3AV6OLahBM",
-		"videoId": "N3AV6OLahBM",
-		"publishedAt": "2024-11-19T12:05:51.000Z",
-		"thumbnail": "https://i3.ytimg.com/vi/N3AV6OLahBM/hqdefault.jpg"
 	}
 ]

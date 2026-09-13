@@ -1,5 +1,19 @@
 [
 	{
+		"title": "The Docker 'Hardened Images' Myth: Why Your Default Images Aren't Production-Ready",
+		"link": "https://blog.aicademy.ac/docker-hardened-images-myth",
+		"pubDate": "2026-09-13T10:25:35.000Z",
+		"slug": "docker-hardened-images-myth",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-hardened-images-myth.webp"
+	},
+	{
+		"title": "The One Docker Desktop Command That Runs Any Local AI Model",
+		"link": "https://blog.aicademy.ac/docker-one-command-ai-model",
+		"pubDate": "2026-09-12T09:29:50.000Z",
+		"slug": "docker-one-command-ai-model",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-one-command-ai-model.webp"
+	},
+	{
 		"title": "How Gordon Docker Desktop's AI Agent Streamlines Your Container Development Workflow",
 		"link": "https://blog.aicademy.ac/docker-gordon-ai-agent",
 		"pubDate": "2026-09-11T09:53:23.000Z",
@@ -40,19 +54,5 @@
 		"pubDate": "2026-09-06T09:33:53.000Z",
 		"slug": "linux-kernel-7-2-cloud-native",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-7-2-cloud-native.webp"
-	},
-	{
-		"title": "Is Your Kubernetes 1.37 Cluster Actually Stable? A 5-Minute Post-Upgrade Audit",
-		"link": "https://blog.aicademy.ac/k8s-1-37-post-upgrade-audit",
-		"pubDate": "2026-09-05T09:12:12.000Z",
-		"slug": "k8s-1-37-post-upgrade-audit",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-post-upgrade-audit.webp"
-	},
-	{
-		"title": "One kubectl Command That Unlocks GPU-Aware Scheduling with Kubernetes 1.37 DRA",
-		"link": "https://blog.aicademy.ac/k8s-1-37-one-command-gpu",
-		"pubDate": "2026-09-04T16:00:50.000Z",
-		"slug": "k8s-1-37-one-command-gpu",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/k8s-1-37-one-command-gpu.webp"
 	}
 ]
