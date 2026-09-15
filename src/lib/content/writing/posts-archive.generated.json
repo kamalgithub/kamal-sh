@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Deploying Secure AI: A Deep Dive into GCP Confidential VM `g4-standard-48`",
+		"link": "https://blog.aicademy.ac/gcp-confidential-vm-deep-dive",
+		"pubDate": "2026-09-15T10:13:40.000Z",
+		"slug": "gcp-confidential-vm-deep-dive",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gcp-confidential-vm-deep-dive.webp"
+	},
+	{
+		"title": "How CloudFormation Express Mode Finally Accelerates Your Infrastructure Deployments",
+		"link": "https://blog.aicademy.ac/aws-cloudformation-express",
+		"pubDate": "2026-09-14T10:50:50.000Z",
+		"slug": "aws-cloudformation-express",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-cloudformation-express.webp"
+	},
+	{
 		"title": "The Docker 'Hardened Images' Myth: Why Your Default Images Aren't Production-Ready",
 		"link": "https://blog.aicademy.ac/docker-hardened-images-myth",
 		"pubDate": "2026-09-13T10:25:35.000Z",
