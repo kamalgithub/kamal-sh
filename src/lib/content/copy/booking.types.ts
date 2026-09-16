@@ -3,6 +3,7 @@ export interface BookingCopy {
 	dateStepLabel: string;
 	durationStepLabel: string;
 	timeStepLabel: string;
+	detailsStepLabel: string;
 	backLabel: string;
 	noSlotsMessage: string;
 	loadingLabel: string;
@@ -16,4 +17,22 @@ export interface BookingCopy {
 	weekdayLabels: string[];
 	/** Template with a `{minutes}` placeholder, e.g. "{minutes} min". */
 	durationLabelTemplate: string;
+	nameLabel: string;
+	emailLabel: string;
+	notesLabel: string;
+	locationLabel: string;
+	locationGoogleMeetLabel: string;
+	locationPhoneLabel: string;
+	phoneLabel: string;
+	confirmLabel: string;
+	confirmingLabel: string;
+	successMessage: string;
+	nameRequiredError: string;
+	emailInvalidError: string;
+	notesRequiredError: string;
+	phoneRequiredError: string;
+	conflictError: string;
+	notConfiguredError: string;
+	verificationFailedError: string;
+	bookingFailedError: string;
 }

@@ -14,7 +14,7 @@
 	// automatically since the zone is already on the same Cloudflare account — no manual
 	// dashboard step needed. This replaces whatever origin the zone previously pointed to
 	// (a Netlify-hosted site) for all traffic to the apex domain.
-	"routes": [{ "pattern": "kamal.sh", "custom_domain": true }],
+	"routes": [{ "pattern": "kamal.sh", "custom_domain": true },{ "pattern": "www.kamal.sh", "custom_domain": true }],
 	"vars": {
 		// The contact list new /writing subscribers are added to (Mailjet's Contact Lists
 		// API) — its numeric list ID, not a credential, so it lives here rather than as a

@@ -41,7 +41,12 @@
 				/>
 			</Card>
 			<Card>
-				<BookingFlow copy={bookingCopy} bookingUrl={profile.links.booking} />
+				<BookingFlow
+					copy={bookingCopy}
+					bookingUrl={profile.links.booking}
+					turnstileSiteKey={data.turnstileSiteKey}
+					form={form ?? undefined}
+				/>
 			</Card>
 		</div>
 	</Container>

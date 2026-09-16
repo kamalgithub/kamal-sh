@@ -11,6 +11,9 @@
 	let status: 'idle' | 'success' | 'error' = $state('idle');
 	let errorMessage = $state('');
 	let turnstileVerified = $state(false);
+	// Turnstile's script + widget only load once the visitor actually starts typing, not
+	// on page load — see ContactForm.svelte's identical reasoning.
+	let turnstileRequested = $state(false);
 
 	// Distinct global callback names from ContactForm's — this form and the contact form
 	// never mount on the same page today, but there's no reason to risk two Turnstile
@@ -38,7 +41,7 @@
 </script>
 
 <svelte:head>
-	{#if turnstileSiteKey}
+	{#if turnstileSiteKey && turnstileRequested}
 		<!-- eslint-disable svelte/no-navigation-without-resolve -- external script, not an internal route -->
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 		<!-- eslint-enable svelte/no-navigation-without-resolve -->
@@ -51,6 +54,7 @@
 	<form
 		method="POST"
 		action="/newsletter"
+		onfocusin={() => (turnstileRequested = true)}
 		use:enhance={() => {
 			submitting = true;
 			return async ({ result }) => {

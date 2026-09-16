@@ -1,9 +1,13 @@
 import { istInstant, type CalendarDate } from './ist';
 
-// Assumed availability window — 11:00 AM to 2:00 PM IST, matching the real Cal.com
-// schedule. Adjust here if that changes; there is no live availability check against
-// Cal.com itself. Exported so getBookableDates.ts can tell whether today's window has
-// already fully passed, without duplicating the window here.
+// Confirmed availability window — 11:00 AM to 2:00 PM IST, every day, no variation
+// (confirmed 2026-09-09 against the real Cal.com "meet" event type). This still only
+// drives which slots the calendar *displays* — the actual booking still goes through
+// Cal.com's API (see calBooking.ts), which is what actually prevents double-booking; if
+// this window is ever changed on Cal.com's side without updating it here, the calendar
+// would just show a wrong/stale set of times, surfaced as a real conflict error at
+// submit time rather than a UI phantom. Exported so getBookableDates.ts can tell whether
+// today's window has already fully passed, without duplicating the window here.
 export const AVAILABILITY_START_HOUR = 11;
 export const AVAILABILITY_END_HOUR = 14;
 

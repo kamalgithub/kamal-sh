@@ -21,6 +21,11 @@
 	let submitting = $state(false);
 	let turnstileVerified = $state(false);
 	let clientRateLimited = $state(false);
+	// Turnstile's script + widget only load once the visitor actually starts filling in
+	// the form, not on page load — most /contact visits never submit anything, so loading
+	// Cloudflare's script and rendering a widget unconditionally wastes a request and a
+	// moment of layout work for nearly everyone who lands here.
+	let turnstileRequested = $state(false);
 
 	// Client-side mirror of the server's IP-based cap (see rateLimiter.ts) — lets a repeat
 	// visitor see the cooldown instantly, without a round trip, on a fresh page load.
@@ -76,7 +81,7 @@
 </script>
 
 <svelte:head>
-	{#if turnstileSiteKey}
+	{#if turnstileSiteKey && turnstileRequested}
 		<!-- eslint-disable svelte/no-navigation-without-resolve -- external script, not an internal route -->
 		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 		<!-- eslint-enable svelte/no-navigation-without-resolve -->
@@ -90,6 +95,8 @@
 {:else}
 	<form
 		method="POST"
+		action="?/contact"
+		onfocusin={() => (turnstileRequested = true)}
 		use:enhance={() => {
 			submitting = true;
 			return async ({ result, update }) => {

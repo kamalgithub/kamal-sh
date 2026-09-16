@@ -5,3 +5,5 @@ MAILJET_DOMAIN=
 TURNSTILE_SECRET_KEY=
 # Cloudflare API token, scoped to Account Analytics:Read only, for /status.
 CF_API_TOKEN=
+# Cal.com API key (Settings -> Security), for creating real bookings from /contact.
+CAL_API_KEY=

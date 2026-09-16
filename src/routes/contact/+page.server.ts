@@ -2,8 +2,15 @@ import { fail } from '@sveltejs/kit';
 import { sendContactEmail } from '$lib/server/mailjet';
 import { verifyTurnstileToken } from '$lib/server/turnstile';
 import { checkRateLimit } from '$lib/server/rateLimiter';
+import {
+	createCalBooking,
+	bookingInputSchema,
+	CalBookingConflictError
+} from '$lib/server/calBooking';
 import { isValidEmail } from '$lib/utils/isValidEmail';
+import { buildE164Phone } from '$lib/utils/buildE164Phone';
 import { contactCopy } from '$lib/content/copy/contact';
+import { bookingCopy } from '$lib/content/copy/booking';
 import { profile } from '$lib/content/profile';
 import type { Actions, PageServerLoad } from './$types';
 
@@ -21,12 +28,19 @@ const MESSAGE_MAX_LENGTH = 500;
 const RATE_LIMIT_MAX = 2;
 const RATE_LIMIT_WINDOW_SECONDS = 4 * 60 * 60;
 
+// A real calendar booking is at least as valuable an abuse target as a contact message
+// (it consumes a real, finite meeting slot and creates a live calendar event) — same cap
+// shape as the contact form, kept as its own rate-limit scope so hitting one cap doesn't
+// consume the other's budget.
+const BOOKING_RATE_LIMIT_MAX = 2;
+const BOOKING_RATE_LIMIT_WINDOW_SECONDS = 4 * 60 * 60;
+
 export const load: PageServerLoad = ({ platform }) => {
 	return { turnstileSiteKey: platform?.env?.TURNSTILE_SITE_KEY ?? '' };
 };
 
 export const actions: Actions = {
-	default: async ({ request, platform, getClientAddress }) => {
+	contact: async ({ request, platform, getClientAddress }) => {
 		const formData = await request.formData();
 		const name = String(formData.get('name') ?? '').trim();
 		const email = String(formData.get('email') ?? '').trim();
@@ -111,5 +125,116 @@ export const actions: Actions = {
 		}
 
 		return { success: true };
+	},
+
+	book: async ({ request, platform, getClientAddress }) => {
+		const formData = await request.formData();
+		const phoneCountry = String(formData.get('phoneCountry') ?? '').trim();
+		const phoneNumber = String(formData.get('phoneNumber') ?? '').trim();
+		const location = String(formData.get('location') ?? '');
+		// Combined into one E.164 string here, before validation — a plain local number
+		// with no country code is meaningless to Cal.com's phone-call location type, and
+		// this is the one place both halves are available together.
+		const phone = location === 'phone' ? buildE164Phone(phoneCountry, phoneNumber) : undefined;
+		const raw = {
+			name: String(formData.get('name') ?? '').trim(),
+			email: String(formData.get('email') ?? '').trim(),
+			duration: Number(formData.get('duration')),
+			start: String(formData.get('start') ?? ''),
+			notes: String(formData.get('notes') ?? '').trim() || undefined,
+			location,
+			phone
+		};
+		// Separate from `raw` — the client form has distinct phoneCountry/phoneNumber
+		// fields to repopulate on error, not the single combined E.164 value `raw` needs
+		// for validation.
+		const bookingValues = {
+			name: raw.name,
+			email: raw.email,
+			notes: raw.notes,
+			location: raw.location,
+			phoneCountry,
+			phoneNumber
+		};
+		const honeypot = String(formData.get('company') ?? '').trim();
+		const turnstileToken = String(formData.get('cf-turnstile-response') ?? '').trim();
+
+		// Same bot-signal-hiding shape as the contact action above.
+		if (honeypot) {
+			return { success: true };
+		}
+
+		const parsed = bookingInputSchema.safeParse(raw);
+		if (!parsed.success) {
+			const fieldErrors: { name?: string; email?: string; notes?: string; phone?: string } = {};
+			for (const issue of parsed.error.issues) {
+				const field = issue.path[0];
+				if (field === 'name') fieldErrors.name = bookingCopy.nameRequiredError;
+				else if (field === 'email') fieldErrors.email = bookingCopy.emailInvalidError;
+				else if (field === 'notes') fieldErrors.notes = bookingCopy.notesRequiredError;
+				else if (field === 'phone') fieldErrors.phone = bookingCopy.phoneRequiredError;
+			}
+			return fail(400, { bookingErrors: fieldErrors, bookingValues });
+		}
+
+		const env = platform?.env;
+
+		// Booking shares the contact form's abuse-value reasoning (see the constant above)
+		// but is counted under its own scope, independent of the contact form's cap.
+		if (platform?.caches) {
+			const { allowed } = await checkRateLimit(
+				platform.caches,
+				'booking',
+				getClientAddress(),
+				BOOKING_RATE_LIMIT_MAX,
+				BOOKING_RATE_LIMIT_WINDOW_SECONDS
+			);
+			if (!allowed) {
+				return fail(429, { bookingRateLimited: true, bookingValues });
+			}
+		}
+
+		if (!env?.TURNSTILE_SECRET_KEY) {
+			return fail(500, {
+				bookingErrors: { message: bookingCopy.notConfiguredError },
+				bookingValues
+			});
+		}
+		const verified = await verifyTurnstileToken(
+			env.TURNSTILE_SECRET_KEY,
+			turnstileToken,
+			getClientAddress()
+		);
+		if (!verified) {
+			return fail(400, {
+				bookingErrors: { message: bookingCopy.verificationFailedError },
+				bookingValues
+			});
+		}
+
+		if (!env?.CAL_API_KEY) {
+			return fail(500, {
+				bookingErrors: { message: bookingCopy.notConfiguredError },
+				bookingValues
+			});
+		}
+
+		try {
+			const result = await createCalBooking({ apiKey: env.CAL_API_KEY }, parsed.data);
+			return { bookingSuccess: true, bookingLocation: result.location };
+		} catch (err) {
+			if (err instanceof CalBookingConflictError) {
+				return fail(409, {
+					bookingErrors: { message: bookingCopy.conflictError },
+					bookingConflict: true,
+					bookingValues
+				});
+			}
+			console.error('Failed to create Cal.com booking', err);
+			return fail(500, {
+				bookingErrors: { message: bookingCopy.bookingFailedError },
+				bookingValues
+			});
+		}
 	}
 };
