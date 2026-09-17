@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Debunking the Performance Myth of Confidential Computing for AI Workloads",
+		"link": "https://blog.aicademy.ac/gcp-confidential-vm-performance-myth",
+		"pubDate": "2026-09-17T10:10:34.000Z",
+		"slug": "gcp-confidential-vm-performance-myth",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gcp-confidential-vm-performance-myth.webp"
+	},
+	{
+		"title": "The GCP Confidential VM Configuration That Silently Leaks Your AI Model Secrets",
+		"link": "https://blog.aicademy.ac/gcp-confidential-vm-hidden-gotcha",
+		"pubDate": "2026-09-16T10:08:25.000Z",
+		"slug": "gcp-confidential-vm-hidden-gotcha",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gcp-confidential-vm-hidden-gotcha.webp"
+	},
+	{
 		"title": "Deploying Secure AI: A Deep Dive into GCP Confidential VM `g4-standard-48`",
 		"link": "https://blog.aicademy.ac/gcp-confidential-vm-deep-dive",
 		"pubDate": "2026-09-15T10:13:40.000Z",

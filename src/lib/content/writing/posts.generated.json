@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Debunking the Performance Myth of Confidential Computing for AI Workloads",
+		"link": "https://blog.aicademy.ac/gcp-confidential-vm-performance-myth",
+		"pubDate": "2026-09-17T10:10:34.000Z",
+		"slug": "gcp-confidential-vm-performance-myth",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gcp-confidential-vm-performance-myth.webp"
+	},
+	{
+		"title": "The GCP Confidential VM Configuration That Silently Leaks Your AI Model Secrets",
+		"link": "https://blog.aicademy.ac/gcp-confidential-vm-hidden-gotcha",
+		"pubDate": "2026-09-16T10:08:25.000Z",
+		"slug": "gcp-confidential-vm-hidden-gotcha",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gcp-confidential-vm-hidden-gotcha.webp"
+	},
+	{
 		"title": "Deploying Secure AI: A Deep Dive into GCP Confidential VM `g4-standard-48`",
 		"link": "https://blog.aicademy.ac/gcp-confidential-vm-deep-dive",
 		"pubDate": "2026-09-15T10:13:40.000Z",
@@ -40,19 +54,5 @@
 		"pubDate": "2026-09-10T09:54:25.000Z",
 		"slug": "aws-securityhub-cross-cloud",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/aws-securityhub-cross-cloud.webp"
-	},
-	{
-		"title": "Is Your Terraform State Secure? A 5-Minute Audit for `terraform_data` Usage in v1.16",
-		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-audit",
-		"pubDate": "2026-09-09T09:57:45.000Z",
-		"slug": "tf-1-16-terraform-data-audit",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/tf-1-16-terraform-data-audit.webp"
-	},
-	{
-		"title": "The Terraform `null_resource` Anti-Pattern `terraform_data` Finally Replaces for Private Data",
-		"link": "https://blog.aicademy.ac/tf-1-16-terraform-data-before-after",
-		"pubDate": "2026-09-08T09:54:24.000Z",
-		"slug": "tf-1-16-terraform-data-before-after",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/tf-1-16-terraform-data-before-after.webp"
 	}
 ]
