@@ -11,5 +11,5 @@ export const shortLinks: ShortLink[] = [
 	{ slug: 'linkedin', url: profile.links.linkedin },
 	{ slug: 'youtube', url: profile.links.youtube },
 	{ slug: 'github', url: profile.links.github },
-        { slug: 'kamal', url: '/' }
+	{ slug: 'kamal', url: '/' }
 ];
