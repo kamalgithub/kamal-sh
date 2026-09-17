@@ -35,6 +35,8 @@
 
 **Requires `CLOUDFLARE_API_TOKEN` as a GitHub Actions repository secret** (Settings → Secrets and variables → Actions) — a token created in the Cloudflare dashboard using the official **"Edit Cloudflare Workers"** template (the one Cloudflare's own CI/CD docs recommend for exactly this). Without that secret, `deploy.yml` runs and fails at the deploy step every time `ci.yml` succeeds on `main` — a human needs to add it once; nothing else about this workflow can be made to work around its absence.
 
+**`deploy.yml` needs the same `cp .dev.vars.example .dev.vars` step `ci.yml` has, and for the identical reason** (see the `wrangler types` gotcha below) — its own `bun run build` also runs `wrangler types --check` under the hood, which infers a narrower `Env` interface with no local `.dev.vars` present, mismatching the committed `worker-configuration.d.ts` and failing the build. This bit a real deploy run (2026-09-17): the exact same `bun run build` command passed inside `ci.yml` and failed inside `deploy.yml` on the identical commit, because only one of the two workflows had the copy step. If any future workflow runs `bun run build`/`check`/`gen`, it needs this step too — don't assume it's implied by installing dependencies.
+
 `content-sync.yml` is a separate, unrelated scheduled workflow (pulls the blog/YouTube RSS feeds every ~48h — see `scripts/sync-blog.ts`/`scripts/sync-youtube.ts`) — it doesn't run the quality gate itself, but its commits now flow through `ci.yml` → `deploy.yml` like any other push to `main`.
 
 ## `_headers` and the CSP sync guard

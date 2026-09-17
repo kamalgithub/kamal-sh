@@ -34,6 +34,14 @@ jobs:
 
       - run: bun install --frozen-lockfile
 
+      # Without this, `wrangler types --check` (run inside `bun run build`) infers a
+      # narrower Env interface than the committed worker-configuration.d.ts (generated
+      # locally, where a real .dev.vars exists) and fails the build — same reasoning as
+      # ci.yml's identical step, see docs/tooling.md's CI section. This bit a real deploy
+      # run (2026-09-17): ci.yml has this step, deploy.yml didn't, so the exact same `bun
+      # run build` command passed in one workflow and failed in the other on the same commit.
+      - run: cp .dev.vars.example .dev.vars
+
       # Embeds this exact commit's SHA into the footer's "Built ... from commit ..."
       # line (see src/lib/utils/buildInfo.ts) — building here, in the same job that then
       # deploys, is what keeps that line accurate; building separately from deploying
