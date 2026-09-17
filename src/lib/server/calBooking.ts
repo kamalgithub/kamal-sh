@@ -91,11 +91,19 @@ export async function createCalBooking(
 			username: CAL_USERNAME,
 			lengthInMinutes: input.duration,
 			location: buildLocation(input),
-			// The event type's own custom field slug, not an arbitrary name of our choosing
-			// — confirmed 2026-09-16 via a real "Missing required booking field response:
-			// expectationsFromMe" error. Don't rename this key without re-checking the
-			// event type (Settings -> Event Types -> meet -> Advanced -> Booking questions).
-			bookingFieldsResponses: { expectationsFromMe: input.notes },
+			// The event type's own custom field slugs, not arbitrary names of our choosing —
+			// expectationsFromMe confirmed 2026-09-16 via a real "Missing required booking
+			// field response" error; title likewise, from a second, separate 400 the same
+			// day ("responses - {title} error_required_field" — Cal.com's own error message
+			// left the {title} placeholder unresolved, but the missing field was clear).
+			// Don't rename either key without re-checking the event type (Settings -> Event
+			// Types -> meet -> Advanced -> Booking questions) — a real request is the only
+			// way to see this event type's exact required field set, there's no public
+			// schema for it.
+			bookingFieldsResponses: {
+				title: `Call with ${input.name}`,
+				expectationsFromMe: input.notes
+			},
 			// Always this site, never derived from anything user-suppliable — a fixed
 			// provenance tag on every booking this form creates.
 			metadata: { source: 'kamalsh-contact-form' }

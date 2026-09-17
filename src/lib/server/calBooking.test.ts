@@ -117,10 +117,11 @@ describe('createCalBooking', () => {
 		expect(body.location).toEqual({ type: 'attendeePhone', phone: '+919876543210' });
 	});
 
-	// Regression test for a real failure: the "meet" event type's own custom booking
-	// field is keyed expectationsFromMe, not notes — sending the wrong key produced a
-	// real 400 from Cal.com ("Missing required booking field response: expectationsFromMe").
-	it('sends notes under the expectationsFromMe booking field key', async () => {
+	// Regression test for two real failures: the "meet" event type's own custom booking
+	// fields are keyed expectationsFromMe and title, not notes/nothing — sending the
+	// wrong key (or omitting title entirely) produced two separate real 400s from
+	// Cal.com, discovered one after the other via actual booking attempts.
+	it('sends notes and a generated title under their real booking field keys', async () => {
 		const fetchMock = vi
 			.fn()
 			.mockResolvedValue(
@@ -132,6 +133,9 @@ describe('createCalBooking', () => {
 
 		const [, init] = fetchMock.mock.calls[0];
 		const body = JSON.parse(init.body as string);
-		expect(body.bookingFieldsResponses).toEqual({ expectationsFromMe: VALID_INPUT.notes });
+		expect(body.bookingFieldsResponses).toEqual({
+			title: `Call with ${VALID_INPUT.name}`,
+			expectationsFromMe: VALID_INPUT.notes
+		});
 	});
 });

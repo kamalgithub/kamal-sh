@@ -26,6 +26,7 @@ export const bookingCopy: BookingCopy = {
 	locationGoogleMeetLabel: 'Google Meet',
 	locationPhoneLabel: 'Phone call',
 	phoneLabel: 'Phone number',
+	phoneCountryLabel: 'Country code',
 	confirmLabel: 'Confirm booking',
 	confirmingLabel: 'Booking…',
 	successMessage: "You're booked — a confirmation is on its way to your email.",

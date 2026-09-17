@@ -24,6 +24,8 @@ export interface BookingCopy {
 	locationGoogleMeetLabel: string;
 	locationPhoneLabel: string;
 	phoneLabel: string;
+	/** Accessible label for the country-code <select> next to the phone number input. */
+	phoneCountryLabel: string;
 	confirmLabel: string;
 	confirmingLabel: string;
 	successMessage: string;

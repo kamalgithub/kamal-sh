@@ -98,10 +98,13 @@
 	// request and a moment of layout work for nearly everyone who lands here.
 	let turnstileRequested = $state(false);
 	let locationChoice = $state<'google-meet' | 'phone'>('google-meet');
-	// Defaults to India (Kamal's own country) rather than an arbitrary first-in-list
-	// entry — countryCallingCodesForSelect is already ordered that way, this just makes
-	// the intent explicit here too.
-	let phoneCountry = $state(form?.bookingValues?.phoneCountry || 'IN');
+	// Defaults to India (Kamal's own country), not seeded from `form?.bookingValues` —
+	// bind:value on the <select> already preserves whatever the visitor picked across a
+	// use:enhance submission round-trip (the component never unmounts), so re-deriving
+	// this from `form` on every render would actively overwrite a live selection with a
+	// stale submitted one. Only a genuine full-page reload (no-JS fallback) loses the
+	// pick and falls back to this default — an acceptable, honest tradeoff.
+	let phoneCountry = $state('IN');
 
 	const dates = $derived(now ? getBookableDates(now, BOOKABLE_DAYS) : []);
 	const today = $derived(now ? getIstCalendarDate(now) : undefined);
@@ -455,22 +458,39 @@
 
 							{#if locationChoice === 'phone'}
 								<div>
-									<label for="booking-phone" class="text-small text-text-muted"
+									<label for="booking-phone-number" class="text-small text-text-muted"
 										>{copy.phoneLabel}</label
 									>
-									<input
-										id="booking-phone"
-										name="phone"
-										type="tel"
-										required
-										maxlength="20"
-										value={form?.bookingValues?.phone ?? ''}
-										aria-invalid={form?.bookingErrors?.phone ? 'true' : undefined}
-										aria-describedby={form?.bookingErrors?.phone
-											? 'booking-phone-error'
-											: undefined}
-										class="mt-1 w-full rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-theme focus:border-accent focus:outline-hidden"
-									/>
+									<div class="mt-1 flex gap-2">
+										<label for="booking-phone-country" class="sr-only"
+											>{copy.phoneCountryLabel}</label
+										>
+										<select
+											id="booking-phone-country"
+											name="phoneCountry"
+											bind:value={phoneCountry}
+											class="w-32 shrink-0 rounded-sm border border-border-strong bg-transparent px-2 py-2 text-text transition-theme focus:border-accent focus:outline-hidden"
+										>
+											{#each countryCallingCodesForSelect as country (country.iso2)}
+												<option value={country.iso2}>{country.name} (+{country.dialCode})</option>
+											{/each}
+										</select>
+										<input
+											id="booking-phone-number"
+											name="phoneNumber"
+											type="tel"
+											required
+											inputmode="tel"
+											minlength="4"
+											maxlength="14"
+											value={form?.bookingValues?.phoneNumber ?? ''}
+											aria-invalid={form?.bookingErrors?.phone ? 'true' : undefined}
+											aria-describedby={form?.bookingErrors?.phone
+												? 'booking-phone-error'
+												: undefined}
+											class="w-full min-w-0 flex-1 rounded-sm border border-border-strong bg-transparent px-3 py-2 text-text transition-theme focus:border-accent focus:outline-hidden"
+										/>
+									</div>
 									{#if form?.bookingErrors?.phone}
 										<p id="booking-phone-error" class="mt-1 text-small text-error">
 											{form.bookingErrors.phone}
