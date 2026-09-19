@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Why Your LLM Prompts Are Vulnerable to Injection (And How to Fix Them)",
+		"link": "https://blog.aicademy.ac/llm-prompt-injection-audit",
+		"pubDate": "2026-09-18T09:56:37.000Z",
+		"slug": "llm-prompt-injection-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/llm-prompt-injection-audit.webp"
+	},
+	{
 		"title": "Debunking the Performance Myth of Confidential Computing for AI Workloads",
 		"link": "https://blog.aicademy.ac/gcp-confidential-vm-performance-myth",
 		"pubDate": "2026-09-17T10:10:34.000Z",
