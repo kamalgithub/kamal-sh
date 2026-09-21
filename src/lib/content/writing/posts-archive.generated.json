@@ -1,5 +1,26 @@
 [
 	{
+		"title": "The 'Invisible Backdoor' Incident: How eBPF Caught a Kernel-Level Supply Chain Attack",
+		"link": "https://blog.aicademy.ac/ebpf-war-story-kernel-backdoor",
+		"pubDate": "2026-09-21T10:55:30.000Z",
+		"slug": "ebpf-war-story-kernel-backdoor",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-war-story-kernel-backdoor.webp"
+	},
+	{
+		"title": "Building Custom eBPF Programs to Catch Production Anomalies Before They Escalate",
+		"link": "https://blog.aicademy.ac/ebpf-custom-anomaly-detection",
+		"pubDate": "2026-09-20T09:55:10.000Z",
+		"slug": "ebpf-custom-anomaly-detection",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-custom-anomaly-detection.webp"
+	},
+	{
+		"title": "The `bpftool perf` Command That Reveals Hidden Network Latency in Kubernetes",
+		"link": "https://blog.aicademy.ac/ebpf-bpftool-network-latency",
+		"pubDate": "2026-09-19T09:38:36.000Z",
+		"slug": "ebpf-bpftool-network-latency",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-bpftool-network-latency.webp"
+	},
+	{
 		"title": "Why Your LLM Prompts Are Vulnerable to Injection (And How to Fix Them)",
 		"link": "https://blog.aicademy.ac/llm-prompt-injection-audit",
 		"pubDate": "2026-09-18T09:56:37.000Z",
