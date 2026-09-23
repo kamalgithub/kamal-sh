@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Cut Your CI/CD Costs by 40% with Intelligent Multi-Stage Docker Builds",
+		"link": "https://blog.aicademy.ac/docker-ci-cd-cost-cut",
+		"pubDate": "2026-09-23T10:10:47.000Z",
+		"slug": "docker-ci-cd-cost-cut",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-ci-cd-cost-cut.webp"
+	},
+	{
+		"title": "Is Your eBPF Deployment Actually Secure? A 5-Minute Audit for Production Environments",
+		"link": "https://blog.aicademy.ac/ebpf-security-audit",
+		"pubDate": "2026-09-22T10:12:29.000Z",
+		"slug": "ebpf-security-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-security-audit.webp"
+	},
+	{
 		"title": "The 'Invisible Backdoor' Incident: How eBPF Caught a Kernel-Level Supply Chain Attack",
 		"link": "https://blog.aicademy.ac/ebpf-war-story-kernel-backdoor",
 		"pubDate": "2026-09-21T10:55:30.000Z",
