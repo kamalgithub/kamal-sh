@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Stop Writing GitHub Actions: How Agentic Workflows Use Natural Language",
+		"link": "https://blog.aicademy.ac/github-agentic-workflows-nl",
+		"pubDate": "2026-09-27T10:39:11.000Z",
+		"slug": "github-agentic-workflows-nl",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/github-agentic-workflows-nl.webp"
+	},
+	{
+		"title": "5 Platform Engineering Metrics That Actually Drive Developer Productivity",
+		"link": "https://blog.aicademy.ac/platform-engineering-metrics-audit",
+		"pubDate": "2026-09-26T09:59:57.000Z",
+		"slug": "platform-engineering-metrics-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-metrics-audit.webp"
+	},
+	{
 		"title": "The Azure HorizonDB Flag That Silently Corrupts Your AI Vector Embeddings",
 		"link": "https://blog.aicademy.ac/azure-horizondb-embedding-corruption",
 		"pubDate": "2026-09-25T10:20:17.000Z",
