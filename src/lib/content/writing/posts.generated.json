@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Why Your AI-Generated GitHub Action Is Broken (And How to Debug It)",
+		"link": "https://blog.aicademy.ac/github-agentic-workflows-debug",
+		"pubDate": "2026-09-28T11:51:26.000Z",
+		"slug": "github-agentic-workflows-debug",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/github-agentic-workflows-debug.webp"
+	},
+	{
 		"title": "Stop Writing GitHub Actions: How Agentic Workflows Use Natural Language",
 		"link": "https://blog.aicademy.ac/github-agentic-workflows-nl",
 		"pubDate": "2026-09-27T10:39:11.000Z",
@@ -47,12 +54,5 @@
 		"pubDate": "2026-09-21T10:55:30.000Z",
 		"slug": "ebpf-war-story-kernel-backdoor",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-war-story-kernel-backdoor.webp"
-	},
-	{
-		"title": "Building Custom eBPF Programs to Catch Production Anomalies Before They Escalate",
-		"link": "https://blog.aicademy.ac/ebpf-custom-anomaly-detection",
-		"pubDate": "2026-09-20T09:55:10.000Z",
-		"slug": "ebpf-custom-anomaly-detection",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-custom-anomaly-detection.webp"
 	}
 ]
