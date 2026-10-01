@@ -1,5 +1,12 @@
 [
 	{
+		"title": "The GitHub Copilot Integration That Finally Makes Agentic Workflows Production-Ready",
+		"link": "https://blog.aicademy.ac/github-agentic-copilot-refine",
+		"pubDate": "2026-09-29T11:28:13.000Z",
+		"slug": "github-agentic-copilot-refine",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/github-agentic-copilot-refine.webp"
+	},
+	{
 		"title": "Why Your AI-Generated GitHub Action Is Broken (And How to Debug It)",
 		"link": "https://blog.aicademy.ac/github-agentic-workflows-debug",
 		"pubDate": "2026-09-28T11:51:26.000Z",
@@ -47,12 +54,5 @@
 		"pubDate": "2026-09-22T10:12:29.000Z",
 		"slug": "ebpf-security-audit",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-security-audit.webp"
-	},
-	{
-		"title": "The 'Invisible Backdoor' Incident: How eBPF Caught a Kernel-Level Supply Chain Attack",
-		"link": "https://blog.aicademy.ac/ebpf-war-story-kernel-backdoor",
-		"pubDate": "2026-09-21T10:55:30.000Z",
-		"slug": "ebpf-war-story-kernel-backdoor",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-war-story-kernel-backdoor.webp"
 	}
 ]
