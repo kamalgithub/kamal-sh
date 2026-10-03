@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Eliminate 90% of IaC Syntax Errors Before They Reach Your CI Pipeline",
+		"link": "https://blog.aicademy.ac/opentofu-native-linting-ci-pipeline",
+		"pubDate": "2026-10-02T11:13:18.000Z",
+		"slug": "opentofu-native-linting-ci-pipeline",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-native-linting-ci-pipeline.webp"
+	},
+	{
+		"title": "The `known after apply` Outputs That Silently Mask OpenTofu State Drift",
+		"link": "https://blog.aicademy.ac/opentofu-1-13-known-after-apply-drift",
+		"pubDate": "2026-10-01T11:43:49.000Z",
+		"slug": "opentofu-1-13-known-after-apply-drift",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-1-13-known-after-apply-drift.webp"
+	},
+	{
 		"title": "The GitHub Copilot Integration That Finally Makes Agentic Workflows Production-Ready",
 		"link": "https://blog.aicademy.ac/github-agentic-copilot-refine",
 		"pubDate": "2026-09-29T11:28:13.000Z",
