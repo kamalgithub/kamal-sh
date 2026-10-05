@@ -1,5 +1,26 @@
 [
 	{
+		"title": "Halve Vector Search Latency in GCP AlloyDB With One Index Command",
+		"link": "https://blog.aicademy.ac/gcp-alloydb-ai-vector-search-optimization",
+		"pubDate": "2026-10-05T12:26:14.000Z",
+		"slug": "gcp-alloydb-ai-vector-search-optimization",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gcp-alloydb-ai-vector-search-optimization.webp"
+	},
+	{
+		"title": "3 Docker Desktop Settings That Expose Your Host Filesystem to Container Malware",
+		"link": "https://blog.aicademy.ac/docker-desktop-4-93-socket-security-audit",
+		"pubDate": "2026-10-04T11:12:27.000Z",
+		"slug": "docker-desktop-4-93-socket-security-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-desktop-4-93-socket-security-audit.webp"
+	},
+	{
+		"title": "Why Your OpenTofu CI Agents Are Crashing on Windows ARM64 Infrastructure",
+		"link": "https://blog.aicademy.ac/opentofu-windows-arm64-ci-crashes",
+		"pubDate": "2026-10-03T10:31:03.000Z",
+		"slug": "opentofu-windows-arm64-ci-crashes",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-windows-arm64-ci-crashes.webp"
+	},
+	{
 		"title": "Eliminate 90% of IaC Syntax Errors Before They Reach Your CI Pipeline",
 		"link": "https://blog.aicademy.ac/opentofu-native-linting-ci-pipeline",
 		"pubDate": "2026-10-02T11:13:18.000Z",

@@ -1,5 +1,26 @@
 [
 	{
+		"title": "Halve Vector Search Latency in GCP AlloyDB With One Index Command",
+		"link": "https://blog.aicademy.ac/gcp-alloydb-ai-vector-search-optimization",
+		"pubDate": "2026-10-05T12:26:14.000Z",
+		"slug": "gcp-alloydb-ai-vector-search-optimization",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/gcp-alloydb-ai-vector-search-optimization.webp"
+	},
+	{
+		"title": "3 Docker Desktop Settings That Expose Your Host Filesystem to Container Malware",
+		"link": "https://blog.aicademy.ac/docker-desktop-4-93-socket-security-audit",
+		"pubDate": "2026-10-04T11:12:27.000Z",
+		"slug": "docker-desktop-4-93-socket-security-audit",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/docker-desktop-4-93-socket-security-audit.webp"
+	},
+	{
+		"title": "Why Your OpenTofu CI Agents Are Crashing on Windows ARM64 Infrastructure",
+		"link": "https://blog.aicademy.ac/opentofu-windows-arm64-ci-crashes",
+		"pubDate": "2026-10-03T10:31:03.000Z",
+		"slug": "opentofu-windows-arm64-ci-crashes",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-windows-arm64-ci-crashes.webp"
+	},
+	{
 		"title": "Eliminate 90% of IaC Syntax Errors Before They Reach Your CI Pipeline",
 		"link": "https://blog.aicademy.ac/opentofu-native-linting-ci-pipeline",
 		"pubDate": "2026-10-02T11:13:18.000Z",
@@ -33,26 +54,5 @@
 		"pubDate": "2026-09-27T10:39:11.000Z",
 		"slug": "github-agentic-workflows-nl",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/github-agentic-workflows-nl.webp"
-	},
-	{
-		"title": "5 Platform Engineering Metrics That Actually Drive Developer Productivity",
-		"link": "https://blog.aicademy.ac/platform-engineering-metrics-audit",
-		"pubDate": "2026-09-26T09:59:57.000Z",
-		"slug": "platform-engineering-metrics-audit",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/platform-engineering-metrics-audit.webp"
-	},
-	{
-		"title": "The Azure HorizonDB Flag That Silently Corrupts Your AI Vector Embeddings",
-		"link": "https://blog.aicademy.ac/azure-horizondb-embedding-corruption",
-		"pubDate": "2026-09-25T10:20:17.000Z",
-		"slug": "azure-horizondb-embedding-corruption",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/azure-horizondb-embedding-corruption.webp"
-	},
-	{
-		"title": "Why Your GitOps Strategy Is Failing (And How to Fix It with Advanced PR Automation)",
-		"link": "https://blog.aicademy.ac/gitops-failure-myth",
-		"pubDate": "2026-09-24T10:16:00.000Z",
-		"slug": "gitops-failure-myth",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/gitops-failure-myth.webp"
 	}
 ]
