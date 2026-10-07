@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Why Your Kubernetes AI Workloads Lose 48 Hours of Progress on Node Failure",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-ai-checkpoint-restore",
+		"pubDate": "2026-10-06T12:08:05.000Z",
+		"slug": "kubernetes-1-37-ai-checkpoint-restore",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-ai-checkpoint-restore.webp"
+	},
+	{
 		"title": "Halve Vector Search Latency in GCP AlloyDB With One Index Command",
 		"link": "https://blog.aicademy.ac/gcp-alloydb-ai-vector-search-optimization",
 		"pubDate": "2026-10-05T12:26:14.000Z",
