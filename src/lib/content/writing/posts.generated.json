@@ -1,5 +1,26 @@
 [
 	{
+		"title": "4 Steps to Safely Migrate Your Cluster to Kubernetes 1.37 KYAML",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-kyaml-migration-guide",
+		"pubDate": "2026-10-09T12:00:14.000Z",
+		"slug": "kubernetes-1-37-kyaml-migration-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-kyaml-migration-guide.webp"
+	},
+	{
+		"title": "The Kubernetes YAML Parser Bug That Silently Drops Your Network Policies",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-kyaml-norway-problem-bug",
+		"pubDate": "2026-10-08T12:09:09.000Z",
+		"slug": "kubernetes-1-37-kyaml-norway-problem-bug",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-kyaml-norway-problem-bug.webp"
+	},
+	{
+		"title": "Cut Your GPU Spot Instance Costs by 40% With Pod-Level Checkpointing",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-gpu-spot-instance-savings",
+		"pubDate": "2026-10-07T11:56:09.000Z",
+		"slug": "kubernetes-1-37-gpu-spot-instance-savings",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-gpu-spot-instance-savings.webp"
+	},
+	{
 		"title": "Why Your Kubernetes AI Workloads Lose 48 Hours of Progress on Node Failure",
 		"link": "https://blog.aicademy.ac/kubernetes-1-37-ai-checkpoint-restore",
 		"pubDate": "2026-10-06T12:08:05.000Z",
@@ -33,26 +54,5 @@
 		"pubDate": "2026-10-02T11:13:18.000Z",
 		"slug": "opentofu-native-linting-ci-pipeline",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-native-linting-ci-pipeline.webp"
-	},
-	{
-		"title": "The `known after apply` Outputs That Silently Mask OpenTofu State Drift",
-		"link": "https://blog.aicademy.ac/opentofu-1-13-known-after-apply-drift",
-		"pubDate": "2026-10-01T11:43:49.000Z",
-		"slug": "opentofu-1-13-known-after-apply-drift",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-1-13-known-after-apply-drift.webp"
-	},
-	{
-		"title": "The GitHub Copilot Integration That Finally Makes Agentic Workflows Production-Ready",
-		"link": "https://blog.aicademy.ac/github-agentic-copilot-refine",
-		"pubDate": "2026-09-29T11:28:13.000Z",
-		"slug": "github-agentic-copilot-refine",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/github-agentic-copilot-refine.webp"
-	},
-	{
-		"title": "Why Your AI-Generated GitHub Action Is Broken (And How to Debug It)",
-		"link": "https://blog.aicademy.ac/github-agentic-workflows-debug",
-		"pubDate": "2026-09-28T11:51:26.000Z",
-		"slug": "github-agentic-workflows-debug",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/github-agentic-workflows-debug.webp"
 	}
 ]

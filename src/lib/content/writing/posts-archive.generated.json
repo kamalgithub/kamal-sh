@@ -1,5 +1,26 @@
 [
 	{
+		"title": "4 Steps to Safely Migrate Your Cluster to Kubernetes 1.37 KYAML",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-kyaml-migration-guide",
+		"pubDate": "2026-10-09T12:00:14.000Z",
+		"slug": "kubernetes-1-37-kyaml-migration-guide",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-kyaml-migration-guide.webp"
+	},
+	{
+		"title": "The Kubernetes YAML Parser Bug That Silently Drops Your Network Policies",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-kyaml-norway-problem-bug",
+		"pubDate": "2026-10-08T12:09:09.000Z",
+		"slug": "kubernetes-1-37-kyaml-norway-problem-bug",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-kyaml-norway-problem-bug.webp"
+	},
+	{
+		"title": "Cut Your GPU Spot Instance Costs by 40% With Pod-Level Checkpointing",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-gpu-spot-instance-savings",
+		"pubDate": "2026-10-07T11:56:09.000Z",
+		"slug": "kubernetes-1-37-gpu-spot-instance-savings",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-gpu-spot-instance-savings.webp"
+	},
+	{
 		"title": "Why Your Kubernetes AI Workloads Lose 48 Hours of Progress on Node Failure",
 		"link": "https://blog.aicademy.ac/kubernetes-1-37-ai-checkpoint-restore",
 		"pubDate": "2026-10-06T12:08:05.000Z",
