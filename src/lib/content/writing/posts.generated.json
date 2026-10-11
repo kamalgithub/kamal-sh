@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Why Your Pod Restores Are Failing With 'Memory Mismatch' In Production",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-checkpoint-memory-mismatch-crash",
+		"pubDate": "2026-10-10T11:16:39.000Z",
+		"slug": "kubernetes-1-37-checkpoint-memory-mismatch-crash",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-checkpoint-memory-mismatch-crash.webp"
+	},
+	{
 		"title": "4 Steps to Safely Migrate Your Cluster to Kubernetes 1.37 KYAML",
 		"link": "https://blog.aicademy.ac/kubernetes-1-37-kyaml-migration-guide",
 		"pubDate": "2026-10-09T12:00:14.000Z",
@@ -47,12 +54,5 @@
 		"pubDate": "2026-10-03T10:31:03.000Z",
 		"slug": "opentofu-windows-arm64-ci-crashes",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-windows-arm64-ci-crashes.webp"
-	},
-	{
-		"title": "Eliminate 90% of IaC Syntax Errors Before They Reach Your CI Pipeline",
-		"link": "https://blog.aicademy.ac/opentofu-native-linting-ci-pipeline",
-		"pubDate": "2026-10-02T11:13:18.000Z",
-		"slug": "opentofu-native-linting-ci-pipeline",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-native-linting-ci-pipeline.webp"
 	}
 ]

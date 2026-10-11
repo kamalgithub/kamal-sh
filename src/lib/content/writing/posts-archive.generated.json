@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Why Your Pod Restores Are Failing With 'Memory Mismatch' In Production",
+		"link": "https://blog.aicademy.ac/kubernetes-1-37-checkpoint-memory-mismatch-crash",
+		"pubDate": "2026-10-10T11:16:39.000Z",
+		"slug": "kubernetes-1-37-checkpoint-memory-mismatch-crash",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/kubernetes-1-37-checkpoint-memory-mismatch-crash.webp"
+	},
+	{
 		"title": "4 Steps to Safely Migrate Your Cluster to Kubernetes 1.37 KYAML",
 		"link": "https://blog.aicademy.ac/kubernetes-1-37-kyaml-migration-guide",
 		"pubDate": "2026-10-09T12:00:14.000Z",
