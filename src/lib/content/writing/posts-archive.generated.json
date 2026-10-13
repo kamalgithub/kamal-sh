@@ -1,5 +1,26 @@
 [
 	{
+		"title": "The One eBPF Command That Pinpoints Exactly Which Container Dropped Your Packet",
+		"link": "https://blog.aicademy.ac/ebpf-bpftool-container-packet-drop-trace",
+		"pubDate": "2026-10-13T12:49:55.000Z",
+		"slug": "ebpf-bpftool-container-packet-drop-trace",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-bpftool-container-packet-drop-trace.webp"
+	},
+	{
+		"title": "Squeeze 15% More IOPS From Your NVMe Drives With Linux Kernel 7.2",
+		"link": "https://blog.aicademy.ac/linux-kernel-7-2-nvme-iops-optimization",
+		"pubDate": "2026-10-12T13:20:53.000Z",
+		"slug": "linux-kernel-7-2-nvme-iops-optimization",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-kernel-7-2-nvme-iops-optimization.webp"
+	},
+	{
+		"title": "5 Cross-Cloud Telemetry Blind Spots That CloudWatch Omni Finally Solves",
+		"link": "https://blog.aicademy.ac/amazon-cloudwatch-omni-cross-cloud-telemetry",
+		"pubDate": "2026-10-11T11:30:30.000Z",
+		"slug": "amazon-cloudwatch-omni-cross-cloud-telemetry",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/amazon-cloudwatch-omni-cross-cloud-telemetry.webp"
+	},
+	{
 		"title": "Why Your Pod Restores Are Failing With 'Memory Mismatch' In Production",
 		"link": "https://blog.aicademy.ac/kubernetes-1-37-checkpoint-memory-mismatch-crash",
 		"pubDate": "2026-10-10T11:16:39.000Z",
