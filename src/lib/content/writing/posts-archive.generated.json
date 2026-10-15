@@ -1,5 +1,19 @@
 [
 	{
+		"title": "The eBPF Map Setting That Silently Exhausts Your Kernel Memory",
+		"link": "https://blog.aicademy.ac/ebpf-map-unbounded-kernel-memory-leak",
+		"pubDate": "2026-10-15T10:08:05.000Z",
+		"slug": "ebpf-map-unbounded-kernel-memory-leak",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-map-unbounded-kernel-memory-leak.webp"
+	},
+	{
+		"title": "Are Your eBPF Tracers Actually Crushing Your CPU Performance?",
+		"link": "https://blog.aicademy.ac/ebpf-tracer-cpu-performance-myth",
+		"pubDate": "2026-10-14T10:22:56.000Z",
+		"slug": "ebpf-tracer-cpu-performance-myth",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-tracer-cpu-performance-myth.webp"
+	},
+	{
 		"title": "The One eBPF Command That Pinpoints Exactly Which Container Dropped Your Packet",
 		"link": "https://blog.aicademy.ac/ebpf-bpftool-container-packet-drop-trace",
 		"pubDate": "2026-10-13T12:49:55.000Z",
