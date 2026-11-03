@@ -1,5 +1,19 @@
 [
 	{
+		"title": "The eBPF Tail Call Limit That Silently Truncates Your Packet Headers",
+		"link": "https://blog.aicademy.ac/ebpf-tail-call-limit-truncates-headers",
+		"pubDate": "2026-11-02T13:42:50.000Z",
+		"slug": "ebpf-tail-call-limit-truncates-headers",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-tail-call-limit-truncates-headers.webp"
+	},
+	{
+		"title": "4 Ways to Migrate from iptables Logging to High-Fidelity eBPF Flow Tracking",
+		"link": "https://blog.aicademy.ac/migrate-iptables-to-ebpf-flow-tracking",
+		"pubDate": "2026-11-01T11:57:25.000Z",
+		"slug": "migrate-iptables-to-ebpf-flow-tracking",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/migrate-iptables-to-ebpf-flow-tracking.webp"
+	},
+	{
 		"title": "The eBPF Map Setting That Silently Exhausts Your Kernel Memory",
 		"link": "https://blog.aicademy.ac/ebpf-map-unbounded-kernel-memory-leak",
 		"pubDate": "2026-10-15T10:08:05.000Z",
