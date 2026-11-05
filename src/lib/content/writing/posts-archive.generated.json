@@ -1,5 +1,26 @@
 [
 	{
+		"title": "The `azd deploy --preview` Flag That Intercepts AKS Deployment Failures Before They Happen",
+		"link": "https://blog.aicademy.ac/azd-deploy-preview-flag-aks-safety",
+		"pubDate": "2026-11-05T13:21:30.000Z",
+		"slug": "azd-deploy-preview-flag-aks-safety",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/azd-deploy-preview-flag-aks-safety.webp"
+	},
+	{
+		"title": "Cut Your Ingress Debugging Time by 90% After a Cascading Network Failure",
+		"link": "https://blog.aicademy.ac/ebpf-ingress-debugging-cascading-failure",
+		"pubDate": "2026-11-04T13:09:59.000Z",
+		"slug": "ebpf-ingress-debugging-cascading-failure",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-ingress-debugging-cascading-failure.webp"
+	},
+	{
+		"title": "Why Your eBPF Network Tracers Are Probably Missing Cross-Node Traffic (And How to Audit Them)",
+		"link": "https://blog.aicademy.ac/audit-ebpf-cross-node-traffic-visibility",
+		"pubDate": "2026-11-03T12:55:48.000Z",
+		"slug": "audit-ebpf-cross-node-traffic-visibility",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/audit-ebpf-cross-node-traffic-visibility.webp"
+	},
+	{
 		"title": "The eBPF Tail Call Limit That Silently Truncates Your Packet Headers",
 		"link": "https://blog.aicademy.ac/ebpf-tail-call-limit-truncates-headers",
 		"pubDate": "2026-11-02T13:42:50.000Z",
