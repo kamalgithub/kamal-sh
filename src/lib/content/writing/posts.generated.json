@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Eliminate 100% of Stale Vulnerability Reports With AWS Continuum",
+		"link": "https://blog.aicademy.ac/eliminate-stale-vulnerabilities-aws-continuum",
+		"pubDate": "2026-11-06T13:04:57.000Z",
+		"slug": "eliminate-stale-vulnerabilities-aws-continuum",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/eliminate-stale-vulnerabilities-aws-continuum.webp"
+	},
+	{
 		"title": "The `azd deploy --preview` Flag That Intercepts AKS Deployment Failures Before They Happen",
 		"link": "https://blog.aicademy.ac/azd-deploy-preview-flag-aks-safety",
 		"pubDate": "2026-11-05T13:21:30.000Z",
@@ -47,12 +54,5 @@
 		"pubDate": "2026-10-14T10:22:56.000Z",
 		"slug": "ebpf-tracer-cpu-performance-myth",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-tracer-cpu-performance-myth.webp"
-	},
-	{
-		"title": "The One eBPF Command That Pinpoints Exactly Which Container Dropped Your Packet",
-		"link": "https://blog.aicademy.ac/ebpf-bpftool-container-packet-drop-trace",
-		"pubDate": "2026-10-13T12:49:55.000Z",
-		"slug": "ebpf-bpftool-container-packet-drop-trace",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-bpftool-container-packet-drop-trace.webp"
 	}
 ]
