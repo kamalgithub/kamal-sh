@@ -1,5 +1,26 @@
 [
 	{
+		"title": "Why Your OpenTofu Windows ARM64 Builds Are Probably Executing x86 Emulation (And How to Audit Them)",
+		"link": "https://blog.aicademy.ac/audit-opentofu-windows-arm64-emulation",
+		"pubDate": "2026-11-09T14:06:47.000Z",
+		"slug": "audit-opentofu-windows-arm64-emulation",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/audit-opentofu-windows-arm64-emulation.webp"
+	},
+	{
+		"title": "Cut Your Infrastructure Syntax Errors to Zero With OpenTofu 1.13.0 Built-in Linting",
+		"link": "https://blog.aicademy.ac/opentofu-1-13-built-in-linting-zero-errors",
+		"pubDate": "2026-11-08T12:05:16.000Z",
+		"slug": "opentofu-1-13-built-in-linting-zero-errors",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-1-13-built-in-linting-zero-errors.webp"
+	},
+	{
+		"title": "3 Linux Kernel 7.3 Scheduler Patches That Directly Impact Your Container Density",
+		"link": "https://blog.aicademy.ac/linux-7-3-scheduler-patches-container-density",
+		"pubDate": "2026-11-07T11:50:41.000Z",
+		"slug": "linux-7-3-scheduler-patches-container-density",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/linux-7-3-scheduler-patches-container-density.webp"
+	},
+	{
 		"title": "Eliminate 100% of Stale Vulnerability Reports With AWS Continuum",
 		"link": "https://blog.aicademy.ac/eliminate-stale-vulnerabilities-aws-continuum",
 		"pubDate": "2026-11-06T13:04:57.000Z",
@@ -33,26 +54,5 @@
 		"pubDate": "2026-11-02T13:42:50.000Z",
 		"slug": "ebpf-tail-call-limit-truncates-headers",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-tail-call-limit-truncates-headers.webp"
-	},
-	{
-		"title": "4 Ways to Migrate from iptables Logging to High-Fidelity eBPF Flow Tracking",
-		"link": "https://blog.aicademy.ac/migrate-iptables-to-ebpf-flow-tracking",
-		"pubDate": "2026-11-01T11:57:25.000Z",
-		"slug": "migrate-iptables-to-ebpf-flow-tracking",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/migrate-iptables-to-ebpf-flow-tracking.webp"
-	},
-	{
-		"title": "The eBPF Map Setting That Silently Exhausts Your Kernel Memory",
-		"link": "https://blog.aicademy.ac/ebpf-map-unbounded-kernel-memory-leak",
-		"pubDate": "2026-10-15T10:08:05.000Z",
-		"slug": "ebpf-map-unbounded-kernel-memory-leak",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-map-unbounded-kernel-memory-leak.webp"
-	},
-	{
-		"title": "Are Your eBPF Tracers Actually Crushing Your CPU Performance?",
-		"link": "https://blog.aicademy.ac/ebpf-tracer-cpu-performance-myth",
-		"pubDate": "2026-10-14T10:22:56.000Z",
-		"slug": "ebpf-tracer-cpu-performance-myth",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-tracer-cpu-performance-myth.webp"
 	}
 ]
