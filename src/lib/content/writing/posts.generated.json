@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Avert a Cross-Account Identity Crisis With One OpenTofu `assume` Helper Function",
+		"link": "https://blog.aicademy.ac/opentofu-assume-helper-cross-account-safety",
+		"pubDate": "2026-11-10T13:40:55.000Z",
+		"slug": "opentofu-assume-helper-cross-account-safety",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-assume-helper-cross-account-safety.webp"
+	},
+	{
 		"title": "Why Your OpenTofu Windows ARM64 Builds Are Probably Executing x86 Emulation (And How to Audit Them)",
 		"link": "https://blog.aicademy.ac/audit-opentofu-windows-arm64-emulation",
 		"pubDate": "2026-11-09T14:06:47.000Z",
@@ -47,12 +54,5 @@
 		"pubDate": "2026-11-03T12:55:48.000Z",
 		"slug": "audit-ebpf-cross-node-traffic-visibility",
 		"thumbnail": "https://blog.aicademy.ac/assets/img/audit-ebpf-cross-node-traffic-visibility.webp"
-	},
-	{
-		"title": "The eBPF Tail Call Limit That Silently Truncates Your Packet Headers",
-		"link": "https://blog.aicademy.ac/ebpf-tail-call-limit-truncates-headers",
-		"pubDate": "2026-11-02T13:42:50.000Z",
-		"slug": "ebpf-tail-call-limit-truncates-headers",
-		"thumbnail": "https://blog.aicademy.ac/assets/img/ebpf-tail-call-limit-truncates-headers.webp"
 	}
 ]

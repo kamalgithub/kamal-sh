@@ -1,5 +1,12 @@
 [
 	{
+		"title": "Avert a Cross-Account Identity Crisis With One OpenTofu `assume` Helper Function",
+		"link": "https://blog.aicademy.ac/opentofu-assume-helper-cross-account-safety",
+		"pubDate": "2026-11-10T13:40:55.000Z",
+		"slug": "opentofu-assume-helper-cross-account-safety",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/opentofu-assume-helper-cross-account-safety.webp"
+	},
+	{
 		"title": "Why Your OpenTofu Windows ARM64 Builds Are Probably Executing x86 Emulation (And How to Audit Them)",
 		"link": "https://blog.aicademy.ac/audit-opentofu-windows-arm64-emulation",
 		"pubDate": "2026-11-09T14:06:47.000Z",
