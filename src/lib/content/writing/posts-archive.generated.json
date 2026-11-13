@@ -1,5 +1,19 @@
 [
 	{
+		"title": "Shave 4 Minutes Off Your CI/CD Build Time With One Go Cache Flag",
+		"link": "https://blog.aicademy.ac/optimize-go-cache-github-actions-build-time",
+		"pubDate": "2026-11-12T13:56:54.000Z",
+		"slug": "optimize-go-cache-github-actions-build-time",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/optimize-go-cache-github-actions-build-time.webp"
+	},
+	{
+		"title": "Why Your Self-Managed AlloyDB Queries Are Probably Hitting Memory Limits (And How to Audit Them via Omni UI)",
+		"link": "https://blog.aicademy.ac/audit-alloydb-omni-memory-limits-web-ui",
+		"pubDate": "2026-11-11T12:51:15.000Z",
+		"slug": "audit-alloydb-omni-memory-limits-web-ui",
+		"thumbnail": "https://blog.aicademy.ac/assets/img/audit-alloydb-omni-memory-limits-web-ui.webp"
+	},
+	{
 		"title": "Avert a Cross-Account Identity Crisis With One OpenTofu `assume` Helper Function",
 		"link": "https://blog.aicademy.ac/opentofu-assume-helper-cross-account-safety",
 		"pubDate": "2026-11-10T13:40:55.000Z",
